@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1920 854">
+  <defs>
+    <style>
+      .cls-1 {
+        clip-path: url(#clip-bg_floating_water_hero);
+      }
+
+      .cls-2 {
+        fill: url(#radial-gradient);
+      }
+    </style>
+    <radialGradient id="radial-gradient" cx="0.5" cy="0.5" r="1.204" gradientTransform="matrix(0.641, 0.121, -0.05, 0.641, 0.205, 0.119)" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#79e8ec"/>
+      <stop offset="1" stop-color="#34c2bd"/>
+    </radialGradient>
+    <clipPath id="clip-bg_floating_water_hero">
+      <rect width="1920" height="854"/>
+    </clipPath>
+  </defs>
+  <g id="bg_floating_water_hero" class="cls-1">
+    <path id="Path_693" data-name="Path 693" class="cls-2" d="M1803.523.5s-211.208-8.887-315.767,210.686-311.585,54.37-388.958,161.02S948.233,495.587,872.951,493.5s-148.473,23-158.929,98.285S860.4,750.711,925.23,723.525s286.491-110.832,340.861,50.188,288.582,41.823,322.041-29.276,207.026-184.023,261.4-131.744,175.659,31.368,184.023,0S2021,537.411,2021,537.411L1975,.5Z" transform="translate(-40.638)"/>
+  </g>
+</svg>

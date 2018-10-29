@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 375 373">
+  <defs>
+    <style>
+      .cls-1 {
+        clip-path: url(#clip-bg_floating_water_mobile);
+      }
+
+      .cls-2 {
+        fill: url(#radial-gradient);
+      }
+    </style>
+    <radialGradient id="radial-gradient" cx="0.5" cy="0.5" r="1.204" gradientTransform="matrix(0.641, 0.121, -0.05, 0.641, 0.205, 0.119)" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#79e8ec"/>
+      <stop offset="1" stop-color="#34c2bd"/>
+    </radialGradient>
+    <clipPath id="clip-bg_floating_water_mobile">
+      <rect width="375" height="373"/>
+    </clipPath>
+  </defs>
+  <g id="bg_floating_water_mobile" class="cls-1">
+    <path id="Path_694" data-name="Path 694" class="cls-2" d="M1112.3.471s-77.27-3.251-115.522,77.078-113.992,19.891-142.3,58.909S799.391,181.6,771.849,180.83s-54.318,8.416-58.143,35.957,53.553,58.144,77.27,48.2,104.811-40.548,124.7,18.361,105.577,15.3,117.817-10.711,75.74-67.324,95.631-48.2,64.264,11.476,67.324,0-4.59-27.542-4.59-27.542L1175.029.471Z" transform="matrix(0.891, -0.454, 0.454, 0.891, -696.123, 467.206)"/>
+  </g>
+</svg>

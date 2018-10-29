@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 104.17 144">
+  <defs>
+    <style>
+      .cls-1, .cls-3 {
+        fill: #676767;
+      }
+
+      .cls-2, .cls-6 {
+        fill: none;
+      }
+
+      .cls-2 {
+        stroke: #676767;
+        stroke-width: 10px;
+      }
+
+      .cls-3 {
+        font-size: 20px;
+        font-family: HelveticaNeueMedium, HelveticaNeue;
+      }
+
+      .cls-4 {
+        fill: red;
+      }
+
+      .cls-5 {
+        stroke: none;
+      }
+    </style>
+  </defs>
+  <g id="ic_record_mock" transform="translate(-922 -1884)">
+    <g id="facetime-button" transform="translate(950.213 1917.173)">
+      <path id="Path_291" data-name="Path 291" class="cls-1" d="M46.705,74.075a1.856,1.856,0,0,0-.666-.133,1.584,1.584,0,0,0-1.2.506L34.1,85.155V80.76a7.685,7.685,0,0,0-7.673-7.67H7.673a7.393,7.393,0,0,0-5.422,2.25A7.387,7.387,0,0,0,0,80.76V99.51a7.386,7.386,0,0,0,2.251,5.42,7.393,7.393,0,0,0,5.422,2.251H26.43A7.685,7.685,0,0,0,34.1,99.51V95.089L44.84,105.822a1.585,1.585,0,0,0,1.2.506,1.86,1.86,0,0,0,.666-.133,1.592,1.592,0,0,0,1.039-1.571V75.647A1.593,1.593,0,0,0,46.705,74.075Z" transform="translate(0 -73.09)"/>
+    </g>
+    <g id="Ellipse_18" data-name="Ellipse 18" class="cls-2" transform="translate(922 1884)">
+      <ellipse class="cls-5" cx="52.085" cy="51" rx="52.085" ry="51"/>
+      <ellipse class="cls-6" cx="52.085" cy="51" rx="47.085" ry="46"/>
+    </g>
+    <text id="Record" class="cls-3" transform="translate(985 2024)"><tspan x="-33.72" y="0">Record</tspan></text>
+    <circle id="Ellipse_19" data-name="Ellipse 19" class="cls-4" cx="7.5" cy="7.5" r="7.5" transform="translate(927 2010)"/>
+  </g>
+</svg>
