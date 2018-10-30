@@ -1,4 +1,4 @@
-@extends('layouts/video_interview.video_recording_app')
+@extends('layouts/video.video-interview-app')
 
 @section('content')
 

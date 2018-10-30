@@ -9,8 +9,8 @@
             <div class="row">
                 <div class="col-md-6 d-md-flex align-items-md-center">
                     <div class="py-4 py-md-0 text-center text-md-left invisible" data-toggle="appear">
-                        <h1 class="font-size-h2 mb-2">Dashboard</h1>
-                        <h2 class="font-size-lg font-w400 text-muted mb-0">Today is a great one!</h2>
+                        <h1 class="font-size-h2 mb-2">Adnexio</h1>
+                        <h2 class="font-size-lg font-w400 text-muted mb-0">The Perfect Job Match</h2>
                     </div>
                 </div>
                 <div class="col-md-6 d-md-flex align-items-md-center">

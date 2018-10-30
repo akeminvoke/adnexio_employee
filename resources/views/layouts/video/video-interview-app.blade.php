@@ -60,7 +60,7 @@
 
                             <!-- User Info -->
                             <div class="ml-2">
-                                <a class="text-white font-w600" href="javascript:void(0)">George Taylor</a>
+                                <a class="text-white font-w600" href="javascript:void(0)">{{ Auth::user()->name }}</a>
                                 <div class="text-white-75 font-size-sm font-italic">Full Stack Developer</div>
                             </div>
                             <!-- END User Info -->
@@ -206,9 +206,12 @@
                     <div>
                         <!-- User Dropdown -->
                         <div class="dropdown d-inline-block">
-                            <button type="button" class="btn btn-dual" id="page-header-user-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <button type="button" class="btn btn-dual" id="page-header-user-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">                                     
+								<a class="img-link mr-1" href="javascript:void(0)">
+									<img class="img-avatar img-avatar48" src="{{ asset('assets/media/avatars/'. $user->avatar.'.jpg') }}" alt="">
+								</a>
                                 <i class="fa fa-fw fa-user d-sm-none"></i>
-                                <span class="d-none d-sm-inline-block">{{ Auth::user()->name }} </span>
+                                <span class="d-none d-sm-inline-block">{{ Auth::user()->name }}</span>
                                 <i class="fa fa-fw fa-angle-down ml-1 d-none d-sm-inline-block"></i>
                             </button>
                             <div class="dropdown-menu dropdown-menu-right p-0" aria-labelledby="page-header-user-dropdown">
