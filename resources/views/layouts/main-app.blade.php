@@ -54,7 +54,7 @@
                         <div class="content-header">
                             <!-- User Avatar -->
                             <a class="img-link mr-1" href="javascript:void(0)">
-                                <img class="img-avatar img-avatar48" src="{{ asset('media/avatars/'. $user->avatar.'.jpg') }}" alt="">
+                                <img class="img-avatar img-avatar48" src="{{ asset('assets/media/avatars/'. $user->avatar.'.jpg') }}" alt="">
 
 
                             </a>
