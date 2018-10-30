@@ -125,7 +125,7 @@
                         <li class="nav-main-item">
                             <a class="nav-main-link{{ request()->is('home') ? ' active' : '' }}" href="/home">
                                 <i class="nav-main-link-icon si si-home"></i>
-                                <span class="nav-main-link-name">Home</span>
+                                <span class="nav-main-link-name">My Dashboard</span>
                                 <span class="nav-main-link-badge badge badge-pill badge-primary">5</span>
                             </a>
                         </li>
@@ -1730,7 +1730,7 @@
                         callback(progress);
                         return;
                     }
-                    var initialURL = location.href.replace(location.href.split('/').pop(), '') + 'uploads/';
+                    var initialURL = location.href.replace(location.href.split('/').pop(), '') + 'uploads/videos/';
 					//var initialURL = 'http://localhost:8000/uploads/';
 					
                     callback('ended', initialURL + fileName);

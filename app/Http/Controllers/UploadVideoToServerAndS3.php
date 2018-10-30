@@ -30,7 +30,7 @@ class UploadVideoToServerAndS3 extends Controller
     public function index()
     {
         $user = Auth::guard($this->getGuard())->user();
-        return $user->isAdmin() ? redirect('/admin') : view('home');
+        return $user->isAdmin() ? redirect('/admin') : view('video');
     }
 
     private function getGuard()
@@ -64,7 +64,7 @@ class UploadVideoToServerAndS3 extends Controller
 		$fileName = $_POST['video-filename'];
 		$tempName = $_FILES[$file_idx]['tmp_name'];
 	   
-		$filePath = 'uploads/' . $fileName;
+		$filePath = 'uploads/videos/' . $fileName;
 		
 		//Store data in the database
 		$user = Auth::user()->id;
