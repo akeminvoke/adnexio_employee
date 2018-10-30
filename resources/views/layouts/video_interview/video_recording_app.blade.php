@@ -125,7 +125,7 @@
                         <li class="nav-main-item">
                             <a class="nav-main-link{{ request()->is('home') ? ' active' : '' }}" href="/home">
                                 <i class="nav-main-link-icon si si-home"></i>
-                                <span class="nav-main-link-name">Home</span>
+                                <span class="nav-main-link-name">My Dashboard</span>
                                 <span class="nav-main-link-badge badge badge-pill badge-primary">5</span>
                             </a>
                         </li>
@@ -138,12 +138,12 @@
                             <ul class="nav-main-submenu">
                                 <li class="nav-main-item">
                                     <a class="nav-main-link{{ request()->is('video/video_recording') ? ' active' : '' }}" href="/video/video_recording">
-                                        <span class="nav-main-link-name">Video Recording</span>
+                                        <span class="nav-main-link-name">Record Video</span>
                                     </a>
                                 </li>
                                 <li class="nav-main-item">
                                     <a class="nav-main-link{{ request()->is('video/video_pastrecord') ? ' active' : '' }}" href="/video/video_pastrecord">
-                                        <span class="nav-main-link-name">Past Recording</span>
+                                        <span class="nav-main-link-name">Past Recorded Video</span>
                                     </a>
                                 </li>
                             </ul>
@@ -1730,7 +1730,8 @@
                         callback(progress);
                         return;
                     }
-                    var initialURL = location.href.replace(location.href.split('/').pop(), '') + 'uploads/';
+                    var initialURL = location.href.replace(location.href.split('/').pop(), '') + 'uploads/videos/';
+					//var initialURL = 'http://localhost:8000/uploads/';
 					
                     callback('ended', initialURL + fileName);
                     // to make sure we can delete as soon as visitor leaves

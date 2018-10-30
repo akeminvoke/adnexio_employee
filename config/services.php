@@ -34,15 +34,32 @@ return [
         'key' => env('STRIPE_KEY'),
         'secret' => env('STRIPE_SECRET'),
     ],
+	
     'facebook' => [
+        'client_id' => '369718840435260',
+        'client_secret' => 'b4b09df578850dc4538ef162673b886c',
+        'redirect' => 'https://employee.adnexio.my/callback',
+    ],
+	
+	/*
+	'facebook' => [
         'client_id' => '295496244376169',
         'client_secret' => 'bcdc74969f0d92a73fb7f853aef7732f',
-        'redirect' => 'http://localhost:8000/callback',
+        'redirect' => 'https://localhost:8000/callback',
     ],
+	*/
 
     'google' => [
+        'client_id' => '168357464964-ahqgllohfl1q15cqucjt6vguon1i73q9.apps.googleusercontent.com',
+        'client_secret' => 'VGrJdLa6dXUsS3sRTcudOEKP',
+        'redirect' => 'https://employee.adnexio.my/gcallback',
+	],
+		
+	/*	
+	'google' => [
         'client_id' => '168357464964-sajj7diln0spa7tivqsh1jumn4apb8ag.apps.googleusercontent.com',
         'client_secret' => 'N8rehlbpswwjl_DYAsiwDmAZ',
-        'redirect' => 'http://localhost:8000/gcallback'],
-
+        'redirect' => 'http://localhost:8000/gcallback',
+	],	
+    */
 ];

@@ -138,12 +138,12 @@
                             <ul class="nav-main-submenu">
                                 <li class="nav-main-item">
                                     <a class="nav-main-link{{ request()->is('video/video_recording') ? ' active' : '' }}" href="/video/video_recording">
-                                        <span class="nav-main-link-name">Video Recording</span>
+                                        <span class="nav-main-link-name">Record Video</span>
                                     </a>
                                 </li>
                                 <li class="nav-main-item">
                                     <a class="nav-main-link{{ request()->is('video/video_pastrecord') ? ' active' : '' }}" href="/video/video_pastrecord">
-                                        <span class="nav-main-link-name">Past Recording</span>
+                                        <span class="nav-main-link-name">Past Recorded Video</span>
                                     </a>
                                 </li>
                             </ul>

@@ -28,7 +28,7 @@ class DeleteVideoFromServer extends Controller
     {
 
         $user = Auth::guard($this->getGuard())->user();
-        return $user->isAdmin() ? redirect('/admin') : view('home');
+        return $user->isAdmin() ? redirect('/admin') : view('video');
     }
 
     private function getGuard()
@@ -62,7 +62,7 @@ class DeleteVideoFromServer extends Controller
 		}
 		
 		$fileName = $_POST['delete-file'];
-		$filePath = 'uploads/' . $fileName;
+		$filePath = 'uploads/videos/' . $fileName;
 		
 		// make sure that one can delete only allowed audio/video files
 		$allowed = array(
