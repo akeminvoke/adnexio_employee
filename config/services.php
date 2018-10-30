@@ -35,9 +35,9 @@ return [
         'secret' => env('STRIPE_SECRET'),
     ],
     'facebook' => [
-        'client_id' => '295496244376169',
-        'client_secret' => 'bcdc74969f0d92a73fb7f853aef7732f',
-        'redirect' => 'http://localhost:8000/callback',
+        'client_id' => '369718840435260',
+        'client_secret' => 'b4b09df578850dc4538ef162673b886c',
+        'redirect' => 'https://employee.adnexio.my/callback',
     ],
 
     'google' => [
