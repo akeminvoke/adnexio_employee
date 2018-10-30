@@ -172,7 +172,7 @@
                         <td class="d-none d-sm-table-cell">
                             {{ $video->created_at }}
                         </td>
-                        <td class="d-none d-sm-table-cell">
+                        <td class="text-center">
                             <span class="badge badge-success"><font size="+1">80%</font></span>
                         </td>
                     </tr>

@@ -9,17 +9,18 @@
                     <!-- Dynamic Table Full -->
                     <div class="block block-rounded block-bordered">
                         <div class="block-header block-header-default">
-                            <h3 class="block-title">Dynamic Table <small>Full</small></h3>
+                            <h3 class="block-title">Past Recorded Video</h3>
                         </div>
                         <div class="block-content block-content-full">
                             <!-- DataTables init on table by adding .js-dataTable-full class, functionality is initialized in js/pages/be_tables_datatables.min.js which was auto compiled from _es6/pages/be_tables_datatables.js -->
                             <table class="table table-bordered table-striped table-vcenter js-dataTable-full">
                                 <thead>
                                     <tr>
-                                        <th class="text-center" style="width: 80px;">#</th>
-                                        <th>Name</th>
-                                        <th class="d-none d-sm-table-cell" style="width: 15%;">Recorded On</th>
-                                        <th style="width: 15%;">Test</th>
+                                        <th class="text-center" style="width: 50px;">No.</th>
+                                        <th>Video Name</th>
+                                        <!--<th class="d-none d-sm-table-cell" style="width: 15%;">Recorded On</th>-->
+                                        <th style="width: 20%;">Recorded On</th>
+                                        <th class="text-center" style="width: 15%;">Result</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -34,9 +35,9 @@
                                         <td class="d-none d-sm-table-cell">
                                             {{ $video->created_at }}
                                         </td>
-                                        <td class="d-none d-sm-table-cell">
-                                            <span class="badge badge-success">VIP</span>
-                                        </td>
+                                        <td class="text-center">
+                            				<span class="badge badge-success"><font size="+1">80%</font></span>
+                        				</td>
                                     </tr>
                                   
                                 @endforeach 
