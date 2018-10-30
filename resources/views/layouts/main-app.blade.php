@@ -54,13 +54,15 @@
                         <div class="content-header">
                             <!-- User Avatar -->
                             <a class="img-link mr-1" href="javascript:void(0)">
-                                <img class="img-avatar img-avatar48" src="{{ asset('assets/media/avatars/invoker.jpg') }}" alt="">
+                                <img class="img-avatar img-avatar48" src="{{ asset('media/avatars/'. $user->avatar.'.jpg') }}" alt="">
+
+
                             </a>
                             <!-- END User Avatar -->
 
                             <!-- User Info -->
                             <div class="ml-2">
-                                <a class="text-white font-w600" href="javascript:void(0)">{{ Auth::user()->name }}</a>
+                                <a class="text-white font-w600" href="javascript:void(0)">George Taylor</a>
                                 <div class="text-white-75 font-size-sm font-italic">Full Stack Developer</div>
                             </div>
                             <!-- END User Info -->
