@@ -1731,6 +1731,7 @@
                         return;
                     }
                     var initialURL = location.href.replace(location.href.split('/').pop(), '') + 'uploads/';
+					//var initialURL = 'http://localhost:8000/uploads/';
 					
                     callback('ended', initialURL + fileName);
                     // to make sure we can delete as soon as visitor leaves

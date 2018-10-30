@@ -50,8 +50,16 @@ return [
 	*/
 
     'google' => [
+        'client_id' => '168357464964-ahqgllohfl1q15cqucjt6vguon1i73q9.apps.googleusercontent.com',
+        'client_secret' => 'VGrJdLa6dXUsS3sRTcudOEKP',
+        'redirect' => 'https://employee.adnexio.my/gcallback',
+	],
+		
+	/*	
+	'google' => [
         'client_id' => '168357464964-sajj7diln0spa7tivqsh1jumn4apb8ag.apps.googleusercontent.com',
         'client_secret' => 'N8rehlbpswwjl_DYAsiwDmAZ',
-        'redirect' => 'http://localhost:8000/gcallback'],
-
+        'redirect' => 'http://localhost:8000/gcallback',
+	],	
+    */
 ];
