@@ -1,4 +1,4 @@
-@extends('layouts/profile.profile-aboutme-app')
+@extends('layouts/profile-app')
 
 @section('content')
 

@@ -1,4 +1,4 @@
-@extends('layouts/profile.profile-experience-app')
+@extends('layouts/profile-app')
 
 @section('content')
 

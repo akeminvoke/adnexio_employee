@@ -34,6 +34,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 //Profile Function
 Route::get('/profile/profile_aboutme', 'ProfileAboutmeController@index');
 Route::get('/profile/profile_experience', 'ProfileExperienceController@index');
+Route::get('/profile/profile_cvupload', 'ProfileCvuploadController@index');
 
 //Video Interview Function
 Route::get('/video/video_recording', 'VideoRecordingController@index');
