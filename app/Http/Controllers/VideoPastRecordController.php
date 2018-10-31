@@ -63,37 +63,7 @@ class VideoPastRecordController extends Controller
      */
     public function store(Request $request)
     {
-        if($request->hasFile('profile_image')) {
-
-			//get filename with extension
-			$filenamewithextension = $request->file('profile_image')->getClientOriginalName();
-	 
-			//get filename without extension
-			$filename = pathinfo($filenamewithextension, PATHINFO_FILENAME);
-	 
-			//get file extension
-			$extension = $request->file('profile_image')->getClientOriginalExtension();
-	 
-			//filename to store
-			$filenametostore = $filename.'_'.time().'.'.$extension;
-			//$filenametostore = 'Desert1.jpg';
-	 
-			//Store $filenametostore in the database
-			$user = Auth::user()->id;
-
-			$videoname = $request->input('video_name');
-
-			$data = array('user_id'=>$user,'video_name'=>$videoname,'video_description'=>$filenametostore);
-
-			DB::table('video_interview')->insert($data);
-				
-			//Upload File to s3
-			Storage::disk('s3')->put($filenametostore, fopen($request->file('profile_image'), 'r+'), 'public');
-			//Storage::disk('s3')->put($filenametostore, fopen("C:\Users\Public\Pictures\Sample Pictures\Hydrangeas.jpg", 'r+'), 'public');
-			//echo "profile image " . $request->file('profile_image');
-
-			return redirect('home')->with('status', 'File save successfully.');
-		}	
+        //
     }
 
 
@@ -105,7 +75,7 @@ class VideoPastRecordController extends Controller
      */
     public function show()
     {	
-
+		//
     }
 
 
