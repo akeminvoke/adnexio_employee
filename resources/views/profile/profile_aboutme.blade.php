@@ -6,7 +6,7 @@
 <div class="content">
     <!-- jQuery Validation (.js-validation class is initialized in js/pages/be_forms_validation.min.js which was auto compiled from _es6/pages/be_forms_validation.js) -->
     <!-- For more examples you can check out https://github.com/jzaefferer/jquery-validation -->
-    <form class="js-validation" action="/profile/profile_aboutme" method="post">
+
         <div class="block block-rounded block-bordered">
             <div class="block-header block-header-default">
                 <h3 class="block-title"><i class="nav-main-link-icon fa fa-address-card"></i> &nbsp;About Me</h3>
@@ -14,7 +14,7 @@
                     <!--<button type="button" class="btn btn-sm btn-light" data-toggle="modal" data-target="#modal-block-large">
                         <i class="fa fa-fw fa-edit"></i> Edit
                     </button>-->
-                    <a href="#" class="edit-modal btn btn-sm btn-light" data-toggle="modal" data-target="#modal-block-large" data-id="{{$user->id}}" data-name="{{$user->name}}" data-email="{{$user->email}}">
+                    <a href="#" class="edit-modal btn btn-sm btn-light" data-toggle="modal" data-target="#modal-block-large" data-id="{{$user->id}}" data-name="{{$user->name}}">
               			<i class="fa fa-fw fa-edit"></i> Edit
             		</a>
                 </div>
@@ -64,20 +64,31 @@
                         </div>-->
                         <div class="table-responsive">
                             <table class="table table-borderless table-striped table-vcenter">
-                                <thead>
-                                	<tr>
-                                        <th class="text-muted">ID</th>
-                                        <th style="width: 70%; font-weight: bold;">{{ $user->id }}</th>
+                                <thead class="user{{$user->id}}">
+                                @csrf
+                                	<!--<tr class="user{{$user->id}}">
+                                        <td class="text-muted">ID</th>
+                                        <td style="width: 70%; font-weight: bold;">{{ $user->id }}</th>
+                                    </tr>-->
+                                    <tr >
+                                        <td class="text-muted">Name</th>
+                                        <td style="width: 70%; font-weight: bold;">{{ $user->name }}</th>
                                     </tr>
                                     <tr>
-                                        <th class="text-muted">Name</th>
-                                        <th style="width: 70%; font-weight: bold;">{{ $user->name }}</th>
+                                        <td class="text-muted">
+                                        <td style="width: 70%; font-weight: bold;">
+                                        
+                                        <a href="#" class="edit-modal btn btn-sm btn-light" data-toggle="modal" data-target="#modal-block-large" data-id="{{$user->id}}" data-name="{{$user->name}}">
+              			<i class="fa fa-fw fa-edit"></i> Edit
+            		</a>
+                                        
+                                        
                                     </tr>
-                                    <tr>
+                                    <!--<tr>
                                         <th class="text-muted">Email Address</th>
                                         <th style="width: 70%; font-weight: bold;">{{ $user->email }}</th>
                                     </tr>
-                                    <!--<tr>
+                                    <tr>
                                         <th class="text-muted">Password</th>
                                         <th style="width: 70%; font-weight: bold;">{{ $user->password }}</th>
                                     </tr>-->
@@ -133,11 +144,11 @@
                                                         <th>Name</th>
                                                         <th style="width: 70%;"><input type="text" class="form-control" id="name"></th>
                                                     </tr>
-                                                    <tr>
+                                                    <!--<tr>
                                                         <th>Email Address</th>
                                                         <th style="width: 70%;"><input type="text" class="form-control" id="email" readonly></th>
                                                     </tr>
-                                                    <!--<tr>
+                                                    <tr>
                                                         <th>Password</th>
                                                         <th style="width: 70%;"><input type="text" class="form-control" value="{{ $user->password }}" id="password" readonly></th>
                                                     </tr>-->
@@ -158,15 +169,15 @@
                                     </form>
                                     <div class="modal-footer">
 
-        <button type="button" class="btn actionBtn" data-dismiss="modal">
-          <span id="footer_action_button" class="glyphicon"></span>
-        </button>
+										<button type="button" class="btn actionBtn" data-dismiss="modal">
+										  <span id="footer_action_button" class="glyphicon"></span>
+										</button>
 
-        <button type="button" class="btn btn-warning" data-dismiss="modal">
-          <span class="glyphicon glyphicon"></span>close
-        </button>
+										<button type="button" class="btn btn-warning" data-dismiss="modal">
+										  <span class="glyphicon glyphicon"></span>close
+										</button>
 
-      </div>
+									</div>
                                 </div>
                             </div>
                         </div>
@@ -177,7 +188,7 @@
                 </div>
             </div>
         </div>
-    </form>
+
     <!-- jQuery Validation -->
 </div>
 <!-- END Page Content -->

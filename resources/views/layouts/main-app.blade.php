@@ -37,7 +37,8 @@
     <script src="https://webrtc.github.io/adapter/adapter-latest.js"></script>
     <script src="https://cdn.webrtc-experiment.com/DetectRTC.js"> </script>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+   
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>-->
 
     <!--<link href="{{ asset('css/app.css') }}" rel="stylesheet">-->
     
@@ -61,7 +62,7 @@
                     <div class="content-header">
                         <!-- User Avatar -->
                         <a class="img-link mr-1" href="javascript:void(0)">
-                            <img class="img-avatar img-avatar48" src="{{ asset('assets/media/avatars/'. $user->avatar.'.jpg') }}" alt="">
+                            <img class="img-avatar img-avatar48" src="{{ asset('assets/media/avatars/'. $user->profile_images.'.jpg') }}" alt="">
 
 
                         </a>
@@ -426,6 +427,64 @@
     </div>
     <!-- END Page Container -->
 
+   
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+
+<script type="text/javascript">
+
+
+// function Edit POST
+$(document).on('click', '.edit-modal', function() {
+$('#footer_action_button').text(" Update Post");
+$('#footer_action_button').addClass('glyphicon-check');
+$('#footer_action_button').removeClass('glyphicon-trash');
+$('.actionBtn').addClass('btn-success');
+$('.actionBtn').removeClass('btn-danger');
+$('.actionBtn').addClass('edit');
+$('.modal-title').text('Post Edit');
+$('.form-horizontal').show();
+$('#id').val($(this).data('id'));
+$('#name').val($(this).data('name'));
+$('#modal-block-large').modal('show');
+});
+
+$('.modal-footer').on('click', '.edit', function() {
+  $.ajax({
+    type: 'POST',
+    url: '/profile/profile_aboutme',
+    data: {
+'_token': $('input[name=_token]').val(),
+'id': $("#id").val(),
+'name': $('#name').val()
+},
+success: function(data) {
+      $('.user' + data.id).replaceWith(" "+
+	  "<thead class='user{{$user->id}}'>"+
+      "<tr>"+
+	  "<td class='text-muted'>Name</td>"+								   	
+      "<td style='width: 70%; font-weight: bold;'>" + data.name + "</td>"+
+ 	  "</tr>"+
+	  "<tr class='user" + data.id + "'>"+
+	  "<td ></td>"+								   	
+      "<td ><button class='edit-modal btn btn-sm btn-light' data-id='" + data.id + "' data-name='" + data.name + "'><i class='fa fa-fw fa-edit'></i> Edit</button></td>"+
+      "</tr>"+
+	  "</thead>");
+	
+	
+
+    }
+  });
+});
+
+	
+
+</script>   
+   
+   
+   
+   
     <!-- Dashmix Core JS -->
     <script src="{!! asset('assets/js/dashmix.core.min.js') !!}"></script>
    
@@ -2279,54 +2338,6 @@
           return url;
         };
     </script>
-    
-
-
-
-<script type="text/javascript">
-
-
-// function Edit POST
-$(document).on('click', '.edit-modal', function() {
-$('#footer_action_button').text(" Update Post");
-$('#footer_action_button').addClass('glyphicon-check');
-$('#footer_action_button').removeClass('glyphicon-trash');
-$('.actionBtn').addClass('btn-success');
-$('.actionBtn').removeClass('btn-danger');
-$('.actionBtn').addClass('edit');
-$('.modal-title').text('Post Edit');
-$('.deleteContent').hide();
-$('.form-horizontal').show();
-$('#id').val($(this).data('id'));
-$('#name').val($(this).data('name'));
-$('#email').val($(this).data('email'));
-$('#modal-block-large').modal('show');
-});
-
-$('.modal-footer').on('click', '.edit', function() {
-  $.ajax({
-    type: 'POST',
-    url: '/profile/profile_aboutme',
-    data: {
-'_token': $('input[name=_token]').val(),
-'id': $("#id").val(),
-'name': $('#name').val(),
-'email': $('#email').val()
-},
-success: function(data) {
-      $('.post' + data.id).replaceWith(" "+
-      "<tr class='post" + data.id + "'>"+
-      "<td>" + data.id + "</td>"+
-      "<td>" + data.name + "</td>"+
-      "<td>" + data.email + "</td>"+
-      "<td>" + data.created_at + "</td>"+
- "<td><button class='show-modal btn btn-info btn-sm' data-id='" + data.id + "' data-name='" + data.name + "' data-email='" + data.email + "'><span class='fa fa-eye'></span></button> <button class='edit-modal btn btn-warning btn-sm' data-id='" + data.id + "' data-name='" + data.name + "' data-email='" + data.email + "'><span class='glyphicon glyphicon-pencil'></span></button> <button class='delete-modal btn btn-danger btn-sm' data-id='" + data.id + "' data-name='" + data.name + "' data-email='" + data.email + "'><span class='glyphicon glyphicon-trash'></span></button></td>"+
-      "</tr>");
-    }
-  });
-});
-
-</script>
     
     
     <!-- commits.js is useless for you! -->

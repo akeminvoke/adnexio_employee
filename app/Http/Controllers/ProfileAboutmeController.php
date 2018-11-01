@@ -9,6 +9,9 @@ use Illuminate\Support\Facades\Storage;
 use App\VideoInterview;
 use App\create_question;
 use App\User;
+use Validator;
+use Response;
+use Illuminate\Support\Facades\Input;
 use DB;
 
 class ProfileAboutmeController extends Controller
@@ -66,7 +69,6 @@ class ProfileAboutmeController extends Controller
     {
 		$user = User::find ($request->id);
 		$user->name = $request->name;
-		$user->email = $request->email;
 		$user->save();
 		return response()->json($user);
 	}
