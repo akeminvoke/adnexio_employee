@@ -11,9 +11,12 @@
             <div class="block-header block-header-default">
                 <h3 class="block-title"><i class="nav-main-link-icon fa fa-address-card"></i> &nbsp;About Me</h3>
                 <div class="block-options">
-                    <button type="button" class="btn btn-sm btn-light" data-toggle="modal" data-target="#modal-block-large">
+                    <!--<button type="button" class="btn btn-sm btn-light" data-toggle="modal" data-target="#modal-block-large">
                         <i class="fa fa-fw fa-edit"></i> Edit
-                    </button>
+                    </button>-->
+                    <a href="#" class="edit-modal btn btn-sm btn-light" data-toggle="modal" data-target="#modal-block-large" data-id="{{$user->id}}" data-name="{{$user->name}}" data-email="{{$user->email}}">
+              			<i class="fa fa-fw fa-edit"></i> Edit
+            		</a>
                 </div>
             </div>
             <div class="block-content block-content-full">
@@ -62,22 +65,23 @@
                         <div class="table-responsive">
                             <table class="table table-borderless table-striped table-vcenter">
                                 <thead>
+                                	<tr>
+                                        <th class="text-muted">ID</th>
+                                        <th style="width: 70%; font-weight: bold;">{{ $user->id }}</th>
+                                    </tr>
                                     <tr>
                                         <th class="text-muted">Name</th>
-                                        <th style="width: 70%; font-weight: bold;" id="name">{{ $user->name }}</th>
+                                        <th style="width: 70%; font-weight: bold;">{{ $user->name }}</th>
                                     </tr>
                                     <tr>
                                         <th class="text-muted">Email Address</th>
-                                        <th style="width: 70%; font-weight: bold;" id="email">{{ $user->email }}</th>
+                                        <th style="width: 70%; font-weight: bold;">{{ $user->email }}</th>
                                     </tr>
-                                    <tr>
+                                    <!--<tr>
                                         <th class="text-muted">Password</th>
-                                        <th style="width: 70%; font-weight: bold;" id="password1">{{ $user->password }}</th>
-                                    </tr>
-                                    <tr>
-                                        <th class="text-muted">Confirm Password</th>
                                         <th style="width: 70%; font-weight: bold;">{{ $user->password }}</th>
-                                    </tr>
+                                    </tr>-->
+
                                 </thead>
                                 <!--<tbody>
                                     <tr>
@@ -115,26 +119,28 @@
                                             </button>
                                         </div>
                                     </div>
-                                    <div class="block-content">
+                                    <form class="form-horizontal" role="modal">
+                                    <div class="block-content"> 
+                                    
                                         <div class="table-responsive">
                                             <table class="table table-borderless table-striped table-vcenter">
                                                 <thead>
+                                                	<tr>
+                                                        <th>ID</th>
+                                                        <th style="width: 70%;"><input type="text" class="form-control" id="id" readonly></th>
+                                                    </tr>
                                                     <tr>
                                                         <th>Name</th>
-                                                        <th style="width: 70%;"><input type="text" class="form-control" value="{{ $user->name }}" id="name2"></th>
+                                                        <th style="width: 70%;"><input type="text" class="form-control" id="name"></th>
                                                     </tr>
                                                     <tr>
                                                         <th>Email Address</th>
-                                                        <th style="width: 70%;"><input type="text" class="form-control" value="{{ $user->email }}" id="email" readonly></th>
+                                                        <th style="width: 70%;"><input type="text" class="form-control" id="email" readonly></th>
                                                     </tr>
-                                                    <tr>
+                                                    <!--<tr>
                                                         <th>Password</th>
-                                                        <th style="width: 70%;"><input type="text" class="form-control" value="{{ $user->password }}" id="password2" readonly></th>
-                                                    </tr>
-                                                    <tr>
-                                                        <th>Confirm Password</th>
-                                                        <th style="width: 70%;"><input type="text" class="form-control" value="{{ $user->password }}" readonly></th>
-                                                    </tr>
+                                                        <th style="width: 70%;"><input type="text" class="form-control" value="{{ $user->password }}" id="password" readonly></th>
+                                                    </tr>-->
                                                 </thead>
                                                 <!--<tbody>
                                                     <tr>
@@ -149,10 +155,18 @@
                                          </div>
 
                                     </div>
-                                    <div class="block-content block-content-full text-right bg-light">
-                                        <button type="button" class="btn btn-sm btn-light" data-dismiss="modal">Close</button>
-                                        <button type="button" class="btn btn-sm btn-primary" data-dismiss="modal">Done</button>
-                                    </div>
+                                    </form>
+                                    <div class="modal-footer">
+
+        <button type="button" class="btn actionBtn" data-dismiss="modal">
+          <span id="footer_action_button" class="glyphicon"></span>
+        </button>
+
+        <button type="button" class="btn btn-warning" data-dismiss="modal">
+          <span class="glyphicon glyphicon"></span>close
+        </button>
+
+      </div>
                                 </div>
                             </div>
                         </div>

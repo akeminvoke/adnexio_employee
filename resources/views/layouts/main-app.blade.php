@@ -31,11 +31,13 @@
                         
     <!-- Video RecordRTC JS -->                    
 	<script src="https://cdn.webrtc-experiment.com/RecordRTC.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
                 
     <!-- For Edge/FF/Chrome/Opera/etc. getUserMedia support -->
     <script src="https://webrtc.github.io/adapter/adapter-latest.js"></script>
     <script src="https://cdn.webrtc-experiment.com/DetectRTC.js"> </script>
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 
     <!--<link href="{{ asset('css/app.css') }}" rel="stylesheet">-->
     
@@ -2277,6 +2279,54 @@
           return url;
         };
     </script>
+    
+
+
+
+<script type="text/javascript">
+
+
+// function Edit POST
+$(document).on('click', '.edit-modal', function() {
+$('#footer_action_button').text(" Update Post");
+$('#footer_action_button').addClass('glyphicon-check');
+$('#footer_action_button').removeClass('glyphicon-trash');
+$('.actionBtn').addClass('btn-success');
+$('.actionBtn').removeClass('btn-danger');
+$('.actionBtn').addClass('edit');
+$('.modal-title').text('Post Edit');
+$('.deleteContent').hide();
+$('.form-horizontal').show();
+$('#id').val($(this).data('id'));
+$('#name').val($(this).data('name'));
+$('#email').val($(this).data('email'));
+$('#modal-block-large').modal('show');
+});
+
+$('.modal-footer').on('click', '.edit', function() {
+  $.ajax({
+    type: 'POST',
+    url: '/profile/profile_aboutme',
+    data: {
+'_token': $('input[name=_token]').val(),
+'id': $("#id").val(),
+'name': $('#name').val(),
+'email': $('#email').val()
+},
+success: function(data) {
+      $('.post' + data.id).replaceWith(" "+
+      "<tr class='post" + data.id + "'>"+
+      "<td>" + data.id + "</td>"+
+      "<td>" + data.name + "</td>"+
+      "<td>" + data.email + "</td>"+
+      "<td>" + data.created_at + "</td>"+
+ "<td><button class='show-modal btn btn-info btn-sm' data-id='" + data.id + "' data-name='" + data.name + "' data-email='" + data.email + "'><span class='fa fa-eye'></span></button> <button class='edit-modal btn btn-warning btn-sm' data-id='" + data.id + "' data-name='" + data.name + "' data-email='" + data.email + "'><span class='glyphicon glyphicon-pencil'></span></button> <button class='delete-modal btn btn-danger btn-sm' data-id='" + data.id + "' data-name='" + data.name + "' data-email='" + data.email + "'><span class='glyphicon glyphicon-trash'></span></button></td>"+
+      "</tr>");
+    }
+  });
+});
+
+</script>
     
     
     <!-- commits.js is useless for you! -->

@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use App\VideoInterview;
 use App\create_question;
+use App\User;
 use DB;
 
 class ProfileAboutmeController extends Controller
@@ -61,10 +62,14 @@ class ProfileAboutmeController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function editPost(Request $request)
     {
-		//
-    }
+		$user = User::find ($request->id);
+		$user->name = $request->name;
+		$user->email = $request->email;
+		$user->save();
+		return response()->json($user);
+	}
 
 
     /**
