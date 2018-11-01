@@ -70,7 +70,7 @@
                                         <td class="text-muted">ID</th>
                                         <td style="width: 70%; font-weight: bold;">{{ $user->id }}</th>
                                     </tr>-->
-                                    <tr >
+                                    <tr>
                                         <td class="text-muted">Name</th>
                                         <td style="width: 70%; font-weight: bold;">{{ $user->name }}</th>
                                     </tr>
