@@ -1,4 +1,4 @@
-@extends('layouts/profile-app')
+@extends('layouts/main-app')
 
 @section('content')
 
@@ -11,7 +11,7 @@
             <div class="block-header block-header-default">
                 <h3 class="block-title"><i class="nav-main-link-icon fa fa-address-card"></i> &nbsp;About Me</h3>
                 <div class="block-options">
-                    <button type="button" class="btn btn-sm btn-light" data-toggle="modal" data-target="#modal-block-fadein">
+                    <button type="button" class="btn btn-sm btn-light" data-toggle="modal" data-target="#modal-block-large">
                         <i class="fa fa-fw fa-edit"></i> Edit
                     </button>
                 </div>
@@ -20,13 +20,13 @@
                 <div class="">
                     <!-- Regular -->
                     <!--<h2 class="content-heading">About Me</h2>-->
-                    <div class="row items-push">
+
                         <!--<div class="col-lg-4">
                             <p class="text-muted">
                                 Username, email and password validation made easy for your login/register forms
                             </p>
                         </div>-->
-                        <div class="col-lg-2">
+                        <!--<div class="col-lg-2">
                             <div class="form-group text-muted">
                                 <label for="val-username">Name</label>
                             </div>
@@ -39,45 +39,76 @@
                             <div class="form-group text-muted">
                                 <label for="val-username">Username</label>
                             </div>
-                        </div>
-                        <div class="col-lg-8 col-xl-5">
+                        </div>-->
+                        <!--<div class="col-lg-6 col-xl-5">
+                        <input type="hidden" value="{{ $user->id }}">
                             <div class="form-group">
-                                <label for="val-username">{{ Auth::user()->name }}</label>
-                                
+                                <label for="val-username" id="val-username">Name</label>
+                                {{ $user->name }}
                             </div>
                             <div class="form-group">
-                                <label for="val-email">{{ Auth::user()->email }}</label>
-                                
+                                <label for="val-email" id="val-email">Email Address</label>
+                                {{ $user->email }}
                             </div>
                             <div class="form-group">
-                                <label for="val-password">{{ Auth::user()->password }}</label>
-                                
+                                <label for="val-password" id="val-password">Password</label>
+                                {{ $user->password }}
                             </div>
                             <div class="form-group">
-                                <label for="val-confirm-password">{{ Auth::user()->password }}</label>
-                                
+                                <label for="val-confirm-password" id="val-confirm-password">Confirm Password</label> 
+                                {{ $user->password }}
                             </div>
-                        </div>
-                    </div>
+                        </div>-->
+                        <div class="table-responsive">
+                            <table class="table table-borderless table-striped table-vcenter">
+                                <thead>
+                                    <tr>
+                                        <th class="text-muted">Name</th>
+                                        <th style="width: 70%; font-weight: bold;" id="name">{{ $user->name }}</th>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-muted">Email Address</th>
+                                        <th style="width: 70%; font-weight: bold;" id="email">{{ $user->email }}</th>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-muted">Password</th>
+                                        <th style="width: 70%; font-weight: bold;" id="password1">{{ $user->password }}</th>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-muted">Confirm Password</th>
+                                        <th style="width: 70%; font-weight: bold;">{{ $user->password }}</th>
+                                    </tr>
+                                </thead>
+                                <!--<tbody>
+                                    <tr>
+                                        <td class="font-w600">
+                                            <a href="be_pages_generic_profile.html">Amber Harvey</a>
+                                        </td>
+                                        <td>client1<em class="text-muted">@example.com</em></td>
+                                       
+                                    </tr>
+                                </tbody>-->
+                            </table>
+                         </div>
+                    
                     <!-- END Regular -->
   
                     <!-- Submit -->
-                    <div class="row items-push">
+                    <!--<div class="row items-push">
                         <div class="col-lg-2 offset-lg-2">
-                        	<button type="button" class="btn btn-primary push" data-toggle="modal" data-target="#modal-block-fadein">Edit</button>
-                            <!--<button type="submit" class="btn btn-primary">Edit</button>-->
+                        	<button type="button" class="btn btn-primary push" data-toggle="modal" data-target="#modal-block-large">Edit</button>
                         </div>
-                    </div>
+                    </div>-->
                     <!-- END Submit -->
                     
                     
-                    <!-- Fade In Block Modal -->
-                    <div class="modal fade" id="modal-block-fadein" tabindex="-1" role="dialog" aria-labelledby="modal-block-fadein" aria-hidden="true">
-                        <div class="modal-dialog" role="document">
+                    <!-- Fade In Large Block Modal -->
+                    <div class="modal fade" id="modal-block-large" tabindex="-1" role="dialog" aria-labelledby="modal-block-large" aria-hidden="true">
+                        <div class="modal-dialog modal-lg" role="document">
                             <div class="modal-content">
                                 <div class="block block-themed block-transparent mb-0">
                                     <div class="block-header bg-primary">
-                                        <h3 class="block-title">Modal Title</h3>
+                                        <h3 class="block-title"><i class="nav-main-link-icon fa fa-address-card"></i> &nbsp;About Me</h3>
                                         <div class="block-options">
                                             <button type="button" class="btn-block-option" data-dismiss="modal" aria-label="Close">
                                                 <i class="fa fa-fw fa-times"></i>
@@ -85,7 +116,38 @@
                                         </div>
                                     </div>
                                     <div class="block-content">
-                                        <p>Potenti elit lectus augue eget iaculis vitae etiam, ullamcorper etiam bibendum ad feugiat magna accumsan dolor, nibh molestie cras hac ac ad massa, fusce ante convallis ante urna molestie vulputate bibendum tempus ante justo arcu erat accumsan adipiscing risus, libero condimentum venenatis sit nisl nisi ultricies sed, fames aliquet consectetur consequat nostra molestie neque nullam scelerisque neque commodo turpis quisque etiam egestas vulputate massa, curabitur tellus massa venenatis congue dolor enim integer luctus, nisi suscipit gravida fames quis vulputate nisi viverra luctus id leo dictum lorem, inceptos nibh orci.</p>
+                                        <div class="table-responsive">
+                                            <table class="table table-borderless table-striped table-vcenter">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Name</th>
+                                                        <th style="width: 70%;"><input type="text" class="form-control" value="{{ $user->name }}" id="name2"></th>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>Email Address</th>
+                                                        <th style="width: 70%;"><input type="text" class="form-control" value="{{ $user->email }}" id="email" readonly></th>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>Password</th>
+                                                        <th style="width: 70%;"><input type="text" class="form-control" value="{{ $user->password }}" id="password2" readonly></th>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>Confirm Password</th>
+                                                        <th style="width: 70%;"><input type="text" class="form-control" value="{{ $user->password }}" readonly></th>
+                                                    </tr>
+                                                </thead>
+                                                <!--<tbody>
+                                                    <tr>
+                                                        <td class="font-w600">
+                                                            <a href="be_pages_generic_profile.html">Amber Harvey</a>
+                                                        </td>
+                                                        <td>client1<em class="text-muted">@example.com</em></td>
+                                                       
+                                                    </tr>
+                                                </tbody>-->
+                                            </table>
+                                         </div>
+
                                     </div>
                                     <div class="block-content block-content-full text-right bg-light">
                                         <button type="button" class="btn btn-sm btn-light" data-dismiss="modal">Close</button>

@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
+use App\VideoInterview;
+use App\create_question;
 use DB;
 
 class ProfileCvuploadController extends Controller
@@ -29,10 +31,11 @@ class ProfileCvuploadController extends Controller
      */
     public function index()
     {
-        $user = Auth::guard($this->getGuard())->user();	
+		$user = Auth::guard($this->getGuard())->user();	
+        $questions  = create_question::all();
+        $videos = VideoInterview::where('user_id',$user->id)->get();
 
-        return $user->isAdmin() ? redirect('/admin') : view('/profile/profile_cvupload')->with(compact('user'));
-		
+        return $user->isAdmin() ? redirect('/admin') : view('/profile/profile_cvupload')->with(compact('user','questions','videos'));
     }
 
     private function getGuard()

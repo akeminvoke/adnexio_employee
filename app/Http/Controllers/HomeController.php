@@ -31,9 +31,11 @@ class HomeController extends Controller
     public function index()
     {
 
-        $user = Auth::guard($this->getGuard())->user();
+        $user = Auth::guard($this->getGuard())->user();	
+        $questions  = create_question::all();
+        $videos = VideoInterview::where('user_id',$user->id)->get();
 
-        return $user->isAdmin() ? redirect('/admin') : view('home')->with(compact('user'));
+        return $user->isAdmin() ? redirect('/admin') : view('home')->with(compact('user','questions','videos'));
 
     }
 

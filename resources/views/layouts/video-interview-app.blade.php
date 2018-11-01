@@ -14,9 +14,6 @@
 
     @yield('css_before')
     
-    <!-- Select2 CSS -->
-    <link rel="stylesheet" href="{!! asset('assets/js/plugins/select2/css/select2.min.css') !!}">  
-    
     <!-- Fonts and Styles -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,400i,600,700">
     <link rel="stylesheet" href="{!! asset('assets/css/dashmix.css') !!}">    
@@ -35,14 +32,7 @@
     <!-- For Edge/FF/Chrome/Opera/etc. getUserMedia support -->
     <script src="https://webrtc.github.io/adapter/adapter-latest.js"></script>
     <script src="https://cdn.webrtc-experiment.com/DetectRTC.js"> </script>
-
-
-    <!--<link href="{{ asset('css/app.css') }}" rel="stylesheet">-->
     
-    <!--<link rel="stylesheet" href="{{ mix('css/dashmix.css') }}">-->
-
-    <!-- You can include a specific file from public/css/themes/ folder to alter the default color theme of the template. eg: -->
-    <!-- <link rel="stylesheet" href="{{ mix('css/themes/xwork.css') }}"> -->
     @yield('css_after')
     
     
@@ -59,9 +49,7 @@
                     <div class="content-header">
                         <!-- User Avatar -->
                         <a class="img-link mr-1" href="javascript:void(0)">
-                            <img class="img-avatar img-avatar48" src="{{ asset('assets/media/avatars/'. $user->avatar.'.jpg') }}" alt="">
-
-
+                            <img class="img-avatar img-avatar48" src="{{ asset('media/avatars/avatar10.jpg') }}" alt="">
                         </a>
                         <!-- END User Avatar -->
 
@@ -131,7 +119,7 @@
                 <ul class="nav-main">
                     <li class="nav-main-item">
                         <a class="nav-main-link{{ request()->is('home') ? ' active' : '' }}" href="/home">
-                            <i class="nav-main-link-icon fa fa-tachometer-alt"></i>
+                            <i class="nav-main-link-icon si si-home"></i>
                             <span class="nav-main-link-name">My Dashboard</span>
                             <span class="nav-main-link-badge badge badge-pill badge-primary">5</span>
                         </a>
@@ -153,12 +141,6 @@
                                 <a class="nav-main-link{{ request()->is('profile/profile_experience') ? ' active' : '' }}" href="/profile/profile_experience">
                                     <i class="nav-main-link-icon fa fa-briefcase"></i>
                                     <span class="nav-main-link-name">Experience</span>
-                                </a>
-                            </li>
-                            <li class="nav-main-item">
-                                <a class="nav-main-link{{ request()->is('profile/profile_cvupload') ? ' active' : '' }}" href="/profile/profile_cvupload">
-                                    <i class="nav-main-link-icon fa fa-paperclip"></i>
-                                    <span class="nav-main-link-name">Upload Resume/CV</span>
                                 </a>
                             </li>
                         </ul>
@@ -239,10 +221,10 @@
                 <div>
                     <!-- User Dropdown -->
                     <div class="dropdown d-inline-block">
-                        <button type="button" class="btn btn-dual" id="page-header-user-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">                  
-
-                                <img class="img-avatar img-avatar48" src="{{ asset('assets/media/avatars/'. $user->profile_images.'.jpg') }}" alt="">&nbsp;&nbsp;
-
+                        <button type="button" class="btn btn-dual" id="page-header-user-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">                                     
+                            <a class="img-link mr-1" href="javascript:void(0)">
+                                <img class="img-avatar img-avatar48" src="{{ asset('assets/media/avatars/'. $user->avatar.'.jpg') }}" alt="">
+                            </a>
                             <i class="fa fa-fw fa-user d-sm-none"></i>
                             <span class="d-none d-sm-inline-block">{{ Auth::user()->name }}</span>
                             <i class="fa fa-fw fa-angle-down ml-1 d-none d-sm-inline-block"></i>
@@ -412,10 +394,10 @@
             <div class="content py-0">
                 <div class="row font-size-sm">
                     <div class="col-sm-6 order-sm-2 mb-1 mb-sm-0 text-center text-sm-right">
-                        Crafted with <i class="fa fa-heart text-danger"></i> by <a class="font-w600" href="https://invokemalaysia.org" target="_blank">INVOKE Malaysia</a>
+                        Crafted with <i class="fa fa-heart text-danger"></i> by <a class="font-w600" href="https://goo.gl/vNS3I" target="_blank">INVOKE Malaysia</a>
                     </div>
                     <div class="col-sm-6 order-sm-1 text-center text-sm-left">
-                        <a class="font-w600" href="https://adnexio.my" target="_blank">Adnexio</a> &copy; <span data-toggle="year-copy">2018</span>
+                        <a class="font-w600" href="https://goo.gl/mDBqx1" target="_blank">Adnexio</a> &copy; <span data-toggle="year-copy">2018</span>
                     </div>
                 </div>
             </div>
@@ -423,6 +405,7 @@
         <!-- END Footer -->
     </div>
     <!-- END Page Container -->
+
 
     <!-- Dashmix Core JS -->
     <script src="{!! asset('assets/js/dashmix.core.min.js') !!}"></script>
@@ -447,26 +430,16 @@
     <script src="{!! asset('assets/js/plugins/datatables/buttons/buttons.flash.min.js') !!}"></script>
     <script src="{!! asset('assets/js/plugins/datatables/buttons/buttons.colVis.min.js') !!}"></script>
 
-    <!-- Page JS Select2 -->
-    <script src="{!! asset('assets/js/plugins/select2/js/select2.full.min.js') !!}"></script>
-    <script src="{!! asset('assets/js/plugins/jquery-validation/jquery.validate.min.js') !!}"></script>
-    <script src="{!! asset('assets/js/plugins/jquery-validation/additional-methods.js') !!}"></script>
-
-    <!-- Page JS Home Dashboard -->
+    <!-- Page JS Code -->
     <script src="{!! asset('assets/js/pages/be_pages_dashboard.min.js') !!}"></script>
-    
-	<!-- Page JS Datatables -->
     <script src="{!! asset('assets/js/pages/be_tables_datatables.min.js') !!}"></script>
-
-    <!-- Page JS Form Validation -->
-    <script src="{!! asset('assets/js/pages/be_forms_validation.min.js') !!}"></script> 
 
     <!-- Page JS Helpers (jQuery Sparkline plugin) -->
     <script>jQuery(function(){ Dashmix.helpers('sparkline'); });</script>
 
-    <!-- Page JS Helpers (jQuery Sparkline plugin) -->
-    <script>jQuery(function(){ Dashmix.helpers('select2'); });</script>
-
+    <!-- Video Element JS -->
+    <!--<script src="https://cdn.webrtc-experiment.com/getHTMLMediaElement.js"></script>-->       
+  
 
     <script>
         (function() {
@@ -1285,7 +1258,6 @@
                     }
                 });
             };
-
 
             if(DetectRTC.browser.name === 'Firefox' || isLocalHost()) {
                 window.getScreenId();
@@ -2277,14 +2249,23 @@
           return url;
         };
     </script>
-    
-    
+
+
+
+
     <!-- commits.js is useless for you! -->
     <script>
         window.useThisGithubPath = 'muaz-khan/RecordRTC';
     </script>
     <script src="https://cdn.webrtc-experiment.com/commits.js" async></script>
     <script src="https://apis.google.com/js/client:plusone.js"></script>
+
+
+
+            
+            
+          
+    
     @yield('js_after')
        
 </body>
