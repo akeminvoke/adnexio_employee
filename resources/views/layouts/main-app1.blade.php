@@ -460,7 +460,18 @@ $('.modal-footer').on('click', '.edit', function() {
 'name': $('#name').val()
 },
 success: function(data) {
-$('.table-responsive').append(data);
+      $('.user' + data.id).replaceWith(" "+
+
+	  "<thead class='user{{$user->id}}'>"+
+      "<tr>"+
+	  "<td class='text-muted'>Name</td>"+								   	
+      "<td style='width: 70%; font-weight: bold;'>" + data.name + "</td>"+
+ 	  "</tr>"+
+	  "<tr class='user" + data.id + "'>"+
+	  "<td ></td>"+								   	
+      "<td ><button class='edit-modal btn btn-sm btn-light' data-id='" + data.id + "' data-name='" + data.name + "'><i class='fa fa-fw fa-edit'></i> Edit</button></td>"+
+      "</tr>"+
+	  "</thead>");
 	
 	
 

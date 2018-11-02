@@ -3,7 +3,7 @@
 @section('content')
 
 <!-- Page Content -->
-<div class="content">
+<div class="content" >
     <!-- jQuery Validation (.js-validation class is initialized in js/pages/be_forms_validation.min.js which was auto compiled from _es6/pages/be_forms_validation.js) -->
     <!-- For more examples you can check out https://github.com/jzaefferer/jquery-validation -->
 
