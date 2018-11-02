@@ -437,6 +437,7 @@
 
 // function Edit POST
 $(document).on('click', '.edit-modal', function() {
+
 $('#footer_action_button').text(" Update Post");
 $('#footer_action_button').addClass('glyphicon-check');
 $('#footer_action_button').removeClass('glyphicon-trash');
@@ -450,6 +451,11 @@ $('#name').val($(this).data('name'));
 $('#modal-block-large').modal('show');
 });
 
+
+
+
+
+
 $('.modal-footer').on('click', '.edit', function() {
   $.ajax({
     type: 'POST',
@@ -460,7 +466,22 @@ $('.modal-footer').on('click', '.edit', function() {
 'name': $('#name').val()
 },
 success: function(data) {
-$('.table-responsive').append(data);
+
+      $('.user' + data.id).replaceWith(" "+
+
+	  "<thead class='user{{$user->id}}'>"+
+      "<tr>"+
+	  "<td class='text-muted'>Name</td>"+								   	
+      "<td style='width: 70%; font-weight: bold;'>" + data.name + "</td>"+
+ 	  "</tr>"+
+	  "</thead>");
+
+
+    $('.pull').replaceWith(
+        " "+"<a href='#' class='edit-modal btn btn-sm btn-light pull' data-toggle='modal' data-target='#modal-block-large' data-id='"+data.id+"' data-name='"+data.name+"'><i class='fa fa-fw fa-edit'></i>Edit </a>"
+ );
+
+
 	
 	
 
