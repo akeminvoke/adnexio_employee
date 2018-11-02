@@ -52,7 +52,22 @@ class ProfileAboutmeController extends Controller
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
+     *
+     *
+     *
+     *
      */
+    public function pull(Request $request)
+    {
+
+        $pull = Auth::guard($this->getGuard())->user();
+
+        return response()->json($pull);
+
+
+    }
+
+
     public function create()
     {
         //
