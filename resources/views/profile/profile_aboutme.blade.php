@@ -11,9 +11,6 @@
             <div class="block-header block-header-default">
                 <h3 class="block-title"><i class="nav-main-link-icon fa fa-address-card"></i> &nbsp;About Me</h3>
                 <div class="block-options">
-                    <!--<button type="button" class="btn btn-sm btn-light" data-toggle="modal" data-target="#modal-block-large">
-                        <i class="fa fa-fw fa-edit"></i> Edit
-                    </button>-->
                     <a href="#" class="edit-modal btn btn-sm btn-light" data-toggle="modal" data-target="#modal-block-large" data-id="{{$user->id}}" data-name="{{$user->name}}">
               			<i class="fa fa-fw fa-edit"></i> Edit
             		</a>
@@ -74,16 +71,7 @@
                                         <td class="text-muted">Name</th>
                                         <td style="width: 70%; font-weight: bold;">{{ $user->name }}</th>
                                     </tr>
-                                    <tr>
-                                        <td class="text-muted">
-                                        <td style="width: 70%; font-weight: bold;">
-                                        
-                                        <a href="#" class="edit-modal btn btn-sm btn-light" data-toggle="modal" data-target="#modal-block-large" data-id="{{$user->id}}" data-name="{{$user->name}}">
-              			<i class="fa fa-fw fa-edit"></i> Edit
-            		</a>
-                                        
-                                        
-                                    </tr>
+                                    
                                     <!--<tr>
                                         <th class="text-muted">Email Address</th>
                                         <th style="width: 70%; font-weight: bold;">{{ $user->email }}</th>

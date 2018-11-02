@@ -461,6 +461,7 @@ $('.modal-footer').on('click', '.edit', function() {
 },
 success: function(data) {
       $('.user' + data.id).replaceWith(" "+
+
 	  "<thead class='user{{$user->id}}'>"+
       "<tr>"+
 	  "<td class='text-muted'>Name</td>"+								   	
