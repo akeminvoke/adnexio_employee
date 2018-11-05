@@ -428,70 +428,70 @@
     <!-- END Page Container -->
 
    
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
 
-<script type="text/javascript">
+	<script type="text/javascript">
 
 
-// function Edit POST
-$(document).on('click', '.edit-modal', function() {
+	// function Edit POST
+	$(document).on('click', '.edit-modal', function() {
 
-$('#footer_action_button').text(" Update Post");
-$('#footer_action_button').addClass('glyphicon-check');
-$('#footer_action_button').removeClass('glyphicon-trash');
-$('.actionBtn').addClass('btn-success');
-$('.actionBtn').removeClass('btn-danger');
-$('.actionBtn').addClass('edit');
-$('.modal-title').text('Post Edit');
-$('.form-horizontal').show();
-$('#id').val($(this).data('id'));
-$('#name').val($(this).data('name'));
-$('#modal-block-large').modal('show');
-});
-
-
-
+	$('#footer_action_button').text("Update");
+	$('#footer_action_button').addClass('glyphicon-check');
+	$('#footer_action_button').removeClass('glyphicon-trash');
+	$('.actionBtn').addClass('btn-primary');
+	$('.actionBtn').removeClass('btn-danger');
+	$('.actionBtn').addClass('edit');
+	$('.modal-title').text('Post Edit');
+	$('.form-horizontal').show();
+	$('#id').val($(this).data('id'));
+	$('#name').val($(this).data('name'));
+	$('#modal-block-large').modal('show');
+	});
 
 
 
-$('.modal-footer').on('click', '.edit', function() {
-  $.ajax({
-    type: 'POST',
-    url: '/profile/profile_aboutme',
-    data: {
-'_token': $('input[name=_token]').val(),
-'id': $("#id").val(),
-'name': $('#name').val()
-},
-success: function(data) {
-
-      $('.user' + data.id).replaceWith(" "+
-
-	  "<thead class='user{{$user->id}}'>"+
-      "<tr>"+
-	  "<td class='text-muted'>Name</td>"+								   	
-      "<td style='width: 70%; font-weight: bold;'>" + data.name + "</td>"+
- 	  "</tr>"+
-	  "</thead>");
 
 
-    $('.pull').replaceWith(
-        " "+"<a href='#' class='edit-modal btn btn-sm btn-light pull' data-toggle='modal' data-target='#modal-block-large' data-id='"+data.id+"' data-name='"+data.name+"'><i class='fa fa-fw fa-edit'></i>Edit </a>"
- );
+
+	$('.modal-footer').on('click', '.edit', function() {
+	  $.ajax({
+		type: 'POST',
+		url: '/profile/profile_aboutme',
+		data: {
+	'_token': $('input[name=_token]').val(),
+	'id': $("#id").val(),
+	'name': $('#name').val()
+	},
+	success: function(data) {
+
+		  $('.user' + data.id).replaceWith(" "+
+
+		  "<thead class='user{{$user->id}}'>"+
+		  "<tr>"+
+		  "<td class='text-muted'>Name</td>"+								   	
+		  "<td style='width: 70%; font-weight: bold;'>" + data.name + "</td>"+
+		  "</tr>"+
+		  "</thead>");
 
 
-	
-	
+		$('.pull').replaceWith(
+			" "+"<a href='#' class='edit-modal btn btn-sm btn-light pull' data-toggle='modal' data-target='#modal-block-large' data-id='"+data.id+"' data-name='"+data.name+"'><i class='fa fa-fw fa-edit'></i>Edit </a>"
+	 );
 
-    }
-  });
-});
 
-	
 
-</script>   
+
+
+		}
+	  });
+	});
+
+
+
+	</script>   
    
    
    
