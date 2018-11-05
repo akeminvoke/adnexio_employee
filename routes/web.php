@@ -41,7 +41,8 @@ Route::get('/profile/profile_cvupload', 'ProfileCvuploadController@index');
 //Video Interview Function
 Route::get('/video/video_recording', 'VideoRecordingController@index');
 Route::get('/video/video_pastrecord', 'VideoPastRecordController@index');
-Route::post('/video/video_eyeblink_result', 'VideoEyeBlinkController@updateEyeBlink');
+Route::get('/video/video_eyeblink_result', 'VideoEyeBlinkController@index');
+Route::post('/video/video_eyeblink_result', 'VideoEyeBlinkController@store');
 
 
 //Insert Data Into The Database And Upload Video To Server And Amazon S3
@@ -57,7 +58,7 @@ Route::view('/examples/plugin', 'examples.plugin');
 Route::view('/examples/blank', 'examples.blank');
 
 
-
+Route::get('/api', 'TestAPI@index');
 
 
 

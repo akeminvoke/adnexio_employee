@@ -4,28 +4,13 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-//use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Storage;
 use App\VideoInterview;
-use App\create_question;
-use App\User;
-use Validator;
-use Response;
-use Illuminate\Support\Facades\Input;
-use DB;
 
-class ProfileAboutmeController extends Controller
+
+
+
+class VideoEyeBlinkController extends Controller
 {
-
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        //$this->middleware('auth');
-    }
 
 
     /**
@@ -35,88 +20,68 @@ class ProfileAboutmeController extends Controller
      */
     public function index()
     {
-		//
+		$videos = VideoInterview::all();
+		
+		return response()->json([
+			"message" => "successful",
+			"data" => $videos
+		]);
     }
 
-    
-	
-	
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     *
-     *
-     *
-     *
-     */
+
+
     public function create()
     {
         //
     }
 
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function updateEyeBlink(Request $request)
+
+    public function store(Request $request)
     {
-		$eyeblink = VideoInterview::find ($request->video_name);
-		$eyeblink->video_name = $request->video_name;
-		$eyeblink->save();
-		//return response()->json($user);
+
+
+		//$video = VideoInterview::find ($request->video_id);
+		$video = VideoInterview::where('video_id', '77')->first();
+		$video->eye_blink = $request->eye_blink;
+		$video->save();
+		return response()->json([
+			'message' => 'Insert successfully'
+		]);
+
+
+
+
+		
 	}
 
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function show()
     {	
 		//
     }
 
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function edit($id)
     {
         //
     }
 
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
+
+    public function update(Request $request)
     {
-        //
+
     }
 
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function destroy($id)
     {
         //
     }	
 
 }
+
