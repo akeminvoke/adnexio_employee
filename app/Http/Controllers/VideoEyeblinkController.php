@@ -3,15 +3,20 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\Controller;
+//use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use App\VideoInterview;
 use App\create_question;
+use App\User;
+use Validator;
+use Response;
+use Illuminate\Support\Facades\Input;
 use DB;
 
-
-class VideoPastRecordController extends Controller
+class ProfileAboutmeController extends Controller
 {
+
     /**
      * Create a new controller instance.
      *
@@ -19,7 +24,7 @@ class VideoPastRecordController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        //$this->middleware('auth');
     }
 
 
@@ -30,24 +35,20 @@ class VideoPastRecordController extends Controller
      */
     public function index()
     {
-        $user = Auth::guard($this->getGuard())->user();	
-        $questions  = create_question::all();
-        $videos = VideoInterview::where('user_id',$user->id)->get();
-
-        return $user->isAdmin() ? redirect('/admin') : view('/video/video_pastrecord')->with(compact('user','questions','videos'));
-		
+		//
     }
 
-    private function getGuard()
-    {
-        return property_exists($this, 'guard') ? $this->guard : null;
-    }
+    
 	
 	
     /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
+     *
+     *
+     *
+     *
      */
     public function create()
     {
@@ -61,10 +62,13 @@ class VideoPastRecordController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function updateEyeBlink(Request $request)
     {
-        //
-    }
+		$eyeblink = VideoInterview::find ($request->video_name);
+		$eyeblink->video_name = $request->video_name;
+		$eyeblink->save();
+		//return response()->json($user);
+	}
 
 
     /**
@@ -114,5 +118,5 @@ class VideoPastRecordController extends Controller
     {
         //
     }	
-	
+
 }

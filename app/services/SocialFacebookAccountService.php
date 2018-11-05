@@ -4,6 +4,7 @@ namespace App\Services;
 use App\SocialFacebookAccount;
 use App\User;
 use Laravel\Socialite\Contracts\User as ProviderUser;
+use App\socialFacebookAccoun;
 
 class SocialFacebookAccountService
 {
@@ -32,6 +33,9 @@ class SocialFacebookAccountService
 
                 $filename = $path.$profileavatar.".jpg";
 
+
+
+
                 file_put_contents($filename,file_get_contents($providerUser->getAvatar()));
 
                 $user = User::create([
@@ -40,7 +44,7 @@ class SocialFacebookAccountService
                     'password' => md5(rand(1,10000)),
                     'avatar'=>  $profileavatar,
                 ]);
-        }
+            }
 
             $account->user()->associate($user);
             $account->save();
