@@ -11,7 +11,7 @@
 |
 */
 
-use Illuminate\Support\Facades\Storage;
+///use Illuminate\Support\Facades\Storage;
 
 //Main Page https://adnexio.my
 Route::get('/', function () {
@@ -41,6 +41,8 @@ Route::get('/profile/profile_cvupload', 'ProfileCvuploadController@index');
 //Video Interview Function
 Route::get('/video/video_recording', 'VideoRecordingController@index');
 Route::get('/video/video_pastrecord', 'VideoPastRecordController@index');
+Route::post('/video/video_eyeblink_result', 'VideoEyeBlinkController@updateEyeBlink');
+
 
 //Insert Data Into The Database And Upload Video To Server And Amazon S3
 Route::post('/save', 'UploadVideoToServerAndS3@store');

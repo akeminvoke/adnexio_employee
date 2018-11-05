@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Auth;
+//use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use App\VideoInterview;
 use App\create_question;
@@ -24,7 +24,7 @@ class ProfileAboutmeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        //$this->middleware('auth');
     }
 
 
@@ -35,17 +35,10 @@ class ProfileAboutmeController extends Controller
      */
     public function index()
     {
-		$user = Auth::guard($this->getGuard())->user();	
-        $questions  = create_question::all();
-        $videos = VideoInterview::where('user_id',$user->id)->get();
-
-        return $user->isAdmin() ? redirect('/admin') : view('/profile/profile_aboutme')->with(compact('user','questions','videos'));
+		//
     }
 
-    private function getGuard()
-    {
-        return property_exists($this, 'guard') ? $this->guard : null;
-    }
+    
 	
 	
     /**
@@ -57,8 +50,6 @@ class ProfileAboutmeController extends Controller
      *
      *
      */
-
-
     public function create()
     {
         //
@@ -71,12 +62,12 @@ class ProfileAboutmeController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function editPost(Request $request)
+    public function updateEyeBlink(Request $request)
     {
-		$user = User::find ($request->id);
-		$user->name = $request->name;
-		$user->save();
-		return response()->json($user);
+		$eyeblink = VideoInterview::find ($request->video_name);
+		$eyeblink->video_name = $request->video_name;
+		$eyeblink->save();
+		//return response()->json($user);
 	}
 
 
