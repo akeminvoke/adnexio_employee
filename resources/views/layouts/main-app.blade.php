@@ -2370,32 +2370,36 @@
                 removedfile: function(file)
                 {
                     var name = file.upload.filename;;
-                    $.ajax({
+                    $.ajax(
+					{
                         headers: {
                             'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
                         },
                         type: 'POST',
                         url: '{{ url("profile/profile_cvupload/dlt ") }}',
                         data: {filename: name},
-                        success: function (data){
-                            console.log("File has been successfully removed!!");
-                        },
-                        error: function(e) {
-                            console.log(e);
-                        }});
+						
+                        //success: function (data){
+                        //    console.log("File has been successfully removed!!");
+                        //},
+                        //error: function(e) {
+                        //    console.log(e);
+                        //}
+						
+					});
                     var fileRef;
                     return (fileRef = file.previewElement) != null ?
                         fileRef.parentNode.removeChild(file.previewElement) : void 0;
                 },
 
-                success: function(file, response)
-                {
-                    console.log(response);
-                },
-                error: function(file, response)
-                {
-                    return false;
-                }
+                //success: function(file, response)
+                //{
+                //    console.log(response);
+                //},
+                //error: function(file, response)
+                //{
+                //    return false;
+                //}
 
             };
     </script>

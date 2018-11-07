@@ -20,20 +20,13 @@
 						<div class="block-content block-content-full overflow-hidden">
 
 
-							@if (session('status'))
-								<div class="alert alert-success">
-									{{ session('status') }}
-								</div>
-							@endif
+
                                 <h3 class="jumbotron span-text-italic">Kindly upload your resume/CV in PDF Format</h3>
                                 <form method="post" action="{{url('profile/profile_cvupload')}}" enctype="multipart/form-data"
                                       class="dropzone" id="dropzone">
                                     @csrf
                                 </form>
 
-
-                                </div>
-                                <div class="form-group">
 
                                 </div>
 							</form>
