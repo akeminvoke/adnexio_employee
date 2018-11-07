@@ -72,7 +72,7 @@ class ProfileCvuploadController extends Controller
 
         $imageUpload= Cv::create([
             'filename' => $image->getClientOriginalName(),
-            'User_id' => $user->id,
+            'user_id' => $user->id,
 
         ]);
 
@@ -133,7 +133,7 @@ class ProfileCvuploadController extends Controller
 
         $filename =  $request->get('filename');
         Cv::where('filename',$filename )->delete();
-        $path=public_path().'/cv_uploads/'.$filename;
+        $path=public_path().'/uploads/cv/'.$filename;
         if (file_exists($path)) {
             unlink($path);
         }
