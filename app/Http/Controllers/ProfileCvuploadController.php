@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use App\VideoInterview;
 use App\create_question;
+use App\Cv;
 use DB;
 
 class ProfileCvuploadController extends Controller
@@ -61,9 +62,26 @@ class ProfileCvuploadController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function filestore(Request $request)
     {
-		//
+        $user = Auth::guard($this->getGuard())->user();
+        $image = $request->file('file');
+
+        $imageName = $image->getClientOriginalName();
+        $upload_success = $image->move(public_path('cv_uploads'),$imageName);
+
+        $imageUpload= Cv::create([
+            'filename' => $image->getClientOriginalName(),
+            'User_id' => $user->id,
+
+        ]);
+
+
+        /*$imageUpload = new Cv();
+        $imageUpload->filename = $imageName;
+        $imageUpload->save();*/
+        return response()->json(['success'=>$imageName]);
+
     }
 
 
@@ -110,9 +128,16 @@ class ProfileCvuploadController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function fileDestroy(Request $request)
     {
-        //
+
+        $filename =  $request->get('filename');
+        Cv::where('filename',$filename )->delete();
+        $path=public_path().'/cv_uploads/'.$filename;
+        if (file_exists($path)) {
+            unlink($path);
+        }
+        return $filename;
     }	
 
 }

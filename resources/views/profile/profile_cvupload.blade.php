@@ -25,30 +25,18 @@
 									{{ session('status') }}
 								</div>
 							@endif
+                                <h3 class="jumbotron span-text-italic">Kindly upload your resume/CV in PDF Format</h3>
+                                <form method="post" action="{{url('profile/profile_cvupload')}}" enctype="multipart/form-data"
+                                      class="dropzone" id="dropzone">
+                                    @csrf
+                                </form>
 
-							<form action="{{ url('home') }}" method="post" enctype="multipart/form-data">
-								<!--<div class="form-group">
-								@csrf
 
-
-									<label for="exampleInputFile">File input</label>
-									<input type="file" name="profile_image" id="exampleInputFile">
-
-								</div>
-
-								<button type="submit" class="btn btn-default">Submit</button>-->
-                                <div class="form-group">
-                                    <label>Kindly upload your resume/CV in PDF Format</label>
-                                    <div class="custom-file">
-                                        <!-- Populating custom file input label with the selected filename (data-toggle="custom-file-input" is initialized in Helpers.coreBootstrapCustomFileInput()) -->
-                                        <input type="file" class="custom-file-input" data-toggle="custom-file-input" id="example-file-input-custom" name="example-file-input-custom">
-                                        <label class="custom-file-label" for="example-file-input-custom">Choose file</label>
-                                    </div>
                                 </div>
                                 <div class="form-group">
-                                    <button type="submit" class="btn btn-primary">Upload</button>
+
                                 </div>
-							</form> 
+							</form>
 
 						</div>                       
                         
