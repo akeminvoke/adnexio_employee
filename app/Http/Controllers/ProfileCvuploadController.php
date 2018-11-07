@@ -68,7 +68,7 @@ class ProfileCvuploadController extends Controller
         $image = $request->file('file');
 
         $imageName = $image->getClientOriginalName();
-        $upload_success = $image->move(public_path('cv_uploads'),$imageName);
+        $upload_success = $image->move(public_path('uploads/cv'),$imageName);
 
         $imageUpload= Cv::create([
             'filename' => $image->getClientOriginalName(),
