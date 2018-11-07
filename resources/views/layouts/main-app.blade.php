@@ -34,19 +34,16 @@
 	<script src="https://cdn.webrtc-experiment.com/RecordRTC.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.">
 
-
-    <!--  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>-->
-
-                
     <!-- For Edge/FF/Chrome/Opera/etc. getUserMedia support -->
     <script src="https://webrtc.github.io/adapter/adapter-latest.js"></script>
     <script src="https://cdn.webrtc-experiment.com/DetectRTC.js"> </script>
+    
+    <!-- CV/Resume Upload CSS/JS -->    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.4.0/min/dropzone.min.css">
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.4.0/dropzone.js"></script>
 
-
+    <!--  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>-->   
 
 
     @yield('css_after')
@@ -2364,7 +2361,7 @@
 
                     return file.name;
                 },
-                acceptedFiles: ".jpeg,.jpg,.png,.gif,.CSV,.docx",
+                acceptedFiles: ".PDF,.jpeg,.jpg,.png,.gif,.CSV,.docx",
                 addRemoveLinks: true,
                 timeout: 50000,
                 removedfile: function(file)

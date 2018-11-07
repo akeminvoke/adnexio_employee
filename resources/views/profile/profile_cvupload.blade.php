@@ -13,33 +13,19 @@
             </div>
             <div class="block-content block-content-full">
                 <div class="">
+                
                     <!-- Regular -->
                     <!--<h2 class="content-heading">About Me</h2>-->
                     <div class="row items-push">
-                        
 						<div class="block-content block-content-full overflow-hidden">
-
-
-
-                                <h3 class="jumbotron span-text-italic">Kindly upload your resume/CV in PDF Format</h3>
-                                <form method="post" action="{{url('profile/profile_cvupload')}}" enctype="multipart/form-data"
-                                      class="dropzone" id="dropzone">
-                                    @csrf
-                                </form>
-
-
-                                </div>
-							</form>
-
+                            <h3 class="span-text-italic">Kindly upload your resume/CV in PDF Format</h3>
+                            <form method="post" action="{{url('profile/profile_cvupload')}}" enctype="multipart/form-data" class="dropzone" id="dropzone">
+                                @csrf
+                            </form>
 						</div>                       
-                        
-                        
                     </div>
                     <!-- END Regular -->
   
-                  
-                    
-                    
                 </div>
             </div>
         </div>
