@@ -28,7 +28,7 @@
 
   <meta name="viewport" content="width=device-width">
   
-  <title>adnexio_employee/2018_11_05_104717_add_field_eye_blink_video_interviews.php at adnexio_employee_staging · Invokemy/adnexio_employee</title>
+  <title>adnexio_employee/2018_11_01_101202_add_field_profile_images_users.php at adnexio_employee_staging · Invokemy/adnexio_employee</title>
     <meta name="description" content="https://employee.adnexio.my. Contribute to Invokemy/adnexio_employee development by creating an account on GitHub.">
     <link rel="search" type="application/opensearchdescription+xml" href="/opensearch.xml" title="GitHub">
   <link rel="fluid-icon" href="https://github.com/fluidicon.png" title="GitHub">
@@ -38,10 +38,10 @@
     <meta property="og:image" content="https://avatars3.githubusercontent.com/u/30942648?s=400&amp;v=4" /><meta property="og:site_name" content="GitHub" /><meta property="og:type" content="object" /><meta property="og:title" content="Invokemy/adnexio_employee" /><meta property="og:url" content="https://github.com/Invokemy/adnexio_employee" /><meta property="og:description" content="https://employee.adnexio.my. Contribute to Invokemy/adnexio_employee development by creating an account on GitHub." />
 
   <link rel="assets" href="https://assets-cdn.github.com/">
-  <link rel="web-socket" href="wss://live.github.com/_sockets/VjI6MzM0OTM1ODk3OmY5Mjk5N2Y3OWNhMzM2NTQ4OWU4ZDBkM2UxNjFiMDdjM2E4ZjQ0NWRiYzVhNmQ5OWFmZjcyNjc5MDYxZDNkNjY=--dd9827ac320d049223112323d15ab9641aa46c4e">
+  <link rel="web-socket" href="wss://live.github.com/_sockets/VjI6MzM0OTM1ODk3OjRjNGY1OThiNDVhNjQ3NTg4MjgyYTQzMDRlYzAwZDNjOTYyMDk1MWVkOTMyMDZhMzRlZjhiZDA2NTVkZjE4ZTM=--db90fc84fbaa947dc8c8bc1c76a291bda65b052c">
   <meta name="pjax-timeout" content="1000">
   <link rel="sudo-modal" href="/sessions/sudo_modal">
-  <meta name="request-id" content="E2BB:305A:9A0433:D79AAA:5BE25D11" data-pjax-transient>
+  <meta name="request-id" content="E2BB:305A:99FFC0:D7930A:5BE25CFF" data-pjax-transient>
 
 
   
@@ -52,7 +52,7 @@
     <meta name="google-site-verification" content="ZzhVyEFwb7w3e0-uOTltm8Jsck2F5StVihD0exw2fsA">
     <meta name="google-site-verification" content="GXs5KoUUkNCoaAZn7wPN-t01Pywp9M3sEjnt_3_ZWPc">
 
-  <meta name="octolytics-host" content="collector.githubapp.com" /><meta name="octolytics-app-id" content="github" /><meta name="octolytics-event-url" content="https://collector.githubapp.com/github-external/browser_event" /><meta name="octolytics-dimension-request_id" content="E2BB:305A:9A0433:D79AAA:5BE25D11" /><meta name="octolytics-dimension-region_edge" content="ap-southeast-1" /><meta name="octolytics-dimension-region_render" content="iad" /><meta name="octolytics-actor-id" content="5433016" /><meta name="octolytics-actor-login" content="mdfahmi89" /><meta name="octolytics-actor-hash" content="1a79f949d248bdf29e864a338fd0b6e6b927ef55a1d7ab1f0d5df62b8baf5e1b" />
+  <meta name="octolytics-host" content="collector.githubapp.com" /><meta name="octolytics-app-id" content="github" /><meta name="octolytics-event-url" content="https://collector.githubapp.com/github-external/browser_event" /><meta name="octolytics-dimension-request_id" content="E2BB:305A:99FFC0:D7930A:5BE25CFF" /><meta name="octolytics-dimension-region_edge" content="ap-southeast-1" /><meta name="octolytics-dimension-region_render" content="iad" /><meta name="octolytics-actor-id" content="5433016" /><meta name="octolytics-actor-login" content="mdfahmi89" /><meta name="octolytics-actor-hash" content="1a79f949d248bdf29e864a338fd0b6e6b927ef55a1d7ab1f0d5df62b8baf5e1b" />
 <meta name="analytics-location" content="/&lt;user-name&gt;/&lt;repo-name&gt;/blob/show" data-pjax-transient="true" />
 
 
@@ -71,7 +71,7 @@
     <meta name="user-login" content="mdfahmi89">
 
       <meta name="expected-hostname" content="github.com">
-    <meta name="js-proxy-site-detection-payload" content="NzYxYjI1ZjBhM2QwYjNhNTc2Nzc2NDE1Yzg1YTI0YjkyNzBlMGZmODNkYjI3NGI2ZTQ0MmQ4NzEwNWMyYWJhNXx7InJlbW90ZV9hZGRyZXNzIjoiMTc1LjE0NC40NS4zMiIsInJlcXVlc3RfaWQiOiJFMkJCOjMwNUE6OUEwNDMzOkQ3OUFBQTo1QkUyNUQxMSIsInRpbWVzdGFtcCI6MTU0MTU2MTYzMywiaG9zdCI6ImdpdGh1Yi5jb20ifQ==">
+    <meta name="js-proxy-site-detection-payload" content="ZGNmYjUxNThlOTBlZTYwMTI2YmE1MTMyZGY0ZTAwNjc5MzkzOTIyYmVjNDdjZjkwN2FmMzRjY2EzNjQ4ZWUyMXx7InJlbW90ZV9hZGRyZXNzIjoiMTc1LjE0NC40NS4zMiIsInJlcXVlc3RfaWQiOiJFMkJCOjMwNUE6OTlGRkMwOkQ3OTMwQTo1QkUyNUNGRiIsInRpbWVzdGFtcCI6MTU0MTU2MTYxNywiaG9zdCI6ImdpdGh1Yi5jb20ifQ==">
 
     <meta name="enabled-features" content="DASHBOARD_V2_LAYOUT_OPT_IN,EXPLORE_DISCOVER_REPOSITORIES,UNIVERSE_BANNER,MARKETPLACE_PLAN_RESTRICTION_EDITOR,NOTIFY_ON_BLOCK,SAVED_THREADS,SUGGESTED_CHANGES_UX_TEST,RELATED_ISSUES">
 
@@ -80,14 +80,14 @@
   <meta http-equiv="x-pjax-version" content="b1ec200b4304c46444d950f13a598172">
   
 
-      <link href="https://github.com/Invokemy/adnexio_employee/commits/adnexio_employee_staging.atom?token=AFLmuFLqbvsZJxKwZjtjfHqnGDOOFVIsks6574-hwA%3D%3D" rel="alternate" title="Recent Commits to adnexio_employee:adnexio_employee_staging" type="application/atom+xml">
+      <link href="https://github.com/Invokemy/adnexio_employee/commits/adnexio_employee_staging.atom?token=AFLmuHvAyqSsijGlynwiFBKrcVQ9wqYRks6574-RwA%3D%3D" rel="alternate" title="Recent Commits to adnexio_employee:adnexio_employee_staging" type="application/atom+xml">
 
   <meta name="go-import" content="github.com/Invokemy/adnexio_employee git https://github.com/Invokemy/adnexio_employee.git">
 
   <meta name="octolytics-dimension-user_id" content="30942648" /><meta name="octolytics-dimension-user_login" content="Invokemy" /><meta name="octolytics-dimension-repository_id" content="155231397" /><meta name="octolytics-dimension-repository_nwo" content="Invokemy/adnexio_employee" /><meta name="octolytics-dimension-repository_public" content="false" /><meta name="octolytics-dimension-repository_is_fork" content="false" /><meta name="octolytics-dimension-repository_network_root_id" content="155231397" /><meta name="octolytics-dimension-repository_network_root_nwo" content="Invokemy/adnexio_employee" /><meta name="octolytics-dimension-repository_explore_github_marketplace_ci_cta_shown" content="false" />
 
 
-    <link rel="canonical" href="https://github.com/Invokemy/adnexio_employee/blob/adnexio_employee_staging/database/migrations/2018_11_05_104717_add_field_eye_blink_video_interviews.php" data-pjax-transient>
+    <link rel="canonical" href="https://github.com/Invokemy/adnexio_employee/blob/adnexio_employee_staging/database/migrations/2018_11_01_101202_add_field_profile_images_users.php" data-pjax-transient>
 
 
   <meta name="browser-stats-url" content="https://api.github.com/_private/browser/stats">
@@ -156,7 +156,7 @@
           autocapitalize="off"
           aria-autocomplete="list"
           aria-controls="jump-to-results"
-          data-jump-to-suggestions-path="/_graphql/GetSuggestedNavigationDestinations#csrf-token=k9wPh6VU8Jdw/tdy7vqHmqnFfi6t840B9ZsTGJh0pk7w3k8nqf7C/epdvvotEFCDPMzfDRSWG/2+l7Qsuja8Eg=="
+          data-jump-to-suggestions-path="/_graphql/GetSuggestedNavigationDestinations#csrf-token=s9/my7I371DHlOtge8gm6h35vaK2IvwicvvDFNNkdNLQ3aZrvp3dOl03gui4IvHziPAcgQ9Hat4592Qg8SZujg=="
           spellcheck="false"
           autocomplete="off"
           >
@@ -310,7 +310,7 @@
           <li><a role="menuitem" class="dropdown-item" href="https://help.github.com" data-ga-click="Header, go to help, text:help">Help</a></li>
           <li><a role="menuitem" class="dropdown-item" href="/settings/profile" data-ga-click="Header, go to settings, icon:settings">Settings</a></li>
           <li>
-            <!-- '"` --><!-- </textarea></xmp> --></option></form><form class="logout-form" action="/logout" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="devgY99KXe5BRdStljxLIyt1XExR6rtoSDuJwpjPOzOW6digJVxg98WSrp8mkxtjN6mObhOGC5GAEH0FIr9FuQ==" />
+            <!-- '"` --><!-- </textarea></xmp> --></option></form><form class="logout-form" action="/logout" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="Bu+XWYpOYjsG/ran7AQwHvWAqV6xxYldtPVKl2T4GHPl7a+acFhfIoIpzJVcq2Be6Vx7fPOpOaR83r5Q3ohm+Q==" />
               <button type="submit" class="dropdown-item dropdown-signout" data-ga-click="Header, sign out, icon:logout" role="menuitem">
                 Sign out
               </button>
@@ -323,7 +323,7 @@
 
 
 
-        <!-- '"` --><!-- </textarea></xmp> --></option></form><form class="sr-only right-0" action="/logout" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="OgMbWF5fKzR6Dc8fY7EEgjx21vWEjn92DlKW+UTKdFnZASObpEkWLf7atS3THlTCIKoE18biz4/GeWI+/roK0w==" />
+        <!-- '"` --><!-- </textarea></xmp> --></option></form><form class="sr-only right-0" action="/logout" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="ZWbynhFQ55XXTwJ0OwT+5MWUxiu/3mp6Jn35pcZtNIeGZMpd60bajFOYeEaLq66k2UgUCf2y2oPuVg1ifB1KDQ==" />
           <button type="submit" class="dropdown-item dropdown-signout" data-ga-click="Header, sign out, icon:logout">
             Sign out
           </button>
@@ -361,7 +361,7 @@
 
       <ul class="pagehead-actions">
   <li>
-        <!-- '"` --><!-- </textarea></xmp> --></option></form><form data-remote="true" class="js-social-form js-social-container" action="/notifications/subscribe" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="CLVUYAsGvEtay53+E6qxz0TgAmPpSlyce3SLpVt6SHLOWVwOTubpuyBLev9gKHjAH6Ou0rK2UwUi7q0grz1BAA==" />      <input type="hidden" name="repository_id" id="repository_id" value="155231397" class="form-control" />
+        <!-- '"` --><!-- </textarea></xmp> --></option></form><form data-remote="true" class="js-social-form js-social-container" action="/notifications/subscribe" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="l8skt7NZzSZWum9kVJnIS3CbhFNLYWMUbyCse2ych6JRJyzZ9rmY1iw6iGUnGwFEK9go4hCdbI02uor+mNuO0A==" />      <input type="hidden" name="repository_id" id="repository_id" value="155231397" class="form-control" />
 
       <details class="details-reset details-overlay select-menu float-left">
         <summary class="btn btn-sm btn-with-count select-menu-button" data-ga-click="Repository, click Watch settings, action:blob#show">
@@ -424,7 +424,7 @@
   <li>
     
   <div class="js-toggler-container js-social-container starring-container ">
-    <!-- '"` --><!-- </textarea></xmp> --></option></form><form class="starred js-social-form" action="/Invokemy/adnexio_employee/unstar" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="H5CCgNgmUtPr5oVYyodrFXIfujdFSgeI8X6ZekOmg5Uh0RSS3iUh3G2QHlYoGyOig0WjKd0N44uS1xyak4joPg==" />
+    <!-- '"` --><!-- </textarea></xmp> --></option></form><form class="starred js-social-form" action="/Invokemy/adnexio_employee/unstar" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="KD/WsFREYKfR8G/i4NOkM0jt2OAsnbXxrekl9XQ814QWfkCiUkcTqFeG9OwCT+yEubfB/rTaUfLOQKAVpBK8Lw==" />
       <input type="hidden" name="context" value="repository"></input>
       <button
         type="submit"
@@ -439,7 +439,7 @@
           0
         </a>
 </form>
-    <!-- '"` --><!-- </textarea></xmp> --></option></form><form class="unstarred js-social-form" action="/Invokemy/adnexio_employee/star" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="x9epFr2uhDg3qaf/plI/qN1ua+tHzcR6UWgp6FCoZ1jJ1/iAUpuM3vHx9UpBHxV988afNkXkIEf1GEEsingaHg==" />
+    <!-- '"` --><!-- </textarea></xmp> --></option></form><form class="unstarred js-social-form" action="/Invokemy/adnexio_employee/star" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="ZPnKAE5YA33m2hnLAK9pT/OOa/1xRhtxbMFMsNS1l85q+ZuWoW0LmyCCS37n4kOa3SafIHNv/0zIsSR0DmXqiA==" />
       <input type="hidden" name="context" value="repository"></input>
       <button
         type="submit"
@@ -458,7 +458,7 @@
   </li>
 
   <li>
-          <!-- '"` --><!-- </textarea></xmp> --></option></form><form class="btn-with-count" action="/Invokemy/adnexio_employee/fork" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="tPrM4ovMgTnSFP4em7iqDNqZqjClMqaowCTa/4dUsmoBKYjcxR53YF7d+QLmsegUOroOOgtWG+ZE8X7+xYun/A==" />
+          <!-- '"` --><!-- </textarea></xmp> --></option></form><form class="btn-with-count" action="/Invokemy/adnexio_employee/fork" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="DKUO/HFdFPqoXFq0RnEj9uF3NuutQZJguOEYR1vl0Em5dkrCP4/ioySVXag7eGHuAVSS4QMlLy48NLxGGTrF3w==" />
             <button
                 type="submit"
                 class="btn btn-sm btn-with-count"
@@ -543,9 +543,9 @@
     
 
   
-    <a class="d-none js-permalink-shortcut" data-hotkey="y" href="/Invokemy/adnexio_employee/blob/4405d167628df8568559853c870e94afcbd6bc53/database/migrations/2018_11_05_104717_add_field_eye_blink_video_interviews.php">Permalink</a>
+    <a class="d-none js-permalink-shortcut" data-hotkey="y" href="/Invokemy/adnexio_employee/blob/4405d167628df8568559853c870e94afcbd6bc53/database/migrations/2018_11_01_101202_add_field_profile_images_users.php">Permalink</a>
 
-    <!-- blob contrib key: blob_contributors:v21:7575f40159987b5fe9ae03a1aa294595 -->
+    <!-- blob contrib key: blob_contributors:v21:394627b1be116718e78b5c77976aa27d -->
 
     
 
@@ -589,7 +589,7 @@
 
 
             <a class="select-menu-item js-navigation-item js-navigation-open "
-               href="/Invokemy/adnexio_employee/blob/adnexio_akem/database/migrations/2018_11_05_104717_add_field_eye_blink_video_interviews.php"
+               href="/Invokemy/adnexio_employee/blob/adnexio_akem/database/migrations/2018_11_01_101202_add_field_profile_images_users.php"
                data-name="adnexio_akem"
                data-skip-pjax="true"
                rel="nofollow">
@@ -599,7 +599,7 @@
               </span>
             </a>
             <a class="select-menu-item js-navigation-item js-navigation-open "
-               href="/Invokemy/adnexio_employee/blob/adnexio_employee_development/database/migrations/2018_11_05_104717_add_field_eye_blink_video_interviews.php"
+               href="/Invokemy/adnexio_employee/blob/adnexio_employee_development/database/migrations/2018_11_01_101202_add_field_profile_images_users.php"
                data-name="adnexio_employee_development"
                data-skip-pjax="true"
                rel="nofollow">
@@ -609,7 +609,7 @@
               </span>
             </a>
             <a class="select-menu-item js-navigation-item js-navigation-open selected"
-               href="/Invokemy/adnexio_employee/blob/adnexio_employee_staging/database/migrations/2018_11_05_104717_add_field_eye_blink_video_interviews.php"
+               href="/Invokemy/adnexio_employee/blob/adnexio_employee_staging/database/migrations/2018_11_01_101202_add_field_profile_images_users.php"
                data-name="adnexio_employee_staging"
                data-skip-pjax="true"
                rel="nofollow">
@@ -619,7 +619,7 @@
               </span>
             </a>
             <a class="select-menu-item js-navigation-item js-navigation-open "
-               href="/Invokemy/adnexio_employee/blob/akememployees/database/migrations/2018_11_05_104717_add_field_eye_blink_video_interviews.php"
+               href="/Invokemy/adnexio_employee/blob/akememployees/database/migrations/2018_11_01_101202_add_field_profile_images_users.php"
                data-name="akememployees"
                data-skip-pjax="true"
                rel="nofollow">
@@ -629,7 +629,7 @@
               </span>
             </a>
             <a class="select-menu-item js-navigation-item js-navigation-open "
-               href="/Invokemy/adnexio_employee/blob/master/database/migrations/2018_11_05_104717_add_field_eye_blink_video_interviews.php"
+               href="/Invokemy/adnexio_employee/blob/master/database/migrations/2018_11_01_101202_add_field_profile_images_users.php"
                data-name="master"
                data-skip-pjax="true"
                rel="nofollow">
@@ -640,10 +640,10 @@
             </a>
         </div>
 
-          <!-- '"` --><!-- </textarea></xmp> --></option></form><form class="select-menu-new-item-form js-new-item-form" action="/Invokemy/adnexio_employee/branches" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="uMBly3QfJcms9trkphkdqusfPgfZqjBOB20U9GKLn4zaUNC8JuxGUueGUc8/Pfqeh27NHAxmKCC9yJeEHPylNQ==" />
+          <!-- '"` --><!-- </textarea></xmp> --></option></form><form class="select-menu-new-item-form js-new-item-form" action="/Invokemy/adnexio_employee/branches" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="RmVIp0dVAH9N9MPxfn0k5Hz+rlhwX3y06a7Iu96x+08k9f3QFaZj5AaESNrnWcPQEI9dQ6WTZNpTC0vLoMbB9g==" />
             <input type="hidden" name="name" id="name" class="js-new-item-value">
             <input type="hidden" name="branch" id="branch" value="adnexio_employee_staging">
-            <input type="hidden" name="path_binary" id="path_binary" value="ZGF0YWJhc2UvbWlncmF0aW9ucy8yMDE4XzExXzA1XzEwNDcxN19hZGRfZmllbGRfZXllX2JsaW5rX3ZpZGVvX2ludGVydmlld3MucGhw">
+            <input type="hidden" name="path_binary" id="path_binary" value="ZGF0YWJhc2UvbWlncmF0aW9ucy8yMDE4XzExXzAxXzEwMTIwMl9hZGRfZmllbGRfcHJvZmlsZV9pbWFnZXNfdXNlcnMucGhw">
 
             <button type="submit" class="width-full select-menu-item js-navigation-open js-navigation-item">
               <svg class="octicon octicon-git-branch select-menu-item-icon" viewBox="0 0 10 16" version="1.1" width="10" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M10 5c0-1.11-.89-2-2-2a1.993 1.993 0 0 0-1 3.72v.3c-.02.52-.23.98-.63 1.38-.4.4-.86.61-1.38.63-.83.02-1.48.16-2 .45V4.72a1.993 1.993 0 0 0-1-3.72C.88 1 0 1.89 0 3a2 2 0 0 0 1 1.72v6.56c-.59.35-1 .99-1 1.72 0 1.11.89 2 2 2 1.11 0 2-.89 2-2 0-.53-.2-1-.53-1.36.09-.06.48-.41.59-.47.25-.11.56-.17.94-.17 1.05-.05 1.95-.45 2.75-1.25S8.95 7.77 9 6.73h-.02C9.59 6.37 10 5.73 10 5zM2 1.8c.66 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2C1.35 4.2.8 3.65.8 3c0-.65.55-1.2 1.2-1.2zm0 12.41c-.66 0-1.2-.55-1.2-1.2 0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2zm6-8c-.66 0-1.2-.55-1.2-1.2 0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2z"/></svg>
@@ -680,21 +680,54 @@
         </clipboard-copy>
       </div>
       <div id="blob-path" class="breadcrumb">
-        <span class="repo-root js-repo-root"><span class="js-path-segment"><a data-pjax="true" href="/Invokemy/adnexio_employee/tree/adnexio_employee_staging"><span>adnexio_employee</span></a></span></span><span class="separator">/</span><span class="js-path-segment"><a data-pjax="true" href="/Invokemy/adnexio_employee/tree/adnexio_employee_staging/database"><span>database</span></a></span><span class="separator">/</span><span class="js-path-segment"><a data-pjax="true" href="/Invokemy/adnexio_employee/tree/adnexio_employee_staging/database/migrations"><span>migrations</span></a></span><span class="separator">/</span><strong class="final-path">2018_11_05_104717_add_field_eye_blink_video_interviews.php</strong>
+        <span class="repo-root js-repo-root"><span class="js-path-segment"><a data-pjax="true" href="/Invokemy/adnexio_employee/tree/adnexio_employee_staging"><span>adnexio_employee</span></a></span></span><span class="separator">/</span><span class="js-path-segment"><a data-pjax="true" href="/Invokemy/adnexio_employee/tree/adnexio_employee_staging/database"><span>database</span></a></span><span class="separator">/</span><span class="js-path-segment"><a data-pjax="true" href="/Invokemy/adnexio_employee/tree/adnexio_employee_staging/database/migrations"><span>migrations</span></a></span><span class="separator">/</span><strong class="final-path">2018_11_01_101202_add_field_profile_images_users.php</strong>
       </div>
     </div>
 
 
-    <include-fragment src="/Invokemy/adnexio_employee/contributors/adnexio_employee_staging/database/migrations/2018_11_05_104717_add_field_eye_blink_video_interviews.php" class="commit-tease commit-loader">
+    
+  <div class="commit-tease">
+      <span class="float-right">
+        <a class="commit-tease-sha" href="/Invokemy/adnexio_employee/commit/d99fae3a3385b7d850a596b1824344496b7ed0b9" data-pjax>
+          d99fae3
+        </a>
+        <relative-time datetime="2018-11-01T06:39:25Z">Nov 1, 2018</relative-time>
+      </span>
       <div>
-        Fetching contributors&hellip;
+        <a rel="contributor" data-skip-pjax="true" data-hovercard-type="user" data-hovercard-url="/hovercards?user_id=5433016" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="/mdfahmi89"><img class="avatar" src="https://avatars3.githubusercontent.com/u/5433016?s=40&amp;v=4" width="20" height="20" alt="@mdfahmi89" /></a>
+        <a class="user-mention" rel="contributor" data-hovercard-type="user" data-hovercard-url="/hovercards?user_id=5433016" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="/mdfahmi89">mdfahmi89</a>
+          <a data-pjax="true" title="Updated code on 01 Nov 2018 at 2:40PM" class="message" href="/Invokemy/adnexio_employee/commit/d99fae3a3385b7d850a596b1824344496b7ed0b9">Updated code on 01 Nov 2018 at 2:40PM</a>
       </div>
 
-      <div class="commit-tease-contributors">
-          <img alt="" class="loader-loading float-left" src="https://assets-cdn.github.com/images/spinners/octocat-spinner-32-EAF2F5.gif" width="16" height="16" />
-        <span class="loader-error">Cannot retrieve contributors at this time</span>
-      </div>
-</include-fragment>
+    <div class="commit-tease-contributors">
+      
+<details class="details-reset details-overlay details-overlay-dark lh-default text-gray-dark float-left mr-2" id="blob_contributors_box">
+  <summary class="btn-link" aria-haspopup="dialog"  >
+    
+    <span><strong>1</strong> contributor</span>
+  </summary>
+  <details-dialog class="Box Box--overlay d-flex flex-column anim-fade-in fast " aria-label="Users who have contributed to this file">
+    <div class="Box-header">
+      <button class="Box-btn-octicon btn-octicon float-right" type="button" aria-label="Close dialog" data-close-dialog>
+        <svg class="octicon octicon-x" viewBox="0 0 12 16" version="1.1" width="12" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.48 8l3.75 3.75-1.48 1.48L6 9.48l-3.75 3.75-1.48-1.48L4.52 8 .77 4.25l1.48-1.48L6 6.52l3.75-3.75 1.48 1.48L7.48 8z"/></svg>
+      </button>
+      <h3 class="Box-title">Users who have contributed to this file</h3>
+    </div>
+    
+        <ul class="list-style-none overflow-auto">
+            <li class="Box-row">
+              <a class="link-gray-dark no-underline" href="/mdfahmi89">
+                <img class="avatar mr-2" alt="" src="https://avatars3.githubusercontent.com/u/5433016?s=40&amp;v=4" width="20" height="20" />
+                mdfahmi89
+</a>            </li>
+        </ul>
+
+  </details-dialog>
+</details>
+      
+    </div>
+  </div>
+
 
 
     <div class="file ">
@@ -702,25 +735,25 @@
   <div class="file-actions">
 
     <div class="BtnGroup">
-      <a id="raw-url" class="btn btn-sm BtnGroup-item" href="/Invokemy/adnexio_employee/raw/adnexio_employee_staging/database/migrations/2018_11_05_104717_add_field_eye_blink_video_interviews.php">Raw</a>
-        <a class="btn btn-sm js-update-url-with-hash BtnGroup-item" data-hotkey="b" href="/Invokemy/adnexio_employee/blame/adnexio_employee_staging/database/migrations/2018_11_05_104717_add_field_eye_blink_video_interviews.php">Blame</a>
-      <a rel="nofollow" class="btn btn-sm BtnGroup-item" href="/Invokemy/adnexio_employee/commits/adnexio_employee_staging/database/migrations/2018_11_05_104717_add_field_eye_blink_video_interviews.php">History</a>
+      <a id="raw-url" class="btn btn-sm BtnGroup-item" href="/Invokemy/adnexio_employee/raw/adnexio_employee_staging/database/migrations/2018_11_01_101202_add_field_profile_images_users.php">Raw</a>
+        <a class="btn btn-sm js-update-url-with-hash BtnGroup-item" data-hotkey="b" href="/Invokemy/adnexio_employee/blame/adnexio_employee_staging/database/migrations/2018_11_01_101202_add_field_profile_images_users.php">Blame</a>
+      <a rel="nofollow" class="btn btn-sm BtnGroup-item" href="/Invokemy/adnexio_employee/commits/adnexio_employee_staging/database/migrations/2018_11_01_101202_add_field_profile_images_users.php">History</a>
     </div>
 
         <a class="btn-octicon tooltipped tooltipped-nw"
-           href="x-github-client://openRepo/https://github.com/Invokemy/adnexio_employee?branch=adnexio_employee_staging&amp;filepath=database%2Fmigrations%2F2018_11_05_104717_add_field_eye_blink_video_interviews.php"
+           href="x-github-client://openRepo/https://github.com/Invokemy/adnexio_employee?branch=adnexio_employee_staging&amp;filepath=database%2Fmigrations%2F2018_11_01_101202_add_field_profile_images_users.php"
            aria-label="Open this file in GitHub Desktop"
            data-ga-click="Repository, open with desktop, type:windows">
             <svg class="octicon octicon-device-desktop" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M15 2H1c-.55 0-1 .45-1 1v9c0 .55.45 1 1 1h5.34c-.25.61-.86 1.39-2.34 2h8c-1.48-.61-2.09-1.39-2.34-2H15c.55 0 1-.45 1-1V3c0-.55-.45-1-1-1zm0 9H1V3h14v8z"/></svg>
         </a>
 
-          <!-- '"` --><!-- </textarea></xmp> --></option></form><form class="inline-form js-update-url-with-hash" action="/Invokemy/adnexio_employee/edit/adnexio_employee_staging/database/migrations/2018_11_05_104717_add_field_eye_blink_video_interviews.php" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="JXaBB26rgiTDnZp+G12QXzsZdu7axwqpsn68HubVPxFr97vx2sIbgA7mF29++LywtVvmCFIZ+4ez0/A8MycWSw==" />
+          <!-- '"` --><!-- </textarea></xmp> --></option></form><form class="inline-form js-update-url-with-hash" action="/Invokemy/adnexio_employee/edit/adnexio_employee_staging/database/migrations/2018_11_01_101202_add_field_profile_images_users.php" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="hCzE0prnJKPTECQYEK3UrB9Pzyj0WbjR7qfg6l5uCwBTC5I1IdHu6ML2Zp7gVwRjjgMeb0CqfTdOHlaLVhO2+Q==" />
             <button class="btn-octicon tooltipped tooltipped-nw" type="submit"
               aria-label="Edit this file" data-hotkey="e" data-disable-with>
               <svg class="octicon octicon-pencil" viewBox="0 0 14 16" version="1.1" width="14" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M0 12v3h3l8-8-3-3-8 8zm3 2H1v-2h1v1h1v1zm10.3-9.3L12 6 9 3l1.3-1.3a.996.996 0 0 1 1.41 0l1.59 1.59c.39.39.39 1.02 0 1.41z"/></svg>
             </button>
 </form>
-        <!-- '"` --><!-- </textarea></xmp> --></option></form><form class="inline-form" action="/Invokemy/adnexio_employee/delete/adnexio_employee_staging/database/migrations/2018_11_05_104717_add_field_eye_blink_video_interviews.php" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="7gcY+y3qzkgH52x/wPtn2hD+OB3Sy4/jPMOvoMUMcbIzZ6uc33FkgYlA29dxh3Wl3FiYzQt7HMCF7AIO6oHVww==" />
+        <!-- '"` --><!-- </textarea></xmp> --></option></form><form class="inline-form" action="/Invokemy/adnexio_employee/delete/adnexio_employee_staging/database/migrations/2018_11_01_101202_add_field_profile_images_users.php" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="0xxLKR5IDJy966VUAXnot6rVHaamH0ZLHZyPsjN9NgISx+fzlDhXOqT+g9YUyAccRDzV7QD2wyaohLsvkc+TFA==" />
           <button class="btn-octicon btn-octicon-danger tooltipped tooltipped-nw" type="submit"
             aria-label="Delete this file" data-disable-with>
             <svg class="octicon octicon-trashcan" viewBox="0 0 12 16" version="1.1" width="12" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M11 2H9c0-.55-.45-1-1-1H5c-.55 0-1 .45-1 1H2c-.55 0-1 .45-1 1v1c0 .55.45 1 1 1v9c0 .55.45 1 1 1h7c.55 0 1-.45 1-1V5c.55 0 1-.45 1-1V3c0-.55-.45-1-1-1zm-1 12H3V5h1v8h1V5h1v8h1V5h1v8h1V5h1v9zm1-10H2V3h9v1z"/></svg>
@@ -730,7 +763,7 @@
   <div class="file-info">
       33 lines (29 sloc)
       <span class="file-info-divider"></span>
-    671 Bytes
+    658 Bytes
   </div>
 </div>
 
@@ -764,7 +797,7 @@
       </tr>
       <tr>
         <td id="L7" class="blob-num js-line-number" data-line-number="7"></td>
-        <td id="LC7" class="blob-code blob-code-inner js-file-line"><span class="pl-s1"><span class="pl-k">class</span> <span class="pl-en">AddFieldEyeBlinkVideoInterviews</span> <span class="pl-k">extends</span> <span class="pl-e">Migration</span></span></td>
+        <td id="LC7" class="blob-code blob-code-inner js-file-line"><span class="pl-s1"><span class="pl-k">class</span> <span class="pl-en">AddFieldProfileImagesUsers</span> <span class="pl-k">extends</span> <span class="pl-e">Migration</span></span></td>
       </tr>
       <tr>
         <td id="L8" class="blob-num js-line-number" data-line-number="8"></td>
@@ -800,11 +833,11 @@
       </tr>
       <tr>
         <td id="L16" class="blob-num js-line-number" data-line-number="16"></td>
-        <td id="LC16" class="blob-code blob-code-inner js-file-line"><span class="pl-s1">        <span class="pl-c1">Schema</span><span class="pl-k">::</span>table(<span class="pl-s"><span class="pl-pds">&#39;</span>video_interviews<span class="pl-pds">&#39;</span></span>, <span class="pl-k">function</span> (<span class="pl-smi">$table</span>) {</span></td>
+        <td id="LC16" class="blob-code blob-code-inner js-file-line"><span class="pl-s1">        <span class="pl-c1">Schema</span><span class="pl-k">::</span>table(<span class="pl-s"><span class="pl-pds">&#39;</span>users<span class="pl-pds">&#39;</span></span>, <span class="pl-k">function</span> (<span class="pl-smi">$table</span>) {</span></td>
       </tr>
       <tr>
         <td id="L17" class="blob-num js-line-number" data-line-number="17"></td>
-        <td id="LC17" class="blob-code blob-code-inner js-file-line"><span class="pl-s1">            <span class="pl-smi">$table</span><span class="pl-k">-&gt;</span>string(<span class="pl-s"><span class="pl-pds">&#39;</span>eye_blink<span class="pl-pds">&#39;</span></span>)<span class="pl-k">-&gt;</span>after(<span class="pl-s"><span class="pl-pds">&#39;</span>video_name<span class="pl-pds">&#39;</span></span>);</span></td>
+        <td id="LC17" class="blob-code blob-code-inner js-file-line"><span class="pl-s1">            <span class="pl-smi">$table</span><span class="pl-k">-&gt;</span>string(<span class="pl-s"><span class="pl-pds">&#39;</span>profile_images<span class="pl-pds">&#39;</span></span>)<span class="pl-k">-&gt;</span>after(<span class="pl-s"><span class="pl-pds">&#39;</span>remember_token<span class="pl-pds">&#39;</span></span>);</span></td>
       </tr>
       <tr>
         <td id="L18" class="blob-num js-line-number" data-line-number="18"></td>
@@ -848,11 +881,11 @@
       </tr>
       <tr>
         <td id="L28" class="blob-num js-line-number" data-line-number="28"></td>
-        <td id="LC28" class="blob-code blob-code-inner js-file-line"><span class="pl-s1">        <span class="pl-c1">Schema</span><span class="pl-k">::</span>table(<span class="pl-s"><span class="pl-pds">&#39;</span>video_interviews<span class="pl-pds">&#39;</span></span>, <span class="pl-k">function</span> (<span class="pl-smi">$table</span>) {</span></td>
+        <td id="LC28" class="blob-code blob-code-inner js-file-line"><span class="pl-s1">        <span class="pl-c1">Schema</span><span class="pl-k">::</span>table(<span class="pl-s"><span class="pl-pds">&#39;</span>users<span class="pl-pds">&#39;</span></span>, <span class="pl-k">function</span> (<span class="pl-smi">$table</span>) {</span></td>
       </tr>
       <tr>
         <td id="L29" class="blob-num js-line-number" data-line-number="29"></td>
-        <td id="LC29" class="blob-code blob-code-inner js-file-line"><span class="pl-s1">            <span class="pl-smi">$table</span><span class="pl-k">-&gt;</span>dropColumn(<span class="pl-s"><span class="pl-pds">&#39;</span>eye_blink<span class="pl-pds">&#39;</span></span>);</span></td>
+        <td id="LC29" class="blob-code blob-code-inner js-file-line"><span class="pl-s1">            <span class="pl-smi">$table</span><span class="pl-k">-&gt;</span>dropColumn(<span class="pl-s"><span class="pl-pds">&#39;</span>profile_images<span class="pl-pds">&#39;</span></span>);</span></td>
       </tr>
       <tr>
         <td id="L30" class="blob-num js-line-number" data-line-number="30"></td>
@@ -876,7 +909,7 @@
       <ul class="BlobToolbar-dropdown dropdown-menu dropdown-menu-se mt-2">
         <li><clipboard-copy role="menuitem" class="dropdown-item" id="js-copy-lines" style="cursor:pointer;" data-original-text="Copy lines">Copy lines</clipboard-copy></li>
         <li><clipboard-copy role="menuitem" class="dropdown-item" id="js-copy-permalink" style="cursor:pointer;" data-original-text="Copy permalink">Copy permalink</clipboard-copy></li>
-        <li><a class="dropdown-item js-update-url-with-hash" id="js-view-git-blame" role="menuitem" href="/Invokemy/adnexio_employee/blame/4405d167628df8568559853c870e94afcbd6bc53/database/migrations/2018_11_05_104717_add_field_eye_blink_video_interviews.php">View git blame</a></li>
+        <li><a class="dropdown-item js-update-url-with-hash" id="js-view-git-blame" role="menuitem" href="/Invokemy/adnexio_employee/blame/4405d167628df8568559853c870e94afcbd6bc53/database/migrations/2018_11_01_101202_add_field_profile_images_users.php">View git blame</a></li>
           <li><a class="dropdown-item" id="js-new-issue" role="menuitem" href="/Invokemy/adnexio_employee/issues/new">Open new issue</a></li>
       </ul>
     </details-menu>
@@ -911,7 +944,7 @@
 <div class="footer container-lg px-3" role="contentinfo">
   <div class="position-relative d-flex flex-justify-between pt-6 pb-2 mt-6 f6 text-gray border-top border-gray-light ">
     <ul class="list-style-none d-flex flex-wrap ">
-      <li class="mr-3">&copy; 2018 <span title="0.23364s from unicorn-9b5747565-98s86">GitHub</span>, Inc.</li>
+      <li class="mr-3">&copy; 2018 <span title="0.23840s from unicorn-f49675586-tjrv7">GitHub</span>, Inc.</li>
         <li class="mr-3"><a data-ga-click="Footer, go to terms, text:terms" href="https://github.com/site/terms">Terms</a></li>
         <li class="mr-3"><a data-ga-click="Footer, go to privacy, text:privacy" href="https://github.com/site/privacy">Privacy</a></li>
         <li class="mr-3"><a href="https://help.github.com/articles/github-security/" data-ga-click="Footer, go to security, text:security">Security</a></li>
