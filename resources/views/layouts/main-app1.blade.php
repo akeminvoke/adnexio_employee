@@ -8,7 +8,6 @@
     
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <meta name="_token" content="{{csrf_token()}}" />
 
     <!-- Favicons -->
 	<link rel="shortcut icon" href="{{ asset('assets/media/favicons/ic_favicon.png') }}">
@@ -32,23 +31,21 @@
                         
     <!-- Video RecordRTC JS -->                    
 	<script src="https://cdn.webrtc-experiment.com/RecordRTC.js"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.">
-
-
-    <!--  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>-->
-
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
                 
     <!-- For Edge/FF/Chrome/Opera/etc. getUserMedia support -->
     <script src="https://webrtc.github.io/adapter/adapter-latest.js"></script>
     <script src="https://cdn.webrtc-experiment.com/DetectRTC.js"> </script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.4.0/min/dropzone.min.css">
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.4.0/dropzone.js"></script>
+   
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>-->
 
+    <!--<link href="{{ asset('css/app.css') }}" rel="stylesheet">-->
+    
+    <!--<link rel="stylesheet" href="{{ mix('css/dashmix.css') }}">-->
 
-
-
+    <!-- You can include a specific file from public/css/themes/ folder to alter the default color theme of the template. eg: -->
+    <!-- <link rel="stylesheet" href="{{ mix('css/themes/xwork.css') }}"> -->
     @yield('css_after')
     
     
@@ -440,7 +437,6 @@
 
 // function Edit POST
 $(document).on('click', '.edit-modal', function() {
-
 $('#footer_action_button').text(" Update Post");
 $('#footer_action_button').addClass('glyphicon-check');
 $('#footer_action_button').removeClass('glyphicon-trash');
@@ -454,11 +450,6 @@ $('#name').val($(this).data('name'));
 $('#modal-block-large').modal('show');
 });
 
-
-
-
-
-
 $('.modal-footer').on('click', '.edit', function() {
   $.ajax({
     type: 'POST',
@@ -469,7 +460,6 @@ $('.modal-footer').on('click', '.edit', function() {
 'name': $('#name').val()
 },
 success: function(data) {
-
       $('.user' + data.id).replaceWith(" "+
 
 	  "<thead class='user{{$user->id}}'>"+
@@ -477,14 +467,11 @@ success: function(data) {
 	  "<td class='text-muted'>Name</td>"+								   	
       "<td style='width: 70%; font-weight: bold;'>" + data.name + "</td>"+
  	  "</tr>"+
+	  "<tr class='user" + data.id + "'>"+
+	  "<td ></td>"+								   	
+      "<td ><button class='edit-modal btn btn-sm btn-light' data-id='" + data.id + "' data-name='" + data.name + "'><i class='fa fa-fw fa-edit'></i> Edit</button></td>"+
+      "</tr>"+
 	  "</thead>");
-
-
-    $('.pull').replaceWith(
-        " "+"<a href='#' class='edit-modal btn btn-sm btn-light pull' data-toggle='modal' data-target='#modal-block-large' data-id='"+data.id+"' data-name='"+data.name+"'><i class='fa fa-fw fa-edit'></i>Edit </a>"
- );
-
-
 	
 	
 
@@ -2352,55 +2339,8 @@ success: function(data) {
           return url;
         };
     </script>
-
-    <script type="text/javascript">
-        Dropzone.options.dropzone =
-
-            {
-                maxFilesize: 12000000,
-                renameFile: function(file) {
-                    //var dt = new Date();
-                   // var time = dt.getTime();
-
-                    return file.name;
-                },
-                acceptedFiles: ".jpeg,.jpg,.png,.gif,.CSV,.docx",
-                addRemoveLinks: true,
-                timeout: 50000,
-                removedfile: function(file)
-                {
-                    var name = file.upload.filename;;
-                    $.ajax({
-                        headers: {
-                            'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
-                        },
-                        type: 'POST',
-                        url: '{{ url("profile/profile_cvupload/dlt ") }}',
-                        data: {filename: name},
-                        success: function (data){
-                            console.log("File has been successfully removed!!");
-                        },
-                        error: function(e) {
-                            console.log(e);
-                        }});
-                    var fileRef;
-                    return (fileRef = file.previewElement) != null ?
-                        fileRef.parentNode.removeChild(file.previewElement) : void 0;
-                },
-
-                success: function(file, response)
-                {
-                    console.log(response);
-                },
-                error: function(file, response)
-                {
-                    return false;
-                }
-
-            };
-    </script>
-
-
+    
+    
     <!-- commits.js is useless for you! -->
     <script>
         window.useThisGithubPath = 'muaz-khan/RecordRTC';
