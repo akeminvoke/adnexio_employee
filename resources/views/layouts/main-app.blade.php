@@ -427,13 +427,11 @@
     </div>
     <!-- END Page Container -->
 
-   
+
+    <!-- Edit My Profile Aboutme -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-
-
 	<script type="text/javascript">
-
 
 	// function Edit POST
 	$(document).on('click', '.edit-modal', function() {
@@ -445,16 +443,12 @@
 	$('.actionBtn').removeClass('btn-danger');
 	$('.actionBtn').addClass('edit');
 	$('.modal-title').text('Post Edit');
-	$('.form-horizontal').show();
+	$('.js-validation').show();
 	$('#id').val($(this).data('id'));
 	$('#name').val($(this).data('name'));
+	$('#email').val($(this).data('email'));
 	$('#modal-block-large').modal('show');
 	});
-
-
-
-
-
 
 	$('.modal-footer').on('click', '.edit', function() {
 	  $.ajax({
@@ -467,34 +461,24 @@
 	},
 	success: function(data) {
 
-		  $('.user' + data.id).replaceWith(" "+
+		$('.user' + data.id).replaceWith(" "+
 
-		  "<thead class='user{{$user->id}}'>"+
-		  "<tr>"+
-		  "<td class='text-muted'>Name</td>"+								   	
-		  "<td style='width: 70%; font-weight: bold;'>" + data.name + "</td>"+
-		  "</tr>"+
-		  "</thead>");
-
+		"<thead class='user{{$user->id}}'>"+
+		"<tr>"+
+		"<td class='text-muted'>Name</td>"+								   	
+		"<td style='width: 80%; font-weight: bold;'>" + data.name + "</td>"+
+		"</tr>"+
+		"</thead>");
 
 		$('.pull').replaceWith(
 			" "+"<a href='#' class='edit-modal btn btn-sm btn-light pull' data-toggle='modal' data-target='#modal-block-large' data-id='"+data.id+"' data-name='"+data.name+"'><i class='fa fa-fw fa-edit'></i>Edit </a>"
 	 );
 
-
-
-
-
 		}
 	  });
 	});
 
-
-
 	</script>   
-   
-   
-   
    
     <!-- Dashmix Core JS -->
     <script src="{!! asset('assets/js/dashmix.core.min.js') !!}"></script>

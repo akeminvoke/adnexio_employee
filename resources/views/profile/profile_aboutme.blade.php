@@ -11,7 +11,7 @@
             <div class="block-header block-header-default">
                 <h3 class="block-title"><i class="nav-main-link-icon fa fa-address-card"></i> &nbsp;About Me</h3>
                 <div class="block-options">
-                    <a href="#" class="edit-modal btn btn-sm btn-light pull" data-toggle="modal" data-target="#modal-block-large" data-id="{{$user->id}}" data-name="{{$user->name}}">
+                    <a href="#" class="edit-modal btn btn-sm btn-light pull" data-toggle="modal" data-target="#modal-block-large" data-id="{{$user->id}}" data-name="{{$user->name}}" data-email="{{$user->email}}" data-icno="{{$user->icno}}" data-contactno="{{$user->contactno}}" data-address="{{$user->address}}" data-dateofbirth="{{$user->dateofbirth}}" data-gender="{{$user->gender}}" data-nationality="{{$user->nationality}}" >
               			<i class="fa fa-fw fa-edit"></i> Edit
             		</a>
                 </div>
@@ -69,17 +69,36 @@
                                     </tr>-->
                                     <tr>
                                         <td class="text-muted">Name <form><input type="hidden" class="form-control" id="ide" value={{$user->id }} readonly></form></th>
-                                        <td style="width: 70%; font-weight: bold;">{{ $user->name }}</th>
-                                    </tr>
-                                    
-                                    <!--<tr>
-                                        <th class="text-muted">Email Address</th>
-                                        <th style="width: 70%; font-weight: bold;">{{ $user->email }}</th>
+                                        <td style="width: 80%; font-weight: bold;">{{ $user->name }}</th>
                                     </tr>
                                     <tr>
-                                        <th class="text-muted">Password</th>
-                                        <th style="width: 70%; font-weight: bold;">{{ $user->password }}</th>
-                                    </tr>-->
+                                        <th class="text-muted">Email Address</th>
+                                        <th style="width: 80%; font-weight: bold;">{{ $user->email }}</th>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-muted">Identification No.</th>
+                                        <th style="width: 80%; font-weight: bold;">{{ $user->email }}</th>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-muted">Contact No.</th>
+                                        <th style="width: 80%; font-weight: bold;">{{ $user->password }}</th>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-muted">Address</th>
+                                        <th style="width: 80%; font-weight: bold;">{{ $user->password }}</th>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-muted">Date of Birth</th>
+                                        <th style="width: 80%; font-weight: bold;">{{ $user->password }}</th>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-muted">Gender</th>
+                                        <th style="width: 80%; font-weight: bold;">{{ $user->password }}</th>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-muted">Nationality</th>
+                                        <th style="width: 80%; font-weight: bold;">{{ $user->password }}</th>
+                                    </tr>
 
                                 </thead>
                                 <!--<tbody>
@@ -118,56 +137,60 @@
                                             </button>
                                         </div>
                                     </div>
-                                    <form class="form-horizontal" role="modal">
-                                    <div class="block-content"> 
                                     
-                                        <div class="table-responsive">
-                                            <table class="table table-borderless table-striped table-vcenter">
-                                                <thead>
-                                                	<tr>
-                                                        <th>ID</th>
-                                                        <th style="width: 70%;"><input type="text" class="form-control" id="id" readonly></th>
-                                                    </tr>
-                                                    <tr>
-                                                        <th>Name</th>
-                                                        <th style="width: 70%;"><input type="text" class="form-control" id="name"></th>
-                                                    </tr>
-                                                    <!--<tr>
-                                                        <th>Email Address</th>
-                                                        <th style="width: 70%;"><input type="text" class="form-control" id="email" readonly></th>
-                                                    </tr>
-                                                    <tr>
-                                                        <th>Password</th>
-                                                        <th style="width: 70%;"><input type="text" class="form-control" value="{{ $user->password }}" id="password" readonly></th>
-                                                    </tr>-->
-                                                </thead>
-                                                <!--<tbody>
-                                                    <tr>
-                                                        <td class="font-w600">
-                                                            <a href="be_pages_generic_profile.html">Amber Harvey</a>
-                                                        </td>
-                                                        <td>client1<em class="text-muted">@example.com</em></td>
-                                                       
-                                                    </tr>
-                                                </tbody>-->
-                                            </table>
-                                         </div>
+                                    <form class="js-validation" role="modal">
+                                        <div class="block-content">                                     
+                                            <div class="table-responsive">
+                                                <table class="table table-borderless table-striped table-vcenter">
+                                                    <thead>
+                                                        <input type="hidden" class="form-control" id="id">
+                                                        <tr>
+                                                            <th>Name</th>
+                                                            <th style="width: 70%;"><input type="text" class="form-control" id="name" name="val-username"></th>
+                                                        </tr>
+                                                        <tr>
+                                                            <th>Email Address</th>
+                                                            <th style="width: 70%;"><input type="email" class="form-control" id="email" readonly></th>
+                                                        </tr>
+                                                        <tr>
+                                                            <th>Identification No.</th>
+                                                            <th style="width: 70%;"><input type="text" class="form-control" id="password"></th>
+                                                        </tr>
+                                                        <tr>
+                                                            <th>Contact No.</th>
+                                                            <th style="width: 70%;"><input type="text" class="form-control" id="password"></th>
+                                                        </tr>
+                                                        <tr>
+                                                            <th>Address</th>
+                                                            <th style="width: 70%;"><input type="text" class="form-control" id="password"></th>
+                                                        </tr>
+                                                        <tr>
+                                                            <th>Date of Birth</th>
+                                                            <th style="width: 70%;"><input type="text" class="form-control" id="password"></th>
+                                                        </tr>
+                                                        <tr>
+                                                            <th>Gender</th>
+                                                            <th style="width: 70%;"><input type="text" class="form-control" id="password"></th>
+                                                        </tr>
+                                                        <tr>
+                                                            <th>Nationality</th>
+                                                            <th style="width: 70%;"><input type="text" class="form-control" id="password"></th>
+                                                        </tr>
+                                                    </thead>
+                                                </table>
+                                             </div>
+                                        </div>
 
-                                    </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                                              <span class="glyphicon glyphicon"></span>Close
+                                            </button>
+                                        
+                                            <button type="submit" class="btn actionBtn" data-dismiss="modal">
+                                              <span id="footer_action_button" class="glyphicon"></span>
+                                            </button>
+                                        </div>
                                     </form>
-                                    <div class="modal-footer">
-
-										<button type="button" class="btn btn-secondary" data-dismiss="modal">
-										  <span class="glyphicon glyphicon"></span>Close
-										</button>
-									
-										<button type="button" class="btn actionBtn" data-dismiss="modal">
-										  <span id="footer_action_button" class="glyphicon"></span>
-										</button>
-
-										
-
-									</div>
                                 </div>
                             </div>
                         </div>
