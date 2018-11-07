@@ -14,7 +14,7 @@ class AddFieldEyeBlinkVideoInterviews extends Migration
     public function up()
     {
         Schema::table('video_interviews', function ($table) {
-            $table->string('eye_blink')->after('video_description');
+            $table->string('eye_blink')->after('video_name');
         });
     }
 

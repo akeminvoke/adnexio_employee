@@ -3,120 +3,114 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
-//use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use App\VideoInterview;
 use App\create_question;
-use App\User;
-use Validator;
-use Response;
-use Illuminate\Support\Facades\Input;
 use DB;
 
-class ProfileAboutmeController extends Controller
+
+
+
+class VideoEyeBlinkController extends Controller
 {
 
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
+
     public function __construct()
     {
-        //$this->middleware('auth');
+        $this->middleware('auth');
     }
-
-
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Http\Response
-     */
+	
     public function index()
     {
-		//
+        $user = Auth::guard($this->getGuard())->user();	
+        $questions  = create_question::all();
+        $videos = VideoInterview::where('user_id',$user->id)->get();
+
+        return $user->isAdmin() ? redirect('/admin') : view('/video/video_pastrecord')->with(compact('user','questions','videos'));
+		
+		//return response()->json([
+		//	"message" => "successful",
+		//	"data" => $videos
+		//]);
     }
 
-    
-	
-	
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     *
-     *
-     *
-     *
-     */
+    private function getGuard()
+    {
+        return property_exists($this, 'guard') ? $this->guard : null;
+    }
+
     public function create()
     {
         //
     }
 
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function updateEyeBlink(Request $request)
+
+    public function store(Request $request)
     {
-		$eyeblink = VideoInterview::find ($request->video_name);
-		$eyeblink->video_name = $request->video_name;
-		$eyeblink->save();
-		//return response()->json($user);
+
+		
+		$video_id = $request->video_id;
+		$video_name = $request->video_name;
+		//$user_id = $request->user_id;
+		$eye_blink = $request->eye_blink;
+
+		$video = VideoInterview::where("video_name",$video_name)
+		->update( 
+		   array( 
+				 //"user_id" => $user_id,
+				 "eye_blink" => $eye_blink
+				 )
+		   );
+		return response()->json([
+			'message' => 'Insert successfully'
+		]);
+		
+		//$video_id = $request->video_id;
+		//$eye_blink = $request->eye_blink;
+		
+		//DB::table('video_interviews')
+        //    ->where('video_id', $video_id)
+        //    ->update(['eye_blink' => $eye_blink]);
+		//return response()->json([
+		//	'message' => 'Insert successfully'
+		//]);
+		
 	}
 
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function show()
     {	
-		//
+		$videos = VideoInterview::all();
+		
+		return response()->json([
+			"message" => "successful",
+			"data" => $videos
+		]);
     }
 
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function edit($id)
     {
         //
     }
 
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
+
+    public function update(Request $request)
     {
-        //
+
     }
 
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function destroy($id)
     {
         //
     }	
 
 }
+

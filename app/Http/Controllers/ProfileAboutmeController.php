@@ -57,6 +57,15 @@ class ProfileAboutmeController extends Controller
      *
      *
      */
+    public function pull(Request $request)
+    {
+
+        $pull = Auth::guard($this->getGuard())->user();
+
+        return response()->json($pull);
+
+
+    }
 
 
     public function create()
