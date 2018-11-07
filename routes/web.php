@@ -37,6 +37,8 @@ Route::post('/profile/profile_aboutme', 'ProfileAboutmeController@editPost');
 
 Route::get('/profile/profile_experience', 'ProfileExperienceController@index');
 Route::get('/profile/profile_cvupload', 'ProfileCvuploadController@index');
+Route::post('/profile/profile_cvupload', 'ProfileCvuploadController@filestore');
+Route::post('/profile/profile_cvupload/dlt', 'ProfileCvuploadController@fileDestroy');
 
 //Video Interview Function
 Route::get('/video/video_recording', 'VideoRecordingController@index');

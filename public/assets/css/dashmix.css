@@ -4171,11 +4171,15 @@ input[type="button"].btn-block {
   text-decoration: none;
   background-color: #1d2124;
 }
+.span-text-italic {
+
+    font-style: italic;
+}
 
 .jumbotron {
   padding: 2rem 1rem;
   margin-bottom: 2rem;
-  background-color: #e9ecef;
+  background-color: #1CCBBA;
   border-radius: 0.3rem;
 }
 

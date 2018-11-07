@@ -24731,3 +24731,22 @@ div.dataTables_wrapper div.dataTables_paginate ul.pagination {
 .slick-slider.slick-nav-hover:hover .slick-next {
   opacity: 1;
 }
+
+
+.dropzone {
+    border:2px dashed #999999;
+    border-radius: 10px;
+}
+.dropzone .dz-default.dz-message {
+    height: 171px;
+    background-size: 132px 132px;
+    margin-top: -101.5px;
+    background-position-x:center;
+
+}
+.dropzone .dz-default.dz-message span {
+    display: block;
+    margin-top: 145px;
+    font-size: 20px;
+    text-align: center;
+}

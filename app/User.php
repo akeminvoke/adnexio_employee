@@ -51,4 +51,8 @@ class User extends Authenticatable
         return $this->hasMany('App\VideoInterview');
     }
 
+    public function Cvs() {
+        return $this->hasMany('App\Cv');
+    }
+
 }
