@@ -443,10 +443,16 @@
 	$('.actionBtn').removeClass('btn-danger');
 	$('.actionBtn').addClass('edit');
 	$('.modal-title').text('Post Edit');
-	$('.js-validation').show();
+	$('#js-validation').show();
 	$('#id').val($(this).data('id'));
 	$('#name').val($(this).data('name'));
 	$('#email').val($(this).data('email'));
+	$('#ic_no').val($(this).data('ic_no'));
+	$('#contact_no').val($(this).data('contact_no'));
+	$('#address').val($(this).data('address'));
+	$('#dob').val($(this).data('dob'));
+	$('#gender').val($(this).data('gender'));
+	$('#nationality').val($(this).data('nationality'));
 	$('#modal-block-large').modal('show');
 	});
 
@@ -457,7 +463,14 @@
 		data: {
 	'_token': $('input[name=_token]').val(),
 	'id': $("#id").val(),
-	'name': $('#name').val()
+	'name': $('#name').val(),
+	'email': $('#email').val(),
+	'ic_no': $('#ic_no').val(),
+	'contact_no': $('#contact_no').val(),
+	'address': $('#address').val(),
+	'dob': $('#dob').val(),
+	'gender': $('#gender').val(),
+	'nationality': $('#nationality').val()
 	},
 	success: function(data) {
 
@@ -465,13 +478,41 @@
 
 		"<thead class='user{{$user->id}}'>"+
 		"<tr>"+
-		"<td class='text-muted'>Name</td>"+								   	
-		"<td style='width: 80%; font-weight: bold;'>" + data.name + "</td>"+
+			"<td class='text-muted'>Name</td>"+								   	
+			"<td style='width: 80%; font-weight: bold;'>" + data.name + "</td>"+
+		"</tr>"+
+		"<tr>"+
+			"<td class='text-muted'>Email Address</td>"+								   	
+			"<td style='width: 80%; font-weight: bold;'>" + data.email + "</td>"+
+		"</tr>"+
+		"<tr>"+
+			"<td class='text-muted'>Identification No.</td>"+								   	
+			"<td style='width: 80%; font-weight: bold;'>" + data.ic_no + "</td>"+
+		"</tr>"+
+		"<tr>"+
+			"<td class='text-muted'>Contact No.</td>"+								   	
+			"<td style='width: 80%; font-weight: bold;'>" + data.contact_no + "</td>"+
+		"</tr>"+
+		"<tr>"+
+			"<td class='text-muted'>Address</td>"+								   	
+			"<td style='width: 80%; font-weight: bold;'>" + data.address + "</td>"+
+		"</tr>"+
+		"<tr>"+
+				"<td class='text-muted'>Date of Birth</td>"+								   	
+		"<td style='width: 80%; font-weight: bold;'>" + data.dob + "</td>"+
+		"</tr>"+
+		"<tr>"+
+			"<td class='text-muted'>Gender</td>"+								   	
+			"<td style='width: 80%; font-weight: bold;'>" + data.gender + "</td>"+
+		"</tr>"+
+		"<tr>"+
+			"<td class='text-muted'>Nationality</td>"+								   	
+			"<td style='width: 80%; font-weight: bold;'>" + data.nationality + "</td>"+
 		"</tr>"+
 		"</thead>");
 
 		$('.pull').replaceWith(
-			" "+"<a href='#' class='edit-modal btn btn-sm btn-light pull' data-toggle='modal' data-target='#modal-block-large' data-id='"+data.id+"' data-name='"+data.name+"'><i class='fa fa-fw fa-edit'></i>Edit </a>"
+			" "+"<a href='#' class='edit-modal btn btn-sm btn-light pull' data-toggle='modal' data-target='#modal-block-large' data-id='"+data.id+"' data-name='"+data.name+"' data-email='"+data.email+"' data-ic_no='"+data.ic_no+"' data-contact_no='"+data.contact_no+"' data-address='"+data.address+"' data-dob='"+data.dob+"' data-gender='"+data.gender+"' data-nationality='"+data.nationality+"'><i class='fa fa-fw fa-edit'></i>Edit </a>"
 	 );
 
 		}

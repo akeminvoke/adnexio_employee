@@ -84,6 +84,13 @@ class ProfileAboutmeController extends Controller
     {
 		$user = User::find ($request->id);
 		$user->name = $request->name;
+		$user->email = $request->email;
+		$user->ic_no = $request->ic_no;
+		$user->contact_no = $request->contact_no;
+		$user->address = $request->address;
+		$user->dob = $request->dob;
+		$user->gender = $request->gender;
+		$user->nationality = $request->nationality;
 		$user->save();
 		return response()->json($user);
 	}

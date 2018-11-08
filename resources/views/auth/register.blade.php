@@ -17,7 +17,7 @@
                         <!-- Header -->
                         <div class="mb-3 text-center">
                             <a class="link-fx text-success font-w700 font-size-h1" href="index.html">
-                                <span class="text-dark">Adnexio</span><span class="text-primary">.com</span>
+                                <span class="text-primary">Adnexio</span>
                             </a>
                             <p class="text-uppercase font-w700 font-size-sm text-muted">Create New Account</p>
                         </div>

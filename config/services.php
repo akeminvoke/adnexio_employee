@@ -38,7 +38,7 @@ return [
     'facebook' => [
         'client_id' => '369718840435260',
         'client_secret' => 'b4b09df578850dc4538ef162673b886c',
-        'redirect' => 'https://employee.adnexio.my/callback',
+        'redirect' => 'https://career.adnexio.my/callback',
     ],
 	
 	/*
@@ -52,7 +52,7 @@ return [
     'google' => [
         'client_id' => '168357464964-ahqgllohfl1q15cqucjt6vguon1i73q9.apps.googleusercontent.com',
         'client_secret' => 'VGrJdLa6dXUsS3sRTcudOEKP',
-        'redirect' => 'https://employee.adnexio.my/gcallback',
+        'redirect' => 'https://career.adnexio.my/gcallback',
 	],
 		
 	/*	

@@ -11,7 +11,7 @@
             <div class="block-header block-header-default">
                 <h3 class="block-title"><i class="nav-main-link-icon fa fa-address-card"></i> &nbsp;About Me</h3>
                 <div class="block-options">
-                    <a href="#" class="edit-modal btn btn-sm btn-light pull" data-toggle="modal" data-target="#modal-block-large" data-id="{{$user->id}}" data-name="{{$user->name}}" data-email="{{$user->email}}" data-icno="{{$user->icno}}" data-contactno="{{$user->contactno}}" data-address="{{$user->address}}" data-dateofbirth="{{$user->dateofbirth}}" data-gender="{{$user->gender}}" data-nationality="{{$user->nationality}}" >
+                    <a href="#" class="edit-modal btn btn-sm btn-light pull" data-toggle="modal" data-target="#modal-block-large" data-id="{{$user->id}}" data-name="{{$user->name}}" data-email="{{$user->email}}" data-ic_no="{{$user->ic_no}}" data-contact_no="{{$user->contact_no}}" data-address="{{$user->address}}" data-dob="{{$user->dob}}" data-gender="{{$user->gender}}" data-nationality="{{$user->nationality}}" >
               			<i class="fa fa-fw fa-edit"></i> Edit
             		</a>
                 </div>
@@ -67,8 +67,9 @@
                                         <td class="text-muted">ID</th>
                                         <td style="width: 70%; font-weight: bold;">{{ $user->id }}</th>
                                     </tr>-->
+                                    <input type="hidden" class="form-control" value="{{$user->id }}" readonly >
                                     <tr>
-                                        <td class="text-muted">Name <form><input type="hidden" class="form-control" id="ide" value={{$user->id }} readonly></form></th>
+                                        <td class="text-muted">Name</th>
                                         <td style="width: 80%; font-weight: bold;">{{ $user->name }}</th>
                                     </tr>
                                     <tr>
@@ -77,27 +78,27 @@
                                     </tr>
                                     <tr>
                                         <th class="text-muted">Identification No.</th>
-                                        <th style="width: 80%; font-weight: bold;">{{ $user->email }}</th>
+                                        <th style="width: 80%; font-weight: bold;">{{ $user->ic_no }}</th>
                                     </tr>
                                     <tr>
                                         <th class="text-muted">Contact No.</th>
-                                        <th style="width: 80%; font-weight: bold;">{{ $user->password }}</th>
+                                        <th style="width: 80%; font-weight: bold;">{{ $user->contact_no }}</th>
                                     </tr>
                                     <tr>
                                         <th class="text-muted">Address</th>
-                                        <th style="width: 80%; font-weight: bold;">{{ $user->password }}</th>
+                                        <th style="width: 80%; font-weight: bold;">{{ $user->address }}</th>
                                     </tr>
                                     <tr>
                                         <th class="text-muted">Date of Birth</th>
-                                        <th style="width: 80%; font-weight: bold;">{{ $user->password }}</th>
+                                        <th style="width: 80%; font-weight: bold;">{{ $user->dob }}</th>
                                     </tr>
                                     <tr>
                                         <th class="text-muted">Gender</th>
-                                        <th style="width: 80%; font-weight: bold;">{{ $user->password }}</th>
+                                        <th style="width: 80%; font-weight: bold;">{{ $user->gender }}</th>
                                     </tr>
                                     <tr>
                                         <th class="text-muted">Nationality</th>
-                                        <th style="width: 80%; font-weight: bold;">{{ $user->password }}</th>
+                                        <th style="width: 80%; font-weight: bold;">{{ $user->nationality }}</th>
                                     </tr>
 
                                 </thead>
@@ -138,7 +139,7 @@
                                         </div>
                                     </div>
                                     
-                                    <form class="js-validation" role="modal">
+                                    <form id="js-validation" role="modal">
                                         <div class="block-content">                                     
                                             <div class="table-responsive">
                                                 <table class="table table-borderless table-striped table-vcenter">
@@ -154,27 +155,27 @@
                                                         </tr>
                                                         <tr>
                                                             <th>Identification No.</th>
-                                                            <th style="width: 70%;"><input type="text" class="form-control" id="password"></th>
+                                                            <th style="width: 70%;"><input type="text" class="form-control" id="ic_no"></th>
                                                         </tr>
                                                         <tr>
                                                             <th>Contact No.</th>
-                                                            <th style="width: 70%;"><input type="text" class="form-control" id="password"></th>
+                                                            <th style="width: 70%;"><input type="text" class="form-control" id="contact_no"></th>
                                                         </tr>
                                                         <tr>
                                                             <th>Address</th>
-                                                            <th style="width: 70%;"><input type="text" class="form-control" id="password"></th>
+                                                            <th style="width: 70%;"><input type="text" class="form-control" id="address"></th>
                                                         </tr>
                                                         <tr>
                                                             <th>Date of Birth</th>
-                                                            <th style="width: 70%;"><input type="text" class="form-control" id="password"></th>
+                                                            <th style="width: 70%;"><input type="text" class="form-control" id="dob"></th>
                                                         </tr>
                                                         <tr>
                                                             <th>Gender</th>
-                                                            <th style="width: 70%;"><input type="text" class="form-control" id="password"></th>
+                                                            <th style="width: 70%;"><input type="text" class="form-control" id="gender"></th>
                                                         </tr>
                                                         <tr>
                                                             <th>Nationality</th>
-                                                            <th style="width: 70%;"><input type="text" class="form-control" id="password"></th>
+                                                            <th style="width: 70%;"><input type="text" class="form-control" id="nationality"></th>
                                                         </tr>
                                                     </thead>
                                                 </table>
