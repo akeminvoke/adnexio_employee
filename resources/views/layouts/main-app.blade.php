@@ -26,13 +26,16 @@
     <link rel="stylesheet" href="{!! asset('assets/js/plugins/datatables/dataTables.bootstrap4.css') !!}">
     <link rel="stylesheet" href="{!! asset('assets/js/plugins/datatables/buttons-bs4/buttons.bootstrap4.min.css') !!}">
     
+    <!-- Datepicker CSS -->
+    <link rel="stylesheet" href="{!! asset('assets/js/plugins/bootstrap-datepicker/css/bootstrap-datepicker3.min.css') !!}">
+    
     <!-- Video Element CSS/JS -->
     <link href="https://cdn.webrtc-experiment.com/getHTMLMediaElement.css" rel="stylesheet">
     <script src="https://cdn.webrtc-experiment.com/getHTMLMediaElement.js"></script>
                         
     <!-- Video RecordRTC JS -->                    
 	<script src="https://cdn.webrtc-experiment.com/RecordRTC.js"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.">
+    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.">-->
 
     <!-- For Edge/FF/Chrome/Opera/etc. getUserMedia support -->
     <script src="https://webrtc.github.io/adapter/adapter-latest.js"></script>
@@ -429,8 +432,7 @@
 
 
     <!-- Edit My Profile Aboutme -->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
 	<script type="text/javascript">
 
 	// function Edit POST
@@ -443,20 +445,24 @@
 	$('.actionBtn').removeClass('btn-danger');
 	$('.actionBtn').addClass('edit');
 	$('.modal-title').text('Post Edit');
-	$('#js-validation').show();
+	//$('#js-validation').show();
 	$('#id').val($(this).data('id'));
 	$('#name').val($(this).data('name'));
 	$('#email').val($(this).data('email'));
 	$('#ic_no').val($(this).data('ic_no'));
 	$('#contact_no').val($(this).data('contact_no'));
 	$('#address').val($(this).data('address'));
+	$('#address1').val($(this).data('address1'));
+	$('#postal_code').val($(this).data('postal_code'));
+	$('#city').val($(this).data('city'));		
+	$('#state').val($(this).data('state'));	
+	$('#country').val($(this).data('country'));
 	$('#dob').val($(this).data('dob'));
 	$('#gender').val($(this).data('gender'));
-	$('#nationality').val($(this).data('nationality'));
 	$('#modal-block-large').modal('show');
 	});
 
-	$('.modal-footer').on('click', '.edit', function() {
+	$('.col-lg-7').on('click', '.edit', function() {
 	  $.ajax({
 		type: 'POST',
 		url: '/profile/profile_aboutme',
@@ -468,53 +474,16 @@
 	'ic_no': $('#ic_no').val(),
 	'contact_no': $('#contact_no').val(),
 	'address': $('#address').val(),
+	'address1': $('#address1').val(),
+	'postal_code': $('#postal_code').val(),
+	'city': $('#city').val(),	
+	'state': $('#state').val(),
+	'country': $('#country').val(),	
 	'dob': $('#dob').val(),
-	'gender': $('#gender').val(),
-	'nationality': $('#nationality').val()
+	'gender': $('#gender').val()
 	},
 	success: function(data) {
-
-		$('.user' + data.id).replaceWith(" "+
-
-		"<thead class='user{{$user->id}}'>"+
-		"<tr>"+
-			"<td class='text-muted'>Name</td>"+								   	
-			"<td style='width: 80%; font-weight: bold;'>" + data.name + "</td>"+
-		"</tr>"+
-		"<tr>"+
-			"<td class='text-muted'>Email Address</td>"+								   	
-			"<td style='width: 80%; font-weight: bold;'>" + data.email + "</td>"+
-		"</tr>"+
-		"<tr>"+
-			"<td class='text-muted'>Identification No.</td>"+								   	
-			"<td style='width: 80%; font-weight: bold;'>" + data.ic_no + "</td>"+
-		"</tr>"+
-		"<tr>"+
-			"<td class='text-muted'>Contact No.</td>"+								   	
-			"<td style='width: 80%; font-weight: bold;'>" + data.contact_no + "</td>"+
-		"</tr>"+
-		"<tr>"+
-			"<td class='text-muted'>Address</td>"+								   	
-			"<td style='width: 80%; font-weight: bold;'>" + data.address + "</td>"+
-		"</tr>"+
-		"<tr>"+
-				"<td class='text-muted'>Date of Birth</td>"+								   	
-		"<td style='width: 80%; font-weight: bold;'>" + data.dob + "</td>"+
-		"</tr>"+
-		"<tr>"+
-			"<td class='text-muted'>Gender</td>"+								   	
-			"<td style='width: 80%; font-weight: bold;'>" + data.gender + "</td>"+
-		"</tr>"+
-		"<tr>"+
-			"<td class='text-muted'>Nationality</td>"+								   	
-			"<td style='width: 80%; font-weight: bold;'>" + data.nationality + "</td>"+
-		"</tr>"+
-		"</thead>");
-
-		$('.pull').replaceWith(
-			" "+"<a href='#' class='edit-modal btn btn-sm btn-light pull' data-toggle='modal' data-target='#modal-block-large' data-id='"+data.id+"' data-name='"+data.name+"' data-email='"+data.email+"' data-ic_no='"+data.ic_no+"' data-contact_no='"+data.contact_no+"' data-address='"+data.address+"' data-dob='"+data.dob+"' data-gender='"+data.gender+"' data-nationality='"+data.nationality+"'><i class='fa fa-fw fa-edit'></i>Edit </a>"
-	 );
-
+		location.reload();
 		}
 	  });
 	});
@@ -544,10 +513,14 @@
     <script src="{!! asset('assets/js/plugins/datatables/buttons/buttons.flash.min.js') !!}"></script>
     <script src="{!! asset('assets/js/plugins/datatables/buttons/buttons.colVis.min.js') !!}"></script>
 
+    <!-- Page JS Datepicker -->
+    <script src="{!! asset('assets/js/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js') !!}"></script> 
+
     <!-- Page JS Select2 -->
     <script src="{!! asset('assets/js/plugins/select2/js/select2.full.min.js') !!}"></script>
     <script src="{!! asset('assets/js/plugins/jquery-validation/jquery.validate.min.js') !!}"></script>
     <script src="{!! asset('assets/js/plugins/jquery-validation/additional-methods.js') !!}"></script>
+    <script src="{!! asset('assets/js/plugins/jquery.maskedinput/jquery.maskedinput.min.js') !!}"></script>
 
     <!-- Page JS Home Dashboard -->
     <script src="{!! asset('assets/js/pages/be_pages_dashboard.min.js') !!}"></script>
@@ -556,13 +529,11 @@
     <script src="{!! asset('assets/js/pages/be_tables_datatables.min.js') !!}"></script>
 
     <!-- Page JS Form Validation -->
-    <script src="{!! asset('assets/js/pages/be_forms_validation.min.js') !!}"></script> 
+    <script src="{!! asset('assets/js/pages/be_forms_validation.min.js') !!}"></script>
 
     <!-- Page JS Helpers (jQuery Sparkline plugin) -->
-    <script>jQuery(function(){ Dashmix.helpers('sparkline'); });</script>
+    <script>jQuery(function(){ Dashmix.helpers(['sparkline', 'select2', 'datepicker', 'masked-inputs']); });</script>
 
-    <!-- Page JS Helpers (jQuery Sparkline plugin) -->
-    <script>jQuery(function(){ Dashmix.helpers('select2'); });</script>
 
 
     <script>

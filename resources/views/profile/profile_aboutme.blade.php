@@ -11,7 +11,7 @@
             <div class="block-header block-header-default">
                 <h3 class="block-title"><i class="nav-main-link-icon fa fa-address-card"></i> &nbsp;About Me</h3>
                 <div class="block-options">
-                    <a href="#" class="edit-modal btn btn-sm btn-light pull" data-toggle="modal" data-target="#modal-block-large" data-id="{{$user->id}}" data-name="{{$user->name}}" data-email="{{$user->email}}" data-ic_no="{{$user->ic_no}}" data-contact_no="{{$user->contact_no}}" data-address="{{$user->address}}" data-dob="{{$user->dob}}" data-gender="{{$user->gender}}" data-nationality="{{$user->nationality}}" >
+                    <a href="#" class="edit-modal btn btn-sm btn-light pull" data-toggle="modal" data-target="#modal-block-large" data-id="{{$user->id}}" data-name="{{$user->name}}" data-email="{{$user->email}}" data-ic_no="{{$user->ic_no}}" data-contact_no="{{$user->contact_no}}" data-address="{{$user->address}}" data-address1="{{$user->address1}}" data-postal_code="{{$user->postal_code}}" data-city="{{$user->city}}" data-state="{{$user->state}}" data-country="{{$user->country}}"  data-dob="{{$user->dob}}" data-gender="{{$user->gender}}">
               			<i class="fa fa-fw fa-edit"></i> Edit
             		</a>
                 </div>
@@ -70,36 +70,41 @@
                                     <input type="hidden" class="form-control" value="{{$user->id }}" readonly >
                                     <tr>
                                         <td class="text-muted">Name</th>
-                                        <td style="width: 80%; font-weight: bold;">{{ $user->name }}</th>
+                                        <td style="width: 70%; font-weight: bold;">{{ $user->name }}</th>
                                     </tr>
                                     <tr>
                                         <th class="text-muted">Email Address</th>
-                                        <th style="width: 80%; font-weight: bold;">{{ $user->email }}</th>
+                                        <th style="width: 70%; font-weight: bold;">{{ $user->email }}</th>
                                     </tr>
                                     <tr>
                                         <th class="text-muted">Identification No.</th>
-                                        <th style="width: 80%; font-weight: bold;">{{ $user->ic_no }}</th>
+                                        <th style="width: 70%; font-weight: bold;">{{ $user->ic_no }}</th>
                                     </tr>
                                     <tr>
                                         <th class="text-muted">Contact No.</th>
-                                        <th style="width: 80%; font-weight: bold;">{{ $user->contact_no }}</th>
+                                        <th style="width: 70%; font-weight: bold;">{{ $user->contact_no }}</th>
                                     </tr>
                                     <tr>
                                         <th class="text-muted">Address</th>
-                                        <th style="width: 80%; font-weight: bold;">{{ $user->address }}</th>
+                                        <th style="width: 70%; font-weight: bold;">{{ $user->address }}, {{ $user->address1 }}, {{ $user->postal_code }}, {{ $user->city }}, {{ $user->state }}, {{ $user->country }}</th>
+                                    </tr>
+                                    <!--<tr>
+                                        <th class="text-muted">State</th>
+                                        <th style="width: 70%; font-weight: bold;">{{ $user->state }}</th>
                                     </tr>
                                     <tr>
+                                        <th class="text-muted">Country</th>
+                                        <th style="width: 70%; font-weight: bold;">{{ $user->country }}</th>
+                                    </tr>-->                                    
+                                    <tr>
                                         <th class="text-muted">Date of Birth</th>
-                                        <th style="width: 80%; font-weight: bold;">{{ $user->dob }}</th>
+                                        <th style="width: 70%; font-weight: bold;">{{ $user->dob }}</th>
                                     </tr>
                                     <tr>
                                         <th class="text-muted">Gender</th>
-                                        <th style="width: 80%; font-weight: bold;">{{ $user->gender }}</th>
+                                        <th style="width: 70%; font-weight: bold;">{{ $user->gender }}</th>
                                     </tr>
-                                    <tr>
-                                        <th class="text-muted">Nationality</th>
-                                        <th style="width: 80%; font-weight: bold;">{{ $user->nationality }}</th>
-                                    </tr>
+
 
                                 </thead>
                                 <!--<tbody>
@@ -124,8 +129,10 @@
                     </div>-->
                     <!-- END Submit -->
                     
-                    
+                  
                     <!-- Fade In Large Block Modal -->
+                    
+                    <form class="js-validation" action="/profile/profile_aboutme" method="post">  
                     <div class="modal fade" id="modal-block-large" tabindex="-1" role="dialog" aria-labelledby="modal-block-large" aria-hidden="true">
                         <div class="modal-dialog modal-lg" role="document">
                             <div class="modal-content">
@@ -139,50 +146,103 @@
                                         </div>
                                     </div>
                                     
-                                    <form id="js-validation" role="modal">
-                                        <div class="block-content">                                     
-                                            <div class="table-responsive">
-                                                <table class="table table-borderless table-striped table-vcenter">
-                                                    <thead>
-                                                        <input type="hidden" class="form-control" id="id">
-                                                        <tr>
-                                                            <th>Name</th>
-                                                            <th style="width: 70%;"><input type="text" class="form-control" id="name" name="val-username"></th>
-                                                        </tr>
-                                                        <tr>
-                                                            <th>Email Address</th>
-                                                            <th style="width: 70%;"><input type="email" class="form-control" id="email" readonly></th>
-                                                        </tr>
-                                                        <tr>
-                                                            <th>Identification No.</th>
-                                                            <th style="width: 70%;"><input type="text" class="form-control" id="ic_no"></th>
-                                                        </tr>
-                                                        <tr>
-                                                            <th>Contact No.</th>
-                                                            <th style="width: 70%;"><input type="text" class="form-control" id="contact_no"></th>
-                                                        </tr>
-                                                        <tr>
-                                                            <th>Address</th>
-                                                            <th style="width: 70%;"><input type="text" class="form-control" id="address"></th>
-                                                        </tr>
-                                                        <tr>
-                                                            <th>Date of Birth</th>
-                                                            <th style="width: 70%;"><input type="text" class="form-control" id="dob"></th>
-                                                        </tr>
-                                                        <tr>
-                                                            <th>Gender</th>
-                                                            <th style="width: 70%;"><input type="text" class="form-control" id="gender"></th>
-                                                        </tr>
-                                                        <tr>
-                                                            <th>Nationality</th>
-                                                            <th style="width: 70%;"><input type="text" class="form-control" id="nationality"></th>
-                                                        </tr>
-                                                    </thead>
-                                                </table>
-                                             </div>
-                                        </div>
 
-                                        <div class="modal-footer">
+            						<div class="block-content block-content-full">
+                                        <div class="">
+											<input type="hidden" class="form-control" id="id">
+                                            <div class="row items-push">
+                                                <div class="col-lg-4">
+                                                    <p class="text-muted">
+                                                        Kindly update your personal information.
+                                                    </p>
+                                                </div>
+                                                <div class="col-lg-8 col-xl-8">
+                                                    <div class="form-group">
+                                                        <label for="val-username">Name <span class="text-danger">*</span></label>
+                                                        <input type="text" class="form-control" id="name" name="val-username" placeholder="Enter a username..">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="val-username">Email Address <span class="text-danger">*</span></label>
+                                                        <input type="text" class="form-control" id="email" name="val-username" placeholder="Enter a username.." disabled>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="val-suggestions">Identification No. <span class="text-danger">*</span></label>
+                                                        <input type="text" class="form-control" id="ic_no" name="example-masked-phone" placeholder="Your valid email.." pattern="[0-9]{6}-[0-9]{2}-[0-9]{4}">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="val-suggestions">Contact No. <span class="text-danger">*</span></label>
+                                                        <!--<input type="text" class="form-control" id="contact_no" name="val-suggestions" placeholder="Your valid email..">-->
+                                                        <input type="text" class="form-control" id="contact_no" name="val-username" placeholder="019-9999999" pattern="[0-9]{3}-[0-9]{3} [0-9]{4}">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="val-suggestions">Address <span class="text-danger">*</span></label>
+                                                        <input type="text" class="form-control" id="address" name="val-suggestions" placeholder="Your valid email..">
+                                                    </div>
+                                                     <div class="form-group">
+                                                        <input type="text" class="form-control" id="address1" name="val-suggestions" placeholder="Your valid email..">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="val-suggestions">Postal Code <span class="text-danger">*</span></label>
+                                                        <input type="text" class="form-control" id="postal_code" name="val-suggestions" placeholder="Your valid email..">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="val-suggestions">City <span class="text-danger">*</span></label>
+                                                        <input type="text" class="form-control" id="city" name="val-suggestions" placeholder="Your valid email..">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="val-suggestions">State <span class="text-danger">*</span></label>
+                                                        <!--<input type="text" class="form-control" id="address" name="val-suggestions" placeholder="Your valid email..">-->
+                                                        <select class="form-control" id="state" name="val-skill">
+                                                        	<option value="" selected>Please Select</option>
+                                                        @foreach($states as $key => $state)
+                                                            <option value="{{ $state->name }}">{{ $state->name }}</option>
+                                                        @endforeach
+                                                        </select>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="val-suggestions">Country <span class="text-danger">*</span></label>
+                                                        <!--<input type="text" class="form-control" id="country" name="val-suggestions" placeholder="Your valid email..">--> 
+                                                        <select class="form-control" id="country" name="val-skill">
+                                                        	<option value="" selected>Please Select</option>
+                                                        @foreach($countries as $key => $country)
+                                                            <option value="{{ $country->nicename }}">{{ $country->nicename }}</option>
+                                                        @endforeach
+                                                        </select>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="val-suggestions">Date of Birth <span class="text-danger">*</span></label>
+                                                        <!--<input type="text" class="form-control" id="dob" name="val-suggestions" placeholder="Your valid email..">-->
+                                                        <input type="text" class="js-datepicker form-control" id="dob" name="val-suggestions" data-week-start="1" data-autoclose="true" data-today-highlight="true" data-date-format="dd/mm/yyyy" placeholder="dd/mm/yyyy">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="val-suggestions">Gender <span class="text-danger">*</span></label>
+                                                        <!--<input type="text" class="form-control" id="gender" name="val-suggestions" placeholder="Your valid email..">-->
+                                                        <select class="form-control" id="gender" name="val-skill">
+                                                            <option value="" selected>Please select</option>
+                                                            <option value="Male">Male</option>
+                                                            <option value="Female">Female</option>
+                                                        </select>
+                                                    </div>
+                                                    
+                                                </div>
+                                            </div>
+                                            <!-- END Regular -->
+                          
+
+                          
+                                            <!-- Submit -->
+                                            <div class="row items-push">
+                                                <div class="col-lg-7 offset-lg-4">
+                                                    <button type="submit" class="btn actionBtn"><span id="footer_action_button" class="glyphicon"></span></button>
+                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                                              <span class="glyphicon glyphicon"></span>Close
+                                            </button>
+                                                </div>
+                                            </div>
+                                            
+                                            
+                                            
+                                        <!--<div class="modal-footer">
                                             <button type="button" class="btn btn-secondary" data-dismiss="modal">
                                               <span class="glyphicon glyphicon"></span>Close
                                             </button>
@@ -190,12 +250,21 @@
                                             <button type="submit" class="btn actionBtn" data-dismiss="modal">
                                               <span id="footer_action_button" class="glyphicon"></span>
                                             </button>
+                                        </div>-->
+                                            
+                                            
+                                            <!-- END Submit -->
                                         </div>
-                                    </form>
+            						</div>
+            
+            
+            
+            
                                 </div>
                             </div>
                         </div>
                     </div>
+                    </form>
                     <!-- END Fade In Block Modal -->                    
                     
                     

@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use App\VideoInterview;
 use App\create_question;
+use App\States;
+use App\Country;
 use App\User;
 use Validator;
 use Response;
@@ -37,9 +39,11 @@ class ProfileAboutmeController extends Controller
     {
 		$user = Auth::guard($this->getGuard())->user();	
         $questions  = create_question::all();
+		$states  = States::all();
+		$countries  = Country::all();
         $videos = VideoInterview::where('user_id',$user->id)->get();
 
-        return $user->isAdmin() ? redirect('/admin') : view('/profile/profile_aboutme')->with(compact('user','questions','videos'));
+        return $user->isAdmin() ? redirect('/admin') : view('/profile/profile_aboutme')->with(compact('user','questions','videos', 'states', 'countries'));
     }
 
     private function getGuard()
@@ -82,17 +86,42 @@ class ProfileAboutmeController extends Controller
      */
     public function editPost(Request $request)
     {
-		$user = User::find ($request->id);
-		$user->name = $request->name;
-		$user->email = $request->email;
-		$user->ic_no = $request->ic_no;
-		$user->contact_no = $request->contact_no;
-		$user->address = $request->address;
-		$user->dob = $request->dob;
-		$user->gender = $request->gender;
-		$user->nationality = $request->nationality;
-		$user->save();
-		return response()->json($user);
+
+		
+		
+		$id = $request->id;
+		$name = $request->name;
+		$ic_no = $request->ic_no;
+		$contact_no = $request->contact_no;		
+		$address = $request->address;
+		$address1 = $request->address1;	
+		$postal_code = $request->postal_code;	
+		$city = $request->city;		
+		$state = $request->state;
+		$country = $request->country;
+		$dob = $request->dob;		
+		$gender = $request->gender;		
+				
+	
+		
+		$video = User::where("id",$id)
+		->update( 
+		   array( 
+				 "name" => $name,
+				 "ic_no" => $ic_no,
+				 "contact_no" => $contact_no,
+				 "address" => $address,
+				 "address1" => $address1,	
+				 "postal_code" => $postal_code,	
+				 "city" => $city,			 
+				 "state" => $state,
+				 "country" => $country,
+				 "dob" => $dob,
+				 "gender" => $gender
+				 )
+		   );
+		return redirect('/profile/profile_aboutme')->with('status', 'File save successfully.');
+		
 	}
 
 

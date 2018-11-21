@@ -17,9 +17,10 @@ class AddSomefieldUsers extends Migration
             $table->string('ic_no')->after('remember_token');
 			$table->string('contact_no')->after('ic_no');
 			$table->string('address')->after('contact_no');
-			$table->string('dob')->after('address');
+			$table->string('country')->after('address');
+			$table->string('dob')->after('country');
 			$table->string('gender')->after('dob');
-			$table->string('nationality')->after('gender');
+			//$table->string('nationality')->after('gender');
         });
     }
 
@@ -34,9 +35,10 @@ class AddSomefieldUsers extends Migration
         	$table->dropColumn('ic_no');
 			$table->dropColumn('contact_no');
 			$table->dropColumn('address');
+			$table->dropColumn('country');
 			$table->dropColumn('dob');
 			$table->dropColumn('gender');
-			$table->dropColumn('nationality');
+			//$table->dropColumn('nationality');
         });
     }
 }

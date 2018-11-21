@@ -7,8 +7,8 @@
     <div class="row row-deck">
    
         <!-- Main Video Recording Function -->
-        <div class="col-xl-6" data-toggle="appear">
-            <div class="block block-rounded block-mode-loading-refresh invisible" data-toggle="appear">
+        <div class="col-xl-6">
+            <div class="block block-rounded block-bordered">
                 <div class="block-header block-header-default">
                     <h3 class="block-title">Video Interview</h3>
                     <div class="block-options">
@@ -109,8 +109,8 @@
      
      
         <!-- Question Function -->
-        <div class="col-xl-6 invisible" data-toggle="appear">
-            <div class="block block-rounded block-mode-loading-refresh invisible" data-toggle="appear">
+        <div class="col-xl-6">
+            <div class="block block-rounded block-bordered">
                 <div class="block-header block-header-default">
                     <h3 class="block-title">Question To Answer</h3>
                     <div class="block-options" >
@@ -144,7 +144,7 @@
 
 
     <!-- Dynamic Table Full -->
-    <div class="block block-rounded block-mode-loading-refresh invisible" data-toggle="appear">
+    <div class="block block-rounded block-bordered">
         <div class="block-header block-header-default">
             <h3 class="block-title">Past Recorded Video</h3>
         </div>
