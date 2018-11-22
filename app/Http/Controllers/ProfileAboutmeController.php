@@ -29,8 +29,8 @@ class ProfileAboutmeController extends Controller
     {
         $this->middleware('auth');
     }
-
-
+	
+	
     /**
      * Show the application dashboard.
      *
@@ -89,10 +89,20 @@ class ProfileAboutmeController extends Controller
     public function editPost(Request $request)
     {
 
+
+		
+		
         $user = Auth::guard($this->getGuard())->user();
 		
-		if ($request->has('name','ic_no')) {
+		if ($request->has('name','ic_no','contact_no')) {
 
+		$this->validate($request, [
+			'name' => 'required|string|min:3',
+			'ic_no' => 'required|string|min:14',
+			//'contact_no' => 'required|string|min:12',			
+		]);		
+			
+			
 		$name = $request->name;
 		$ic_no = $request->ic_no;
 		$contact_no = $request->contact_no;		

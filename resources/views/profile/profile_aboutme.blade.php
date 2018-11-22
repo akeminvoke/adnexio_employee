@@ -11,9 +11,11 @@
             <div class="block-header block-header-default">
                 <h3 class="block-title"><i class="nav-main-link-icon fa fa-address-card"></i> &nbsp;About Me</h3>
                 <div class="block-options">
-                    <a href="#" class="edit-modal btn btn-sm btn-light pull" data-toggle="modal" data-target="#modal-block-large" data-id="{{$user->id}}" data-name="{{$user->name}}" data-email="{{$user->email}}" data-ic_no="@foreach($profiles as $profile){{ $profile->ic_no }}@endforeach" data-contact_no="{{$user->contact_no}}" data-address="{{$user->address}}" data-address1="{{$user->address1}}" data-postal_code="{{$user->postal_code}}" data-city="{{$user->city}}" data-state="{{$user->state}}" data-country="{{$user->country}}"  data-dob="{{$user->dob}}" data-gender="{{$user->gender}}">
+                   @foreach($profiles as $profile)
+                    <a href="#" class="edit-modal btn btn-sm btn-light pull" data-toggle="modal" data-target="#modal-block-large" data-id="{{$user->id}}" data-name="{{$user->name}}" data-email="{{$user->email}}" data-ic_no="{{ $profile->ic_no }}" data-contact_no="{{ $profile->contact_no }}" data-address="{{ $profile->address }}" data-address1="{{ $profile->address1 }}" data-postal_code="{{ $profile->postal_code }}" data-city="{{ $profile->city }}" data-state="{{ $profile->state }}" data-country="{{ $profile->country }}" data-dob="{{ $profile->dob }}" data-gender="{{ $profile->gender }}">
               			<i class="fa fa-fw fa-edit"></i> Edit
             		</a>
+               		@endforeach
                 </div>
             </div>
             <div class="block-content block-content-full">
@@ -60,9 +62,11 @@
                             </div>
                         </div>-->
                         <div class="table-responsive">
+
                             <table class="table table-borderless table-striped table-vcenter">
                                 <thead>
                                 @csrf
+
                                 	<!--<tr class="user{{$user->id}}">
                                         <td class="text-muted">ID</th>
                                         <td style="width: 70%; font-weight: bold;">{{ $user->id }}</th>
@@ -77,24 +81,16 @@
                                     </tr>
                                     <tr>
                                         <th class="text-muted">Identification No.</th>
-                                        <th style="width: 70%; font-weight: bold;">
-                                        
-											@foreach($profiles as $profile)
-                                                                                                    
-                                                 {{ $profile->ic_no }} 
-                                                           
-                                            @endforeach                                             
-                                        
-                                        
+                                        <th style="width: 70%; font-weight: bold;">{{ $profile->ic_no }}
                                         </th>
                                     </tr>
                                     <tr>
                                         <th class="text-muted">Contact No.</th>
-                                        <th style="width: 70%; font-weight: bold;">{{ $user->contact_no }}</th>
+                                        <th style="width: 70%; font-weight: bold;">{{ $profile->contact_no }}</th>
                                     </tr>
                                     <tr>
                                         <th class="text-muted">Address</th>
-                                        <th style="width: 70%; font-weight: bold;">{{ $user->address }}, {{ $user->address1 }}, {{ $user->postal_code }}, {{ $user->city }}, {{ $user->state }}, {{ $user->country }}</th>
+                                        <th style="width: 70%; font-weight: bold;">{{ $profile->address }}, {{ $profile->address1 }}, {{ $profile->postal_code }}, {{ $profile->city }}, {{ $profile->state }}, {{ $profile->country }}</th>
                                     </tr>
                                     <!--<tr>
                                         <th class="text-muted">State</th>
@@ -106,11 +102,11 @@
                                     </tr>-->                                    
                                     <tr>
                                         <th class="text-muted">Date of Birth</th>
-                                        <th style="width: 70%; font-weight: bold;">{{ $user->dob }}</th>
+                                        <th style="width: 70%; font-weight: bold;">{{ $profile->dob }}</th>
                                     </tr>
                                     <tr>
                                         <th class="text-muted">Gender</th>
-                                        <th style="width: 70%; font-weight: bold;">{{ $user->gender }}</th>
+                                        <th style="width: 70%; font-weight: bold;">{{ $profile->gender }}</th>
                                     </tr>
 
 
@@ -125,6 +121,7 @@
                                     </tr>
                                 </tbody>-->
                             </table>
+
                          </div>
                     
                     <!-- END Regular -->
@@ -166,21 +163,21 @@
                                                 </div>
                                                 <div class="col-lg-8 col-xl-8">
                                                     <div class="form-group">
-                                                        <label for="val-username">Full Name <span class="text-danger">*</span></label>
+                                                        <label>Full Name <span class="text-danger">*</span></label>
                                                         <input type="text" class="form-control" id="name" name="val-name" placeholder="Ali Bin Abu">
                                                     </div>
                                                     <div class="form-group">
-                                                        <label for="val-username">Email Address <span class="text-danger">*</span></label>
+                                                        <label>Email Address <span class="text-danger">*</span></label>
                                                         <input type="text" class="form-control" id="email" placeholder="test@test.comu" disabled>
                                                     </div>
                                                     <div class="form-group">
-                                                        <label for="val-suggestions">Identification No. <span class="text-danger">*</span></label>
-                                                        <input type="text" class="form-control" id="ic_no" placeholder="999999-99-9999" pattern="[0-9]{6}-[0-9]{2}-[0-9]{4}" required>
+                                                        <label>Identification No. <span class="text-danger">*</span></label>
+                                                        <input type="text" class="form-control" id="ic_no" placeholder="999999-99-9999" pattern="[0-9]{6}-[0-9]{2}-[0-9]{4}" maxlength="14" required>
                                                     </div>
                                                     <div class="form-group">
-                                                        <label for="val-suggestions">Contact No. <span class="text-danger">*</span></label>
-                                                        <!--<input type="text" class="form-control" id="contact_no" name="val-suggestions" placeholder="Your valid email..">-->
-                                                        <input type="text" class="form-control" id="contact_no" placeholder="999-999 9999 or 999-9999 9999" pattern="[0-9]{3}-[0-9]{3} [0-9]{4}|[0-9]{3}-[0-9]{4} [0-9]{4}">
+                                                        <label>Contact No. <span class="text-danger">*</span></label>
+      													<input type="text" class="form-control" id="contact_no" placeholder="999-999 9999 or 999-9999 9999" pattern="[0-9]{3}-[0-9]{3} [0-9]{4}|[0-9]{3}-[0-9]{4} [0-9]{4}" maxlength="12">
+                                                        <!--<input type="text" class="form-control" id="contact_no" placeholder="999-999 9999 or 999-9999 9999" pattern="[0-9]{3}-[0-9]{3} [0-9]{4}|[0-9]{3}-[0-9]{4} [0-9]{4}" maxlength="12" required>-->
                                                     </div>
                                                     <div class="form-group">
                                                         <label for="val-suggestions">Address <span class="text-danger">*</span></label>
@@ -213,7 +210,7 @@
                                                         <select class="form-control" id="country" >
                                                         	<option value="" selected>Please Select</option>
                                                         @foreach($countries as $key => $country)
-                                                            <option value="{{ $country->nicename }}">{{ $country->nicename }}</option>
+                                                            <option value="{{ $country->nicename }}">{{ $country->name }}</option>
                                                         @endforeach
                                                         </select>
                                                     </div>
