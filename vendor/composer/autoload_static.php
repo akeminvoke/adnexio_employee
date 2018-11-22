@@ -457,6 +457,7 @@ class ComposerStaticInita5858dfa896d45bc2eeaa0769b658a8e
 
     public static $classMap = array (
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
+        'App\\Country' => __DIR__ . '/../..' . '/app/Country.php',
         'App\\Cv' => __DIR__ . '/../..' . '/app/Cv.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
         'App\\Http\\Controllers\\API\\UserController' => __DIR__ . '/../..' . '/app/Http/Controllers/API/UserController.php',
@@ -498,6 +499,7 @@ class ComposerStaticInita5858dfa896d45bc2eeaa0769b658a8e
         'App\\Role' => __DIR__ . '/../..' . '/app/Role.php',
         'App\\Services\\SocialFacebookAccountService' => __DIR__ . '/../..' . '/app/services/SocialFacebookAccountService.php',
         'App\\SocialFacebookAccount' => __DIR__ . '/../..' . '/app/SocialFacebookAccount.php',
+        'App\\States' => __DIR__ . '/../..' . '/app/States.php',
         'App\\User' => __DIR__ . '/../..' . '/app/User.php',
         'App\\VideoInterview' => __DIR__ . '/../..' . '/app/VideoInterview.php',
         'App\\create_question' => __DIR__ . '/../..' . '/app/create_question.php',

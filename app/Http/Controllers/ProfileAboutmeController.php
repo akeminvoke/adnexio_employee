@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use App\VideoInterview;
 use App\create_question;
+use App\Profiles;
 use App\States;
 use App\Country;
 use App\User;
@@ -39,11 +40,12 @@ class ProfileAboutmeController extends Controller
     {
 		$user = Auth::guard($this->getGuard())->user();	
         $questions  = create_question::all();
+		$profiles  = Profiles::where('user_id',$user->id)->get();
 		$states  = States::all();
 		$countries  = Country::all();
         $videos = VideoInterview::where('user_id',$user->id)->get();
 
-        return $user->isAdmin() ? redirect('/admin') : view('/profile/profile_aboutme')->with(compact('user','questions','videos', 'states', 'countries'));
+        return $user->isAdmin() ? redirect('/admin') : view('/profile/profile_aboutme')->with(compact('user','questions', 'profiles', 'states', 'countries', 'videos'));
     }
 
     private function getGuard()
@@ -87,9 +89,10 @@ class ProfileAboutmeController extends Controller
     public function editPost(Request $request)
     {
 
+        $user = Auth::guard($this->getGuard())->user();
 		
-		
-		$id = $request->id;
+		if ($request->has('name','ic_no')) {
+
 		$name = $request->name;
 		$ic_no = $request->ic_no;
 		$contact_no = $request->contact_no;		
@@ -100,15 +103,16 @@ class ProfileAboutmeController extends Controller
 		$state = $request->state;
 		$country = $request->country;
 		$dob = $request->dob;		
-		$gender = $request->gender;		
-				
-	
+		$gender = $request->gender;	
+
+		$users = User::find ($user->id);
+		$users->name = $name;
+		$users->save();
 		
-		$video = User::where("id",$id)
+		$profiles = Profiles::where('user_id',$user->id)
 		->update( 
 		   array( 
-				 "name" => $name,
-				 "ic_no" => $ic_no,
+				 "ic_no" => $ic_no,	
 				 "contact_no" => $contact_no,
 				 "address" => $address,
 				 "address1" => $address1,	
@@ -117,12 +121,17 @@ class ProfileAboutmeController extends Controller
 				 "state" => $state,
 				 "country" => $country,
 				 "dob" => $dob,
-				 "gender" => $gender
+				 "gender" => $gender				 
 				 )
 		   );
+		}
+		
+		
+		
 		return redirect('/profile/profile_aboutme')->with('status', 'File save successfully.');
 		
 	}
+
 
 
     /**

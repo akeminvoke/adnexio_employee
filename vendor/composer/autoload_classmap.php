@@ -7,6 +7,7 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'App\\Console\\Kernel' => $baseDir . '/app/Console/Kernel.php',
+    'App\\Country' => $baseDir . '/app/Country.php',
     'App\\Cv' => $baseDir . '/app/Cv.php',
     'App\\Exceptions\\Handler' => $baseDir . '/app/Exceptions/Handler.php',
     'App\\Http\\Controllers\\API\\UserController' => $baseDir . '/app/Http/Controllers/API/UserController.php',
@@ -48,6 +49,7 @@ return array(
     'App\\Role' => $baseDir . '/app/Role.php',
     'App\\Services\\SocialFacebookAccountService' => $baseDir . '/app/services/SocialFacebookAccountService.php',
     'App\\SocialFacebookAccount' => $baseDir . '/app/SocialFacebookAccount.php',
+    'App\\States' => $baseDir . '/app/States.php',
     'App\\User' => $baseDir . '/app/User.php',
     'App\\VideoInterview' => $baseDir . '/app/VideoInterview.php',
     'App\\create_question' => $baseDir . '/app/create_question.php',

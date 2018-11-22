@@ -11,7 +11,7 @@
             <div class="block-header block-header-default">
                 <h3 class="block-title"><i class="nav-main-link-icon fa fa-address-card"></i> &nbsp;About Me</h3>
                 <div class="block-options">
-                    <a href="#" class="edit-modal btn btn-sm btn-light pull" data-toggle="modal" data-target="#modal-block-large" data-id="{{$user->id}}" data-name="{{$user->name}}" data-email="{{$user->email}}" data-ic_no="{{$user->ic_no}}" data-contact_no="{{$user->contact_no}}" data-address="{{$user->address}}" data-address1="{{$user->address1}}" data-postal_code="{{$user->postal_code}}" data-city="{{$user->city}}" data-state="{{$user->state}}" data-country="{{$user->country}}"  data-dob="{{$user->dob}}" data-gender="{{$user->gender}}">
+                    <a href="#" class="edit-modal btn btn-sm btn-light pull" data-toggle="modal" data-target="#modal-block-large" data-id="{{$user->id}}" data-name="{{$user->name}}" data-email="{{$user->email}}" data-ic_no="@foreach($profiles as $profile){{ $profile->ic_no }}@endforeach" data-contact_no="{{$user->contact_no}}" data-address="{{$user->address}}" data-address1="{{$user->address1}}" data-postal_code="{{$user->postal_code}}" data-city="{{$user->city}}" data-state="{{$user->state}}" data-country="{{$user->country}}"  data-dob="{{$user->dob}}" data-gender="{{$user->gender}}">
               			<i class="fa fa-fw fa-edit"></i> Edit
             		</a>
                 </div>
@@ -61,13 +61,12 @@
                         </div>-->
                         <div class="table-responsive">
                             <table class="table table-borderless table-striped table-vcenter">
-                                <thead class="user{{$user->id}}">
+                                <thead>
                                 @csrf
                                 	<!--<tr class="user{{$user->id}}">
                                         <td class="text-muted">ID</th>
                                         <td style="width: 70%; font-weight: bold;">{{ $user->id }}</th>
                                     </tr>-->
-                                    <input type="hidden" class="form-control" value="{{$user->id }}" readonly >
                                     <tr>
                                         <td class="text-muted">Name</th>
                                         <td style="width: 70%; font-weight: bold;">{{ $user->name }}</th>
@@ -78,7 +77,16 @@
                                     </tr>
                                     <tr>
                                         <th class="text-muted">Identification No.</th>
-                                        <th style="width: 70%; font-weight: bold;">{{ $user->ic_no }}</th>
+                                        <th style="width: 70%; font-weight: bold;">
+                                        
+											@foreach($profiles as $profile)
+                                                                                                    
+                                                 {{ $profile->ic_no }} 
+                                                           
+                                            @endforeach                                             
+                                        
+                                        
+                                        </th>
                                     </tr>
                                     <tr>
                                         <th class="text-muted">Contact No.</th>
@@ -158,41 +166,41 @@
                                                 </div>
                                                 <div class="col-lg-8 col-xl-8">
                                                     <div class="form-group">
-                                                        <label for="val-username">Name <span class="text-danger">*</span></label>
-                                                        <input type="text" class="form-control" id="name" name="val-username" placeholder="Enter a username..">
+                                                        <label for="val-username">Full Name <span class="text-danger">*</span></label>
+                                                        <input type="text" class="form-control" id="name" name="val-name" placeholder="Ali Bin Abu">
                                                     </div>
                                                     <div class="form-group">
                                                         <label for="val-username">Email Address <span class="text-danger">*</span></label>
-                                                        <input type="text" class="form-control" id="email" name="val-username" placeholder="Enter a username.." disabled>
+                                                        <input type="text" class="form-control" id="email" placeholder="test@test.comu" disabled>
                                                     </div>
                                                     <div class="form-group">
                                                         <label for="val-suggestions">Identification No. <span class="text-danger">*</span></label>
-                                                        <input type="text" class="form-control" id="ic_no" name="example-masked-phone" placeholder="Your valid email.." pattern="[0-9]{6}-[0-9]{2}-[0-9]{4}">
+                                                        <input type="text" class="form-control" id="ic_no" placeholder="999999-99-9999" pattern="[0-9]{6}-[0-9]{2}-[0-9]{4}" required>
                                                     </div>
                                                     <div class="form-group">
                                                         <label for="val-suggestions">Contact No. <span class="text-danger">*</span></label>
                                                         <!--<input type="text" class="form-control" id="contact_no" name="val-suggestions" placeholder="Your valid email..">-->
-                                                        <input type="text" class="form-control" id="contact_no" name="val-username" placeholder="019-9999999" pattern="[0-9]{3}-[0-9]{3} [0-9]{4}">
+                                                        <input type="text" class="form-control" id="contact_no" placeholder="999-999 9999 or 999-9999 9999" pattern="[0-9]{3}-[0-9]{3} [0-9]{4}|[0-9]{3}-[0-9]{4} [0-9]{4}">
                                                     </div>
                                                     <div class="form-group">
                                                         <label for="val-suggestions">Address <span class="text-danger">*</span></label>
-                                                        <input type="text" class="form-control" id="address" name="val-suggestions" placeholder="Your valid email..">
+                                                        <input type="text" class="form-control" id="address"  placeholder="Address 1">
                                                     </div>
                                                      <div class="form-group">
-                                                        <input type="text" class="form-control" id="address1" name="val-suggestions" placeholder="Your valid email..">
+                                                        <input type="text" class="form-control" id="address1" placeholder="Address 2">
                                                     </div>
                                                     <div class="form-group">
                                                         <label for="val-suggestions">Postal Code <span class="text-danger">*</span></label>
-                                                        <input type="text" class="form-control" id="postal_code" name="val-suggestions" placeholder="Your valid email..">
+                                                        <input type="text" class="form-control" id="postal_code" placeholder="Your valid email..">
                                                     </div>
                                                     <div class="form-group">
                                                         <label for="val-suggestions">City <span class="text-danger">*</span></label>
-                                                        <input type="text" class="form-control" id="city" name="val-suggestions" placeholder="Your valid email..">
+                                                        <input type="text" class="form-control" id="city" placeholder="Your valid email..">
                                                     </div>
                                                     <div class="form-group">
                                                         <label for="val-suggestions">State <span class="text-danger">*</span></label>
                                                         <!--<input type="text" class="form-control" id="address" name="val-suggestions" placeholder="Your valid email..">-->
-                                                        <select class="form-control" id="state" name="val-skill">
+                                                        <select class="form-control" id="state" >
                                                         	<option value="" selected>Please Select</option>
                                                         @foreach($states as $key => $state)
                                                             <option value="{{ $state->name }}">{{ $state->name }}</option>
@@ -202,7 +210,7 @@
                                                     <div class="form-group">
                                                         <label for="val-suggestions">Country <span class="text-danger">*</span></label>
                                                         <!--<input type="text" class="form-control" id="country" name="val-suggestions" placeholder="Your valid email..">--> 
-                                                        <select class="form-control" id="country" name="val-skill">
+                                                        <select class="form-control" id="country" >
                                                         	<option value="" selected>Please Select</option>
                                                         @foreach($countries as $key => $country)
                                                             <option value="{{ $country->nicename }}">{{ $country->nicename }}</option>
@@ -212,12 +220,12 @@
                                                     <div class="form-group">
                                                         <label for="val-suggestions">Date of Birth <span class="text-danger">*</span></label>
                                                         <!--<input type="text" class="form-control" id="dob" name="val-suggestions" placeholder="Your valid email..">-->
-                                                        <input type="text" class="js-datepicker form-control" id="dob" name="val-suggestions" data-week-start="1" data-autoclose="true" data-today-highlight="true" data-date-format="dd/mm/yyyy" placeholder="dd/mm/yyyy">
+                                                        <input type="text" class="js-datepicker form-control" id="dob" data-week-start="1" data-autoclose="true" data-today-highlight="true" data-date-format="dd/mm/yyyy" placeholder="dd/mm/yyyy">
                                                     </div>
                                                     <div class="form-group">
                                                         <label for="val-suggestions">Gender <span class="text-danger">*</span></label>
                                                         <!--<input type="text" class="form-control" id="gender" name="val-suggestions" placeholder="Your valid email..">-->
-                                                        <select class="form-control" id="gender" name="val-skill">
+                                                        <select class="form-control" id="gender" >
                                                             <option value="" selected>Please select</option>
                                                             <option value="Male">Male</option>
                                                             <option value="Female">Female</option>

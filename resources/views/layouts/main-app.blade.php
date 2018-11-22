@@ -483,7 +483,7 @@
 	'gender': $('#gender').val()
 	},
 	success: function(data) {
-		location.reload();
+		//location.reload();
 		}
 	  });
 	});

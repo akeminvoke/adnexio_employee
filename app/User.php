@@ -17,7 +17,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'google_id', 'role_id', 'name', 'email', 'password', 'ic_no', 'contact_no', 'address', 'dob', 'gender', 'nationality', 'profile_images', 'is_activated'
+        'google_id', 'role_id', 'name', 'email', 'password', 'profile_images', 'is_activated'
     ];
 
     /**
@@ -53,6 +53,10 @@ class User extends Authenticatable
 
     public function Cvs() {
         return $this->hasMany('App\Cv');
+    }
+	
+	public function Profiles() {
+        return $this->hasMany('App\Profiles');
     }
 
 }
