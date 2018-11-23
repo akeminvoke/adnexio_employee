@@ -94,12 +94,22 @@ class ProfileAboutmeController extends Controller
 		
         $user = Auth::guard($this->getGuard())->user();
 		
-		if ($request->has('name','ic_no','contact_no')) {
+		//if ($request->has('name','ic_no','contact_no','address','address1','postal_code','city','state','country','dob','gender')) {
+
+		if ($request->has('name','ic_no','contact_no','address','address1','postal_code','city','state','country','dob','gender')) {
 
 		$this->validate($request, [
 			'name' => 'required|string|min:3',
 			'ic_no' => 'required|string|min:14',
-			//'contact_no' => 'required|string|min:12',			
+			'contact_no' => 'required|string|min:12',	
+			'address' => 'required',
+			'address1' => 'required',
+			'postal_code' => 'required|string|min:5',
+			'city' => 'required',
+			'state' => 'required',
+			'country' => 'required',
+			'dob' => 'required',
+			'gender' => 'required',		
 		]);		
 			
 			
@@ -113,27 +123,25 @@ class ProfileAboutmeController extends Controller
 		$state = $request->state;
 		$country = $request->country;
 		$dob = $request->dob;		
-		$gender = $request->gender;	
+		$gender = $request->gender;		
 
 		$users = User::find ($user->id);
 		$users->name = $name;
 		$users->save();
 		
-		$profiles = Profiles::where('user_id',$user->id)
-		->update( 
-		   array( 
-				 "ic_no" => $ic_no,	
-				 "contact_no" => $contact_no,
-				 "address" => $address,
-				 "address1" => $address1,	
-				 "postal_code" => $postal_code,	
-				 "city" => $city,			 
-				 "state" => $state,
-				 "country" => $country,
-				 "dob" => $dob,
-				 "gender" => $gender				 
-				 )
-		   );
+		$profiles = Profiles::find($user->id);
+		$profiles->ic_no = $ic_no;
+		$profiles->contact_no = $contact_no;
+		$profiles->address = $address;
+		$profiles->address1 = $address1;
+		$profiles->postal_code = $postal_code;
+		$profiles->city = $city;
+		$profiles->state = $state;
+		$profiles->country = $country;
+		$profiles->dob = $dob;
+		$profiles->gender = $gender;						
+		$profiles->save();
+
 		}
 		
 		

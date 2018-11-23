@@ -462,7 +462,7 @@
 	$('#modal-block-large').modal('show');
 	});
 
-	$('.col-lg-7').on('click', '.edit', function() {
+	$('.col-lg-12').on('click', '.edit', function() {
 	  $.ajax({
 		type: 'POST',
 		url: '/profile/profile_aboutme',
