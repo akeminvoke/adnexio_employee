@@ -146,7 +146,7 @@
                   
                     <!-- Fade In Large Block Modal -->
                     
-                    <form class="js-validation" action="/profile/profile_aboutme" method="post">  
+                    <form id="foreditaboutme" action="/profile/profile_aboutme" method="post">  
                     <div class="modal fade" id="modal-block-large" tabindex="-1" role="dialog" aria-labelledby="modal-block-large" aria-hidden="true">
                         <div class="modal-dialog modal-lg" role="document">
                             <div class="modal-content">

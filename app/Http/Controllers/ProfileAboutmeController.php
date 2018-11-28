@@ -41,8 +41,10 @@ class ProfileAboutmeController extends Controller
 		$user = Auth::guard($this->getGuard())->user();	
         $questions  = create_question::all();
 		$profiles  = Profiles::where('user_id',$user->id)->get();
-		$states  = States::all();
-		$countries  = Country::all();
+		//$states  = States::all();
+		$states  = States::where('country_id',132)->get();
+		//$countries  = Country::all();
+		$countries  = Country::where('id',132)->get();
         $videos = VideoInterview::where('user_id',$user->id)->get();
 
         return $user->isAdmin() ? redirect('/admin') : view('/profile/profile_aboutme')->with(compact('user','questions', 'profiles', 'states', 'countries', 'videos'));
