@@ -73,7 +73,7 @@ class ProfileCvuploadController extends Controller
         $image = $request->file('file');
 
         $imageName = $image->getClientOriginalName();
-        $upload_success = $image->move(public_path('cv_uploads'),$imageName);
+        $upload_success = $image->move(public_path('/uploads/cv'),$imageName);
 
         $imageUpload= Cv::create([
             'filename' => $image->getClientOriginalName(),
@@ -138,7 +138,7 @@ class ProfileCvuploadController extends Controller
 
         $filename =  $request->get('filename');
         Cv::where('filename',$filename )->delete();
-        $path=public_path().'/cv_uploads/'.$filename;
+        $path=public_path().'/uploads/cv/'.$filename;
         if (file_exists($path)) {
             unlink($path);
         }
@@ -163,7 +163,7 @@ class ProfileCvuploadController extends Controller
         $filename = Cv::select('filename')->where('User_id',$user->id) ->orderBy('id', 'desc')->take(1)->get();
 
 
-        $file = public_path()."/cv_uploads/". $filename[0]->filename ;
+        $file = public_path()."/uploads/cv/". $filename[0]->filename ;
         $headers = array('Content-Type: application/pdf',);
         return Response::download($file,$filename[0]->filename,$headers);
 

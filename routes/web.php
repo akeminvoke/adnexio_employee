@@ -34,23 +34,22 @@ Route::get('/home', 'HomeController@index')->name('home');
 //Profile Function
 Route::get('/profile/profile_aboutme', 'ProfileAboutmeController@index');
 Route::post('/profile/profile_aboutme', 'ProfileAboutmeController@editPost');
-
 Route::get('/profile/profile_experience', 'ProfileExperienceController@index');
 Route::post('/profile/profile_experience', 'ProfileExperienceController@store');
 Route::post('/profile/profile_experience/update', 'ProfileExperienceController@update');
-
-
 Route::get('/profile/profile_cvupload', 'ProfileCvuploadController@index');
 Route::post('/profile/profile_cvupload', 'ProfileCvuploadController@filestore');
 Route::post('/profile/profile_cvupload/dlt', 'ProfileCvuploadController@fileDestroy');
 Route::post('profile/profile_cvupload/pullback','ProfileCvuploadController@retrievefilename');
 Route::get('/cv_uploads/download/', 'ProfileCvuploadController@getdownload');
+
 //Video Interview Function
 Route::get('/video/video_recording', 'VideoRecordingController@index');
 Route::get('/video/video_pastrecord', 'VideoPastRecordController@index');
 
 //Insert Data Into The Database And Upload Video To Server And Amazon S3
 Route::post('/save', 'UploadVideoToServerAndS3@store');
+
 //Delete Uploaded Video From Server But Not Amazon S3
 Route::post('/delete', 'DeleteVideoFromServer@store');
 

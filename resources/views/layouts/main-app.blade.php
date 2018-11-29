@@ -26,13 +26,16 @@
     <link rel="stylesheet" href="{!! asset('assets/js/plugins/datatables/dataTables.bootstrap4.css') !!}">
     <link rel="stylesheet" href="{!! asset('assets/js/plugins/datatables/buttons-bs4/buttons.bootstrap4.min.css') !!}">
 
+    <!-- Datepicker CSS -->
+    <link rel="stylesheet" href="{!! asset('assets/js/plugins/bootstrap-datepicker/css/bootstrap-datepicker3.min.css') !!}">
+    
     <!-- Video Element CSS/JS -->
     <link href="https://cdn.webrtc-experiment.com/getHTMLMediaElement.css" rel="stylesheet">
     <script src="https://cdn.webrtc-experiment.com/getHTMLMediaElement.js"></script>
 
     <!-- Video RecordRTC JS -->
     <script src="https://cdn.webrtc-experiment.com/RecordRTC.js"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.">
+    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.">-->
 
     <!-- For Edge/FF/Chrome/Opera/etc. getUserMedia support -->
     <script src="https://webrtc.github.io/adapter/adapter-latest.js"></script>
@@ -428,7 +431,66 @@
 <!-- END Page Container -->
 
 
-<!-- Edit My Profile Aboutme -->
+
+<!-- My Profile AboutMe JS -->
+
+<script type="text/javascript">
+
+	$(document).on('click', '.edit-modal', function() {
+	$('#footer_action_button').text("Update");
+	$('#footer_action_button').addClass('glyphicon-check');
+	$('#footer_action_button').removeClass('glyphicon-trash');
+	$('.actionBtn').addClass('btn-primary');
+	$('.actionBtn').removeClass('btn-danger');
+	$('.actionBtn').addClass('edit');
+	$('.modal-title').text('Post Edit');
+	//$('#js-validation').show();
+	$('#id').val($(this).data('id'));
+	$('#name').val($(this).data('name'));
+	$('#email').val($(this).data('email'));
+	$('#ic_no').val($(this).data('ic_no'));
+	$('#contact_no').val($(this).data('contact_no'));
+	$('#address').val($(this).data('address'));
+	$('#address1').val($(this).data('address1'));
+	$('#postal_code').val($(this).data('postal_code'));
+	$('#city').val($(this).data('city'));		
+	$('#state').val($(this).data('state'));	
+	$('#country').val($(this).data('country'));
+	$('#dob').val($(this).data('dob'));
+	$('#gender').val($(this).data('gender'));
+	$('#modal-block-large').modal('show');
+	});
+	$('.col-lg-12').on('click', '.edit', function() {
+	  $.ajax({
+		type: 'POST',
+		url: '/profile/profile_aboutme',
+		data: {
+	'_token': $('input[name=_token]').val(),
+	'id': $("#id").val(),
+	'name': $('#name').val(),
+	'email': $('#email').val(),
+	'ic_no': $('#ic_no').val(),
+	'contact_no': $('#contact_no').val(),
+	'address': $('#address').val(),
+	'address1': $('#address1').val(),
+	'postal_code': $('#postal_code').val(),
+	'city': $('#city').val(),	
+	'state': $('#state').val(),
+	'country': $('#country').val(),	
+	'dob': $('#dob').val(),
+	'gender': $('#gender').val()
+	},
+	success: function(data) {
+		//location.reload();
+		}
+	  });
+	});
+
+</script>
+
+
+
+<!-- My Profile Experience JS -->
 
 <script type="text/javascript">
     $(document).on('click', '.add-experience', function() {
@@ -684,8 +746,6 @@
 
 
 
-
-
 <!-- Dashmix Core JS -->
 <script src="{!! asset('assets/js/dashmix.core.min.js') !!}"></script>
 
@@ -709,6 +769,9 @@
 <script src="{!! asset('assets/js/plugins/datatables/buttons/buttons.flash.min.js') !!}"></script>
 <script src="{!! asset('assets/js/plugins/datatables/buttons/buttons.colVis.min.js') !!}"></script>
 
+<!-- Page JS Datepicker -->
+<script src="{!! asset('assets/js/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js') !!}"></script>
+
 <!-- Page JS Select2 -->
 <script src="{!! asset('assets/js/plugins/select2/js/select2.full.min.js') !!}"></script>
 <script src="{!! asset('assets/js/plugins/jquery-validation/jquery.validate.min.js') !!}"></script>
@@ -723,12 +786,8 @@
 <!-- Page JS Form Validation -->
 <script src="{!! asset('assets/js/pages/be_forms_validation.min.js') !!}"></script>
 
-
 <!-- Page JS Helpers (jQuery Sparkline plugin) -->
-<script>jQuery(function(){ Dashmix.helpers('sparkline'); });</script>
-
-<!-- Page JS Helpers (jQuery Sparkline plugin) -->
-<script>jQuery(function(){ Dashmix.helpers('select2'); });</script>
+<script>jQuery(function(){ Dashmix.helpers(['sparkline', 'select2', 'datepicker', 'masked-inputs']); });</script>
 
 
 <script>
