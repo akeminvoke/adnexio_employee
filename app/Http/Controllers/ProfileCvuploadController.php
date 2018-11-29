@@ -10,6 +10,7 @@ use App\VideoInterview;
 use App\create_question;
 use App\Cv;
 use DB;
+use Response;
 
 class ProfileCvuploadController extends Controller
 {
@@ -32,11 +33,15 @@ class ProfileCvuploadController extends Controller
      */
     public function index()
     {
-		$user = Auth::guard($this->getGuard())->user();	
+
+
+        $user = Auth::guard($this->getGuard())->user();
+        $retrievel=Cv::select('filename')->where('User_id',$user->id) ->orderBy('id', 'desc')->take(1)->get();
         $questions  = create_question::all();
         $videos = VideoInterview::where('user_id',$user->id)->get();
+        $cv =  Cv::where('user_id',$user->id)->orderBy('id', 'desc')->take(1)->get();
 
-        return $user->isAdmin() ? redirect('/admin') : view('/profile/profile_cvupload')->with(compact('user','questions','videos'));
+        return $user->isAdmin() ? redirect('/admin') : view('/profile/profile_cvupload')->with(compact('user','questions','videos','cv','retrievel'));
     }
 
     private function getGuard()
@@ -68,11 +73,11 @@ class ProfileCvuploadController extends Controller
         $image = $request->file('file');
 
         $imageName = $image->getClientOriginalName();
-        $upload_success = $image->move(public_path('uploads/cv'),$imageName);
+        $upload_success = $image->move(public_path('cv_uploads'),$imageName);
 
         $imageUpload= Cv::create([
             'filename' => $image->getClientOriginalName(),
-            'user_id' => $user->id,
+            'User_id' => $user->id,
 
         ]);
 
@@ -133,11 +138,41 @@ class ProfileCvuploadController extends Controller
 
         $filename =  $request->get('filename');
         Cv::where('filename',$filename )->delete();
-        $path=public_path().'/uploads/cv/'.$filename;
+        $path=public_path().'/cv_uploads/'.$filename;
         if (file_exists($path)) {
             unlink($path);
         }
         return $filename;
-    }	
+    }
+
+
+    public function retrievefilename(Request $requ)
+    {
+       // $usert = Auth::user()->id->get();
+        $user = Auth::guard($this->getGuard())->user();
+       //$thenameoffile =  $requ->get('filename');
+
+        $retrievel=Cv::select('filename')->where('User_id',$user->id) ->orderBy('id', 'desc')->take(1)->get();
+        return response()->json(['retrieval'=>$retrievel]);
+
+    }
+    public function getdownload(Request $request)
+    {
+        //$filename = $request -> filename;
+        $user = Auth::guard($this->getGuard())->user();
+        $filename = Cv::select('filename')->where('User_id',$user->id) ->orderBy('id', 'desc')->take(1)->get();
+
+
+        $file = public_path()."/cv_uploads/". $filename[0]->filename ;
+        $headers = array('Content-Type: application/pdf',);
+        return Response::download($file,$filename[0]->filename,$headers);
+
+    }
+
+
+
+
+
+
 
 }

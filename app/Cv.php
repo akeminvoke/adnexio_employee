@@ -6,9 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Cv extends Model
 {
-    protected $fillable = [
-        'id', 'user_id', 'filename'
-    ];
+    protected $fillable = ['id', 'filename', 'User_id',];
 
 
     public function User()

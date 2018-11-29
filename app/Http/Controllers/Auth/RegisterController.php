@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Auth;
 
 
 use App\User;
-use App\Profiles;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -71,12 +70,14 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return  User::create([
+         return  User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
             'role_id' => $data['role_id'],
         ]);
+
+
 
     }
 
@@ -100,14 +101,6 @@ class RegisterController extends Controller
 
 
             });
-			
-
-
-			$profiles = Profiles::create([
-				'user_id' => $user['id']
-			]);
-			
-			
 
             return redirect()->to('login')->with('success', "We sent activation code. Please check your mail.");
         }

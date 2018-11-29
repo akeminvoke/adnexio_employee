@@ -11,7 +11,7 @@
 |
 */
 
-///use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Storage;
 
 //Main Page https://adnexio.my
 Route::get('/', function () {
@@ -36,16 +36,18 @@ Route::get('/profile/profile_aboutme', 'ProfileAboutmeController@index');
 Route::post('/profile/profile_aboutme', 'ProfileAboutmeController@editPost');
 
 Route::get('/profile/profile_experience', 'ProfileExperienceController@index');
+Route::post('/profile/profile_experience', 'ProfileExperienceController@store');
+Route::post('/profile/profile_experience/update', 'ProfileExperienceController@update');
+
+
 Route::get('/profile/profile_cvupload', 'ProfileCvuploadController@index');
 Route::post('/profile/profile_cvupload', 'ProfileCvuploadController@filestore');
 Route::post('/profile/profile_cvupload/dlt', 'ProfileCvuploadController@fileDestroy');
-
+Route::post('profile/profile_cvupload/pullback','ProfileCvuploadController@retrievefilename');
+Route::get('/cv_uploads/download/', 'ProfileCvuploadController@getdownload');
 //Video Interview Function
 Route::get('/video/video_recording', 'VideoRecordingController@index');
 Route::get('/video/video_pastrecord', 'VideoPastRecordController@index');
-Route::get('/video/video_eyeblink_result', 'VideoEyeBlinkController@index');
-Route::post('/video/video_eyeblink_result', 'VideoEyeBlinkController@store');
-
 
 //Insert Data Into The Database And Upload Video To Server And Amazon S3
 Route::post('/save', 'UploadVideoToServerAndS3@store');
@@ -60,7 +62,7 @@ Route::view('/examples/plugin', 'examples.plugin');
 Route::view('/examples/blank', 'examples.blank');
 
 
-Route::get('/api', 'TestAPI@index');
+
 
 
 
