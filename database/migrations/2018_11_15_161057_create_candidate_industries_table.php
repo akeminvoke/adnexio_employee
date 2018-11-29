@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCvsTable extends Migration
+class CreateCandidateIndustriesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,9 @@ class CreateCvsTable extends Migration
      */
     public function up()
     {
-        Schema::create('cvs', function (Blueprint $table) {
+        Schema::create('candidate_industries', function (Blueprint $table) {
             $table->increments('id');
-            $table->text('filename');
-            $table->integer('User_id');
             $table->timestamps();
-
         });
     }
 
@@ -29,6 +26,6 @@ class CreateCvsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('cvs');
+        Schema::dropIfExists('candidate_industries');
     }
 }
