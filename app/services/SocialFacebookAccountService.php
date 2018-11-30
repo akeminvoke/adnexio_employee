@@ -3,6 +3,7 @@
 namespace App\Services;
 use App\SocialFacebookAccount;
 use App\User;
+use App\Profiles;
 use Laravel\Socialite\Contracts\User as ProviderUser;
 use App\socialFacebookAccoun;
 
@@ -44,6 +45,14 @@ class SocialFacebookAccountService
                     'password' => md5(rand(1,10000)),
                     'profile_images'=>  $profileavatar,
                 ]);
+				
+				
+				$profiles = Profiles::create([
+					'user_id' => $user['id']
+				]);				
+				
+				
+				
             }
 
             $account->user()->associate($user);
