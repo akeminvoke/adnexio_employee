@@ -606,9 +606,9 @@
     });
 
 
+</script>
 
-
-
+<script type="text/javascript">
     // function Edit POST
 
     $(document).on('click', '.edit-experience', function() {
@@ -664,7 +664,7 @@
 </script>
 
 
-<script>
+<script type="text/javascript">
     $('.submit-experience').on('click', '.submit-experience', function() {
 
         $.ajax({
@@ -697,10 +697,9 @@
         });
     });
 
-
-
 </script>
-<script>
+
+<script type="text/javascript">
     $('.submit-experience-edit').on('click', '.submit-experience-edit', function() {
 
         $.ajax({
@@ -787,7 +786,7 @@
 <script src="{!! asset('assets/js/pages/be_forms_validation.min.js') !!}"></script>
 
 <!-- Page JS Helpers (jQuery Sparkline plugin) -->
-<script>jQuery(function(){ Dashmix.helpers(['sparkline', 'select2', 'datepicker', 'masked-inputs']); });</script>
+<script>jQuery(function(){ Dashmix.helpers(['sparkline', 'select2', 'datepicker']); });</script>
 
 
 <script>
