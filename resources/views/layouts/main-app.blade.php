@@ -41,7 +41,10 @@
     <script src="https://webrtc.github.io/adapter/adapter-latest.js"></script>
     <script src="https://cdn.webrtc-experiment.com/DetectRTC.js"> </script>
 
-
+    <!-- CV/Resume Upload CSS/JS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.4.0/min/dropzone.min.css">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.4.0/dropzone.js"></script>
 
     <!--  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>-->
 
@@ -752,15 +755,38 @@
 <!-- Laravel Scaffolding JS -->
 <script src="{{ mix('js/laravel.app.js') }}"></script>
 
+<!-- Page JS Plugins -->
+<script src="{!! asset('assets/js/plugins/jquery-sparkline/jquery.sparkline.min.js') !!}"></script>
+<script src="{!! asset('assets/js/plugins/chart.js/Chart.bundle.min.js') !!}"></script>
 
+<!-- Page JS Datatables -->
+<script src="{!! asset('assets/js/plugins/datatables/jquery.dataTables.min.js') !!}"></script>
+<script src="{!! asset('assets/js/plugins/datatables/dataTables.bootstrap4.min.js') !!}"></script>
+<script src="{!! asset('assets/js/plugins/datatables/buttons/dataTables.buttons.min.js') !!}"></script>
+<script src="{!! asset('assets/js/plugins/datatables/buttons/buttons.print.min.js') !!}"></script>
+<script src="{!! asset('assets/js/plugins/datatables/buttons/buttons.html5.min.js') !!}"></script>
+<script src="{!! asset('assets/js/plugins/datatables/buttons/buttons.flash.min.js') !!}"></script>
+<script src="{!! asset('assets/js/plugins/datatables/buttons/buttons.colVis.min.js') !!}"></script>
+
+<!-- Page JS Datepicker -->
+<script src="{!! asset('assets/js/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js') !!}"></script>
+
+<!-- Page JS Select2 -->
+<script src="{!! asset('assets/js/plugins/select2/js/select2.full.min.js') !!}"></script>
 <script src="{!! asset('assets/js/plugins/jquery-validation/jquery.validate.min.js') !!}"></script>
+<script src="{!! asset('assets/js/plugins/jquery-validation/additional-methods.js') !!}"></script>
 
+<!-- Page JS Home Dashboard -->
+<script src="{!! asset('assets/js/pages/be_pages_dashboard.min.js') !!}"></script>
+
+<!-- Page JS Datatables -->
+<script src="{!! asset('assets/js/pages/be_tables_datatables.min.js') !!}"></script>
 
 <!-- Page JS Form Validation -->
 <script src="{!! asset('assets/js/pages/be_forms_validation.min.js') !!}"></script>
 
 <!-- Page JS Helpers (jQuery Sparkline plugin) -->
-<script>jQuery(function(){ Dashmix.helpers(['sparkline']); });</script>
+<script>jQuery(function(){ Dashmix.helpers(['sparkline', 'select2', 'datepicker']); });</script>
 
 
 <script>
