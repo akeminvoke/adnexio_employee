@@ -15,7 +15,7 @@
 
 @yield('css_before')
 
-<!-- Select2 CSS -->
+	<!-- Select2 CSS -->
     <link rel="stylesheet" href="{!! asset('assets/js/plugins/select2/css/select2.min.css') !!}">
 
     <!-- Fonts and Styles -->
@@ -773,6 +773,7 @@
 
 <!-- Page JS Select2 -->
 <script src="{!! asset('assets/js/plugins/select2/js/select2.full.min.js') !!}"></script>
+<script src="{!! asset('assets/js/plugins/jquery-bootstrap-wizard/bs4/jquery.bootstrap.wizard.min.js') !!}"></script>
 <script src="{!! asset('assets/js/plugins/jquery-validation/jquery.validate.min.js') !!}"></script>
 <script src="{!! asset('assets/js/plugins/jquery-validation/additional-methods.js') !!}"></script>
 
@@ -784,6 +785,9 @@
 
 <!-- Page JS Form Validation -->
 <script src="{!! asset('assets/js/pages/be_forms_validation.min.js') !!}"></script>
+
+<!-- Page JS Code -->
+<script src="{!! asset('assets/js/pages/be_forms_wizard.min.js') !!}"></script>
 
 <!-- Page JS Helpers (jQuery Sparkline plugin) -->
 <script>jQuery(function(){ Dashmix.helpers(['sparkline', 'select2', 'datepicker']); });</script>

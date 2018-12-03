@@ -28,8 +28,13 @@ Route::get('/callback', 'SocialAuthFacebookController@callback');
 Route::get('/admin','AdminController@admin');
 Route::get('/user/activation/{token}', 'Auth\RegisterController@userActivation');
 
-//Redirect After Login
+//Redirect After Login First Time
+Route::get('/main', 'MainController@index')->name('main');
+Route::post('/main/first_login', 'MainController@store');
+
+//Redirect After Login IF Done Fill Info
 Route::get('/home', 'HomeController@index')->name('home');
+
 
 //Profile Function
 Route::get('/profile/profile_aboutme', 'ProfileAboutmeController@index');
