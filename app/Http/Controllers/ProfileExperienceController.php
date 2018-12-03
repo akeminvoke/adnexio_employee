@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\experience;
+use App\Job_Background;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Validator;
 
@@ -39,31 +40,41 @@ class ProfileExperienceController extends Controller
     {
         $user = Auth::guard($this->getGuard())->user();
         $questions  = create_question::all();
-        $videos = VideoInterview::where('user_id',$user->id)->get();
-        $experiences = experience::where('user_id',$user->id)->get();
-        $industry_name = DB::table('experiences')
-        ->join('industries', 'experiences.industries_id', '=', 'industries.id')
-        ->select('industries.name')
-        ->where('experiences.user_id',$user->id )
-        ->get();
+
+     //   $experiences = experience::where('user_id',$user->id)->get();
+//        $industry_name = DB::table('experiences')
+//        ->join('industries', 'experiences.industries_id', '=', 'industries.id')
+//        ->select('industries.name')
+//        ->where('experiences.user_id',$user->id )
+//        ->get();
 
 
         $Company_Names = DB::table('experiences')
             ->join('companies', 'experiences.company_id', '=', 'companies.id')
-            ->select('experiences.id','companies.name','experiences.position','experiences.position_level','experiences.specialization','experiences.start_year','experiences.start_month',
+            ->select('experiences.id','companies.name','experiences.position','experiences.specialization','experiences.start_year','experiences.start_month',
                 'experiences.end_year','experiences.end_month','experiences.position','experiences.salary')
             ->where('experiences.user_id',$user->id )
+            ->wherenull('experiences.deleted_at')
             ->get();
 
 
 
-        return $user->isAdmin() ? redirect('/admin') : view('/profile/profile_experience')->with(compact('user','questions','videos',
-            'experiences','industry_name','Company_Names'));
+        return $user->isAdmin() ? redirect('/admin') : view('/profile/profile_experience')->with(compact('user','questions',
+            'Company_Names'));
     }
 
     private function getGuard()
     {
         return property_exists($this, 'guard') ? $this->guard : null;
+    }
+
+    public function getjb()
+    {
+
+        $jb= DB::table('Job_backgrounds')->select('Id','Job_Background')->get();
+
+        return response()->json($jb);
+
     }
 	
 	
@@ -90,19 +101,18 @@ class ProfileExperienceController extends Controller
         $user = Auth::user();
 
 
-       $this->validate($request, [
-     'position' => 'required',
-          'company_name'=> 'required',
-           'jd_start_year'=> 'required',
-           'jd_start_month'=> 'required',
-          'specialization'=> 'required',
-          'position_level'=> 'required',
-         'salary'=> 'required',
-
-       ]);
-
+          $this->validate($request, [
+               'position' => 'required',
+              'company_name' => 'required',
+                'jd_start_year' => 'required',
+               'jd_start_month' => 'required',
+               'specialization' => 'required',
+              //'position_level' => 'required',
+               'salary' => 'required',
+              //'job_desc' => 'required',
 
 
+            ]);
 
 
             $company = new company();
@@ -118,7 +128,7 @@ class ProfileExperienceController extends Controller
             $experience->company_id = $company_id[0]->id;
             $experience->position = $request->position;
             $experience->specialization = $request->specialization;
-            $experience->position_level = $request->position_level;
+
             $experience->start_year = $request->jd_start_year;
             $experience->start_month = $request->jd_start_month;
             if ($request->has('jd_end_year')) {
@@ -126,12 +136,17 @@ class ProfileExperienceController extends Controller
                 $experience->end_month = $request->jd_end_month;
             }
             $experience->salary = $request->salary;
+            $experience->job_desc = $request->job_desc;
             //$experience->industry_id = $industry_id;
 
             $experience->save();
-            return response()->json($experience);
-        }
 
+
+
+
+        return redirect('/profile/profile_experience');
+          //  return response()->json($experience);
+        }
 
 
 
@@ -177,13 +192,13 @@ class ProfileExperienceController extends Controller
 
         $experience = experience::find ($request->id);
         $experience->position = $request->position;
-       $experience->position_level = $request->position_level;
+        $experience->position_level = $request->position_level;
         $experience->specialization = $request->specialization;
-       $experience->start_year = $request->jd_start_year;
-     $experience->start_month = $request->jd_start_month;
+        $experience->start_year = $request->jd_start_year;
+        $experience->start_month = $request->jd_start_month;
         $experience->end_year = $request->jd_end_year;
         $experience->end_month = $request->jd_end_month;
-       $experience->salary = $request->salary;
+        $experience->salary = $request->salary;
         $experience->save();
 
         $sample = experience::getAge();
@@ -204,9 +219,13 @@ class ProfileExperienceController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(request $request)
     {
-        //
+
+        $deletedexp = experience::where('id',$request->valexperiencedelete )->delete();
+
+        return redirect('/profile/profile_experience');
+
     }	
 
 }

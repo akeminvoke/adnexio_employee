@@ -26,16 +26,13 @@
     <link rel="stylesheet" href="{!! asset('assets/js/plugins/datatables/dataTables.bootstrap4.css') !!}">
     <link rel="stylesheet" href="{!! asset('assets/js/plugins/datatables/buttons-bs4/buttons.bootstrap4.min.css') !!}">
 
-    <!-- Datepicker CSS -->
-    <link rel="stylesheet" href="{!! asset('assets/js/plugins/bootstrap-datepicker/css/bootstrap-datepicker3.min.css') !!}">
-    
     <!-- Video Element CSS/JS -->
     <link href="https://cdn.webrtc-experiment.com/getHTMLMediaElement.css" rel="stylesheet">
     <script src="https://cdn.webrtc-experiment.com/getHTMLMediaElement.js"></script>
 
     <!-- Video RecordRTC JS -->
     <script src="https://cdn.webrtc-experiment.com/RecordRTC.js"></script>
-    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.">-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.">
 
     <!-- For Edge/FF/Chrome/Opera/etc. getUserMedia support -->
     <script src="https://webrtc.github.io/adapter/adapter-latest.js"></script>
@@ -431,72 +428,35 @@
 <!-- END Page Container -->
 
 
-
-<!-- My Profile AboutMe JS -->
-
-<script type="text/javascript">
-
-	$(document).on('click', '.edit-modal', function() {
-	$('#footer_action_button').text("Update");
-	$('#footer_action_button').addClass('glyphicon-check');
-	$('#footer_action_button').removeClass('glyphicon-trash');
-	$('.actionBtn').addClass('btn-primary');
-	$('.actionBtn').removeClass('btn-danger');
-	$('.actionBtn').addClass('edit');
-	$('.modal-title').text('Post Edit');
-	//$('#js-validation').show();
-	$('#id').val($(this).data('id'));
-	$('#name').val($(this).data('name'));
-	$('#email').val($(this).data('email'));
-	$('#ic_no').val($(this).data('ic_no'));
-	$('#contact_no').val($(this).data('contact_no'));
-	$('#address').val($(this).data('address'));
-	$('#address1').val($(this).data('address1'));
-	$('#postal_code').val($(this).data('postal_code'));
-	$('#city').val($(this).data('city'));		
-	$('#state').val($(this).data('state'));	
-	$('#country').val($(this).data('country'));
-	$('#dob').val($(this).data('dob'));
-	$('#gender').val($(this).data('gender'));
-	$('#modal-block-large').modal('show');
-	});
-	$('.col-lg-12').on('click', '.edit', function() {
-	  $.ajax({
-		type: 'POST',
-		url: '/profile/profile_aboutme',
-		data: {
-	'_token': $('input[name=_token]').val(),
-	'id': $("#id").val(),
-	'name': $('#name').val(),
-	'email': $('#email').val(),
-	'ic_no': $('#ic_no').val(),
-	'contact_no': $('#contact_no').val(),
-	'address': $('#address').val(),
-	'address1': $('#address1').val(),
-	'postal_code': $('#postal_code').val(),
-	'city': $('#city').val(),	
-	'state': $('#state').val(),
-	'country': $('#country').val(),	
-	'dob': $('#dob').val(),
-	'gender': $('#gender').val()
-	},
-	success: function(data) {
-		//location.reload();
-		}
-	  });
-	});
-
-</script>
-
-
-
-<!-- My Profile Experience JS -->
+<!-- Edit My Profile Aboutme -->
 
 <script type="text/javascript">
+
+    $(document).on('click', '.myCheckbox', function () {
+        var target = $(this).data('duration');
+        if ($(this).is(':checked')) $('#' + target).addClass('disabled');
+        else $('#' + target).removeClass('disabled');
+    });
+
+    $(document).on('click', '.cancel-submit-experience', function () {
+        $('#experiences').addClass('hide');
+        $('#experiences').hide();
+        $('#add-experience-btn').show();
+        $('#add-experience').show();
+        $('#experience_prev').show();
+
+
+
+       // experiences
+    });
+
+
+
     $(document).on('click', '.add-experience', function() {
-      //  $('.foredit').removeClass('js-validation');
+        //  $('.foredit').removeClass('js-validation');
         $('#foradd').removeClass('hide');
-      // $('#foradd').addClass('js-validation');
+        $('#add-experience').hide();
+        // $('#foradd').addClass('js-validation');
         $('#val-position').replaceWith( " <input type='text' class='form-control' id='val-position' name='val-position' placeholder='Enter your position'>");
         $('#val-company-name').replaceWith( " <input type='text' class='form-control' id='val-company-name' name='val-company-name' placeholder='Enter your company name'>");
 
@@ -514,13 +474,78 @@
 
 
         $('#val-jd-start-year').replaceWith( "<select class='half-second' id='val-jd-start-year' name='val-jd-start-year' > " +
-            "<option disabled selected>year</option> " +
+            "<option disabled selected>year</option>" +
             "<option>1948</option> " +
             "<option>1949</option> " +
             "<option>1950</option> " +
             "<option>1951</option> " +
             "<option>1952</option> " +
             "<option>1953</option> " +
+            "<option>1954</option> " +
+            "<option>1955</option> " +
+            "<option>1956</option> " +
+            "<option>1957</option> " +
+            "<option>1958</option> " +
+            "<option>1959</option> " +
+            "<option>1960</option> " +
+            "<option>1961</option> " +
+            "<option>1962</option> " +
+            "<option>1963</option> " +
+            "<option>1964</option> " +
+            "<option>1965</option> " +
+            "<option>1966</option> " +
+            "<option>1967</option> " +
+            "<option>1968</option> " +
+            "<option>1969</option> " +
+            "<option>1970</option> " +
+            "<option>1971</option> " +
+            "<option>1972</option> " +
+            "<option>1973</option> " +
+            "<option>1974</option> " +
+            "<option>1975</option> " +
+            "<option>1976</option> " +
+            "<option>1977</option> " +
+            "<option>1978</option> " +
+            "<option>1979</option> " +
+            "<option>1980</option> " +
+            "<option>1981</option> " +
+            "<option>1982</option> " +
+            "<option>1983</option> " +
+            "<option>1984</option> " +
+            "<option>1985</option> " +
+            "<option>1986</option> " +
+            "<option>1987</option> " +
+            "<option>1988</option> " +
+            "<option>1989</option> " +
+            "<option>1990</option> " +
+            "<option>1991</option> " +
+            "<option>1992</option> " +
+            "<option>1993</option> " +
+            "<option>1994</option> " +
+            "<option>1995</option> " +
+            "<option>1996</option> " +
+            "<option>1997</option> " +
+            "<option>1998</option> " +
+            "<option>1999</option> " +
+            "<option>2000</option> " +
+            "<option>2001</option> " +
+            "<option>2002</option> " +
+            "<option>2003</option> " +
+            "<option>2004</option> " +
+            "<option>2005</option> " +
+            "<option>2006</option> " +
+            "<option>2007</option> " +
+            "<option>2008</option> " +
+            "<option>2009</option> " +
+            "<option>2010</option> " +
+            "<option>2011</option> " +
+            "<option>2012</option> " +
+            "<option>2013</option> " +
+            "<option>2014</option> " +
+            "<option>2015</option> " +
+            "<option>2016</option> " +
+            "<option>2017</option> " +
+            "<option>2018</option>" +
             "</select>");
 
 
@@ -542,12 +567,78 @@
 
 
         $('#val-jd-end-year').replaceWith( "<select class='half-third' id='val-jd-end-year' name='val-jd-end-year'> " +
+            "<option disabled selected>year</option>" +
             "<option>1948</option> " +
             "<option>1949</option> " +
             "<option>1950</option> " +
             "<option>1951</option> " +
             "<option>1952</option> " +
             "<option>1953</option> " +
+            "<option>1954</option> " +
+            "<option>1955</option> " +
+            "<option>1956</option> " +
+            "<option>1957</option> " +
+            "<option>1958</option> " +
+            "<option>1959</option> " +
+            "<option>1960</option> " +
+            "<option>1961</option> " +
+            "<option>1962</option> " +
+            "<option>1963</option> " +
+            "<option>1964</option> " +
+            "<option>1965</option> " +
+            "<option>1966</option> " +
+            "<option>1967</option> " +
+            "<option>1968</option> " +
+            "<option>1969</option> " +
+            "<option>1970</option> " +
+            "<option>1971</option> " +
+            "<option>1972</option> " +
+            "<option>1973</option> " +
+            "<option>1974</option> " +
+            "<option>1975</option> " +
+            "<option>1976</option> " +
+            "<option>1977</option> " +
+            "<option>1978</option> " +
+            "<option>1979</option> " +
+            "<option>1980</option> " +
+            "<option>1981</option> " +
+            "<option>1982</option> " +
+            "<option>1983</option> " +
+            "<option>1984</option> " +
+            "<option>1985</option> " +
+            "<option>1986</option> " +
+            "<option>1987</option> " +
+            "<option>1988</option> " +
+            "<option>1989</option> " +
+            "<option>1990</option> " +
+            "<option>1991</option> " +
+            "<option>1992</option> " +
+            "<option>1993</option> " +
+            "<option>1994</option> " +
+            "<option>1995</option> " +
+            "<option>1996</option> " +
+            "<option>1997</option> " +
+            "<option>1998</option> " +
+            "<option>1999</option> " +
+            "<option>2000</option> " +
+            "<option>2001</option> " +
+            "<option>2002</option> " +
+            "<option>2003</option> " +
+            "<option>2004</option> " +
+            "<option>2005</option> " +
+            "<option>2006</option> " +
+            "<option>2007</option> " +
+            "<option>2008</option> " +
+            "<option>2009</option> " +
+            "<option>2010</option> " +
+            "<option>2011</option> " +
+            "<option>2012</option> " +
+            "<option>2013</option> " +
+            "<option>2014</option> " +
+            "<option>2015</option> " +
+            "<option>2016</option> " +
+            "<option>2017</option> " +
+            "<option>2018</option>" +
             "</select>");
 
 
@@ -568,12 +659,35 @@
             "</select>");
 
 
-        $('#val-specialization').replaceWith( "<select class='form-control' id='val-specialization' name='val-specialization'> " +
-            "<option disabled selected>please choose your specialization</option> " +
-            "<option>human resource</option> " +
-            "<option>programmer</option> " +
-            "<option>example</option> " +
-            "</select>");
+//        $('#val-specialization').replaceWith( "<select class='form-control' id='val-specialization' name='val-specialization'> " +
+//            "<option disabled selected>please choose your specialization</option> " +
+//            "<option>human resource</option> " +
+//            "<option>programmer</option> " +
+//            "<option>example</option> " +
+//            "</select>");
+
+        $.ajax({
+            type: 'POST',
+            url: '{{ url("/profile/profile_experience/getjb") }}',
+            data: {
+                '_token': $('input[name=_token]').val(),
+            },
+            success: function(data) {
+                $('#val-specialization').empty();
+                $('#val-specialization').append("<option disabled selected value='0'>select your Job Background </option> ");
+
+                $.each(data,function(i,item){
+                    $('#val-specialization').append("<option value='"+data[i].Id+"'>"+data[i].Job_Background+"</option>");
+
+                    }
+
+
+
+                )
+            }
+        });
+
+
 
         $('#val-position-level').replaceWith( "<select class='form-control' id='val-position-level' name='val-position-level'> <option disabled selected>please choose your Position Level</option> " +
             "<option value='senior man'>Senior Manager</option> " +
@@ -583,12 +697,12 @@
 
         $('#val-salary').replaceWith( "<select class='form-control' id='val-salary' name='val-salary' > " +
             "<option disabled selected>please choose your salary range</option> " +
-            "<option>Below then RM1000</option> " +
-            "<option>RM 1000 to RM 3000</option> " +
-            "<option>RM3001 to 5000 </option> " +
-            "<option>RM5001 to 7000</option> " +
-            "<option>RM7001 to 1000</option> " +
-            "<option>above 10000</option> " +
+            "<option>Below then RM1,000</option> " +
+            "<option>RM 1,000 to RM 3,000</option> " +
+            "<option>RM3,001 to RM5,000 </option> " +
+            "<option>RM5,001 to RM7,000</option> " +
+            "<option>RM7,001 to RM1000</option> " +
+            "<option>above RM10,000</option> " +
             "</select>");
 
 
@@ -604,9 +718,6 @@
         $('#experiences').hide();
 
     });
-
-
-
 
 
     // function Edit POST
@@ -630,7 +741,7 @@
         $('#jd_start_year-edit').val($(this).data('jd_start_year-edit'));
         $('#jd_start_month-edit').val($(this).data('jd_start_month-edit'));
         $('#specialization-edit').val($(this).data('specialization-edit'));
-        $('#position_level-edit').val($(this).data('position_level-edit'));
+
         $('#id-edit').val($(this).data('id-edit'));
         $('#salary-edit').val($(this).data('salary-edit'));
 
@@ -665,32 +776,34 @@
 
 
 <script>
-    $('.submit-experience').on('click', '.submit-experience', function() {
-
+    $('.submit-experience').on('click', '.submit-experience', function(e) {
+//        e.preventDefault();
+//        e.stopImmediatePropagation();
         $.ajax({
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
             },
-            type: 'POST',
-            url: '{{ url("/profile/profile_experience") }}',
+            type: 'post',
+            url:  '/profile/profile_experience/store',
             data: {
                 '_token': $('input[name=_token]').val(),
-                'id': $("#id-edit").val(),
+                //'id': $("#id-edit").val(),
                 'position': $("#val-position").val(),
                 'company_name': $('#val-company-name').val(),
                 'jd_start_year': $('#val-jd-start-year').val(),
                 'jd_start_month': $('#val-jd-start-month').val(),
                 'specialization': $('#val-specialization').val(),
-                'position_level': $('#val-position-level').val(),
+                //'position_level': $('#val-position-level').val(),
                 'salary': $('#val-salary').val(),
                 'jd_end_year': $('#val-jd-end-year').val(),
                 'jd_end_month': $('#val-jd-end-month').val(),
-                'salary': $('#val-salary').val(),
+                'job_desc': $('#val-job-desc').val(),
 
             },
             dataType: 'json',
             success: function(data) {
-                $('#1').show();
+
+                  //location.reload();
 
             }
 
@@ -714,35 +827,57 @@
                 '_token': $('input[name=_token]').val(),
                 'id':$("#id-edit").val(),
                 'position': $("#position-edit").val(),
-               // 'company_name': $('#company_name-edit').val(),
+                // 'company_name': $('#company_name-edit').val(),
                 'jd_start_year': $('#jd_start_year-edit').val(),
                 'jd_start_month': $('#jd_start_month-edit').val(),
                 'specialization': $('#specialization-edit').val(),
-                'position_level': $('#position_level-edit').val(),
+
                 'salary': $('#salary-edit').val(),
                 'jd_end_year': $('#val-jd-end-year-edit').val(),
                 'jd_end_month': $('#val-jd-end-month-edit').val()
 
-
             },
-
             success: function(data) {
 
                 location.reload();
-
             }
-
-
-
 
         });
 
-
     });
 
-
-
 </script>
+
+
+{{--<script>--}}
+    {{--$('.submit-experience-delete').on('click', '.submit-experience-delete', function() {--}}
+
+        {{--$.ajax({--}}
+            {{--// headers: {--}}
+            {{--//     'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')--}}
+            {{--// },--}}
+            {{--type: 'post',--}}
+            {{--//dataType: 'json',--}}
+            {{--url: '/profile/profile_experience/delete',--}}
+            {{--data: {--}}
+                {{--'_token': $('input[name=_token]').val(),--}}
+                {{--'id': $('#val-experience-delete').val()--}}
+
+
+            {{--},--}}
+
+            {{--success: function(data) {--}}
+
+                {{--location.reload();--}}
+            {{--}--}}
+
+        {{--});--}}
+
+    {{--});--}}
+
+{{--</script>--}}
+
+
 
 
 
@@ -769,9 +904,6 @@
 <script src="{!! asset('assets/js/plugins/datatables/buttons/buttons.flash.min.js') !!}"></script>
 <script src="{!! asset('assets/js/plugins/datatables/buttons/buttons.colVis.min.js') !!}"></script>
 
-<!-- Page JS Datepicker -->
-<script src="{!! asset('assets/js/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js') !!}"></script>
-
 <!-- Page JS Select2 -->
 <script src="{!! asset('assets/js/plugins/select2/js/select2.full.min.js') !!}"></script>
 <script src="{!! asset('assets/js/plugins/jquery-validation/jquery.validate.min.js') !!}"></script>
@@ -786,8 +918,12 @@
 <!-- Page JS Form Validation -->
 <script src="{!! asset('assets/js/pages/be_forms_validation.min.js') !!}"></script>
 
+
 <!-- Page JS Helpers (jQuery Sparkline plugin) -->
-<script>jQuery(function(){ Dashmix.helpers(['sparkline', 'select2', 'datepicker', 'masked-inputs']); });</script>
+<script>jQuery(function(){ Dashmix.helpers('sparkline'); });</script>
+
+<!-- Page JS Helpers (jQuery Sparkline plugin) -->
+<script>jQuery(function(){ Dashmix.helpers('select2'); });</script>
 
 
 <script>
@@ -2470,9 +2606,9 @@
         this.file = options.file;
         this.contentType = options.contentType || this.file.type || 'application/octet-stream';
         this.metadata = options.metadata || {
-            'title': this.file.name,
-            'mimeType': this.contentType
-        };
+                'title': this.file.name,
+                'mimeType': this.contentType
+            };
         this.token = options.token;
         this.onComplete = options.onComplete || noop;
         this.onProgress = options.onProgress || noop;
@@ -2684,43 +2820,43 @@
 
 
 
-        $("#submit-add-cv").click(function(){
-            location.reload();
-        });
+    $("#submit-add-cv").click(function(){
+        location.reload();
+    });
 
 
 
 
     /* $('.modal-footer').on('click', '.editcv', function() {
-         $.ajax({
-             type: 'POST',
-             url: '/profile/profile_aboutme',
-             data: {
-                 '_token': $('input[name=_token]').val(),
-                 'id': $("#id").val(),
-                 'name': $('#name').val()
-             },
-             success: function(data) {
-                 $('.user' + data.id).replaceWith(" "+
+     $.ajax({
+     type: 'POST',
+     url: '/profile/profile_aboutme',
+     data: {
+     '_token': $('input[name=_token]').val(),
+     'id': $("#id").val(),
+     'name': $('#name').val()
+     },
+     success: function(data) {
+     $('.user' + data.id).replaceWith(" "+
 
-                     "<thead class='user{{$user->id}}'>"+
-                        "<tr>"+
-                        "<td class='text-muted'>Name</td>"+
-                        "<td style='width: 70%; font-weight: bold;'>" + data.name + "</td>"+
-                        "</tr>"+
-                        "</thead>");
-
-
-                    $('.pull').replaceWith(
-                        " "+"<a href='#' class='edit-modal btn btn-sm btn-light pull' data-toggle='modal' data-target='#modal-block-large' data-id='"+data.id+"' data-name='"+data.name+"'><i class='fa fa-fw fa-edit'></i>Edit </a>"
-                    );
+     "<thead class='user{{$user->id}}'>"+
+     "<tr>"+
+     "<td class='text-muted'>Name</td>"+
+     "<td style='width: 70%; font-weight: bold;'>" + data.name + "</td>"+
+     "</tr>"+
+     "</thead>");
 
 
+     $('.pull').replaceWith(
+     " "+"<a href='#' class='edit-modal btn btn-sm btn-light pull' data-toggle='modal' data-target='#modal-block-large' data-id='"+data.id+"' data-name='"+data.name+"'><i class='fa fa-fw fa-edit'></i>Edit </a>"
+     );
 
-                }
-            });
-        });
-*/
+
+
+     }
+     });
+     });
+     */
 
 </script>
 

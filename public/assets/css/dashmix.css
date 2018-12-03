@@ -1998,7 +1998,11 @@ textarea.form-control {
 .form-check-input {
   position: absolute;
   margin-top: 0.3rem;
-  margin-left: -1.25rem;
+  margin-left: 15.75rem;
+}
+.present
+{
+  padding-left: 18px;
 }
 
 .form-check-input:disabled ~ .form-check-label {
@@ -4224,6 +4228,13 @@ input[type="button"].btn-block {
 .span-text-italic {
 
     font-style: italic;
+}
+
+.disabled {
+  background-color:grey;
+  color : #C0C0C0;
+  opacity : 0.1;
+  pointer-events: none
 }
 
 .jumbotron {

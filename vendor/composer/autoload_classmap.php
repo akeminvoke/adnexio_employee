@@ -7,6 +7,7 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'App\\Console\\Kernel' => $baseDir . '/app/Console/Kernel.php',
+    'App\\Country' => $baseDir . '/app/Country.php',
     'App\\Cv' => $baseDir . '/app/Cv.php',
     'App\\Exceptions\\Handler' => $baseDir . '/app/Exceptions/Handler.php',
     'App\\Http\\Controllers\\API\\UserController' => $baseDir . '/app/Http/Controllers/API/UserController.php',
@@ -37,7 +38,10 @@ return array(
     'App\\Http\\Middleware\\TrimStrings' => $baseDir . '/app/Http/Middleware/TrimStrings.php',
     'App\\Http\\Middleware\\TrustProxies' => $baseDir . '/app/Http/Middleware/TrustProxies.php',
     'App\\Http\\Middleware\\VerifyCsrfToken' => $baseDir . '/app/Http/Middleware/VerifyCsrfToken.php',
+    'App\\Http\\Requests\\ExperienceRequest' => $baseDir . '/app/Http/Requests/ExperienceRequest.php',
+    'App\\Job_Background' => $baseDir . '/app/Job_Background.php',
     'App\\Mail\\WelcomeMail' => $baseDir . '/app/Mail/WelcomeMail.php',
+    'App\\Profiles' => $baseDir . '/app/Profiles.php',
     'App\\Providers\\AppServiceProvider' => $baseDir . '/app/Providers/AppServiceProvider.php',
     'App\\Providers\\AuthServiceProvider' => $baseDir . '/app/Providers/AuthServiceProvider.php',
     'App\\Providers\\BroadcastServiceProvider' => $baseDir . '/app/Providers/BroadcastServiceProvider.php',
@@ -46,6 +50,7 @@ return array(
     'App\\Role' => $baseDir . '/app/Role.php',
     'App\\Services\\SocialFacebookAccountService' => $baseDir . '/app/services/SocialFacebookAccountService.php',
     'App\\SocialFacebookAccount' => $baseDir . '/app/SocialFacebookAccount.php',
+    'App\\States' => $baseDir . '/app/States.php',
     'App\\User' => $baseDir . '/app/User.php',
     'App\\VideoInterview' => $baseDir . '/app/VideoInterview.php',
     'App\\candidate_industry' => $baseDir . '/app/candidate_industry.php',

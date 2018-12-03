@@ -3,12 +3,20 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
+
+
 
 class experience extends Model
 {
+    use SoftDeletes;
+    protected $table = 'experiences';
+
     protected $fillable = [
-        'id','user_id','company_id','position','position_level','specialization','start_year','start_month','end_month','end_year','salary','industry_id','industry_id',
+        'id','user_id','company_id','position','position_level','specialization','start_year','start_month','end_month','end_year','salary','industry_id','job_desc'
     ];
+
+    protected $dates =['deleted_at'];
 
 
     public function company() {
@@ -17,6 +25,11 @@ class experience extends Model
 
     public function industry() {
         return $this->hasone('App\industry');
+    }
+
+    public function user()
+    {
+        return $this->hasMany('App\User',experience_id,id);
     }
 }
 

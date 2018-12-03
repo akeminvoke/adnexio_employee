@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCreateQuestion extends Migration
+class AddFieldJobDescExperience extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,8 @@ class CreateCreateQuestion extends Migration
      */
     public function up()
     {
-        Schema::create('create_questions', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('question');
-            $table->timestamps();
+        Schema::table('experiences', function ($table) {
+            $table->string('job_desc');
         });
     }
 
@@ -27,6 +25,8 @@ class CreateCreateQuestion extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('create_questions');
+        Schema::table('experiences', function ($table) {
+            $table->string('job_desc');
+        });
     }
 }

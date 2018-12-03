@@ -457,6 +457,7 @@ class ComposerStaticInita5858dfa896d45bc2eeaa0769b658a8e
 
     public static $classMap = array (
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
+        'App\\Country' => __DIR__ . '/../..' . '/app/Country.php',
         'App\\Cv' => __DIR__ . '/../..' . '/app/Cv.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
         'App\\Http\\Controllers\\API\\UserController' => __DIR__ . '/../..' . '/app/Http/Controllers/API/UserController.php',
@@ -487,7 +488,10 @@ class ComposerStaticInita5858dfa896d45bc2eeaa0769b658a8e
         'App\\Http\\Middleware\\TrimStrings' => __DIR__ . '/../..' . '/app/Http/Middleware/TrimStrings.php',
         'App\\Http\\Middleware\\TrustProxies' => __DIR__ . '/../..' . '/app/Http/Middleware/TrustProxies.php',
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
+        'App\\Http\\Requests\\ExperienceRequest' => __DIR__ . '/../..' . '/app/Http/Requests/ExperienceRequest.php',
+        'App\\Job_Background' => __DIR__ . '/../..' . '/app/Job_Background.php',
         'App\\Mail\\WelcomeMail' => __DIR__ . '/../..' . '/app/Mail/WelcomeMail.php',
+        'App\\Profiles' => __DIR__ . '/../..' . '/app/Profiles.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
         'App\\Providers\\AuthServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AuthServiceProvider.php',
         'App\\Providers\\BroadcastServiceProvider' => __DIR__ . '/../..' . '/app/Providers/BroadcastServiceProvider.php',
@@ -496,6 +500,7 @@ class ComposerStaticInita5858dfa896d45bc2eeaa0769b658a8e
         'App\\Role' => __DIR__ . '/../..' . '/app/Role.php',
         'App\\Services\\SocialFacebookAccountService' => __DIR__ . '/../..' . '/app/services/SocialFacebookAccountService.php',
         'App\\SocialFacebookAccount' => __DIR__ . '/../..' . '/app/SocialFacebookAccount.php',
+        'App\\States' => __DIR__ . '/../..' . '/app/States.php',
         'App\\User' => __DIR__ . '/../..' . '/app/User.php',
         'App\\VideoInterview' => __DIR__ . '/../..' . '/app/VideoInterview.php',
         'App\\candidate_industry' => __DIR__ . '/../..' . '/app/candidate_industry.php',
