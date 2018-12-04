@@ -35,7 +35,6 @@ Route::post('/main/first_login', 'MainController@store');
 //Redirect After Login IF Done Fill Info
 Route::get('/home', 'HomeController@index')->name('home');
 
-
 //Profile Function
 Route::get('/profile/profile_aboutme', 'ProfileAboutmeController@index');
 Route::post('/profile/profile_aboutme', 'ProfileAboutmeController@editPost');
@@ -47,6 +46,10 @@ Route::post('/profile/profile_cvupload', 'ProfileCvuploadController@filestore');
 Route::post('/profile/profile_cvupload/dlt', 'ProfileCvuploadController@fileDestroy');
 Route::post('profile/profile_cvupload/pullback','ProfileCvuploadController@retrievefilename');
 Route::get('/cv_uploads/download/', 'ProfileCvuploadController@getdownload');
+
+//Personality Test Function
+Route::get('/personality/personality_career', 'PersonalityCareerController@index');
+Route::post('/personality/personality_career', 'PersonalityCareerController@saveApiData');
 
 //Video Interview Function
 Route::get('/video/video_recording', 'VideoRecordingController@index');
