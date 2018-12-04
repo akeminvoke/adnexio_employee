@@ -695,14 +695,21 @@
             "<option value='Junior Excutive'>Junior Executive</option> " +
             "</select>");
 
-        $('#val-salary').replaceWith( "<select class='form-control' id='val-salary' name='val-salary' > " +
+        $('#val-salary').replaceWith( " <select class='form-control' id='val-salary' name='val-salary'> " +
             "<option disabled selected>please choose your salary range</option> " +
-            "<option>Below then RM1,000</option> " +
-            "<option>RM 1,000 to RM 3,000</option> " +
-            "<option>RM3,001 to RM5,000 </option> " +
-            "<option>RM5,001 to RM7,000</option> " +
-            "<option>RM7,001 to RM1000</option> " +
-            "<option>above RM10,000</option> " +
+            "<option>Below then 1,000</option> " +
+            "<option>1,000 to  3,000</option> " +
+            "<option>3,001 to 5,000 </option> " +
+            "<option>5,001 to 7,000</option> " +
+            "<option>7,001 to 10,000</option> " +
+            "<option>10,000 to 15,000</option> " +
+            "<option>16,001 to 20,000</option> " +
+            "<option>20,001 to 25,000</option> " +
+            "<option>25,001 to 30,000</option> " +
+            "<option>30,001 to 35,000</option> " +
+            "<option>35,001 to 40,000</option> " +
+            "<option>45,001 to 50,000</option> " +
+            "<option>above 50,000</option> " +
             "</select>");
 
 
@@ -710,6 +717,57 @@
         $('#experiences').removeClass("hide");
 
         $('#experiences').show();
+    });
+
+
+    $('#val-specialization').change(function() {
+
+        $.ajax({
+            type: 'POST',
+            url: '{{ url("/profile/profile_experience/getjobspec") }}',
+            data: {
+                '_token': $('input[name=_token]').val(),
+                'specialization': $('#val-specialization').val(),
+            },
+            success: function (data) {
+                $('#val-job-specification').empty();
+
+                $('#val-job-specification').append("<option disabled selected value='0'>select your Job Specification</option> ");
+
+
+                $.each(data, function (i, item) {
+                        $('#val-job-specification').append("<option value='" + data[i].Id + "'>" + data[i].Job_Specification + "</option>");
+
+                    }
+                )
+            }
+        });
+
+    });
+
+    $('#specialization-edit').change(function() {
+
+        $.ajax({
+            type: 'POST',
+            url: '{{ url("/profile/profile_experience/getjobspec") }}',
+            data: {
+                '_token': $('input[name=_token]').val(),
+                'specialization': $('#specialization-edit').val(),
+            },
+            success: function (data) {
+                $('#job-specification-edit').empty();
+
+                $('#job-specification-edit').append("<option disabled selected value='0'>select your Job Specification</option> ");
+
+
+                $.each(data, function (i, item) {
+                        $('#job-specification-edit').append("<option value='" + data[i].Id + "'>" + data[i].Job_Specification + "</option>");
+
+                    }
+                )
+            }
+        });
+
     });
 
     $(document).on('click', '.minus-experience', function() {
@@ -741,12 +799,43 @@
         $('#jd_start_year-edit').val($(this).data('jd_start_year-edit'));
         $('#jd_start_month-edit').val($(this).data('jd_start_month-edit'));
         $('#specialization-edit').val($(this).data('specialization-edit'));
+        $('#job-desc-edit').val($(this).data('job-desc-edit'));
 
+        //$('#job-specification').val($(this).data('jobspecification-edit'));
+
+        var  counter =$(this).data('specialization-edit');
+
+
+            $.ajax({
+                type: 'POST',
+                url: '{{ url("/profile/profile_experience/getjobspec") }}',
+                data: {
+                    '_token': $('input[name=_token]').val(),
+                    'specialization': counter
+                },
+                success: function (data) {
+                    $('#job-specification-edit').empty();
+
+                    $('#job-specification-edit').append("<option disabled selected value='0'>select your Job Specification</option> ");
+
+                    $.each(data, function (i, item) {
+                            $('#job-specification-edit').append("<option value='" + data[i].Id + "'>" + data[i].Job_Specification + "</option>");
+                        })
+                }
+            });
+
+      //  $('#specialization-edit').val($(this).data('specialization-edit'));
+       // $('#job-specification-edit').val($(this).data('jobspecification-edit'));
         $('#id-edit').val($(this).data('id-edit'));
         $('#salary-edit').val($(this).data('salary-edit'));
+        //$('#job-specification-edit').val($(this).data('jobspecification-edit'));
 
         $('#modal-block-large').modal('show');
+        myFun ()
     });
+    function myFun () {
+        $('#job-specification-edit').val($(this).data('jobspecification-edit'));
+    }
 
     $('.col-lg-7').on('click', '.edit', function() {
         $.ajax({
@@ -798,6 +887,8 @@
                 'jd_end_year': $('#val-jd-end-year').val(),
                 'jd_end_month': $('#val-jd-end-month').val(),
                 'job_desc': $('#val-job-desc').val(),
+                'job_spec': $('#val-job-specification').val(),
+
 
             },
             dataType: 'json',
@@ -815,7 +906,6 @@
 </script>
 <script>
     $('.submit-experience-edit').on('click', '.submit-experience-edit', function() {
-
         $.ajax({
             // headers: {
             //     'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
@@ -830,20 +920,19 @@
                 // 'company_name': $('#company_name-edit').val(),
                 'jd_start_year': $('#jd_start_year-edit').val(),
                 'jd_start_month': $('#jd_start_month-edit').val(),
-                'specialization': $('#specialization-edit').val(),
-
+                'specialization_id': $('#specialization-edit').val(),
+                'specification_id': $('#job-specification-edit').val(),
                 'salary': $('#salary-edit').val(),
                 'jd_end_year': $('#val-jd-end-year-edit').val(),
-                'jd_end_month': $('#val-jd-end-month-edit').val()
+                'jd_end_month': $('#val-jd-end-month-edit').val(),
+                'job_desc_edit': $('#job-desc-edit').val(),
+                'company_name_edit': $('#company_name-edit').val()
 
             },
             success: function(data) {
-
                 location.reload();
             }
-
         });
-
     });
 
 </script>

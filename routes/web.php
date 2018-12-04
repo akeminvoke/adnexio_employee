@@ -38,6 +38,7 @@ Route::get('/profile/profile_experience', 'ProfileExperienceController@index');
 Route::post('/profile/profile_experience/store', 'ProfileExperienceController@store');
 Route::post('/profile/profile_experience/update', 'ProfileExperienceController@update');
 Route::post('/profile/profile_experience/getjb', 'ProfileExperienceController@getjb');
+Route::post('/profile/profile_experience/getjobspec', 'ProfileExperienceController@getjobspec');
 Route::post('/profile/profile_experience/delete', 'ProfileExperienceController@destroy');
 Route::get('/profile/profile_cvupload', 'ProfileCvuploadController@index');
 Route::post('/profile/profile_cvupload', 'ProfileCvuploadController@filestore');

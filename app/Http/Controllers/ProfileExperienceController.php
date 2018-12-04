@@ -51,8 +51,10 @@ class ProfileExperienceController extends Controller
 
         $Company_Names = DB::table('experiences')
             ->join('companies', 'experiences.company_id', '=', 'companies.id')
-            ->select('experiences.id','companies.name','experiences.position','experiences.specialization','experiences.start_year','experiences.start_month',
-                'experiences.end_year','experiences.end_month','experiences.position','experiences.salary')
+            ->join('job_specifications','job_specifications.id','=','experiences.job_specifications_id')
+            ->join('job_backgrounds','job_backgrounds.id','=','experiences.specialization_id')
+            ->select('experiences.id','companies.name','experiences.position','experiences.specialization_id','experiences.start_year','experiences.start_month',
+                'experiences.end_year','experiences.end_month','experiences.job_specifications_id','experiences.position','experiences.salary','experiences.job_desc','job_specifications.job_specification','job_backgrounds.Job_Background')
             ->where('experiences.user_id',$user->id )
             ->wherenull('experiences.deleted_at')
             ->get();
@@ -74,6 +76,19 @@ class ProfileExperienceController extends Controller
         $jb= DB::table('Job_backgrounds')->select('Id','Job_Background')->get();
 
         return response()->json($jb);
+
+    }
+
+
+
+    public function getjobspec(request $request)
+    {
+
+
+
+        $js= DB::table('Job_specifications')->select('Id','Job_Specification')->where('Job_Background_ID',$request->specialization)->get();
+
+        return response()->json($js);
 
     }
 	
@@ -109,15 +124,26 @@ class ProfileExperienceController extends Controller
                'specialization' => 'required',
               //'position_level' => 'required',
                'salary' => 'required',
+              'job_spec' => 'required',
               //'job_desc' => 'required',
 
 
             ]);
 
+        $company_exist = company::select('name')->where('name', $request->company_name_edit)->take(1)->get();
 
-            $company = new company();
-            $company->name = $request->company_name;
-            $company->save();
+        if( !isset($company_exist)) {
+            $add_company = new company();
+            $add_company ->name = $request->company_name_edit;
+            $add_company->save();
+            $company_id = company::select('id')->where('name', $request->company_name_edit)->take(1)->get();
+            //  $company_id = company::find('name',$request->company_name_edit)->select('id')->get();
+        }else {
+            // $company_id = company::find('name',$request->company_name_edit)->select('id')->get();\
+            $company_id = company::select('id')->where('name', $request->company_name_edit)->take(1)->get();
+        } ;
+
+
 
             //$industry_id=industry::select('id')->where('name',$request->industry)->get();
 
@@ -127,7 +153,7 @@ class ProfileExperienceController extends Controller
             $experience->user_id = $user->id;
             $experience->company_id = $company_id[0]->id;
             $experience->position = $request->position;
-            $experience->specialization = $request->specialization;
+            $experience->specialization_id = $request->specialization;
 
             $experience->start_year = $request->jd_start_year;
             $experience->start_month = $request->jd_start_month;
@@ -137,6 +163,7 @@ class ProfileExperienceController extends Controller
             }
             $experience->salary = $request->salary;
             $experience->job_desc = $request->job_desc;
+            $experience->job_specifications_id = $request->job_spec;
             //$experience->industry_id = $industry_id;
 
             $experience->save();
@@ -187,28 +214,43 @@ class ProfileExperienceController extends Controller
     public function update(Request $request)
     {
 
+        $this->validate($request, [
+            'position' => 'required',
+
+
+        ]);
+        $company_exist = company::select('name')->where('name', $request->company_name_edit)->take(1)->get();
+       // $company_exist = company::find('name',$request->company_name_edit);
+
+
+
         $user = Auth::guard($this->getGuard())->user();
         $experiences = experience::where('user_id',$user->id)->get();
 
         $experience = experience::find ($request->id);
         $experience->position = $request->position;
-        $experience->position_level = $request->position_level;
-        $experience->specialization = $request->specialization;
+        $experience->specialization_id = $request->specialization_id;
+        $experience->job_specifications_id = $request->specification_id;
         $experience->start_year = $request->jd_start_year;
         $experience->start_month = $request->jd_start_month;
         $experience->end_year = $request->jd_end_year;
         $experience->end_month = $request->jd_end_month;
         $experience->salary = $request->salary;
+        $experience->job_desc = $request->job_desc_edit;
+        if( !isset($company_exist)) {
+            $add_company = new company();
+            $add_company ->name = $request->company_name_edit;
+            $add_company->save();
+            $company_id = company::select('id')->where('name', $request->company_name_edit)->take(1)->get();
+          //  $company_id = company::find('name',$request->company_name_edit)->select('id')->get();
+        }else {
+          // $company_id = company::find('name',$request->company_name_edit)->select('id')->get();\
+            $company_id = company::select('id')->where('name', $request->company_name_edit)->take(1)->get();
+        } ;
+        $experience->company_id = $company_id[0]->id ;
         $experience->save();
 
-        $sample = experience::getAge();
 
-       // $read_experience=experience::where('id',$request->id)->take(1)->get();
-
-       // return response()->json($experience);
-       // return response()->json(['experience'=>$read_experience]);
-        //return Redirect::to('/profile/profile_experience');
-        //return redirect('/profile/profile_experience');
 
     }
 

@@ -29,8 +29,9 @@
 
                                 <a href="#" class="edit-experience pull" data-toggle="modal" data-target="#modal-block-large" data-id="{{$user->id}}" data-name="{{$user->name}}"
                                    data-position="{{$Company_Name->position}}" data-company_name="{{$Company_Name->name}}"    data-jd_start_year-edit="{{$Company_Name->start_year}}"
-                                   data-jd_start_month-edit="{{$Company_Name->start_month}}"   data-specialization-edit="{{$Company_Name->specialization}}"
-                                   data-salary-edit="{{$Company_Name->salary}}"    data-id-edit="{{$Company_Name->id}}"  >
+                                   data-jd_start_month-edit="{{$Company_Name->start_month}}"   data-specialization-edit="{{$Company_Name->specialization_id}}"
+                                   data-jobspecification-edit="{{$Company_Name->job_specifications_id}}"
+                                   data-salary-edit="{{$Company_Name->salary}}"    data-id-edit="{{$Company_Name->id}}" data-job-desc-edit="{{$Company_Name->job_desc}}" >
 
                                     <i class="fa fa-edit fa-1x btn btn-primary"> Edit</i>
                                 </a>
@@ -52,18 +53,28 @@
                         <div class="row">
 
                             <div class="col-md-4">
+                                <label class="custom-control-data-label" id="lbl_experience_industry">Company Name</label>
+                            </div>
+                            <div class="col-md-4">
+                                <label id="lbl_experience_industry_output">{{$Company_Name->name}}</label>
+                            </div>
+                        </div>
+
+                        <div class="row">
+
+                            <div class="col-md-4">
                                 <label class="custom-control-data-label" id="lbl_experience_industry">Industry</label>
                             </div>
                             <div class="col-md-4">
-                                <label id="lbl_experience_industry_output">Advertising / Marketing / Promotion / PR</label>
+                                <label id="lbl_experience_industry_output">{{$Company_Name->Job_Background}}</label>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-4">
-                                <label class="custom-control-data-label" id="lbl_experience_role">Role</label>
+                                <label class="custom-control-data-label" id="lbl_experience_role">Job Role</label>
                             </div>
                             <div class="col-md-4">
-                                <label id="lbl_experience_role_output">{{$Company_Name->specialization}}</label>
+                                <label id="lbl_experience_role_output">{{$Company_Name->job_specification}}</label>
                             </div>
                         </div>
 
@@ -79,8 +90,8 @@
                 </div>
             @endforeach
         </div>
-        <div id="add-experience-btn" clas="row">
-            <div class="col-md-2 float-right ">
+        <div id="add-experience-btn" class=" ">
+            <div class="col-md-2 float-right @if (count($Company_Names) === 0)hide @endif ">
                 <button   type="button" id="add-experience" class="btn btn-primary add-experience float-right">
                     <i class="fa fa-fw fa-plus mr-1"></i>
                 </button>
@@ -107,8 +118,6 @@
                             <div class="col-lg-8 col-xl-5">
 
                                 <br />
-
-
 
                                 <div class="form-group">
                                     <label for="val-username">Position <span class="text-danger">*</span></label>
@@ -318,10 +327,36 @@
 
                                     <input type="checkbox" class="myCheckbox form-check-input" data-duration="end-duration" /><p class="present"> Present</p>
                                 </div>
+
                                 <div class="form-group">
                                     <label for="val-email">Job Background<span class="text-danger">*</span></label>
-                                    <select class="form-control" id="val-specialization" name="val-specialization">
-                                        <option>financial</option>
+                                    <select class="form-control" id="val-specialization" name="val-specialization" aria-describedby="val-specialization-error" aria-invalid="true">
+                                        <option disabled="" selected="" value="0">select your Job Background </option>
+                                        <option value="1">Accounting/Finance</option>
+                                        <option value="2">Admin/Human Resources</option>
+                                        <option value="3">Arts/Media/Communications</option>
+                                        <option value="4">Building/Construction</option>
+                                        <option value="5">Computer/Information Technology</option>
+                                        <option value="6">Education/Training</option>
+                                        <option value="7">Engineering</option>
+                                        <option value="8">Healthcare</option>
+                                        <option value="9">Hotel/Restaurant</option>
+                                        <option value="10">Manufacturing</option>
+                                        <option value="11">Sales/Marketing</option>
+                                        <option value="12">Sciences</option>
+                                        <option value="13">Services</option>
+                                        <option value="14">Others</option>
+                                    </select>
+                                </div>
+
+
+
+                                <div class="form-group">
+                                    <label for="val-email">Job Specification<span class="text-danger">*</span></label>
+                                    <select class="form-control" id="val-job-specification" name="val-job-specification" aria-describedby="val-specialization-error" aria-invalid="true">
+
+
+
                                     </select>
 
 
@@ -341,11 +376,11 @@
 
 
                                 <div class="form-group">
-                                    <label for="val-email">Salary (in Ringgit Malaysia currency)<span class="text-danger">*</span></label>
+                                    <label for="val-email">Monthly Salary (RM)<span class="text-danger">*</span></label>
                                     <select class="form-control" id="val-salary" name="val-salary"   >
                                         <option disabled selected>please choose your salary range</option>
                                         <option>Below then 1,000</option>
-                                        <option>1,000 to RM 3,000</option>
+                                        <option>1,000 to  3,000</option>
                                         <option>3,001 to 5,000 </option>
                                         <option>5,001 to 7,000</option>
                                         <option>7,001 to 10,000</option>
@@ -354,11 +389,14 @@
                                         <option>20,001 to 25,000</option>
                                         <option>25,001 to 30,000</option>
                                         <option>30,001 to 35,000</option>
+                                        <option>35,001 to 40,000</option>
+                                        <option>45,001 to 50,000</option>
+                                        <option>above 50,000</option>
                                     </select>
 
                                 </div>
                                 <div class="form-group">
-                                    <label for="val-email">Job Description<span class="text-danger">*</span></label>
+                                    <label for="val-email">Job Description<span class="text-danger"></span></label>
                                     <textarea class="form-control" id="val-job-desc" name="val-job-desc" rows="4" placeholder="Describe your experience "></textarea>
                                 </div>
 
@@ -376,7 +414,7 @@
                                 <button type="submit" class="btn btn-primary submit-experience">Submit</button>
                             </div>
 
-                            <div class="col-sm-1 offset-sm-1 cancel-submit-experience btn btn-primary">
+                            <div class="col-sm-1 offset-sm-1 cancel-submit-experience btn btn-primary @if (count($Company_Names) === 0)hide @endif">
                                 Cancel
                             </div>
                         </div>
@@ -402,7 +440,7 @@
                         </div>
                         <div class="block block-rounded block-bordered">
 
-                            <form id="foredit"  method="post">
+                            <form id="foredit"  method="post" action="/profile/profile_experience/update">
 
                                 <div id="experiences" class="block-content block-content-full experience-section">
 
@@ -426,7 +464,6 @@
                                                     <div class="form-group">
                                                         <label for="val-email">Company Name<span class="text-danger">*</span></label>
                                                         <input type="text" class="form-control" id="company_name-edit" name="val-company-name-edit" placeholder="Enter your company name">
-
                                                     </div>
 
                                                     <div class="form-group">
@@ -618,26 +655,70 @@
                                                             <option>Dec</option>
                                                         </select>
                                                     </div>
-                                                    <div class="form-group">
-                                                        <label for="val-email">Specialization<span class="text-danger">*</span></label>
-                                                        <select class="form-control" id="specialization-edit" name="val-specialization-edit">
-                                                            <option disabled selected>please choose your specialization</option>
-                                                            <option>human resource</option>
-                                                            <option>programmer</option>
-                                                            <option>example</option>
+                                                    {{--<div class="form-group">--}}
+                                                        {{--<label for="val-email">Specialization<span class="text-danger">*</span></label>--}}
+                                                        {{--<select class="form-control" id="specialization-edit" name="val-specialization-edit">--}}
+                                                            {{--<option disabled selected>please choose your specialization</option>--}}
+                                                            {{--<option>human resource</option>--}}
+                                                            {{--<option>programmer</option>--}}
+                                                            {{--<option>example</option>--}}
 
+                                                        {{--</select>--}}
+                                                    {{--</div>--}}
+
+                                                    <div class="form-group">
+                                                        <label for="val-email">Job Background<span class="text-danger">*</span></label>
+                                                        <select class="form-control" id="specialization-edit" name="val-specialization-edit" aria-describedby="val-specialization-error" aria-invalid="true">
+                                                            <option disabled="" selected="" value="0">select your Job Background </option>
+                                                            <option value="1">Accounting/Finance</option>
+                                                            <option value="2">Admin/Human Resources</option>
+                                                            <option value="3">Arts/Media/Communications</option>
+                                                            <option value="4">Building/Construction</option>
+                                                            <option value="5">Computer/Information Technology</option>
+                                                            <option value="6">Education/Training</option>
+                                                            <option value="7">Engineering</option>
+                                                            <option value="8">Healthcare</option>
+                                                            <option value="9">Hotel/Restaurant</option>
+                                                            <option value="10">Manufacturing</option>
+                                                            <option value="11">Sales/Marketing</option>
+                                                            <option value="12">Sciences</option>
+                                                            <option value="13">Services</option>
+                                                            <option value="14">Others</option>
                                                         </select>
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label for="val-email">Job Specification<span class="text-danger">*</span></label>
+                                                        <select class="form-control" id="job-specification-edit" name="val-job-specification" aria-describedby="val-specialization-error" aria-invalid="true">
+                                                            {{--<option disabled="" selected="" value="0">select your Job Specification</option>--}}
+                                                            {{--<option value="1">Audit &amp; Taxation </option>--}}
+                                                            {{--<option value="2">Banking/Financial </option>--}}
+                                                            {{--<option value="3">Corporate Finance/Investment </option>--}}
+                                                            {{--<option value="4">General/Cost Accounting </option>--}}
+                                                            {{--<option disabled="" selected="" value="0">select your Job Specification</option>--}}
+                                                            {{--<option value="5">Clerical/Administrative </option>--}}
+                                                            {{--<option value="6">Human Resources </option>--}}
+                                                            {{--<option value="7">Secretarial </option>--}}
+                                                            {{--<option value="8">Top Management </option>--}}
+                                                            {{--<option disabled="" selected="" value="0">select your Job Specification</option>--}}
+                                                            {{--<option value="9">Advertising </option>--}}
+                                                            {{--<option value="10">Arts/Creative Design </option>--}}
+                                                            {{--<option value="11">Entertainment </option>--}}
+                                                            {{--<option value="12">Public Relations </option>--}}
+                                                        </select>
+
                                                     </div>
 
 
 
 
+
                                                     <div class="form-group">
-                                                        <label for="val-email">Salary (in Ringgit Malaysia currency)<span class="text-danger">*</span></label>
+                                                        <label for="val-email">Monthly Salary (in Ringgit Malaysia currency)<span class="text-danger">*</span></label>
                                                         <select class="form-control" id="salary-edit" name="val-salary-edit"   >
                                                             <option disabled selected>please choose your salary range</option>
                                                             <option>Below then 1,000</option>
-                                                            <option>1,000 to RM 3,000</option>
+                                                            <option>1,000 to  3,000</option>
                                                             <option>3,001 to 5,000 </option>
                                                             <option>5,001 to 7,000</option>
                                                             <option>7,001 to 10,000</option>
@@ -646,12 +727,15 @@
                                                             <option>20,001 to 25,000</option>
                                                             <option>25,001 to 30,000</option>
                                                             <option>30,001 to 35,000</option>
+                                                            <option>35,001 to 40,000</option>
+                                                            <option>45,001 to 50,000</option>
+                                                            <option>above 50,000</option>
                                                         </select>
 
                                                     </div>
                                                     <div class="form-group">
                                                         <label for="val-email">Job Description<span class="text-danger">*</span></label>
-                                                        <textarea class="form-control" id="job_desc_edit" name="val-job-desc-edit" rows="4" placeholder="Describe your experience "></textarea>
+                                                        <textarea class="form-control" id="job-desc-edit" name="val-job-desc-edit" rows="4" placeholder="Describe your experience "></textarea>
                                                     </div>
 
 
