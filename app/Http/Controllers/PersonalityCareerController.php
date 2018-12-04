@@ -85,22 +85,28 @@ class PersonalityCareerController extends Controller
 
 
  	public function saveApiData()
-    {
+{
+    $requestContent = [
+        //'auth' => ['Authorization' => 'Basic 67f561943ca74434b66b8740a739966c:x'],
+        'headers' => [
+			'Authorization' => "Basic 67f561943ca74434b66b8740a739966c:x",
+            'Accept' => 'application/json',
+            'Content-Type' => 'application/json',
+        ],
+        'json' => [
+            'deck_id' => "career-deck"
+        ]
+    ];
+
+    try {
         $client = new Client();
-        $res = $client->request('POST', 'https://api.traitify.com/v1/assessments',
-		[
-			'headers' => ['Authorization' => "Basic 67f561943ca74434b66b8740a739966c:x"]
-    	], 		
-		[
-            'raw' => ['deck_id' => 'career-deck']
-        ]);
-        echo $res->getStatusCode();
-        // "200"
-        echo $res->getHeader('content-type');
-        // 'application/json; charset=utf8'
-        echo $res->getBody();
-        // {"type":"User"...'
-	}
+        $apiRequest = $client->request('POST', 'https://api.traitify.com/v1/assessments', $requestContent);
+        $response = json_decode($apiRequest->getBody());
+        dd($response);
+    } catch (RequestException $re) {
+          // For handling exception.
+    }
+}
 
 
     /**
