@@ -42,6 +42,7 @@ return array(
     'App\\Http\\Middleware\\VerifyCsrfToken' => $baseDir . '/app/Http/Middleware/VerifyCsrfToken.php',
     'App\\Http\\Requests\\ExperienceRequest' => $baseDir . '/app/Http/Requests/ExperienceRequest.php',
     'App\\Mail\\WelcomeMail' => $baseDir . '/app/Mail/WelcomeMail.php',
+    'App\\Personality' => $baseDir . '/app/Personality.php',
     'App\\Profiles' => $baseDir . '/app/Profiles.php',
     'App\\Providers\\AppServiceProvider' => $baseDir . '/app/Providers/AppServiceProvider.php',
     'App\\Providers\\AuthServiceProvider' => $baseDir . '/app/Providers/AuthServiceProvider.php',

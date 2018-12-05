@@ -54,5 +54,9 @@ class User extends Authenticatable
     public function Cvs() {
         return $this->hasMany('App\Cv');
     }
+	
+	    public function personalities() {
+        return $this->hasMany('App\Personality');
+    }
 
 }

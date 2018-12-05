@@ -13,11 +13,17 @@
             </div>
             <div class="block-content block-content-full">
             
-            
-<form action="/personality/personality_career" method="post">
-<button>Test</button>
-</form>
 
+
+
+@forelse($personalities as $personality)
+<form action="/personality/personality_career" method="post">
+<button>Retest</button>
+</form>
+<form action="/personality/personality_career_getdata" method="post">
+<input type="hidden" name="assessment_id" value="{{ $personality->assessment_id }}"/>
+<button>Is this you?</button>
+</form>
 
     <script src="https://cdn.traitify.com/js/widgets/v1.js"></script>
 
@@ -25,11 +31,22 @@
     
     <script>
       Traitify.setPublicKey("26613025d5214b2e9ab40d71d180b27b");
-      Traitify.setHost("https://api-sandbox.traitify.com");
+      Traitify.setHost("https://api.traitify.com");
       Traitify.setVersion("v1");
-      var assessmentId = '8988c712-7e87-46c4-ac60-d98eba243a2e';
+      //var assessmentId = '9c63eff0-affa-48ee-a3a6-0a468612150b';
+	  var assessmentId = '{{ $personality->assessment_id }}';
       Traitify.ui.load(assessmentId, ".assessment")
     </script>
+@empty
+<form action="/personality/personality_career" method="post">
+<button>Test</button>
+</form>
+@endforelse
+            
+
+
+
+
 
 
 

@@ -49,7 +49,8 @@ Route::get('/cv_uploads/download/', 'ProfileCvuploadController@getdownload');
 
 //Personality Test Function
 Route::get('/personality/personality_career', 'PersonalityCareerController@index');
-Route::post('/personality/personality_career', 'PersonalityCareerController@saveApiData');
+Route::post('/personality/personality_career', 'PersonalityCareerController@store');
+Route::post('/personality/personality_career_getdata', 'PersonalityCareerController@getRequest');
 
 //Video Interview Function
 Route::get('/video/video_recording', 'VideoRecordingController@index');
