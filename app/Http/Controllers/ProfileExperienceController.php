@@ -51,10 +51,10 @@ class ProfileExperienceController extends Controller
 
         $Company_Names = DB::table('experiences')
             ->join('companies', 'experiences.company_id', '=', 'companies.id')
-            ->join('job_specifications','job_specifications.id','=','experiences.job_specifications_id')
+            ->leftjoin('job_specifications','job_specifications.id','=','experiences.job_specifications_id')
             ->join('job_backgrounds','job_backgrounds.id','=','experiences.specialization_id')
             ->select('experiences.id','companies.name','experiences.position','experiences.specialization_id','experiences.start_year','experiences.start_month',
-                'experiences.end_year','experiences.end_month','experiences.job_specifications_id','experiences.position','experiences.salary','experiences.job_desc','job_specifications.job_specification','job_backgrounds.Job_Background')
+                'experiences.end_year','experiences.end_month','experiences.job_specifications_id','experiences.position','experiences.salary','experiences.job_desc','experiences.pjs','job_specifications.job_specification','job_backgrounds.Job_Background')
             ->where('experiences.user_id',$user->id )
             ->wherenull('experiences.deleted_at')
             ->get();
@@ -163,7 +163,18 @@ class ProfileExperienceController extends Controller
             }
             $experience->salary = $request->salary;
             $experience->job_desc = $request->job_desc;
+           // $experience->job_specifications_id = $request->job_spec;
+
+
+        if( isset($request->other_job_spec)) {
+            $experience->job_specifications_id = null;
+            $experience->pjs = $request->other_job_spec;
+        }
+        else{
             $experience->job_specifications_id = $request->job_spec;
+            $experience->pjs = null;
+        }
+
             //$experience->industry_id = $industry_id;
 
             $experience->save();
@@ -230,7 +241,16 @@ class ProfileExperienceController extends Controller
         $experience = experience::find ($request->id);
         $experience->position = $request->position;
         $experience->specialization_id = $request->specialization_id;
-        $experience->job_specifications_id = $request->specification_id;
+
+        if( isset($request->keyin_job_spec_edit)) {
+            $experience->job_specifications_id = null;
+            $experience->pjs = $request->keyin_job_spec_edit;
+        }
+            else{
+            $experience->job_specifications_id = $request->specification_id;
+                $experience->pjs = null;
+      }
+        //$experience->job_specifications_id = $request->specification_id;
         $experience->start_year = $request->jd_start_year;
         $experience->start_month = $request->jd_start_month;
         $experience->end_year = $request->jd_end_year;

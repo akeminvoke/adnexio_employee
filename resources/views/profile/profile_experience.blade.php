@@ -66,7 +66,7 @@
                                 <label class="custom-control-data-label" id="lbl_experience_industry">Industry</label>
                             </div>
                             <div class="col-md-4">
-                                <label id="lbl_experience_industry_output">{{$Company_Name->Job_Background}}</label>
+                                <label id="lbl_experience_industry_output"> {{$Company_Name->Job_Background}}  </label>
                             </div>
                         </div>
                         <div class="row">
@@ -74,7 +74,11 @@
                                 <label class="custom-control-data-label" id="lbl_experience_role">Job Role</label>
                             </div>
                             <div class="col-md-4">
-                                <label id="lbl_experience_role_output">{{$Company_Name->job_specification}}</label>
+                                <label id="lbl_experience_role_output">@if($Company_Name->job_specification === null){{$Company_Name->pjs}} @endif
+
+                                        @if($Company_Name->pjs === null){{$Company_Name->job_specification}}
+                                    </label>
+                                @endif
                             </div>
                         </div>
 
@@ -351,28 +355,20 @@
 
 
 
+
                                 <div class="form-group">
                                     <label for="val-email">Job Specification<span class="text-danger">*</span></label>
                                     <select class="form-control" id="val-job-specification" name="val-job-specification" aria-describedby="val-specialization-error" aria-invalid="true">
-
-
-
                                     </select>
-
 
                                 </div>
 
-                                {{--<div class="form-group">--}}
-                                    {{--<label for="val-email">Position Level<span class="text-danger">*</span></label>--}}
-                                    {{--<select class="form-control" id="val-position-level" name="val-position-level">--}}
-                                        {{--<option disabled selected>please choose your Position Level</option>--}}
-                                        {{--<option value="Senior Manager">Senior Manager</option>--}}
-                                        {{--<option value="Manager">Manager</option>--}}
-                                        {{--<option value="Senior Excutive">Senior Executive</option>--}}
-                                        {{--<option value="Junior Excutive">Junior Executive</option>--}}
-                                    {{--</select>--}}
+                                <div id="keyword-job-specification" class="form-group hide">
+                                    <label for="val-email">please state your job specification<span class="text-danger">*</span></label>
+                                    <input type="text" class="form-control" id="val-keyin-job-spec" name="val-keyin-job-spec" placeholder="Enter your company name">
 
-                                {{--</div>--}}
+                                </div>
+
 
 
                                 <div class="form-group">
@@ -709,12 +705,16 @@
 
                                                     </div>
 
+                                                    <div id="keyword-job-specification-edit" class="form-group hide">
+                                                        <label for="val-email">Please State Your Job Specification<span class="text-danger">*</span></label>
+                                                        <input type="text" class="form-control" id="keyin-job-spec-edit" name="keyin-job-spec-edit" placeholder="Please specify your job specification">
 
+                                                    </div>
 
 
 
                                                     <div class="form-group">
-                                                        <label for="val-email">Monthly Salary (in Ringgit Malaysia currency)<span class="text-danger">*</span></label>
+                                                        <label for="val-email">Monthly Salary (Ringgit Malaysia)<span class="text-danger">*</span></label>
                                                         <select class="form-control" id="salary-edit" name="val-salary-edit"   >
                                                             <option disabled selected>please choose your salary range</option>
                                                             <option>Below then 1,000</option>

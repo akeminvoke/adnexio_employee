@@ -739,7 +739,10 @@
                         $('#val-job-specification').append("<option value='" + data[i].Id + "'>" + data[i].Job_Specification + "</option>");
 
                     }
+
+
                 )
+                $('#val-job-specification').append("<option value='79'>Others</option> ");
             }
         });
 
@@ -765,10 +768,44 @@
 
                     }
                 )
+                $('#job-specification-edit').append("<option value='79'>Others</option> ");
             }
         });
 
     });
+
+
+    $('#val-job-specification').change(function() {
+         var other = $("#val-job-specification :selected").text();
+
+        if ( other == "Others")
+        {
+            $('#keyword-job-specification').removeClass('hide');
+
+            $('#keyword-job-specification').show();
+        } else
+        {
+            $('#keyword-job-specification').addClass('hide');
+            $('#keyword-job-specification').hide();
+        }
+
+    });
+  $('#job-specification-edit').change(function() {
+         var other = $("#job-specification-edit :selected").text();
+
+        if ( other == "Others")
+        {
+            $('#keyword-job-specification-edit').removeClass('hide');
+
+            $('#keyword-job-specification-edit').show();
+        } else
+        {
+            $('#keyword-job-specification-edit').addClass('hide');
+            $('#keyword-job-specification-edit').hide();
+        }
+
+    });
+
 
     $(document).on('click', '.minus-experience', function() {
 
@@ -888,7 +925,7 @@
                 'jd_end_month': $('#val-jd-end-month').val(),
                 'job_desc': $('#val-job-desc').val(),
                 'job_spec': $('#val-job-specification').val(),
-
+                'other_job_spec': $('#val-keyin-job-spec').val(),
 
             },
             dataType: 'json',
@@ -900,7 +937,6 @@
 
         });
     });
-
 
 
 </script>
@@ -926,7 +962,8 @@
                 'jd_end_year': $('#val-jd-end-year-edit').val(),
                 'jd_end_month': $('#val-jd-end-month-edit').val(),
                 'job_desc_edit': $('#job-desc-edit').val(),
-                'company_name_edit': $('#company_name-edit').val()
+                'company_name_edit': $('#company_name-edit').val(),
+                'keyin_job_spec_edit': $('#keyin-job-spec-edit').val()
 
             },
             success: function(data) {

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddFieldJobSpecificationExperiences extends Migration
+class AddFieldPjsExperiences extends Migration
 {
     /**
      * Run the migrations.
@@ -14,7 +14,7 @@ class AddFieldJobSpecificationExperiences extends Migration
     public function up()
     {
         Schema::table('experiences', function ($table) {
-            $table->integer('job_specifications_id');
+            $table->string('pjs');
         });
     }
 
@@ -26,9 +26,7 @@ class AddFieldJobSpecificationExperiences extends Migration
     public function down()
     {
         Schema::table('experiences', function ($table) {
-            $table->integer('job_specifications_id');
+            $table->string('pjs');
         });
     }
-
-
 }
