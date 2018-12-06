@@ -22,7 +22,7 @@ class Personality extends Model
     }
 	
     protected $fillable = [
-        'personality_id', 'user_id', 'assessment_id', 'score'
+        'personality_id', 'user_id', 'assessment_id', 'action_taker', 'analyzer', 'inventor', 'mentor', 'naturalist', 'planner', 'visionary'
     ];
 	
 	

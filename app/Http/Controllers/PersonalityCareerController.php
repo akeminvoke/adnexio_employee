@@ -166,18 +166,91 @@ class PersonalityCareerController extends Controller
 		
         //$request = $client->get('https://api.traitify.com/v1/assessments/5c01e0c5-7099-428b-8614-d2aacff488fc', $requestContent);
 		$request = $client->get('https://api.traitify.com/v1/assessments/' . $assessment_id .'', $requestContent);
-        $response = json_decode($request->getBody()->getContents());
+        $response = json_decode($request->getBody()->getContents(), true);
+		
         //echo '<pre>';
         //print_r($response);
         //exit;
+		//dd($response);
+
+		foreach($response['personality_types'] as $element) {
+			
+		if ($element['personality_type']['name']=='Action-Taker')
+		{
+		$personalities->action_taker = $element['score'];
+		//$personalities->action_taker = $response['personality_types']['personality_type']['name'];
+		}
 		
-		$personalities->score = $response->personality_types[0]->score;
-		$personalities->score2 = $response->personality_types[1]->score;
-		$personalities->score3 = $response->personality_types[2]->score;
-		$personalities->score4 = $response->personality_types[3]->score;
-		$personalities->score5 = $response->personality_types[4]->score;
-		$personalities->score6 = $response->personality_types[5]->score;
-		$personalities->score7 = $response->personality_types[6]->score;
+		if ($element['personality_type']['name']=='Analyzer')
+		{
+		$personalities->analyzer = $element['score'];
+		//$personalities->action_taker = $response['personality_types']['personality_type']['name'];
+		}
+		
+		if ($element['personality_type']['name']=='Inventor')
+		{
+		$personalities->inventor = $element['score'];
+		//$personalities->action_taker = $response['personality_types']['personality_type']['name'];
+		}
+		
+		if ($element['personality_type']['name']=='Mentor')
+		{
+		$personalities->mentor = $element['score'];
+		//$personalities->action_taker = $response['personality_types']['personality_type']['name'];
+		}
+		
+		if ($element['personality_type']['name']=='Naturalist')
+		{
+		$personalities->naturalist = $element['score'];
+		//$personalities->action_taker = $response['personality_types']['personality_type']['name'];
+		}
+		
+		if ($element['personality_type']['name']=='Planner')
+		{
+		$personalities->planner = $element['score'];
+		//$personalities->action_taker = $response['personality_types']['personality_type']['name'];
+		}
+		
+		if ($element['personality_type']['name']=='Visionary')
+		{
+		$personalities->visionary = $element['score'];
+		//$personalities->action_taker = $response['personality_types']['personality_type']['name'];
+		}
+		
+		//echo 
+		}
+		
+		//foreach($response['personality_types'] as $element) {
+		//$score = $element['score'];
+		//$personality_type = $element['personality_type']['name'];
+		
+		//echo $score;
+		
+		//echo $personality_type;
+		
+		//if($personality_type = $element['personality_type']['name']=='Action-Taker');
+		
+		//$personalities->action_taker = $element['score'];
+		
+		
+		//Now here you can send it to the modele and create your db row.
+		//}
+		
+		
+		
+		//$personalities->action_taker = $response['score'];
+		
+		//if ($response->personality_types[0]->name = 'Action-Taker')
+		//$personalities->action_taker = $response->personality_types[0]->score;
+		
+		//$personalities->score = $response->personality_types[0]->score;
+		//$personalities->score2 = $response->personality_types[1]->score;
+		//$personalities->score3 = $response->personality_types[2]->score;
+		//$personalities->score4 = $response->personality_types[3]->score;
+		//$personalities->score5 = $response->personality_types[4]->score;
+		//$personalities->score6 = $response->personality_types[5]->score;
+		//$personalities->score7 = $response->personality_types[6]->score;
+		
 		$personalities->save();
 		
 		return redirect('/personality/personality_career')->with('status', 'File save successfully.');

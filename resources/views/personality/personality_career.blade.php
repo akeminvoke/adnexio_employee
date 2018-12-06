@@ -9,7 +9,7 @@
 
         <div class="block block-rounded block-bordered">
             <div class="block-header block-header-default">
-                <h3 class="block-title"><i class="nav-main-link-icon fa fa-address-card"></i> &nbsp;Personality Test</h3>
+                <h3 class="block-title"><i class="nav-main-link-icon fa fa-address-card"></i> &nbsp;Career Assessment</h3>
             </div>
             <div class="block-content block-content-full">
             
@@ -17,13 +17,6 @@
 
 
 @forelse($personalities as $personality)
-<form action="/personality/personality_career" method="post">
-<button>Retest</button>
-</form>
-<form action="/personality/personality_career_getdata" method="post">
-<input type="hidden" name="assessment_id" value="{{ $personality->assessment_id }}"/>
-<button>Is this you?</button>
-</form>
 
     <script src="https://cdn.traitify.com/js/widgets/v1.js"></script>
 
@@ -37,10 +30,47 @@
 	  var assessmentId = '{{ $personality->assessment_id }}';
       Traitify.ui.load(assessmentId, ".assessment")
     </script>
+    
+    
+<div align="center">
+	<h2>Did you feel like this personality results match you?</h2>
+
+    <div class="mb-4">
+        <table>
+            <tr>
+                <td>
+                    <form action="/personality/personality_career_getdata" method="post">
+                    <input type="hidden" name="assessment_id" value="{{ $personality->assessment_id }}"/>
+                    <button type="submit" class="btn btn-primary mr-1 mb-3">Yes, it's describe me</button>
+                    </form>
+                </td>
+                <td>        
+                    <form action="/personality/personality_career" method="post">
+                    <button type="submit" class="btn btn-danger mr-1 mb-3">No, reset assessment</button>
+                    </form>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+</div>
+
+
 @empty
-<form action="/personality/personality_career" method="post">
-<button>Test</button>
-</form>
+
+<div align="center">
+	<h2>Are you ready to know your career strength?</h2>
+
+    <div class="mb-4">
+        <form action="/personality/personality_career" method="post">
+        <button type="submit" class="btn btn-primary">Start Your Career Assessment</button>
+        </form>
+    </div>
+
+</div>
+
+
+
 @endforelse
             
 
