@@ -438,6 +438,12 @@
         else $('#' + target).removeClass('disabled');
     });
 
+    $(document).on('click', '.myCheckbox-edit', function () {
+        var target = $(this).data('duration-edit');
+        if ($(this).is(':checked')) $('#' + target).addClass('disabled');
+        else $('#' + target).removeClass('disabled');
+    });
+
     $(document).on('click', '.cancel-submit-experience', function () {
         $('#experiences').addClass('hide');
         $('#experiences').hide();
@@ -902,7 +908,18 @@
 
 
 <script>
+
+
+
     $('.submit-experience').on('click', '.submit-experience', function(e) {
+       var insert=[];
+          $("#val-present").each(function() {
+              if($(this).is(":checked")){
+                  insert.push($(this).val());
+              }
+
+          });
+          insert=insert.toString();
 //        e.preventDefault();
 //        e.stopImmediatePropagation();
         $.ajax({
@@ -926,12 +943,13 @@
                 'job_desc': $('#val-job-desc').val(),
                 'job_spec': $('#val-job-specification').val(),
                 'other_job_spec': $('#val-keyin-job-spec').val(),
+                'val_present': insert,
 
             },
             dataType: 'json',
             success: function(data) {
 
-                  //location.reload();
+                  location.reload();
 
             }
 
@@ -942,6 +960,15 @@
 </script>
 <script>
     $('.submit-experience-edit').on('click', '.submit-experience-edit', function() {
+
+        var insertedit=[];
+        $("#present-edit").each(function() {
+            if($(this).is(":checked")){
+                insertedit.push($(this).val());
+            }
+
+        });
+        insertedit=insertedit.toString();
         $.ajax({
             // headers: {
             //     'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
@@ -953,7 +980,7 @@
                 '_token': $('input[name=_token]').val(),
                 'id':$("#id-edit").val(),
                 'position': $("#position-edit").val(),
-                // 'company_name': $('#company_name-edit').val(),
+                 'company_name_edit': $('#company_name-edit').val(),
                 'jd_start_year': $('#jd_start_year-edit').val(),
                 'jd_start_month': $('#jd_start_month-edit').val(),
                 'specialization_id': $('#specialization-edit').val(),
@@ -962,8 +989,9 @@
                 'jd_end_year': $('#val-jd-end-year-edit').val(),
                 'jd_end_month': $('#val-jd-end-month-edit').val(),
                 'job_desc_edit': $('#job-desc-edit').val(),
-                'company_name_edit': $('#company_name-edit').val(),
-                'keyin_job_spec_edit': $('#keyin-job-spec-edit').val()
+              //  'company_name_edit': $('#company_name-edit').val(),
+                'keyin_job_spec_edit': $('#keyin-job-spec-edit').val(),
+                'val_present': insertedit,
 
             },
             success: function(data) {

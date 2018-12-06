@@ -1841,6 +1841,24 @@ pre code {
     transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
 }
 
+.half-third-custom {
+  margin: 0 1em;
+  width: 36%;
+  height: calc(2.25rem + 2px);
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #495057;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #d8dfed;
+  border-radius: 0.25rem;
+  -webkit-transition: border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+  transition: border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+}
+
 @media screen and (prefers-reduced-motion: reduce) {
   .form-control {
     transition: none;
@@ -1999,6 +2017,12 @@ textarea.form-control {
   position: absolute;
   margin-top: 0.3rem;
   margin-left: 15.75rem;
+}
+
+.form-check-input-edit-custom {
+  position: absolute;
+  margin-top: 0.3rem;
+   margin-left: 15.75rem;
 }
 .present
 {

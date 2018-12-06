@@ -41,7 +41,7 @@ class ProfileExperienceController extends Controller
         $user = Auth::guard($this->getGuard())->user();
         $questions  = create_question::all();
 
-     //   $experiences = experience::where('user_id',$user->id)->get();
+        //   $experiences = experience::where('user_id',$user->id)->get();
 //        $industry_name = DB::table('experiences')
 //        ->join('industries', 'experiences.industries_id', '=', 'industries.id')
 //        ->select('industries.name')
@@ -54,7 +54,7 @@ class ProfileExperienceController extends Controller
             ->leftjoin('job_specifications','job_specifications.id','=','experiences.job_specifications_id')
             ->join('job_backgrounds','job_backgrounds.id','=','experiences.specialization_id')
             ->select('experiences.id','companies.name','experiences.position','experiences.specialization_id','experiences.start_year','experiences.start_month',
-                'experiences.end_year','experiences.end_month','experiences.job_specifications_id','experiences.position','experiences.salary','experiences.job_desc','experiences.pjs','job_specifications.job_specification','job_backgrounds.Job_Background')
+                'experiences.end_year','experiences.end_month','experiences.job_specifications_id','experiences.position','experiences.salary','experiences.job_desc','experiences.pjs','experiences.jd_present','job_specifications.job_specification','job_backgrounds.Job_Background')
             ->where('experiences.user_id',$user->id )
             ->wherenull('experiences.deleted_at')
             ->get();
@@ -91,8 +91,8 @@ class ProfileExperienceController extends Controller
         return response()->json($js);
 
     }
-	
-	
+
+
     /**
      * Show the form for creating a new resource.
      *
@@ -116,19 +116,19 @@ class ProfileExperienceController extends Controller
         $user = Auth::user();
 
 
-          $this->validate($request, [
-               'position' => 'required',
-              'company_name' => 'required',
-                'jd_start_year' => 'required',
-               'jd_start_month' => 'required',
-               'specialization' => 'required',
-              //'position_level' => 'required',
-               'salary' => 'required',
-              'job_spec' => 'required',
-              //'job_desc' => 'required',
+        $this->validate($request, [
+            'position' => 'required',
+            'company_name' => 'required',
+            'jd_start_year' => 'required',
+            'jd_start_month' => 'required',
+            'specialization' => 'required',
+            //'position_level' => 'required',
+            'salary' => 'required',
+            'job_spec' => 'required',
+            //'job_desc' => 'required',
 
 
-            ]);
+        ]);
 
         $company_exist = company::select('name')->where('name', $request->company_name_edit)->take(1)->get();
 
@@ -145,25 +145,35 @@ class ProfileExperienceController extends Controller
 
 
 
-            //$industry_id=industry::select('id')->where('name',$request->industry)->get();
+        //$industry_id=industry::select('id')->where('name',$request->industry)->get();
 
 
-            $company_id = company::select('id')->where('name', $request->company_name)->take(1)->get();
-            $experience = new experience();
-            $experience->user_id = $user->id;
-            $experience->company_id = $company_id[0]->id;
-            $experience->position = $request->position;
-            $experience->specialization_id = $request->specialization;
+        $company_id = company::select('id')->where('name', $request->company_name)->take(1)->get();
+        $experience = new experience();
+        $experience->user_id = $user->id;
+        $experience->company_id = $company_id[0]->id;
+        $experience->position = $request->position;
+        $experience->specialization_id = $request->specialization;
 
-            $experience->start_year = $request->jd_start_year;
-            $experience->start_month = $request->jd_start_month;
-            if ($request->has('jd_end_year')) {
-                $experience->end_year = $request->jd_end_year;
-                $experience->end_month = $request->jd_end_month;
-            }
-            $experience->salary = $request->salary;
-            $experience->job_desc = $request->job_desc;
-           // $experience->job_specifications_id = $request->job_spec;
+        $experience->start_year = $request->jd_start_year;
+        $experience->start_month = $request->jd_start_month;
+
+        if($request->val_present === 'Present') {
+            $experience->jd_present = $request->val_present;
+            $experience->end_year = "Present";
+            $experience->end_month = "Present";
+        } else
+        {
+            $experience->end_year = $request->jd_end_year;
+            $experience->end_month = $request->jd_end_month;
+            $experience->jd_present = null;
+        }
+
+
+        $experience->salary = $request->salary;
+
+        $experience->job_desc = $request->job_desc;
+        // $experience->job_specifications_id = $request->job_spec;
 
 
         if( isset($request->other_job_spec)) {
@@ -175,16 +185,16 @@ class ProfileExperienceController extends Controller
             $experience->pjs = null;
         }
 
-            //$experience->industry_id = $industry_id;
+        //$experience->industry_id = $industry_id;
 
-            $experience->save();
+        $experience->save();
 
 
 
 
         return redirect('/profile/profile_experience');
-          //  return response()->json($experience);
-        }
+        //  return response()->json($experience);
+    }
 
 
 
@@ -198,8 +208,8 @@ class ProfileExperienceController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show()
-    {	
-		//
+    {
+        //
     }
 
 
@@ -231,7 +241,7 @@ class ProfileExperienceController extends Controller
 
         ]);
         $company_exist = company::select('name')->where('name', $request->company_name_edit)->take(1)->get();
-       // $company_exist = company::find('name',$request->company_name_edit);
+        // $company_exist = company::find('name',$request->company_name_edit);
 
 
 
@@ -246,27 +256,39 @@ class ProfileExperienceController extends Controller
             $experience->job_specifications_id = null;
             $experience->pjs = $request->keyin_job_spec_edit;
         }
-            else{
+        else{
             $experience->job_specifications_id = $request->specification_id;
-                $experience->pjs = null;
-      }
+            $experience->pjs = null;
+        }
         //$experience->job_specifications_id = $request->specification_id;
         $experience->start_year = $request->jd_start_year;
         $experience->start_month = $request->jd_start_month;
-        $experience->end_year = $request->jd_end_year;
-        $experience->end_month = $request->jd_end_month;
+        // $experience->end_year = $request->jd_end_year;
+        //$experience->end_month = $request->jd_end_month;
         $experience->salary = $request->salary;
         $experience->job_desc = $request->job_desc_edit;
-        if( !isset($company_exist)) {
+        if( strlen($company_exist) < 1 ) {
             $add_company = new company();
             $add_company ->name = $request->company_name_edit;
             $add_company->save();
             $company_id = company::select('id')->where('name', $request->company_name_edit)->take(1)->get();
-          //  $company_id = company::find('name',$request->company_name_edit)->select('id')->get();
+            //  $company_id = company::find('name',$request->company_name_edit)->select('id')->get();
         }else {
-          // $company_id = company::find('name',$request->company_name_edit)->select('id')->get();\
+            // $company_id = company::find('name',$request->company_name_edit)->select('id')->get();\
             $company_id = company::select('id')->where('name', $request->company_name_edit)->take(1)->get();
         } ;
+
+
+        if($request->val_present === 'Present') {
+            $experience->jd_present = $request->val_present;
+            $experience->end_year = "Present";
+            $experience->end_month = "Present";
+        } else
+        {
+            $experience->end_year = $request->jd_end_year;
+            $experience->end_month = $request->jd_end_month;
+            $experience->jd_present = null;
+        }
         $experience->company_id = $company_id[0]->id ;
         $experience->save();
 
@@ -288,6 +310,6 @@ class ProfileExperienceController extends Controller
 
         return redirect('/profile/profile_experience');
 
-    }	
+    }
 
 }

@@ -20,7 +20,8 @@
                         <div class="row">
                             <div class="col-lg-9" id="lbl_preview_output_date_join_mobile_0">
                                 <h4 class="custom-control-data-label">
-                                    {{$Company_Name->start_month}}&nbsp{{$Company_Name->start_year}} &  {{$Company_Name->end_month}}&nbsp{{$Company_Name->end_year}}
+                                    {{$Company_Name->start_month}}&nbsp{{$Company_Name->start_year}} & @if(strlen($Company_Name->jd_present) > 2) {{$Company_Name->jd_present}}  @endif
+                                    @if(strlen($Company_Name->jd_present) < 2)  {{$Company_Name->end_month}}&nbsp{{$Company_Name->end_year}}@endif
                                 </h4>
                             </div>
 
@@ -329,7 +330,7 @@
                                     </div>
 
 
-                                    <input type="checkbox" class="myCheckbox form-check-input" data-duration="end-duration" /><p class="present"> Present</p>
+                                    <input type="checkbox" id="val-present" value="Present" class="myCheckbox form-check-input" data-duration="end-duration" /><p class="present"> Present</p>
                                 </div>
 
                                 <div class="form-group">
@@ -445,10 +446,8 @@
                                             <!-- Regular -->
                                             <h2 class="content-heading">Experience</h2>
                                             <div class="row items-push">
-                                                <div class="col-lg-2">
-
-                                                </div>
-                                                <div class="col-lg-10 col-xl-8">
+                                                <div class="col-lg-2" ></div>
+                                                <div class="col-lg-8 col-xl-8">
                                                     <br />
                                                     <input type="hidden" class="form-control" id="id-edit" name="id-edit" >
                                                     <div class="form-group">
@@ -560,8 +559,9 @@
                                                         <labell class ="label-join" for="val-confirm-password">to <span class="text-danger">*</span></labell>
 
                                                     </div>
-                                                    <div class="form-group-special">
-                                                        <select class="half-third" id="val-jd-end-year-edit" name="val-jd-end-year-edit">
+                                                    <div id="" class="row form-group-special" style="padding-left: 9rem";>
+                                                        <div  id="end-duration-edit" class="end-duration-edit">
+                                                        <select class="half-third-custom" id="val-jd-end-year-edit" name="val-jd-end-year-edit">
                                                             <option disabled selected>year</option>
                                                             <option>1948</option>
                                                             <option>1949</option>
@@ -635,7 +635,7 @@
                                                             <option>2017</option>
                                                             <option>2018</option>
                                                         </select>
-                                                        <select class="half-third" id="val-jd-end-month-edit" name="val-jd-end-month-edit" >
+                                                        <select class="half-third-custom" id="val-jd-end-month-edit" name="val-jd-end-month-edit" >
                                                             <option>month</option>
                                                             <option>Jan</option>
                                                             <option>Feb</option>
@@ -650,6 +650,9 @@
                                                             <option>Nov</option>
                                                             <option>Dec</option>
                                                         </select>
+                                                        </div>
+
+                                                        <input type="checkbox" id="present-edit" class="myCheckbox-edit form-check-input-edit-custom"  value="Present" data-duration-edit="end-duration-edit" /><p class="present"> Present</p>
                                                     </div>
                                                     {{--<div class="form-group">--}}
                                                         {{--<label for="val-email">Specialization<span class="text-danger">*</span></label>--}}
