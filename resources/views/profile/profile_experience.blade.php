@@ -31,8 +31,8 @@
                                 <a href="#" class="edit-experience pull" data-toggle="modal" data-target="#modal-block-large" data-id="{{$user->id}}" data-name="{{$user->name}}"
                                    data-position="{{$Company_Name->position}}" data-company_name="{{$Company_Name->name}}"    data-jd_start_year-edit="{{$Company_Name->start_year}}"
                                    data-jd_start_month-edit="{{$Company_Name->start_month}}"   data-specialization-edit="{{$Company_Name->specialization_id}}"
-                                   data-jobspecification-edit="{{$Company_Name->job_specifications_id}}"
-                                   data-salary-edit="{{$Company_Name->salary}}"    data-id-edit="{{$Company_Name->id}}" data-job-desc-edit="{{$Company_Name->job_desc}}" >
+                                   data-jobspecification-edit="{{$Company_Name->job_specifications_id}}" data-endyear-edit="{{$Company_Name->end_year}}" data-endmonth-edit="{{$Company_Name->end_month}}"
+                                   data-salary-edit="{{$Company_Name->salary}}"    data-id-edit="{{$Company_Name->id}}" data-job-desc-edit="{{$Company_Name->job_desc}}" data-present-edit="{{$Company_Name->jd_present}}">
 
                                     <i class="fa fa-edit fa-1x btn btn-primary"> Edit</i>
                                 </a>

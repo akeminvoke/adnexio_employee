@@ -240,7 +240,7 @@ class ProfileExperienceController extends Controller
 
 
         ]);
-        $company_exist = company::select('name')->where('name', $request->company_name_edit)->take(1)->get();
+        $company_exist = company::select('name')->where('name', $request->company_name_edit)->first();
         // $company_exist = company::find('name',$request->company_name_edit);
 
 
@@ -267,7 +267,7 @@ class ProfileExperienceController extends Controller
         //$experience->end_month = $request->jd_end_month;
         $experience->salary = $request->salary;
         $experience->job_desc = $request->job_desc_edit;
-        if( strlen($company_exist) < 1 ) {
+        if(!$company_exist ) {
             $add_company = new company();
             $add_company ->name = $request->company_name_edit;
             $add_company->save();

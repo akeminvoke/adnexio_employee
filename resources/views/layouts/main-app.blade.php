@@ -843,6 +843,13 @@
         $('#jd_start_month-edit').val($(this).data('jd_start_month-edit'));
         $('#specialization-edit').val($(this).data('specialization-edit'));
         $('#job-desc-edit').val($(this).data('job-desc-edit'));
+        $('#val-jd-end-year-edit').val($(this).data('endyear-edit'));
+        $('#val-jd-end-month-edit').val($(this).data('endmonth-edit'));
+//        $('#present-edit').empty();
+//        $('#present-edit').val($(this).data('present-edit'));
+//        var bla = $('#present-edit').val();
+
+        $('#present-edit').setAttribute("checked");
 
         //$('#job-specification').val($(this).data('jobspecification-edit'));
 
