@@ -130,18 +130,18 @@ class ProfileExperienceController extends Controller
 
         ]);
 
-        $company_exist = company::select('name')->where('name', $request->company_name_edit)->take(1)->get();
+        //$company_exist = company::select('name')->where('name', $request->company_name_edit)->take(1)->get();
 
-        if( !isset($company_exist)) {
+        //if( !isset($company_exist)) {
             $add_company = new company();
-            $add_company ->name = $request->company_name_edit;
+            $add_company ->name = $request->company_name;
             $add_company->save();
-            $company_id = company::select('id')->where('name', $request->company_name_edit)->take(1)->get();
+            $company_id = company::select('id')->where('name', $request->company_name)->take(1)->get();
             //  $company_id = company::find('name',$request->company_name_edit)->select('id')->get();
-        }else {
+        //}else {
             // $company_id = company::find('name',$request->company_name_edit)->select('id')->get();\
-            $company_id = company::select('id')->where('name', $request->company_name_edit)->take(1)->get();
-        } ;
+            //$company_id = company::select('id')->where('name', $request->company_name_edit)->take(1)->get();
+        //} ;
 
 
 
