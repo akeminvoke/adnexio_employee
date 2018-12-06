@@ -491,8 +491,11 @@ class ComposerStaticInita5858dfa896d45bc2eeaa0769b658a8e
         'App\\Http\\Middleware\\TrustProxies' => __DIR__ . '/../..' . '/app/Http/Middleware/TrustProxies.php',
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
         'App\\Http\\Requests\\ExperienceRequest' => __DIR__ . '/../..' . '/app/Http/Requests/ExperienceRequest.php',
-        'App\\Mail\\WelcomeMail' => __DIR__ . '/../..' . '/app/Mail/WelcomeMail.php',
+
+        'App\\Job_Background' => __DIR__ . '/../..' . '/app/Job_Background.php',
+
         'App\\Personality' => __DIR__ . '/../..' . '/app/Personality.php',
+
         'App\\Profiles' => __DIR__ . '/../..' . '/app/Profiles.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
         'App\\Providers\\AuthServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AuthServiceProvider.php',

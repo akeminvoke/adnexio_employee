@@ -2,249 +2,405 @@
 
 @section('content')
 
-<!-- Page Content -->
-<div class="content" >
-    <!-- jQuery Validation (.js-validation class is initialized in js/pages/be_forms_validation.min.js which was auto compiled from _es6/pages/be_forms_validation.js) -->
-    <!-- For more examples you can check out https://github.com/jzaefferer/jquery-validation -->
 
-        <div class="block block-rounded block-bordered">
-            <div class="block-header block-header-default">
-                <h3 class="block-title"><i class="nav-main-link-icon fa fa-address-card"></i> &nbsp;About Me</h3>
-                <div class="block-options">
-                   @foreach($profiles as $profile)
-                    <a href="#" class="edit-modal" data-toggle="modal" data-target="#modal-block-large" data-id="{{$user->id}}" data-name="{{$user->name}}" data-email="{{$user->email}}" data-ic_no="{{ $profile->ic_no }}" data-contact_no="{{ $profile->contact_no }}" data-address="{{ $profile->address }}" data-address1="{{ $profile->address1 }}" data-postal_code="{{ $profile->postal_code }}" data-city="{{ $profile->city }}" data-state="{{ $profile->state }}" data-country="{{ $profile->country }}" data-dob="{{ $profile->dob }}" data-gender="{{ $profile->gender }}">
-              			<button class="btn btn-sm btn-primary pull"><i class="fa fa-fw fa-edit"></i> Edit</button>
-            		</a>
-               		@endforeach
+    <!-- Page Content -->
+    <div class="content">
+
+
+        <div class="block-header block-header-default">
+            <h3 class="block-title"></h3>
+            <div class="block-options">
+
+            </div>
+        </div>
+        <div id="experience_prev" >
+            @foreach ($Company_Names as $Company_Name)
+                <div id="{{$Company_Name->id}}" class="block block-rounded block-bordered">
+                    <div  class=" block-content block-content-full">
+                        <div class="row">
+                            <div class="col-lg-9" id="lbl_preview_output_date_join_mobile_0">
+                                <h4 class="custom-control-data-label">
+                                    {{$Company_Name->start_month}}&nbsp{{$Company_Name->start_year}} &  {{$Company_Name->end_month}}&nbsp{{$Company_Name->end_year}}
+                                </h4>
+                            </div>
+
+
+                            <div class="col-lg-1">
+                                <!-- Modal link -->
+                                <a href="#" class="btn btn-primary edit-experience btn btn-sm btn-light pull" data-toggle="modal" data-target="#modal-block-large" data-id="{{$user->id}}" data-name="{{$user->name}}"
+                                   data-position="{{$Company_Name->position}}" data-company_name="{{$Company_Name->name}}"    data-jd_start_year-edit="{{$Company_Name->start_year}}"
+                                   data-jd_start_month-edit="{{$Company_Name->start_month}}"   data-specialization-edit="{{$Company_Name->specialization}}"  data-position_level-edit="{{$Company_Name->position_level}}"
+                                   data-salary-edit="{{$Company_Name->salary}}"    data-id-edit="{{$Company_Name->id}}"  >
+
+                                    <i class="fa fa-edit fa-2x"></i>Edit
+                                </a>
+                            </div>
+
+                            <div class="col-lg-1">
+                                <button   type="button" id="add-experience" class="btn btn-primary add-experience">
+                                    <i class="fa fa-fw fa-plus mr-1"></i>
+                                </button>
+                            </div>
+                            <div class="col-lg-1">
+
+                                <i class="fa fa-trash-alt fa-2x"></i>
+
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <label class="custom-control-data-label" id="lbl_experience_industry">Industry</label>
+                            </div>
+                            <div class="col-md-4">
+                                <label id="lbl_experience_industry_output">Advertising / Marketing / Promotion / PR</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <label class="custom-control-data-label" id="lbl_experience_role">Role</label>
+                            </div>
+                            <div class="col-md-4">
+                                <label id="lbl_experience_role_output">{{$Company_Name->specialization}}</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <label class="custom-control-data-label" id="lbl_experience_position_level">Position Level</label>
+                            </div>
+                            <div class="col-md-4">
+                                <label  id="lbl_experience_position_level_output">{{$Company_Name->position_level}}</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <label class="custom-control-data-label" id="lbl_experience_salary">Monthly Salary</label>
+                            </div>
+                            <div class="col-md-4">
+                                <label id="lbl_preview_output_monthly_salary_0">{{$Company_Name->salary}} </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            @endforeach
+        </div>
+        <div id="add-experience-btn" clas="row">
+            <div class="col-md-2 float-right">
+                <button   type="button" id="add-experience" class="btn btn-primary add-experience float-right">
+                    <i class="fa fa-fw fa-plus mr-1"></i>
+                </button>
+            </div>
+        </div>
+
+
+        <!-- jQuery Validation (.js-validation class is initialized in js/pages/be_forms_validation.min.js which was auto compiled from _es6/pages/be_forms_validation.js) -->
+        <!-- For more examples you can check out https://github.com/jzaefferer/jquery-validation -->
+        <!-- <div class="block-header block-header-default">
+            </div> -->
+        <form id ="foradd" method="post" class="js-validationn">
+            <div class="block block-rounded">
+                <div id="experiences" class="block-content block-content-full experience-section @if (count($experiences) > 0)hide @endif">
+                    <div class="">
+                        <!-- Regular -->
+                        <h2 class="content-heading">Experience</h2>
+                        <div class="row items-push">
+                            <div class="col-lg-4">
+                                <p class="text-muted">
+                                    Username, email and password validation made easy for your login/register forms
+                                </p>
+                            </div>
+                            <div class="col-lg-8 col-xl-5">
+
+                                <br />
+
+
+
+                                <div class="form-group">
+                                    <label for="val-username">Position <span class="text-danger">*</span></label>
+                                    <input type="text" class="form-control" id="val-position" name="val-position" placeholder="Enter your position">
+
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="val-email">Company Name<span class="text-danger">*</span></label>
+                                    <input type="text" class="form-control" id="val-company-name" name="val-company-name" placeholder="Enter your company name">
+
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="val-password">Joined Duration <span class="text-danger">*</span></label>
+                                    <select class="half-second" id="val-jd-start-year" name="val-jd-start-year" >
+                                        <option disabled selected>year</option>
+                                        <option>1948</option>
+                                        <option>1949</option>
+                                        <option>1950</option>
+                                        <option>1951</option>
+                                        <option>1952</option>
+                                        <option>1953</option>
+                                    </select>
+                                    <select class="half-second" id="val-jd-start-month"  name="val-jd-start-month" >
+                                        <option disabled selected>month</option>
+                                        <option>Jan</option>
+                                        <option>Feb</option>
+                                        <option>Mar</option>
+                                        <option>Apr</option>
+                                        <option>May</option>
+                                        <option>Jun</option>
+                                        <option>Jul</option>
+                                        <option>Aug</option>
+                                        <option>Sep</option>
+                                        <option>Oct</option>
+                                        <option>Nov</option>
+                                        <option>Dec</option>
+                                    </select>
+                                </div>
+
+
+                                <div class="form-group">
+                                    <labell class ="label-join" for="val-confirm-password">to <span class="text-danger">*</span></labell>
+
+                                </div>
+                                <div class="form-group-special">
+                                    <select class="half-third" id="val-jd-end-year" name="val-jd-end-year">
+                                        <option>1948</option>
+                                        <option>1949</option>
+                                        <option>1950</option>
+                                        <option>1951</option>
+                                        <option>1952</option>
+                                        <option>1953</option>
+                                    </select>
+                                    <select class="half-third" id="val-jd-end-month" name="val-jd-end-month" >
+                                        <option>month</option>
+                                        <option>Jan</option>
+                                        <option>Feb</option>
+                                        <option>Mar</option>
+                                        <option>Apr</option>
+                                        <option>May</option>
+                                        <option>Jun</option>
+                                        <option>Jul</option>
+                                        <option>Aug</option>
+                                        <option>Sep</option>
+                                        <option>Oct</option>
+                                        <option>Nov</option>
+                                        <option>Dec</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="val-email">Specialization<span class="text-danger">*</span></label>
+                                    <select class="form-control" id="val-specialization" name="val-specialization">
+                                        <option disabled selected>please choose your specialization</option>
+                                        <option>human resource</option>
+                                        <option>programmer</option>
+                                        <option>example</option>
+
+                                    </select>
+
+
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="val-email">Position Level<span class="text-danger">*</span></label>
+                                    <select class="form-control" id="val-position-level" name="val-position-level">
+                                        <option disabled selected>please choose your Position Level</option>
+                                        <option value="Senior Manager">Senior Manager</option>
+                                        <option value="Manager">Manager</option>
+                                        <option value="Senior Excutive">Senior Executive</option>
+                                        <option value="Junior Excutive">Junior Executive</option>
+                                    </select>
+
+                                </div>
+
+
+                                <div class="form-group">
+                                    <label for="val-email">Salary (in Ringgit Malaysia currency)<span class="text-danger">*</span></label>
+                                    <select class="form-control" id="val-salary" name="val-salary"   >
+                                        <option disabled selected>please choose your salary range</option>
+                                        <option>Below then 1,000</option>
+                                        <option>1,000 to RM 3,000</option>
+                                        <option>3,001 to 5,000 </option>
+                                        <option>5,001 to 7,000</option>
+                                        <option>7,001 to 10,000</option>
+                                        <option>10,000 to 15,000</option>
+                                        <option>16,001 to 20,000</option>
+                                        <option>20,001 to 25,000</option>
+                                        <option>25,001 to 30,000</option>
+                                        <option>30,001 to 35,000</option>
+                                    </select>
+
+                                </div>
+
+
+                            </div>
+                        </div>
+                        <!-- END Regular -->
+
+
+
+                        <!-- Submit -->s
+                        <div class="row items-push">
+                            <div class="col-lg-7 offset-lg-4 submit-experience">
+                                <button type="submit" class="btn btn-primary submit-experience">Submit</button>
+                            </div>
+                        </div>
+                        <!-- END Submit -->
+                    </div>
+
                 </div>
             </div>
-            <div class="block-content block-content-full">
-            
-                <div class="">
-                                 
-                    <!--<div class="table-responsive">
+        </form>
 
-                        <table class="table table-bordered table-striped table-vcenter" >
-                            <thead>
-                            @csrf
-                                <tr>
-                                    <th class="text-muted">Name</th>
-                                    <th style="width: 80%; font-weight: bold;">{{ $user->name }}</th>
-                                </tr>
-                                <tr>
-                                    <th class="text-muted">Email Address</th>
-                                    <th style="width: 80%; font-weight: bold;">{{ $user->email }}</th>
-                                </tr>
-                                <tr>
-                                    <th class="text-muted">Identification No.</th>
-                                    <th style="width: 80%; font-weight: bold;">{{ $profile->ic_no }}
-                                    </th>
-                                </tr>
-                                <tr>
-                                    <th class="text-muted">Contact No.</th>
-                                    <th style="width: 80%; font-weight: bold;">{{ $profile->contact_no }}</th>
-                                </tr>
-                                <tr>
-                                    <th class="text-muted">Address 1</th>
-                                    <th style="width: 80%; font-weight: bold;">{{ $profile->address }}</th>
-                                </tr>
-                                <tr>
-                                    <th class="text-muted">Address 2</th>
-                                    <th style="width: 80%; font-weight: bold;">{{ $profile->address1 }}</th>
-                                </tr>
-                                <tr>
-                                    <th class="text-muted">Postal Code</th>
-                                    <th style="width: 80%; font-weight: bold;">{{ $profile->postal_code }}</th>
-                                </tr>
-                                <tr>
-                                    <th class="text-muted">City</th>
-                                    <th style="width: 80%; font-weight: bold;">{{ $profile->city }}</th>
-                                </tr>
-                                <tr>
-                                    <th class="text-muted">State</th>
-                                    <th style="width: 80%; font-weight: bold;">{{ $profile->state }}</th>
-                                </tr>
-                                <tr>
-                                    <th class="text-muted">Country</th>
-                                    <th style="width: 80%; font-weight: bold;">{{ $profile->country }}</th>
-                                </tr>                                    
-                                <tr>
-                                    <th class="text-muted">Date of Birth</th>
-                                    <th style="width: 80%; font-weight: bold;">{{ $profile->dob }}</th>
-                                </tr>
-                                <tr>
-                                    <th class="text-muted">Gender</th>
-                                    <th style="width: 80%; font-weight: bold;">{{ $profile->gender }}</th>
-                                </tr>
 
-                            </thead>
-                        </table>
 
-                     </div>-->
-                    
-                  
-                     <div class="row items-push">
-                        <div class="col-lg-6">
 
-                            <div class="form-group row">
-                                <label class="col-sm-4" for="example-hf-email">Full Name</label>
-                                <div class="col-sm-8" style="font-weight: bold;">{{ $user->name }}</div>
-                            </div>
-                            <div class="form-group row">
-                                <label class="col-sm-4" for="example-hf-password">Email Address</label>
-                                <div class="col-sm-8" style="font-weight: bold;">{{ $user->email }}</div>
-                            </div>
-                            <div class="form-group row">
-                                <label class="col-sm-4" for="example-hf-password">Identification No.</label>
-                                <div class="col-sm-8" style="font-weight: bold;">{{ $profile->ic_no }}</div>
-                            </div>
-                            <div class="form-group row">
-                                <label class="col-sm-4" for="example-hf-password">Contact No.</label>
-                                <div class="col-sm-8" style="font-weight: bold;">{{ $profile->contact_no }}</div>
-                            </div>
-                            <div class="form-group row">
-                                <label class="col-sm-4" for="example-hf-password">Date of Birth</label>
-                                <div class="col-sm-8" style="font-weight: bold;">{{ $profile->dob }}</div>
-                            </div>
-                            <div class="form-group row">
-                                <label class="col-sm-4" for="example-hf-password">Gender</label>
-                                <div class="col-sm-8" style="font-weight: bold;">{{ $profile->gender }}</div>
-                            </div>
+        <!-- END Page Content -->
+        <!-- Modal Content -->
+        <div class="modal fade" id="modal-block-large" tabindex="-1" role="dialog" aria-labelledby="modal-block-large" aria-hidden="true">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="block block-themed block-transparent mb-0">
+                        <div class="block-header bg-primary">
+                            <h3 class="block-title"><i class="nav-main-link-icon fa fa-address-card"></i> &nbsp;Experience</h3>
 
                         </div>
-                        
-                        <div class="col-lg-6">
-                            <div class="form-group row">
-                                <label class="col-sm-4">Address</label>
-                                <div class="col-sm-8" style="font-weight: bold;">{{ $profile->address }}</div>
-                            </div>
-                            <div class="form-group row">
-                                <label class="col-sm-4" for="example-hf-password"></label>
-                                <div class="col-sm-8" style="font-weight: bold;">{{ $profile->address1 }}</div>
-                            </div>
-                            <div class="form-group row">
-                                <label class="col-sm-4" for="example-hf-password">Postal Code</label>
-                                <div class="col-sm-8" style="font-weight: bold;">{{ $profile->postal_code }}</div>
-                            </div>
-                            <div class="form-group row">
-                                <label class="col-sm-4" for="example-hf-password">City</label>
-                                <div class="col-sm-8" style="font-weight: bold;">{{ $profile->city }}</div>
-                            </div>
-                            <div class="form-group row">
-                                <label class="col-sm-4" for="example-hf-password">State</label>
-                                <div class="col-sm-8" style="font-weight: bold;">{{ $profile->state }}</div>
-                            </div>
-                            <div class="form-group row">
-                                <label class="col-sm-4" for="example-hf-password">Country</label>
-                                <div class="col-sm-8" style="font-weight: bold;">{{ $profile->country }}</div>
-                            </div>
-                        </div>
-                        
-                    </div>                                         
-                  
-                  
-                  
-                    <!-- Fade In Large Block Modal -->
-                    
-                    <form id="foreditaboutme" action="/profile/profile_aboutme" method="post">  
-                    <div class="modal fade" id="modal-block-large" tabindex="-1" role="dialog" aria-labelledby="modal-block-large" aria-hidden="true">
-                        <div class="modal-dialog modal-lg" role="document">
-                            <div class="modal-content">
-                                <div class="block block-themed block-transparent mb-0">
-                                    <div class="block-header bg-primary">
-                                        <h3 class="block-title"><i class="nav-main-link-icon fa fa-address-card"></i> &nbsp;About Me</h3>
-                                        <div class="block-options">
-                                            <button type="button" class="btn-block-option" data-dismiss="modal" aria-label="Close">
-                                                <i class="fa fa-fw fa-times"></i>
-                                            </button>
-                                        </div>
-                                    </div>
-                                    
+                        <div class="block block-rounded block-bordered">
 
-            						<div class="block-content block-content-full">
+                            <form id="foredit"  method="post">
+
+                                <div id="experiences" class="block-content block-content-full experience-section">
+
+                                    <div class="block-content block-content-full">
                                         <div class="">
-											<input type="hidden" class="form-control" id="id">
+                                            <!-- Regular -->
+                                            <h2 class="content-heading">Experience</h2>
                                             <div class="row items-push">
-                                                <div class="col-lg-6">
-                                                    <div class="form-group">
-                                                        <label>Full Name <span class="text-danger">*</span></label>
-                                                        <input type="text" class="form-control" id="name" name="val-name" placeholder="Ali Bin Abu">
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label>Email Address <span class="text-danger">*</span></label>
-                                                        <input type="text" class="form-control" id="email" placeholder="test@test.comu" disabled>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label>Identification No. <span class="text-danger">*</span></label>
-                                                        <input type="text" class="form-control" id="ic_no" name="val-ic_no"  placeholder="999999-99-9999" maxlength="14">
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label>Contact No. <span class="text-danger">*</span></label>
-      													<input type="text" class="form-control" id="contact_no" name="val-contact_no" placeholder="999-999 9999 or 999-9999 9999" maxlength="12">
-                                                        <!--<input type="text" class="form-control" id="contact_no" placeholder="999-999 9999 or 999-9999 9999" pattern="[0-9]{3}-[0-9]{3} [0-9]{4}|[0-9]{3}-[0-9]{4} [0-9]{4}" maxlength="12" required>-->
-                                                    </div>
-                                                    
-                                                    <div class="form-group">
-                                                        <label>Date of Birth <span class="text-danger">*</span></label>
-                                                        <!--<input type="text" class="form-control" id="dob" name="val-suggestions" placeholder="Your valid email..">-->
-                                                        <input type="text" class="js-datepicker form-control" id="dob" name="val-dob" data-week-start="1" data-autoclose="true" data-today-highlight="true" data-date-format="dd/mm/yyyy" placeholder="dd/mm/yyyy">
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label>Gender <span class="text-danger">*</span></label>
-                                                        <!--<input type="text" class="form-control" id="gender" name="val-suggestions" placeholder="Your valid email..">-->
-                                                        <select class="form-control" id="gender" name="val-gender">
-                                                            <option value="" selected>Please select</option>
-                                                            <option value="Male">Male</option>
-                                                            <option value="Female">Female</option>
-                                                        </select>
-                                                    </div>
-                                                    
+                                                <div class="col-lg-2">
+
                                                 </div>
-                                                
-                                                
-                                                <div class="col-lg-6 col-xl-6">
-                                                    
+                                                <div class="col-lg-10 col-xl-8">
+                                                    <br />
+                                                    <input type="hidden" class="form-control" id="id-edit" name="id-edit" >
                                                     <div class="form-group">
-                                                        <label>Address 1<span class="text-danger">*</span></label>
-                                                        <input type="text" class="form-control" id="address" name="val-address" placeholder="Address 1">
+                                                        <label for="val-username">Position <span class="text-danger">*</span></label>
+                                                        <input type="text" class="form-control" id="position-edit" name="val-position-edit" placeholder="Enter your position">
+
                                                     </div>
-                                                     <div class="form-group">
-                                                     	<label>Address 2<span class="text-danger">*</span></label>
-                                                        <input type="text" class="form-control" id="address1" name="val-address1"  placeholder="Address 2">
-                                                    </div>
+
                                                     <div class="form-group">
-                                                        <label>Postal Code <span class="text-danger">*</span></label>
-                                                        <input type="text" class="form-control" id="postal_code" name="val-postal_code" placeholder="Your valid email.." maxlength="5" >
+                                                        <label for="val-email">Company Name<span class="text-danger">*</span></label>
+                                                        <input type="text" class="form-control" id="company_name-edit" name="val-company-name-edit" placeholder="Enter your company name">
+
                                                     </div>
+
                                                     <div class="form-group">
-                                                        <label>City <span class="text-danger">*</span></label>
-                                                        <input type="text" class="form-control" id="city" name="val-city" placeholder="Your valid email..">
+                                                        <label for="val-password">Joined Duration <span class="text-danger">*</span></label>
+                                                        <select class="half-second" id="jd_start_year-edit" name="val-jd-start-year-edit" >
+                                                            <option disabled selected>year</option>
+                                                            <option>1948</option>
+                                                            <option>1949</option>
+                                                            <option>1950</option>
+                                                            <option>1951</option>
+                                                            <option>1952</option>
+                                                            <option>1953</option>
+                                                        </select>
+                                                        <select class="half-second" id="jd_start_month-edit"  name="val-jd-start-month-edit" >
+                                                            <option disabled selected>month</option>
+                                                            <option>Jan</option>
+                                                            <option>Feb</option>
+                                                            <option>Mar</option>
+                                                            <option>Apr</option>
+                                                            <option>May</option>
+                                                            <option>Jun</option>
+                                                            <option>Jul</option>
+                                                            <option>Aug</option>
+                                                            <option>Sep</option>
+                                                            <option>Oct</option>
+                                                            <option>Nov</option>
+                                                            <option>Dec</option>
+                                                        </select>
                                                     </div>
+
+
                                                     <div class="form-group">
-                                                        <label>State <span class="text-danger">*</span></label>
-                                                        <!--<input type="text" class="form-control" id="address" name="val-suggestions" placeholder="Your valid email..">-->
-                                                        <select class="form-control" id="state" name="val-state" >
-                                                        	<option value="" selected>Please Select</option>
-                                                        @foreach($states as $key => $state)
-                                                            <option value="{{ $state->name }}">{{ $state->name }}</option>
-                                                        @endforeach
+                                                        <labell class ="label-join" for="val-confirm-password">to <span class="text-danger">*</span></labell>
+
+                                                    </div>
+                                                    <div class="form-group-special">
+                                                        <select class="half-third" id="val-jd-end-year-edit" name="val-jd-end-year-edit">
+                                                            <option disabled selected>year</option>
+                                                            <option>1948</option>
+                                                            <option>1949</option>
+                                                            <option>1950</option>
+                                                            <option>1951</option>
+                                                            <option>1952</option>
+                                                            <option>1953</option>
+                                                        </select>
+                                                        <select class="half-third" id="val-jd-end-month-edit" name="val-jd-end-month-edit" >
+                                                            <option>month</option>
+                                                            <option>Jan</option>
+                                                            <option>Feb</option>
+                                                            <option>Mar</option>
+                                                            <option>Apr</option>
+                                                            <option>May</option>
+                                                            <option>Jun</option>
+                                                            <option>Jul</option>
+                                                            <option>Aug</option>
+                                                            <option>Sep</option>
+                                                            <option>Oct</option>
+                                                            <option>Nov</option>
+                                                            <option>Dec</option>
                                                         </select>
                                                     </div>
                                                     <div class="form-group">
-                                                        <label>Country <span class="text-danger">*</span></label>
-                                                        <!--<input type="text" class="form-control" id="country" name="val-suggestions" placeholder="Your valid email..">--> 
-                                                        <select class="form-control" id="country" name="val-country" >
-                                                        	<option value="" selected>Please Select</option>
-                                                        @foreach($countries as $key => $country)
-                                                            <option value="{{ $country->name }}">{{ $country->name }}</option>
-                                                        @endforeach
+                                                        <label for="val-email">Specialization<span class="text-danger">*</span></label>
+                                                        <select class="form-control" id="specialization-edit" name="val-specialization-edit">
+                                                            <option disabled selected>please choose your specialization</option>
+                                                            <option>human resource</option>
+                                                            <option>programmer</option>
+                                                            <option>example</option>
+
                                                         </select>
                                                     </div>
-                                                    
+
+                                                    <div class="form-group">
+                                                        <label for="val-email">Position Level<span class="text-danger">*</span></label>
+                                                        <select class="form-control" id="position_level-edit" name="val-position-level-edit">
+                                                            <option disabled selected>please choose your Position Level</option>
+                                                            <option value="Senior Manager">Senior Manager</option>
+                                                            <option value="Manager">Manager</option>
+                                                            <option value="Senior Excutive">Junior Executive</option>
+                                                            <option value="Junior Excutive">Junior Executive</option>
+                                                        </select>
+                                                    </div>
+
+
+                                                    <div class="form-group">
+                                                        <label for="val-email">Salary (in Ringgit Malaysia currency)<span class="text-danger">*</span></label>
+                                                        <select class="form-control" id="salary-edit" name="val-salary-edit"   >
+                                                            <option disabled selected>please choose your salary range</option>
+                                                            <option>Below then 1,000</option>
+                                                            <option>1,000 to RM 3,000</option>
+                                                            <option>3,001 to 5,000 </option>
+                                                            <option>5,001 to 7,000</option>
+                                                            <option>7,001 to 10,000</option>
+                                                            <option>10,000 to 15,000</option>
+                                                            <option>16,001 to 20,000</option>
+                                                            <option>20,001 to 25,000</option>
+                                                            <option>25,001 to 30,000</option>
+                                                            <option>30,001 to 35,000</option>
+                                                        </select>
+
+                                                    </div>
                                                 </div>
                                             </div>
-                                            <!-- END Regular -->
-                          
+                                        </div>
+                                        <!-- END Regular -->
+
+
+
+
+                                        <!-- Submit -->
+                                        <div class="row items-push">
+                                            <div class="col-lg-7 offset-lg-4 submit-experience-edit">
+                                                <button type="submit" class="btn btn-primary submit-experience-edit">Submit</button>
 
                           
                                             <!-- Submit -->
@@ -255,43 +411,31 @@
                                               			<span class="glyphicon glyphicon"></span>Close
                                             		</button>
                                                 </div>
+
                                             </div>
-                                            
-                                            
-                                            
-                                        <!--<div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">
-                                              <span class="glyphicon glyphicon"></span>Close
-                                            </button>
-                                        
-                                            <button type="submit" class="btn actionBtn" data-dismiss="modal">
-                                              <span id="footer_action_button" class="glyphicon"></span>
-                                            </button>
-                                        </div>-->
-                                            
-                                            
-                                            <!-- END Submit -->
                                         </div>
-            						</div>
-            
-            
-            
-            
+                                        <!-- END Submit -->
+                                    </div>
                                 </div>
-                            </div>
+                            </form>
+
+
+                            <!-- jQuery Validation -->
+                        </div>
+                        <div class="modal-footer">
+
+
+
+                            <button type="button" class="btn btn-warning" data-dismiss="modal">
+                                <span class="glyphicon glyphicon"></span>close
+                            </button>
+
                         </div>
                     </div>
-                    </form>
-                    <!-- END Fade In Block Modal -->                    
-                    
-                    
                 </div>
             </div>
         </div>
-
-    <!-- jQuery Validation -->
-</div>
-<!-- END Page Content -->
+    </div>
 
 
 
