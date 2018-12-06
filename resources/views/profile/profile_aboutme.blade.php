@@ -396,10 +396,22 @@
 
 
 
+
                                         <!-- Submit -->
                                         <div class="row items-push">
                                             <div class="col-lg-7 offset-lg-4 submit-experience-edit">
                                                 <button type="submit" class="btn btn-primary submit-experience-edit">Submit</button>
+
+                          
+                                            <!-- Submit -->
+                                            <div class="row items-push">
+                                                <div class="col-lg-12 offset-lg-12" align="right">
+                                                    <button type="submit" class="btn actionBtn"><span id="footer_action_button" class="glyphicon"></span></button>
+                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                                              			<span class="glyphicon glyphicon"></span>Close
+                                            		</button>
+                                                </div>
+
                                             </div>
                                         </div>
                                         <!-- END Submit -->

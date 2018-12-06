@@ -471,6 +471,8 @@ class ComposerStaticInita5858dfa896d45bc2eeaa0769b658a8e
         'App\\Http\\Controllers\\DashboardController' => __DIR__ . '/../..' . '/app/Http/Controllers/DashboardController.php',
         'App\\Http\\Controllers\\DeleteVideoFromServer' => __DIR__ . '/../..' . '/app/Http/Controllers/DeleteVideoFromServer.php',
         'App\\Http\\Controllers\\HomeController' => __DIR__ . '/../..' . '/app/Http/Controllers/HomeController.php',
+        'App\\Http\\Controllers\\MainController' => __DIR__ . '/../..' . '/app/Http/Controllers/MainController.php',
+        'App\\Http\\Controllers\\PersonalityCareerController' => __DIR__ . '/../..' . '/app/Http/Controllers/PersonalityCareerController.php',
         'App\\Http\\Controllers\\ProfileAboutmeController' => __DIR__ . '/../..' . '/app/Http/Controllers/ProfileAboutmeController.php',
         'App\\Http\\Controllers\\ProfileCvuploadController' => __DIR__ . '/../..' . '/app/Http/Controllers/ProfileCvuploadController.php',
         'App\\Http\\Controllers\\ProfileExperienceController' => __DIR__ . '/../..' . '/app/Http/Controllers/ProfileExperienceController.php',
@@ -489,8 +491,11 @@ class ComposerStaticInita5858dfa896d45bc2eeaa0769b658a8e
         'App\\Http\\Middleware\\TrustProxies' => __DIR__ . '/../..' . '/app/Http/Middleware/TrustProxies.php',
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
         'App\\Http\\Requests\\ExperienceRequest' => __DIR__ . '/../..' . '/app/Http/Requests/ExperienceRequest.php',
+
         'App\\Job_Background' => __DIR__ . '/../..' . '/app/Job_Background.php',
-        'App\\Mail\\WelcomeMail' => __DIR__ . '/../..' . '/app/Mail/WelcomeMail.php',
+
+        'App\\Personality' => __DIR__ . '/../..' . '/app/Personality.php',
+
         'App\\Profiles' => __DIR__ . '/../..' . '/app/Profiles.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
         'App\\Providers\\AuthServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AuthServiceProvider.php',

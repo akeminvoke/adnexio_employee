@@ -26,13 +26,16 @@
     <link rel="stylesheet" href="{!! asset('assets/js/plugins/datatables/dataTables.bootstrap4.css') !!}">
     <link rel="stylesheet" href="{!! asset('assets/js/plugins/datatables/buttons-bs4/buttons.bootstrap4.min.css') !!}">
 
+    <!-- Datepicker CSS -->
+    <link rel="stylesheet" href="{!! asset('assets/js/plugins/bootstrap-datepicker/css/bootstrap-datepicker3.min.css') !!}">
+    
     <!-- Video Element CSS/JS -->
     <link href="https://cdn.webrtc-experiment.com/getHTMLMediaElement.css" rel="stylesheet">
     <script src="https://cdn.webrtc-experiment.com/getHTMLMediaElement.js"></script>
 
     <!-- Video RecordRTC JS -->
     <script src="https://cdn.webrtc-experiment.com/RecordRTC.js"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.">
+    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.">-->
 
     <!-- For Edge/FF/Chrome/Opera/etc. getUserMedia support -->
     <script src="https://webrtc.github.io/adapter/adapter-latest.js"></script>
@@ -51,434 +54,285 @@
 
 </head>
 <body>
+		<!-- Page Container -->
+        <div id="page-container" class="enable-page-overlay side-scroll page-header-fixed page-header-dark main-content-narrow">
 
-<!-- Page Container -->
-<div id="page-container" class="sidebar-o enable-page-overlay side-scroll page-header-fixed page-header-dark main-content-narrow">
-    <!-- Side Overlay-->
-    <aside id="side-overlay">
-        <!-- Side Header -->
-        <div class="bg-image" style="background-image: url('{{ asset('media/various/bg_side_overlay_header.jpg') }}');">
-            <div class="bg-primary-op">
+
+            <!-- Header -->
+            <header id="page-header">
+                <!-- Header Content -->
                 <div class="content-header">
-                    <!-- User Avatar -->
-                    <a class="img-link mr-1" href="javascript:void(0)">
-                        <img class="img-avatar img-avatar48" src="{{ asset('assets/media/avatars/'. $user->profile_images.'.jpg') }}" alt="">
+                    <!-- Left Section -->
+                    <div>
+                        <!-- Toggle Sidebar -->
+                        <!-- Layout API, functionality initialized in Template._uiApiLayout()-->
+                        <button type="button" class="btn btn-dual mr-1">
+                            <a class="link-fx font-w600 font-size-lg text-white" href="#">
+                    			<span class="text-white">Adnexio</span>
+                			</a>
+                        </button>
+                        <!-- END Toggle Sidebar -->
 
-
-                    </a>
-                    <!-- END User Avatar -->
-
-                    <!-- User Info -->
-                    <div class="ml-2">
-                        <a class="text-white font-w600" href="javascript:void(0)">{{ Auth::user()->name }}</a>
-                        <div class="text-white-75 font-size-sm font-italic">Full Stack Developer</div>
+                        <!-- Open Search Section -->
+                        <!-- Layout API, functionality initialized in Template._uiApiLayout() -->
+                        <!--<button type="button" class="btn btn-dual" data-toggle="layout" data-action="header_search_on">
+                            <i class="fa fa-fw fa-search"></i> <span class="ml-1 d-none d-sm-inline-block">Search</span>
+                        </button>-->
+                        <!-- END Open Search Section -->
                     </div>
-                    <!-- END User Info -->
+                    <!-- END Left Section -->
 
-                    <!-- Close Side Overlay -->
-                    <!-- Layout API, functionality initialized in Template._uiApiLayout() -->
-                    <a class="ml-auto text-white" href="javascript:void(0)" data-toggle="layout" data-action="side_overlay_close">
-                        <i class="fa fa-times-circle"></i>
-                    </a>
-                    <!-- END Close Side Overlay -->
-                </div>
-            </div>
-        </div>
-        <!-- END Side Header -->
-
-        <!-- Side Content -->
-        <div class="content-side">
-            <p>
-                Content..
-            </p>
-        </div>
-        <!-- END Side Content -->
-    </aside>
-    <!-- END Side Overlay -->
-
-    <!-- Sidebar -->
-    <nav id="sidebar" aria-label="Main Navigation">
-        <!-- Side Header -->
-        <div class="bg-header-dark">
-            <div class="content-header bg-white-10">
-                <!-- Logo -->
-                <a class="link-fx font-w600 font-size-lg text-white" href="{{ url('/home') }}">
-                    <span class="text-white">Adnexio</span>
-                </a>
-                <!-- END Logo -->
-
-                <!-- Options -->
-                <div>
-                    <!-- Toggle Sidebar Style -->
-                    <!-- Layout API, functionality initialized in Template._uiApiLayout() -->
-                    <!-- Class Toggle, functionality initialized in Helpers.coreToggleClass() -->
-                    <a class="js-class-toggle text-white-75" data-target="#sidebar-style-toggler" data-class="fa-toggle-off fa-toggle-on" data-toggle="layout" data-action="sidebar_style_toggle" href="javascript:void(0)">
-                        <i class="fa fa-toggle-off" id="sidebar-style-toggler"></i>
-                    </a>
-                    <!-- END Toggle Sidebar Style -->
-
-                    <!-- Close Sidebar, Visible only on mobile screens -->
-                    <!-- Layout API, functionality initialized in Template._uiApiLayout() -->
-                    <a class="d-lg-none text-white ml-2" data-toggle="layout" data-action="sidebar_close" href="javascript:void(0)">
-                        <i class="fa fa-times-circle"></i>
-                    </a>
-                    <!-- END Close Sidebar -->
-                </div>
-                <!-- END Options -->
-            </div>
-        </div>
-        <!-- END Side Header -->
-
-        <!-- Side Navigation -->
-        <div class="content-side content-side-full">
-            <ul class="nav-main">
-                <li class="nav-main-item">
-                    <a class="nav-main-link{{ request()->is('home') ? ' active' : '' }}" href="/home">
-                        <i class="nav-main-link-icon fa fa-tachometer-alt"></i>
-                        <span class="nav-main-link-name">My Dashboard</span>
-                        <span class="nav-main-link-badge badge badge-pill badge-primary">5</span>
-                    </a>
-                </li>
-                <li class="nav-main-heading">Application</li>
-                <li class="nav-main-item{{ request()->is('profile/*') ? ' open' : '' }}">
-                    <a class="nav-main-link nav-main-link-submenu" data-toggle="submenu" aria-haspopup="true" aria-expanded="true" href="#">
-                        <i class="nav-main-link-icon fa fa-user"></i>
-                        <span class="nav-main-link-name">My Profile</span>
-                    </a>
-                    <ul class="nav-main-submenu">
-                        <li class="nav-main-item">
-                            <a class="nav-main-link{{ request()->is('profile/profile_aboutme') ? ' active' : '' }}" href="/profile/profile_aboutme">
-                                <i class="nav-main-link-icon fa fa-address-card"></i>
-                                <span class="nav-main-link-name">About Me</span>
-                            </a>
-                        </li>
-                        <li class="nav-main-item">
-                            <a class="nav-main-link{{ request()->is('profile/profile_experience') ? ' active' : '' }}" href="/profile/profile_experience">
-                                <i class="nav-main-link-icon fa fa-briefcase"></i>
-                                <span class="nav-main-link-name">Experience</span>
-                            </a>
-                        </li>
-                        <li class="nav-main-item">
-                            <a class="nav-main-link{{ request()->is('profile/profile_cvupload') ? ' active' : '' }}" href="/profile/profile_cvupload">
-                                <i class="nav-main-link-icon fa fa-paperclip"></i>
-                                <span class="nav-main-link-name">Upload Resume/CV</span>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="nav-main-item{{ request()->is('personality/*') ? ' open' : '' }}">
-                    <a class="nav-main-link nav-main-link-submenu" data-toggle="submenu" aria-haspopup="true" aria-expanded="true" href="#">
-                        <i class="nav-main-link-icon fa fa-list-alt"></i>
-                        <span class="nav-main-link-name">Personality Test</span>
-                    </a>
-                    <ul class="nav-main-submenu">
-                        <li class="nav-main-item">
-                            <a class="nav-main-link{{ request()->is('personality/personality_career') ? ' active' : '' }}" href="/personality/personality_career">
-                                <i class="nav-main-link-icon fa fa-tasks"></i>
-                                <span class="nav-main-link-name">Career Assessment</span>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="nav-main-item{{ request()->is('video/*') ? ' open' : '' }}">
-                    <a class="nav-main-link nav-main-link-submenu" data-toggle="submenu" aria-haspopup="true" aria-expanded="true" href="#">
-                        <i class="nav-main-link-icon fa fa-video"></i>
-                        <span class="nav-main-link-name">Video Interview</span>
-                    </a>
-                    <ul class="nav-main-submenu">
-                        <li class="nav-main-item">
-                            <a class="nav-main-link{{ request()->is('video/video_recording') ? ' active' : '' }}" href="/video/video_recording">
-                                <i class="nav-main-link-icon fa fa-play"></i>
-                                <span class="nav-main-link-name">Record Video</span>
-                            </a>
-                        </li>
-                        <li class="nav-main-item">
-                            <a class="nav-main-link{{ request()->is('video/video_pastrecord') ? ' active' : '' }}" href="/video/video_pastrecord">
-                            	<i class="nav-main-link-icon fa fa-file"></i>
-                                <span class="nav-main-link-name">Past Recorded Video</span>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="nav-main-heading">Various</li>
-                <li class="nav-main-item{{ request()->is('examples/*') ? ' open' : '' }}">
-                    <a class="nav-main-link nav-main-link-submenu" data-toggle="submenu" aria-haspopup="true" aria-expanded="true" href="#">
-                        <i class="nav-main-link-icon si si-bulb"></i>
-                        <span class="nav-main-link-name">Examples</span>
-                    </a>
-                    <ul class="nav-main-submenu">
-                        <li class="nav-main-item">
-                            <a class="nav-main-link{{ request()->is('examples/plugin') ? ' active' : '' }}" href="/examples/plugin">
-                                <span class="nav-main-link-name">Plugin</span>
-                            </a>
-                        </li>
-                        <li class="nav-main-item">
-                            <a class="nav-main-link{{ request()->is('examples/blank') ? ' active' : '' }}" href="/examples/blank">
-                                <span class="nav-main-link-name">Blank</span>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="nav-main-heading">More</li>
-                <li class="nav-main-item open">
-                    <a class="nav-main-link" href="/">
-                        <i class="nav-main-link-icon si si-globe"></i>
-                        <span class="nav-main-link-name">Landing</span>
-                    </a>
-                </li>
-            </ul>
-        </div>
-        <!-- END Side Navigation -->
-    </nav>
-    <!-- END Sidebar -->
-
-    <!-- Header -->
-    <header id="page-header">
-        <!-- Header Content -->
-        <div class="content-header">
-            <!-- Left Section -->
-            <div>
-                <!-- Toggle Sidebar -->
-                <!-- Layout API, functionality initialized in Template._uiApiLayout()-->
-                <button type="button" class="btn btn-dual mr-1" data-toggle="layout" data-action="sidebar_toggle">
-                    <i class="fa fa-fw fa-bars"></i>
-                </button>
-                <!-- END Toggle Sidebar -->
-
-                <!-- Open Search Section -->
-                <!-- Layout API, functionality initialized in Template._uiApiLayout() -->
-                <button type="button" class="btn btn-dual" data-toggle="layout" data-action="header_search_on">
-                    <i class="fa fa-fw fa-search"></i> <span class="ml-1 d-none d-sm-inline-block">Search</span>
-                </button>
-                <!-- END Open Search Section -->
-            </div>
-            <!-- END Left Section -->
-
-            <!-- Right Section -->
-            <div>
-                <!-- User Dropdown -->
-                <div class="dropdown d-inline-block">
-                    <button type="button" class="btn btn-dual" id="page-header-user-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-
-                        <img class="img-avatar img-avatar48" src="{{ asset('assets/media/avatars/'. $user->profile_images.'.jpg') }}" alt="">&nbsp;&nbsp;
-
-                        <i class="fa fa-fw fa-user d-sm-none"></i>
-                        <span class="d-none d-sm-inline-block">{{ Auth::user()->name }}</span>
-                        <i class="fa fa-fw fa-angle-down ml-1 d-none d-sm-inline-block"></i>
-                    </button>
-                    <div class="dropdown-menu dropdown-menu-right p-0" aria-labelledby="page-header-user-dropdown">
-                        <div class="bg-primary-darker rounded-top font-w600 text-white text-center p-3">
-                            User Options
-                        </div>
-                        <div class="p-2">
-                            <a class="dropdown-item" href="javascript:void(0)">
-                                <i class="far fa-fw fa-user mr-1"></i> Profile
-                            </a>
-                            <a class="dropdown-item d-flex align-items-center justify-content-between" href="javascript:void(0)">
-                                <span><i class="far fa-fw fa-envelope mr-1"></i> Inbox</span>
-                                <span class="badge badge-primary">3</span>
-                            </a>
-                            <a class="dropdown-item" href="javascript:void(0)">
-                                <i class="far fa-fw fa-file-alt mr-1"></i> Invoices
-                            </a>
-                            <div role="separator" class="dropdown-divider"></div>
-
-                            <!-- Toggle Side Overlay -->
-                            <!-- Layout API, functionality initialized in Template._uiApiLayout() -->
-                            <a class="dropdown-item" href="javascript:void(0)" data-toggle="layout" data-action="side_overlay_toggle">
-                                <i class="far fa-fw fa-building mr-1"></i> Settings
-                            </a>
-                            <!-- END Side Overlay -->
-
-                            <div role="separator" class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                                <i class="far fa-fw fa-arrow-alt-circle-left mr-1"></i> Sign Out
-                            </a>
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                @csrf
-                            </form>
-                        </div>
-                    </div>
-                </div>
-                <!-- END User Dropdown -->
-
-                <!-- Notifications Dropdown -->
-                <div class="dropdown d-inline-block">
-                    <button type="button" class="btn btn-dual" id="page-header-notifications-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <i class="fa fa-fw fa-bell"></i>
-                        <span class="badge badge-secondary badge-pill">5</span>
-                    </button>
-                    <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right p-0" aria-labelledby="page-header-notifications-dropdown">
-                        <div class="bg-primary-darker rounded-top font-w600 text-white text-center p-3">
-                            Notifications
-                        </div>
-                        <ul class="nav-items my-2">
-                            <li>
-                                <a class="text-dark media py-2" href="javascript:void(0)">
-                                    <div class="mx-3">
-                                        <i class="fa fa-fw fa-check-circle text-success"></i>
-                                    </div>
-                                    <div class="media-body font-size-sm pr-2">
-                                        <div class="font-w600">App was updated to v5.6!</div>
-                                        <div class="text-muted font-italic">3 min ago</div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a class="text-dark media py-2" href="javascript:void(0)">
-                                    <div class="mx-3">
-                                        <i class="fa fa-fw fa-user-plus text-info"></i>
-                                    </div>
-                                    <div class="media-body font-size-sm pr-2">
-                                        <div class="font-w600">New Subscriber was added! You now have 2580!</div>
-                                        <div class="text-muted font-italic">10 min ago</div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a class="text-dark media py-2" href="javascript:void(0)">
-                                    <div class="mx-3">
-                                        <i class="fa fa-fw fa-times-circle text-danger"></i>
-                                    </div>
-                                    <div class="media-body font-size-sm pr-2">
-                                        <div class="font-w600">Server backup failed to complete!</div>
-                                        <div class="text-muted font-italic">30 min ago</div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a class="text-dark media py-2" href="javascript:void(0)">
-                                    <div class="mx-3">
-                                        <i class="fa fa-fw fa-exclamation-circle text-warning"></i>
-                                    </div>
-                                    <div class="media-body font-size-sm pr-2">
-                                        <div class="font-w600">You are running out of space. Please consider upgrading your plan.</div>
-                                        <div class="text-muted font-italic">1 hour ago</div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a class="text-dark media py-2" href="javascript:void(0)">
-                                    <div class="mx-3">
-                                        <i class="fa fa-fw fa-plus-circle text-primary"></i>
-                                    </div>
-                                    <div class="media-body font-size-sm pr-2">
-                                        <div class="font-w600">New Sale! + $30</div>
-                                        <div class="text-muted font-italic">2 hours ago</div>
-                                    </div>
-                                </a>
-                            </li>
-                        </ul>
-                        <div class="p-2 border-top">
-                            <a class="btn btn-light btn-block text-center" href="javascript:void(0)">
-                                <i class="fa fa-fw fa-eye mr-1"></i> View All
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <!-- END Notifications Dropdown -->
-
-                <!-- Toggle Side Overlay -->
-                <!-- Layout API, functionality initialized in Template._uiApiLayout() -->
-                <button type="button" class="btn btn-dual" data-toggle="layout" data-action="side_overlay_toggle">
-                    <i class="far fa-fw fa-list-alt"></i>
-                </button>
-                <!-- END Toggle Side Overlay -->
-            </div>
-            <!-- END Right Section -->
-        </div>
-        <!-- END Header Content -->
-
-        <!-- Header Search -->
-        <div id="page-header-search" class="overlay-header bg-primary">
-            <div class="content-header">
-                <form class="w-100" action="/dashboard" method="post">
-                    <div class="input-group">
-                        <div class="input-group-prepend">
-                            <!-- Layout API, functionality initialized in Template._uiApiLayout() -->
-                            <button type="button" class="btn btn-primary" data-toggle="layout" data-action="header_search_off">
-                                <i class="fa fa-fw fa-times-circle"></i>
+                    <!-- Right Section -->
+                    <div>
+                        <!-- User Dropdown -->
+                        <div class="dropdown d-inline-block">
+                            <button type="button" class="btn btn-dual" id="page-header-user-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fa fa-fw fa-user d-sm-none"></i>
+                                <span class="d-none d-sm-inline-block">Admin</span>
+                                <i class="fa fa-fw fa-angle-down ml-1 d-none d-sm-inline-block"></i>
                             </button>
+                            <div class="dropdown-menu dropdown-menu-right p-0" aria-labelledby="page-header-user-dropdown">
+                                <div class="bg-primary-darker rounded-top font-w600 text-white text-center p-3">
+                                    User Options
+                                </div>
+                                <div class="p-2">
+                                    <a class="dropdown-item" href="be_pages_generic_profile.html">
+                                        <i class="far fa-fw fa-user mr-1"></i> Profile
+                                    </a>
+                                    <a class="dropdown-item d-flex align-items-center justify-content-between" href="be_pages_generic_inbox.html">
+                                        <span><i class="far fa-fw fa-envelope mr-1"></i> Inbox</span>
+                                        <span class="badge badge-primary">3</span>
+                                    </a>
+                                    <a class="dropdown-item" href="be_pages_generic_invoice.html">
+                                        <i class="far fa-fw fa-file-alt mr-1"></i> Invoices
+                                    </a>
+                                    <div role="separator" class="dropdown-divider"></div>
+
+                                    <!-- Toggle Side Overlay -->
+                                    <!-- Layout API, functionality initialized in Template._uiApiLayout() -->
+                                    <a class="dropdown-item" href="javascript:void(0)" data-toggle="layout" data-action="side_overlay_toggle">
+                                        <i class="far fa-fw fa-building mr-1"></i> Settings
+                                    </a>
+                                    <!-- END Side Overlay -->
+
+                                    <div role="separator" class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="op_auth_signin.html">
+                                        <i class="far fa-fw fa-arrow-alt-circle-left mr-1"></i> Sign Out
+                                    </a>
+                                </div>
+                            </div>
                         </div>
-                        <input type="text" class="form-control border-0" placeholder="Search or hit ESC.." id="page-header-search-input" name="page-header-search-input">
+                        <!-- END User Dropdown -->
+
+                        <!-- Notifications Dropdown -->
+                        <div class="dropdown d-inline-block">
+                            <button type="button" class="btn btn-dual" id="page-header-notifications-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fa fa-fw fa-bell"></i>
+                                <span class="badge badge-secondary badge-pill">5</span>
+                            </button>
+                            <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right p-0" aria-labelledby="page-header-notifications-dropdown">
+                                <div class="bg-primary-darker rounded-top font-w600 text-white text-center p-3">
+                                    Notifications
+                                </div>
+                                <ul class="nav-items my-2">
+                                    <li>
+                                        <a class="text-dark media py-2" href="javascript:void(0)">
+                                            <div class="mx-3">
+                                                <i class="fa fa-fw fa-check-circle text-success"></i>
+                                            </div>
+                                            <div class="media-body font-size-sm pr-2">
+                                                <div class="font-w600">App was updated to v5.6!</div>
+                                                <div class="text-muted font-italic">3 min ago</div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="text-dark media py-2" href="javascript:void(0)">
+                                            <div class="mx-3">
+                                                <i class="fa fa-fw fa-user-plus text-info"></i>
+                                            </div>
+                                            <div class="media-body font-size-sm pr-2">
+                                                <div class="font-w600">New Subscriber was added! You now have 2580!</div>
+                                                <div class="text-muted font-italic">10 min ago</div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="text-dark media py-2" href="javascript:void(0)">
+                                            <div class="mx-3">
+                                                <i class="fa fa-fw fa-times-circle text-danger"></i>
+                                            </div>
+                                            <div class="media-body font-size-sm pr-2">
+                                                <div class="font-w600">Server backup failed to complete!</div>
+                                                <div class="text-muted font-italic">30 min ago</div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="text-dark media py-2" href="javascript:void(0)">
+                                            <div class="mx-3">
+                                                <i class="fa fa-fw fa-exclamation-circle text-warning"></i>
+                                            </div>
+                                            <div class="media-body font-size-sm pr-2">
+                                                <div class="font-w600">You are running out of space. Please consider upgrading your plan.</div>
+                                                <div class="text-muted font-italic">1 hour ago</div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="text-dark media py-2" href="javascript:void(0)">
+                                            <div class="mx-3">
+                                                <i class="fa fa-fw fa-plus-circle text-primary"></i>
+                                            </div>
+                                            <div class="media-body font-size-sm pr-2">
+                                                <div class="font-w600">New Sale! + $30</div>
+                                                <div class="text-muted font-italic">2 hours ago</div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                </ul>
+                                <div class="p-2 border-top">
+                                    <a class="btn btn-light btn-block text-center" href="javascript:void(0)">
+                                        <i class="fa fa-fw fa-eye mr-1"></i> View All
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- END Notifications Dropdown -->
+
+                        <!-- Toggle Side Overlay -->
+                        <!-- Layout API, functionality initialized in Template._uiApiLayout() -->
+                        <!--<button type="button" class="btn btn-dual" data-toggle="layout" data-action="side_overlay_toggle">
+                            <i class="far fa-fw fa-list-alt"></i>
+                        </button>-->
+                        <!-- END Toggle Side Overlay -->
                     </div>
-                </form>
-            </div>
-        </div>
-        <!-- END Header Search -->
-
-        <!-- Header Loader -->
-        <!-- Please check out the Loaders page under Components category to see examples of showing/hiding it -->
-        <div id="page-header-loader" class="overlay-header bg-primary-darker">
-            <div class="content-header">
-                <div class="w-100 text-center">
-                    <i class="fa fa-fw fa-2x fa-sun fa-spin text-white"></i>
+                    <!-- END Right Section -->
                 </div>
-            </div>
-        </div>
-        <!-- END Header Loader -->
-    </header>
-    <!-- END Header -->
+                <!-- END Header Content -->
 
-    <!-- Main Container -->
-    <main id="main-container">
-        @yield('content')
-    </main>
-    <!-- END Main Container -->
+                <!-- Header Search -->
+                <!--<div id="page-header-search" class="overlay-header bg-primary">
+                    <div class="content-header">
+                        <form class="w-100" action="be_pages_generic_search.html" method="post">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <button type="button" class="btn btn-primary" data-toggle="layout" data-action="header_search_off">
+                                        <i class="fa fa-fw fa-times-circle"></i>
+                                    </button>
+                                </div>
+                                <input type="text" class="form-control border-0" placeholder="Search or hit ESC.." id="page-header-search-input" name="page-header-search-input">
+                            </div>
+                        </form>
+                    </div>
+                </div>-->
+                <!-- END Header Search -->
 
-    <!-- Footer -->
-    <footer id="page-footer" class="bg-body-light">
-        <div class="content py-0">
-            <div class="row font-size-sm">
-                <div class="col-sm-6 order-sm-2 mb-1 mb-sm-0 text-center text-sm-right">
-                    Crafted with <i class="fa fa-heart text-danger"></i> by <a class="font-w600" href="https://invokemalaysia.org" target="_blank">INVOKE Malaysia</a>
+                <!-- Header Loader -->
+                <!-- Please check out the Loaders page under Components category to see examples of showing/hiding it -->
+                <div id="page-header-loader" class="overlay-header bg-primary-darker">
+                    <div class="content-header">
+                        <div class="w-100 text-center">
+                            <i class="fa fa-fw fa-2x fa-sun fa-spin text-white"></i>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-sm-6 order-sm-1 text-center text-sm-left">
-                    <a class="font-w600" href="https://adnexio.my" target="_blank">Adnexio</a> &copy; <span data-toggle="year-copy">2018</span>
+                <!-- END Header Loader -->
+            </header>
+            <!-- END Header -->
+
+            <!-- Main Container -->
+            <main id="main-container">
+
+                @yield('content')
+
+            </main>
+            <!-- END Main Container -->
+
+            <!-- Footer -->
+            <footer id="page-footer" class="bg-body-light">
+                <div class="content py-0">
+                    <div class="row font-size-sm">
+                        <div class="col-sm-6 order-sm-2 mb-1 mb-sm-0 text-center text-sm-right">
+                            Crafted with <i class="fa fa-heart text-danger"></i> by <a class="font-w600" href="https://goo.gl/vNS3I" target="_blank">pixelcave</a>
+                        </div>
+                        <div class="col-sm-6 order-sm-1 text-center text-sm-left">
+                            <a class="font-w600" href="https://goo.gl/mDBqx1" target="_blank">Dashmix 1.4</a> &copy; <span data-toggle="year-copy">2018</span>
+                        </div>
+                    </div>
                 </div>
-            </div>
+            </footer>
+            <!-- END Footer -->
         </div>
-    </footer>
-    <!-- END Footer -->
-</div>
-<!-- END Page Container -->
+        <!-- END Page Container -->
 
 
-<!-- Edit My Profile Aboutme -->
+
+<!-- My Profile AboutMe JS -->
 
 <script type="text/javascript">
 
-    $(document).on('click', '.myCheckbox', function () {
-        var target = $(this).data('duration');
-        if ($(this).is(':checked')) $('#' + target).addClass('disabled');
-        else $('#' + target).removeClass('disabled');
-    });
+	$(document).on('click', '.edit-modal', function() {
+	$('#footer_action_button').text("Update");
+	$('#footer_action_button').addClass('glyphicon-check');
+	$('#footer_action_button').removeClass('glyphicon-trash');
+	$('.actionBtn').addClass('btn-primary');
+	$('.actionBtn').removeClass('btn-danger');
+	$('.actionBtn').addClass('edit');
+	$('.modal-title').text('Post Edit');
+	//$('#js-validation').show();
+	$('#id').val($(this).data('id'));
+	$('#name').val($(this).data('name'));
+	$('#email').val($(this).data('email'));
+	$('#ic_no').val($(this).data('ic_no'));
+	$('#contact_no').val($(this).data('contact_no'));
+	$('#address').val($(this).data('address'));
+	$('#address1').val($(this).data('address1'));
+	$('#postal_code').val($(this).data('postal_code'));
+	$('#city').val($(this).data('city'));		
+	$('#state').val($(this).data('state'));	
+	$('#country').val($(this).data('country'));
+	$('#dob').val($(this).data('dob'));
+	$('#gender').val($(this).data('gender'));
+	$('#modal-block-large').modal('show');
+	});
+	$('.col-lg-12').on('click', '.edit', function() {
+	  $.ajax({
+		type: 'POST',
+		url: '/profile/profile_aboutme',
+		data: {
+	'_token': $('input[name=_token]').val(),
+	'id': $("#id").val(),
+	'name': $('#name').val(),
+	'email': $('#email').val(),
+	'ic_no': $('#ic_no').val(),
+	'contact_no': $('#contact_no').val(),
+	'address': $('#address').val(),
+	'address1': $('#address1').val(),
+	'postal_code': $('#postal_code').val(),
+	'city': $('#city').val(),	
+	'state': $('#state').val(),
+	'country': $('#country').val(),	
+	'dob': $('#dob').val(),
+	'gender': $('#gender').val()
+	},
+	success: function(data) {
+		//location.reload();
+		}
+	  });
+	});
 
-    $(document).on('click', '.myCheckbox-edit', function () {
-        var target = $(this).data('duration-edit');
-        if ($(this).is(':checked')) $('#' + target).addClass('disabled');
-        else $('#' + target).removeClass('disabled');
-    });
-
-    $(document).on('click', '.cancel-submit-experience', function () {
-        $('#experiences').addClass('hide');
-        $('#experiences').hide();
-        $('#add-experience-btn').show();
-        $('#add-experience').show();
-        $('#experience_prev').show();
+</script>
 
 
 
-       // experiences
-    });
+<!-- My Profile Experience JS -->
 
-
-
+<script type="text/javascript">
     $(document).on('click', '.add-experience', function() {
-        //  $('.foredit').removeClass('js-validation');
+      //  $('.foredit').removeClass('js-validation');
         $('#foradd').removeClass('hide');
-        $('#add-experience').hide();
-        // $('#foradd').addClass('js-validation');
+      // $('#foradd').addClass('js-validation');
         $('#val-position').replaceWith( " <input type='text' class='form-control' id='val-position' name='val-position' placeholder='Enter your position'>");
         $('#val-company-name').replaceWith( " <input type='text' class='form-control' id='val-company-name' name='val-company-name' placeholder='Enter your company name'>");
 
@@ -496,78 +350,13 @@
 
 
         $('#val-jd-start-year').replaceWith( "<select class='half-second' id='val-jd-start-year' name='val-jd-start-year' > " +
-            "<option disabled selected>year</option>" +
+            "<option disabled selected>year</option> " +
             "<option>1948</option> " +
             "<option>1949</option> " +
             "<option>1950</option> " +
             "<option>1951</option> " +
             "<option>1952</option> " +
             "<option>1953</option> " +
-            "<option>1954</option> " +
-            "<option>1955</option> " +
-            "<option>1956</option> " +
-            "<option>1957</option> " +
-            "<option>1958</option> " +
-            "<option>1959</option> " +
-            "<option>1960</option> " +
-            "<option>1961</option> " +
-            "<option>1962</option> " +
-            "<option>1963</option> " +
-            "<option>1964</option> " +
-            "<option>1965</option> " +
-            "<option>1966</option> " +
-            "<option>1967</option> " +
-            "<option>1968</option> " +
-            "<option>1969</option> " +
-            "<option>1970</option> " +
-            "<option>1971</option> " +
-            "<option>1972</option> " +
-            "<option>1973</option> " +
-            "<option>1974</option> " +
-            "<option>1975</option> " +
-            "<option>1976</option> " +
-            "<option>1977</option> " +
-            "<option>1978</option> " +
-            "<option>1979</option> " +
-            "<option>1980</option> " +
-            "<option>1981</option> " +
-            "<option>1982</option> " +
-            "<option>1983</option> " +
-            "<option>1984</option> " +
-            "<option>1985</option> " +
-            "<option>1986</option> " +
-            "<option>1987</option> " +
-            "<option>1988</option> " +
-            "<option>1989</option> " +
-            "<option>1990</option> " +
-            "<option>1991</option> " +
-            "<option>1992</option> " +
-            "<option>1993</option> " +
-            "<option>1994</option> " +
-            "<option>1995</option> " +
-            "<option>1996</option> " +
-            "<option>1997</option> " +
-            "<option>1998</option> " +
-            "<option>1999</option> " +
-            "<option>2000</option> " +
-            "<option>2001</option> " +
-            "<option>2002</option> " +
-            "<option>2003</option> " +
-            "<option>2004</option> " +
-            "<option>2005</option> " +
-            "<option>2006</option> " +
-            "<option>2007</option> " +
-            "<option>2008</option> " +
-            "<option>2009</option> " +
-            "<option>2010</option> " +
-            "<option>2011</option> " +
-            "<option>2012</option> " +
-            "<option>2013</option> " +
-            "<option>2014</option> " +
-            "<option>2015</option> " +
-            "<option>2016</option> " +
-            "<option>2017</option> " +
-            "<option>2018</option>" +
             "</select>");
 
 
@@ -589,78 +378,12 @@
 
 
         $('#val-jd-end-year').replaceWith( "<select class='half-third' id='val-jd-end-year' name='val-jd-end-year'> " +
-            "<option disabled selected>year</option>" +
             "<option>1948</option> " +
             "<option>1949</option> " +
             "<option>1950</option> " +
             "<option>1951</option> " +
             "<option>1952</option> " +
             "<option>1953</option> " +
-            "<option>1954</option> " +
-            "<option>1955</option> " +
-            "<option>1956</option> " +
-            "<option>1957</option> " +
-            "<option>1958</option> " +
-            "<option>1959</option> " +
-            "<option>1960</option> " +
-            "<option>1961</option> " +
-            "<option>1962</option> " +
-            "<option>1963</option> " +
-            "<option>1964</option> " +
-            "<option>1965</option> " +
-            "<option>1966</option> " +
-            "<option>1967</option> " +
-            "<option>1968</option> " +
-            "<option>1969</option> " +
-            "<option>1970</option> " +
-            "<option>1971</option> " +
-            "<option>1972</option> " +
-            "<option>1973</option> " +
-            "<option>1974</option> " +
-            "<option>1975</option> " +
-            "<option>1976</option> " +
-            "<option>1977</option> " +
-            "<option>1978</option> " +
-            "<option>1979</option> " +
-            "<option>1980</option> " +
-            "<option>1981</option> " +
-            "<option>1982</option> " +
-            "<option>1983</option> " +
-            "<option>1984</option> " +
-            "<option>1985</option> " +
-            "<option>1986</option> " +
-            "<option>1987</option> " +
-            "<option>1988</option> " +
-            "<option>1989</option> " +
-            "<option>1990</option> " +
-            "<option>1991</option> " +
-            "<option>1992</option> " +
-            "<option>1993</option> " +
-            "<option>1994</option> " +
-            "<option>1995</option> " +
-            "<option>1996</option> " +
-            "<option>1997</option> " +
-            "<option>1998</option> " +
-            "<option>1999</option> " +
-            "<option>2000</option> " +
-            "<option>2001</option> " +
-            "<option>2002</option> " +
-            "<option>2003</option> " +
-            "<option>2004</option> " +
-            "<option>2005</option> " +
-            "<option>2006</option> " +
-            "<option>2007</option> " +
-            "<option>2008</option> " +
-            "<option>2009</option> " +
-            "<option>2010</option> " +
-            "<option>2011</option> " +
-            "<option>2012</option> " +
-            "<option>2013</option> " +
-            "<option>2014</option> " +
-            "<option>2015</option> " +
-            "<option>2016</option> " +
-            "<option>2017</option> " +
-            "<option>2018</option>" +
             "</select>");
 
 
@@ -681,35 +404,12 @@
             "</select>");
 
 
-//        $('#val-specialization').replaceWith( "<select class='form-control' id='val-specialization' name='val-specialization'> " +
-//            "<option disabled selected>please choose your specialization</option> " +
-//            "<option>human resource</option> " +
-//            "<option>programmer</option> " +
-//            "<option>example</option> " +
-//            "</select>");
-
-        $.ajax({
-            type: 'POST',
-            url: '{{ url("/profile/profile_experience/getjb") }}',
-            data: {
-                '_token': $('input[name=_token]').val(),
-            },
-            success: function(data) {
-                $('#val-specialization').empty();
-                $('#val-specialization').append("<option disabled selected value='0'>select your Job Background </option> ");
-
-                $.each(data,function(i,item){
-                    $('#val-specialization').append("<option value='"+data[i].Id+"'>"+data[i].Job_Background+"</option>");
-
-                    }
-
-
-
-                )
-            }
-        });
-
-
+        $('#val-specialization').replaceWith( "<select class='form-control' id='val-specialization' name='val-specialization'> " +
+            "<option disabled selected>please choose your specialization</option> " +
+            "<option>human resource</option> " +
+            "<option>programmer</option> " +
+            "<option>example</option> " +
+            "</select>");
 
         $('#val-position-level').replaceWith( "<select class='form-control' id='val-position-level' name='val-position-level'> <option disabled selected>please choose your Position Level</option> " +
             "<option value='senior man'>Senior Manager</option> " +
@@ -717,21 +417,14 @@
             "<option value='Junior Excutive'>Junior Executive</option> " +
             "</select>");
 
-        $('#val-salary').replaceWith( " <select class='form-control' id='val-salary' name='val-salary'> " +
+        $('#val-salary').replaceWith( "<select class='form-control' id='val-salary' name='val-salary' > " +
             "<option disabled selected>please choose your salary range</option> " +
-            "<option>Below then 1,000</option> " +
-            "<option>1,000 to  3,000</option> " +
-            "<option>3,001 to 5,000 </option> " +
-            "<option>5,001 to 7,000</option> " +
-            "<option>7,001 to 10,000</option> " +
-            "<option>10,000 to 15,000</option> " +
-            "<option>16,001 to 20,000</option> " +
-            "<option>20,001 to 25,000</option> " +
-            "<option>25,001 to 30,000</option> " +
-            "<option>30,001 to 35,000</option> " +
-            "<option>35,001 to 40,000</option> " +
-            "<option>45,001 to 50,000</option> " +
-            "<option>above 50,000</option> " +
+            "<option>Below then RM1000</option> " +
+            "<option>RM 1000 to RM 3000</option> " +
+            "<option>RM3001 to 5000 </option> " +
+            "<option>RM5001 to 7000</option> " +
+            "<option>RM7001 to 1000</option> " +
+            "<option>above 10000</option> " +
             "</select>");
 
 
@@ -741,95 +434,6 @@
         $('#experiences').show();
     });
 
-
-    $('#val-specialization').change(function() {
-
-        $.ajax({
-            type: 'POST',
-            url: '{{ url("/profile/profile_experience/getjobspec") }}',
-            data: {
-                '_token': $('input[name=_token]').val(),
-                'specialization': $('#val-specialization').val(),
-            },
-            success: function (data) {
-                $('#val-job-specification').empty();
-
-                $('#val-job-specification').append("<option disabled selected value='0'>select your Job Specification</option> ");
-
-
-                $.each(data, function (i, item) {
-                        $('#val-job-specification').append("<option value='" + data[i].Id + "'>" + data[i].Job_Specification + "</option>");
-
-                    }
-
-
-                )
-                $('#val-job-specification').append("<option value='79'>Others</option> ");
-            }
-        });
-
-    });
-
-    $('#specialization-edit').change(function() {
-
-        $.ajax({
-            type: 'POST',
-            url: '{{ url("/profile/profile_experience/getjobspec") }}',
-            data: {
-                '_token': $('input[name=_token]').val(),
-                'specialization': $('#specialization-edit').val(),
-            },
-            success: function (data) {
-                $('#job-specification-edit').empty();
-
-                $('#job-specification-edit').append("<option disabled selected value='0'>select your Job Specification</option> ");
-
-
-                $.each(data, function (i, item) {
-                        $('#job-specification-edit').append("<option value='" + data[i].Id + "'>" + data[i].Job_Specification + "</option>");
-
-                    }
-                )
-                $('#job-specification-edit').append("<option value='79'>Others</option> ");
-            }
-        });
-
-    });
-
-
-
-    $('#val-job-specification').change(function() {
-         var other = $("#val-job-specification :selected").text();
-
-        if ( other == "Others")
-        {
-            $('#keyword-job-specification').removeClass('hide');
-
-            $('#keyword-job-specification').show();
-        } else
-        {
-            $('#keyword-job-specification').addClass('hide');
-            $('#keyword-job-specification').hide();
-        }
-
-    });
-  $('#job-specification-edit').change(function() {
-         var other = $("#job-specification-edit :selected").text();
-
-        if ( other == "Others")
-        {
-            $('#keyword-job-specification-edit').removeClass('hide');
-
-            $('#keyword-job-specification-edit').show();
-        } else
-        {
-            $('#keyword-job-specification-edit').addClass('hide');
-            $('#keyword-job-specification-edit').hide();
-        }
-
-    });
-
-
     $(document).on('click', '.minus-experience', function() {
 
 
@@ -838,11 +442,9 @@
     });
 
 
-
 </script>
 
 <script type="text/javascript">
-
     // function Edit POST
 
     $(document).on('click', '.edit-experience', function() {
@@ -864,50 +466,12 @@
         $('#jd_start_year-edit').val($(this).data('jd_start_year-edit'));
         $('#jd_start_month-edit').val($(this).data('jd_start_month-edit'));
         $('#specialization-edit').val($(this).data('specialization-edit'));
-        $('#job-desc-edit').val($(this).data('job-desc-edit'));
-        $('#val-jd-end-year-edit').val($(this).data('endyear-edit'));
-        $('#val-jd-end-month-edit').val($(this).data('endmonth-edit'));
-//        $('#present-edit').empty();
-//        $('#present-edit').val($(this).data('present-edit'));
-//        var bla = $('#present-edit').val();
-
-        $('#present-edit').setAttribute("checked");
-
-        //$('#job-specification').val($(this).data('jobspecification-edit'));
-
-        var  counter =$(this).data('specialization-edit');
-
-
-            $.ajax({
-                type: 'POST',
-                url: '{{ url("/profile/profile_experience/getjobspec") }}',
-                data: {
-                    '_token': $('input[name=_token]').val(),
-                    'specialization': counter
-                },
-                success: function (data) {
-                    $('#job-specification-edit').empty();
-
-                    $('#job-specification-edit').append("<option disabled selected value='0'>select your Job Specification</option> ");
-
-                    $.each(data, function (i, item) {
-                            $('#job-specification-edit').append("<option value='" + data[i].Id + "'>" + data[i].Job_Specification + "</option>");
-                        })
-                }
-            });
-
-      //  $('#specialization-edit').val($(this).data('specialization-edit'));
-       // $('#job-specification-edit').val($(this).data('jobspecification-edit'));
+        $('#position_level-edit').val($(this).data('position_level-edit'));
         $('#id-edit').val($(this).data('id-edit'));
         $('#salary-edit').val($(this).data('salary-edit'));
-        //$('#job-specification-edit').val($(this).data('jobspecification-edit'));
 
         $('#modal-block-large').modal('show');
-        myFun ()
     });
-    function myFun () {
-        $('#job-specification-edit').val($(this).data('jobspecification-edit'));
-    }
 
     $('.col-lg-7').on('click', '.edit', function() {
         $.ajax({
@@ -936,72 +500,44 @@
 </script>
 
 
-
 <script type="text/javascript">
     $('.submit-experience').on('click', '.submit-experience', function() {
 
-
-
-
-    $('.submit-experience').on('click', '.submit-experience', function(e) {
-       var insert=[];
-          $("#val-present").each(function() {
-              if($(this).is(":checked")){
-                  insert.push($(this).val());
-              }
-
-          });
-          insert=insert.toString();
-//        e.preventDefault();
-//        e.stopImmediatePropagation();
         $.ajax({
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
             },
-            type: 'post',
-            url:  '/profile/profile_experience/store',
+            type: 'POST',
+            url: '{{ url("/profile/profile_experience") }}',
             data: {
                 '_token': $('input[name=_token]').val(),
-                //'id': $("#id-edit").val(),
+                'id': $("#id-edit").val(),
                 'position': $("#val-position").val(),
                 'company_name': $('#val-company-name').val(),
                 'jd_start_year': $('#val-jd-start-year').val(),
                 'jd_start_month': $('#val-jd-start-month').val(),
                 'specialization': $('#val-specialization').val(),
-                //'position_level': $('#val-position-level').val(),
+                'position_level': $('#val-position-level').val(),
                 'salary': $('#val-salary').val(),
                 'jd_end_year': $('#val-jd-end-year').val(),
                 'jd_end_month': $('#val-jd-end-month').val(),
-                'job_desc': $('#val-job-desc').val(),
-                'job_spec': $('#val-job-specification').val(),
-                'other_job_spec': $('#val-keyin-job-spec').val(),
-                'val_present': insert,
+                'salary': $('#val-salary').val(),
 
             },
             dataType: 'json',
             success: function(data) {
-
-                  location.reload();
+                $('#1').show();
 
             }
 
         });
     });
 
-
 </script>
 
 <script type="text/javascript">
     $('.submit-experience-edit').on('click', '.submit-experience-edit', function() {
 
-        var insertedit=[];
-        $("#present-edit").each(function() {
-            if($(this).is(":checked")){
-                insertedit.push($(this).val());
-            }
-
-        });
-        insertedit=insertedit.toString();
         $.ajax({
             // headers: {
             //     'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
@@ -1013,58 +549,35 @@
                 '_token': $('input[name=_token]').val(),
                 'id':$("#id-edit").val(),
                 'position': $("#position-edit").val(),
-                 'company_name_edit': $('#company_name-edit').val(),
+               // 'company_name': $('#company_name-edit').val(),
                 'jd_start_year': $('#jd_start_year-edit').val(),
                 'jd_start_month': $('#jd_start_month-edit').val(),
-                'specialization_id': $('#specialization-edit').val(),
-                'specification_id': $('#job-specification-edit').val(),
+                'specialization': $('#specialization-edit').val(),
+                'position_level': $('#position_level-edit').val(),
                 'salary': $('#salary-edit').val(),
                 'jd_end_year': $('#val-jd-end-year-edit').val(),
-                'jd_end_month': $('#val-jd-end-month-edit').val(),
-                'job_desc_edit': $('#job-desc-edit').val(),
-              //  'company_name_edit': $('#company_name-edit').val(),
-                'keyin_job_spec_edit': $('#keyin-job-spec-edit').val(),
-                'val_present': insertedit,
+                'jd_end_month': $('#val-jd-end-month-edit').val()
+
 
             },
+
             success: function(data) {
+
                 location.reload();
+
             }
+
+
+
+
         });
+
+
     });
 
+
+
 </script>
-
-
-{{--<script>--}}
-    {{--$('.submit-experience-delete').on('click', '.submit-experience-delete', function() {--}}
-
-        {{--$.ajax({--}}
-            {{--// headers: {--}}
-            {{--//     'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')--}}
-            {{--// },--}}
-            {{--type: 'post',--}}
-            {{--//dataType: 'json',--}}
-            {{--url: '/profile/profile_experience/delete',--}}
-            {{--data: {--}}
-                {{--'_token': $('input[name=_token]').val(),--}}
-                {{--'id': $('#val-experience-delete').val()--}}
-
-
-            {{--},--}}
-
-            {{--success: function(data) {--}}
-
-                {{--location.reload();--}}
-            {{--}--}}
-
-        {{--});--}}
-
-    {{--});--}}
-
-{{--</script>--}}
-
-
 
 
 
@@ -1091,6 +604,9 @@
 <script src="{!! asset('assets/js/plugins/datatables/buttons/buttons.flash.min.js') !!}"></script>
 <script src="{!! asset('assets/js/plugins/datatables/buttons/buttons.colVis.min.js') !!}"></script>
 
+<!-- Page JS Datepicker -->
+<script src="{!! asset('assets/js/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js') !!}"></script>
+
 <!-- Page JS Select2 -->
 <script src="{!! asset('assets/js/plugins/select2/js/select2.full.min.js') !!}"></script>
 <script src="{!! asset('assets/js/plugins/jquery-bootstrap-wizard/bs4/jquery.bootstrap.wizard.min.js') !!}"></script>
@@ -1111,7 +627,6 @@
 
 <!-- Page JS Helpers (jQuery Sparkline plugin) -->
 <script>jQuery(function(){ Dashmix.helpers(['sparkline', 'select2', 'datepicker']); });</script>
-
 
 
 <script>
@@ -2794,9 +2309,9 @@
         this.file = options.file;
         this.contentType = options.contentType || this.file.type || 'application/octet-stream';
         this.metadata = options.metadata || {
-                'title': this.file.name,
-                'mimeType': this.contentType
-            };
+            'title': this.file.name,
+            'mimeType': this.contentType
+        };
         this.token = options.token;
         this.onComplete = options.onComplete || noop;
         this.onProgress = options.onProgress || noop;
@@ -3008,43 +2523,43 @@
 
 
 
-    $("#submit-add-cv").click(function(){
-        location.reload();
-    });
+        $("#submit-add-cv").click(function(){
+            location.reload();
+        });
 
 
 
 
     /* $('.modal-footer').on('click', '.editcv', function() {
-     $.ajax({
-     type: 'POST',
-     url: '/profile/profile_aboutme',
-     data: {
-     '_token': $('input[name=_token]').val(),
-     'id': $("#id").val(),
-     'name': $('#name').val()
-     },
-     success: function(data) {
-     $('.user' + data.id).replaceWith(" "+
+         $.ajax({
+             type: 'POST',
+             url: '/profile/profile_aboutme',
+             data: {
+                 '_token': $('input[name=_token]').val(),
+                 'id': $("#id").val(),
+                 'name': $('#name').val()
+             },
+             success: function(data) {
+                 $('.user' + data.id).replaceWith(" "+
 
-     "<thead class='user{{$user->id}}'>"+
-     "<tr>"+
-     "<td class='text-muted'>Name</td>"+
-     "<td style='width: 70%; font-weight: bold;'>" + data.name + "</td>"+
-     "</tr>"+
-     "</thead>");
-
-
-     $('.pull').replaceWith(
-     " "+"<a href='#' class='edit-modal btn btn-sm btn-light pull' data-toggle='modal' data-target='#modal-block-large' data-id='"+data.id+"' data-name='"+data.name+"'><i class='fa fa-fw fa-edit'></i>Edit </a>"
-     );
+                     "<thead class='user{{$user->id}}'>"+
+                        "<tr>"+
+                        "<td class='text-muted'>Name</td>"+
+                        "<td style='width: 70%; font-weight: bold;'>" + data.name + "</td>"+
+                        "</tr>"+
+                        "</thead>");
 
 
+                    $('.pull').replaceWith(
+                        " "+"<a href='#' class='edit-modal btn btn-sm btn-light pull' data-toggle='modal' data-target='#modal-block-large' data-id='"+data.id+"' data-name='"+data.name+"'><i class='fa fa-fw fa-edit'></i>Edit </a>"
+                    );
 
-     }
-     });
-     });
-     */
+
+
+                }
+            });
+        });
+*/
 
 </script>
 
