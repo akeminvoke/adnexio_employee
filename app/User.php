@@ -58,7 +58,7 @@ class User extends Authenticatable
     public function experience(){
         return $this->hasMany('App\experience')->select(['id','salary','user_id']);
 
-	
+	}
 	  public function personalities() {
         return $this->hasMany('App\Personality');
 
