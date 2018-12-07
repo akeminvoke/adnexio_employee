@@ -33,7 +33,7 @@
 
 
 
-							<div class="block-options">
+
 								<div class="col-md-2 float-right">
 									<table>
 										<tr>
@@ -59,7 +59,7 @@
 										</tr>
 									</table>
 								</div>
-							</div>
+
 
 
                            
