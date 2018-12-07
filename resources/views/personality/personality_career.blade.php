@@ -31,7 +31,7 @@
       Traitify.ui.load(assessmentId, ".assessment")
     </script>
     
-    
+<br>
 <div align="center">
 	<h2>Did you feel like this personality results match you?</h2>
 
