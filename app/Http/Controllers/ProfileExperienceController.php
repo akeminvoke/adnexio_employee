@@ -130,25 +130,25 @@ class ProfileExperienceController extends Controller
 
         ]);
 
-        //$company_exist = company::select('name')->where('name', $request->company_name_edit)->take(1)->get();
+        $company_exist = company::select('name')->where('name', $request->company_name_edit)->take(1)->get();
 
-        //if( !isset($company_exist)) {
+        if( isset($company_exist)) {
             $add_company = new company();
             $add_company ->name = $request->company_name;
             $add_company->save();
             $company_id = company::select('id')->where('name', $request->company_name)->take(1)->get();
             //  $company_id = company::find('name',$request->company_name_edit)->select('id')->get();
-        //}else {
+        }else {
             // $company_id = company::find('name',$request->company_name_edit)->select('id')->get();\
-            //$company_id = company::select('id')->where('name', $request->company_name_edit)->take(1)->get();
-        //} ;
+            $company_id = company::select('id')->where('name', $request->company_name_edit)->take(1)->get();
+        } ;
 
 
 
         //$industry_id=industry::select('id')->where('name',$request->industry)->get();
 
 
-        $company_id = company::select('id')->where('name', $request->company_name)->take(1)->get();
+     //   $company_id = company::select('id')->where('name', $request->company_name)->take(1)->get();
         $experience = new experience();
         $experience->user_id = $user->id;
         $experience->company_id = $company_id[0]->id;
@@ -237,6 +237,7 @@ class ProfileExperienceController extends Controller
 
         $this->validate($request, [
             'position' => 'required',
+			'specification_id' => 'required',
 
 
         ]);
