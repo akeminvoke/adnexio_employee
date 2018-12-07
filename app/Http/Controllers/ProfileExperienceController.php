@@ -73,7 +73,7 @@ class ProfileExperienceController extends Controller
     public function getjb()
     {
 
-        $jb= DB::table('Job_backgrounds')->select('Id','Job_Background')->get();
+        $jb= DB::table('job_backgrounds')->select('Id','Job_Background')->get();
 
         return response()->json($jb);
 
@@ -86,7 +86,7 @@ class ProfileExperienceController extends Controller
 
 
 
-        $js= DB::table('Job_specifications')->select('Id','Job_Specification')->where('Job_Background_ID',$request->specialization)->get();
+        $js= DB::table('job_specifications')->select('Id','Job_Specification')->where('Job_Background_ID',$request->specialization)->get();
 
         return response()->json($js);
 
