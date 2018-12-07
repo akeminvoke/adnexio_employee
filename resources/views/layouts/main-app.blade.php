@@ -15,7 +15,7 @@
 
 @yield('css_before')
 
-<!-- Select2 CSS -->
+	<!-- Select2 CSS -->
     <link rel="stylesheet" href="{!! asset('assets/js/plugins/select2/css/select2.min.css') !!}">
 
     <!-- Fonts and Styles -->
@@ -26,13 +26,16 @@
     <link rel="stylesheet" href="{!! asset('assets/js/plugins/datatables/dataTables.bootstrap4.css') !!}">
     <link rel="stylesheet" href="{!! asset('assets/js/plugins/datatables/buttons-bs4/buttons.bootstrap4.min.css') !!}">
 
+    <!-- Datepicker CSS -->
+    <link rel="stylesheet" href="{!! asset('assets/js/plugins/bootstrap-datepicker/css/bootstrap-datepicker3.min.css') !!}">
+    
     <!-- Video Element CSS/JS -->
     <link href="https://cdn.webrtc-experiment.com/getHTMLMediaElement.css" rel="stylesheet">
     <script src="https://cdn.webrtc-experiment.com/getHTMLMediaElement.js"></script>
 
     <!-- Video RecordRTC JS -->
     <script src="https://cdn.webrtc-experiment.com/RecordRTC.js"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.">
+
 
     <!-- For Edge/FF/Chrome/Opera/etc. getUserMedia support -->
     <script src="https://webrtc.github.io/adapter/adapter-latest.js"></script>
@@ -166,6 +169,20 @@
                         </li>
                     </ul>
                 </li>
+                <li class="nav-main-item{{ request()->is('personality/*') ? ' open' : '' }}">
+                    <a class="nav-main-link nav-main-link-submenu" data-toggle="submenu" aria-haspopup="true" aria-expanded="true" href="#">
+                        <i class="nav-main-link-icon fa fa-list-alt"></i>
+                        <span class="nav-main-link-name">Personality Test</span>
+                    </a>
+                    <ul class="nav-main-submenu">
+                        <li class="nav-main-item">
+                            <a class="nav-main-link{{ request()->is('personality/personality_career') ? ' active' : '' }}" href="/personality/personality_career">
+                                <i class="nav-main-link-icon fa fa-tasks"></i>
+                                <span class="nav-main-link-name">Career Assessment</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
                 <li class="nav-main-item{{ request()->is('video/*') ? ' open' : '' }}">
                     <a class="nav-main-link nav-main-link-submenu" data-toggle="submenu" aria-haspopup="true" aria-expanded="true" href="#">
                         <i class="nav-main-link-icon fa fa-video"></i>
@@ -174,11 +191,13 @@
                     <ul class="nav-main-submenu">
                         <li class="nav-main-item">
                             <a class="nav-main-link{{ request()->is('video/video_recording') ? ' active' : '' }}" href="/video/video_recording">
+                                <i class="nav-main-link-icon fa fa-play"></i>
                                 <span class="nav-main-link-name">Record Video</span>
                             </a>
                         </li>
                         <li class="nav-main-item">
                             <a class="nav-main-link{{ request()->is('video/video_pastrecord') ? ' active' : '' }}" href="/video/video_pastrecord">
+                            	<i class="nav-main-link-icon fa fa-file"></i>
                                 <span class="nav-main-link-name">Past Recorded Video</span>
                             </a>
                         </li>
@@ -428,7 +447,62 @@
 <!-- END Page Container -->
 
 
-<!-- Edit My Profile Aboutme -->
+<!-- My Profile AboutMe JS -->
+
+<script type="text/javascript">
+	$(document).on('click', '.edit-modal', function() {
+	$('#footer_action_button').text("Update");
+	$('#footer_action_button').addClass('glyphicon-check');
+	$('#footer_action_button').removeClass('glyphicon-trash');
+	$('.actionBtn').addClass('btn-primary');
+	$('.actionBtn').removeClass('btn-danger');
+	$('.actionBtn').addClass('edit');
+	$('.modal-title').text('Post Edit');
+	//$('#js-validation').show();
+	$('#id').val($(this).data('id'));
+	$('#name').val($(this).data('name'));
+	$('#email').val($(this).data('email'));
+	$('#ic_no').val($(this).data('ic_no'));
+	$('#contact_no').val($(this).data('contact_no'));
+	$('#address').val($(this).data('address'));
+	$('#address1').val($(this).data('address1'));
+	$('#postal_code').val($(this).data('postal_code'));
+	$('#city').val($(this).data('city'));		
+	$('#state').val($(this).data('state'));	
+	$('#country').val($(this).data('country'));
+	$('#dob').val($(this).data('dob'));
+	$('#gender').val($(this).data('gender'));
+	$('#modal-block-large').modal('show');
+	});
+	$('.col-lg-12').on('click', '.edit', function() {
+	  $.ajax({
+		type: 'POST',
+		url: '/profile/profile_aboutme',
+		data: {
+	'_token': $('input[name=_token]').val(),
+	'id': $("#id").val(),
+	'name': $('#name').val(),
+	'email': $('#email').val(),
+	'ic_no': $('#ic_no').val(),
+	'contact_no': $('#contact_no').val(),
+	'address': $('#address').val(),
+	'address1': $('#address1').val(),
+	'postal_code': $('#postal_code').val(),
+	'city': $('#city').val(),	
+	'state': $('#state').val(),
+	'country': $('#country').val(),	
+	'dob': $('#dob').val(),
+	'gender': $('#gender').val()
+	},
+	success: function(data) {
+		//location.reload();
+		}
+	  });
+	});
+</script>
+
+<!-- My Profile Experience JS -->
+
 
 <script type="text/javascript">
 
@@ -781,6 +855,7 @@
     });
 
 
+
     $('#val-job-specification').change(function() {
          var other = $("#val-job-specification :selected").text();
 
@@ -821,6 +896,11 @@
     });
 
 
+
+</script>
+
+<script type="text/javascript">
+
     // function Edit POST
 
     $(document).on('click', '.edit-experience', function() {
@@ -845,11 +925,9 @@
         $('#job-desc-edit').val($(this).data('job-desc-edit'));
         $('#val-jd-end-year-edit').val($(this).data('endyear-edit'));
         $('#val-jd-end-month-edit').val($(this).data('endmonth-edit'));
-//        $('#present-edit').empty();
-//        $('#present-edit').val($(this).data('present-edit'));
-//        var bla = $('#present-edit').val();
 
-        $('#present-edit').setAttribute("checked");
+
+
 
         //$('#job-specification').val($(this).data('jobspecification-edit'));
 
@@ -887,36 +965,13 @@
         $('#job-specification-edit').val($(this).data('jobspecification-edit'));
     }
 
-    $('.col-lg-7').on('click', '.edit', function() {
-        $.ajax({
-            type: 'POST',
-            url: '/profile/profile_aboutme',
-            data: {
-                '_token': $('input[name=_token]').val(),
-                'id': $("#id").val(),
-                'name': $('#name').val(),
-                'email': $('#email').val(),
-                'ic_no': $('#ic_no').val(),
-                'contact_no': $('#contact_no').val(),
-                'address': $('#address').val(),
-                'dob': $('#dob').val(),
-                'gender': $('#gender').val(),
-                'nationality': $('#nationality').val()
-            },
-            success: function(data) {
-                location.reload();
-
-
-            }
-        });
-    });
+    
 
 </script>
 
 
-<script>
 
-
+<script type="text/javascript">
 
     $('.submit-experience').on('click', '.submit-experience', function(e) {
        var insert=[];
@@ -964,8 +1019,10 @@
     });
 
 
+
 </script>
-<script>
+
+<script type="text/javascript">
     $('.submit-experience-edit').on('click', '.submit-experience-edit', function() {
 
         var insertedit=[];
@@ -1065,8 +1122,12 @@
 <script src="{!! asset('assets/js/plugins/datatables/buttons/buttons.flash.min.js') !!}"></script>
 <script src="{!! asset('assets/js/plugins/datatables/buttons/buttons.colVis.min.js') !!}"></script>
 
+<!-- Page JS Datepicker -->
+<script src="{!! asset('assets/js/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js') !!}"></script>
+
 <!-- Page JS Select2 -->
 <script src="{!! asset('assets/js/plugins/select2/js/select2.full.min.js') !!}"></script>
+<script src="{!! asset('assets/js/plugins/jquery-bootstrap-wizard/bs4/jquery.bootstrap.wizard.min.js') !!}"></script>
 <script src="{!! asset('assets/js/plugins/jquery-validation/jquery.validate.min.js') !!}"></script>
 <script src="{!! asset('assets/js/plugins/jquery-validation/additional-methods.js') !!}"></script>
 
@@ -1079,12 +1140,12 @@
 <!-- Page JS Form Validation -->
 <script src="{!! asset('assets/js/pages/be_forms_validation.min.js') !!}"></script>
 
+<!-- Page JS Code -->
+<script src="{!! asset('assets/js/pages/be_forms_wizard.min.js') !!}"></script>
 
 <!-- Page JS Helpers (jQuery Sparkline plugin) -->
-<script>jQuery(function(){ Dashmix.helpers('sparkline'); });</script>
+<script>jQuery(function(){ Dashmix.helpers(['sparkline', 'select2', 'datepicker']); });</script>
 
-<!-- Page JS Helpers (jQuery Sparkline plugin) -->
-<script>jQuery(function(){ Dashmix.helpers('select2'); });</script>
 
 
 <script>

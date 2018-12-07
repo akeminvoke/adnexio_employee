@@ -2,9 +2,8 @@
 
 namespace App\Http\Controllers\Auth;
 
-
-
 use App\User;
+use App\Profiles;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -101,6 +100,11 @@ class RegisterController extends Controller
 
 
             });
+
+			$profiles = Profiles::create([
+				'user_id' => $user['id']
+			]);
+
 
             return redirect()->to('login')->with('success', "We sent activation code. Please check your mail.");
         }

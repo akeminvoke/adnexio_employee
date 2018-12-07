@@ -47,15 +47,21 @@ class User extends Authenticatable
         return false;
     }
 	
-	public function videos() {
+	  public function videos() {
         return $this->hasMany('App\VideoInterview');
     }
 
     public function Cvs() {
         return $this->hasMany('App\Cv');
     }
+
     public function experience(){
         return $this->hasMany('App\experience')->select(['id','salary','user_id']);
+
+	}
+	  public function personalities() {
+        return $this->hasMany('App\Personality');
+
     }
 
 }

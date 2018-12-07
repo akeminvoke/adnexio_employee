@@ -28,7 +28,11 @@ Route::get('/callback', 'SocialAuthFacebookController@callback');
 Route::get('/admin','AdminController@admin');
 Route::get('/user/activation/{token}', 'Auth\RegisterController@userActivation');
 
-//Redirect After Login
+//Redirect After Login First Time
+Route::get('/main', 'MainController@index')->name('main');
+Route::post('/main/first_login', 'MainController@store');
+
+//Redirect After Login IF Done Fill Info
 Route::get('/home', 'HomeController@index')->name('home');
 
 //Profile Function
@@ -45,6 +49,11 @@ Route::post('/profile/profile_cvupload', 'ProfileCvuploadController@filestore');
 Route::post('/profile/profile_cvupload/dlt', 'ProfileCvuploadController@fileDestroy');
 Route::post('profile/profile_cvupload/pullback','ProfileCvuploadController@retrievefilename');
 Route::get('/cv_uploads/download/', 'ProfileCvuploadController@getdownload');
+
+//Personality Test Function
+Route::get('/personality/personality_career', 'PersonalityCareerController@index');
+Route::post('/personality/personality_career', 'PersonalityCareerController@store');
+Route::post('/personality/personality_career_getdata', 'PersonalityCareerController@getRequest');
 
 //Video Interview Function
 Route::get('/video/video_recording', 'VideoRecordingController@index');
