@@ -17,7 +17,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password','role_id','google_id','is_activated','profile_images'
+        'name', 'email', 'password','role_id','google_id','is_activated','profile_images','experience_id'
     ];
 
     /**
@@ -47,16 +47,21 @@ class User extends Authenticatable
         return false;
     }
 	
-	public function videos() {
+	  public function videos() {
         return $this->hasMany('App\VideoInterview');
     }
 
     public function Cvs() {
         return $this->hasMany('App\Cv');
     }
-	
-	    public function personalities() {
+
+    public function experience(){
+        return $this->hasMany('App\experience')->select(['id','salary','user_id']);
+
+	}
+	  public function personalities() {
         return $this->hasMany('App\Personality');
+
     }
 
 }

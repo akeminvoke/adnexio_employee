@@ -24,7 +24,8 @@ class CreateExperiencesTable extends Migration
             $table->text('start_month');
             $table->integer('end_year');
             $table->integer('end_month');
-            $table->timestamps();
+
+
         });
     }
 
