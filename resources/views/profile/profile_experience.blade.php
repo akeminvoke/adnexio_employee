@@ -8,9 +8,15 @@
 
 
         <div class="block-header block-header-default">
-            <h3 class="block-title"></h3>
+            <h3 class="block-title"><i class="nav-main-link-icon fa fa-briefcase"></i> &nbsp;Experience</h3>
             <div class="block-options">
-
+				<div id="add-experience-btn" class=" ">
+					<div class="col-md-2 float-right @if (count($Company_Names) === 0)hide @endif ">
+						<button type="button" id="add-experience" class="btn btn-primary add-experience float-right">
+							<i class="fa fa-fw fa-plus mr-1"></i>
+						</button>
+					</div>
+				</div>
             </div>
         </div>
         <div id="experience_prev"  >
@@ -25,8 +31,40 @@
                                 </h4>
                             </div>
 
-                            <div class="col-lg-1">
-                                <!-- Modal link -->
+
+
+
+								<div class="col-md-2 float-right">
+									<table>
+										<tr>
+											<td>
+											   <a href="#" class="edit-experience pull" data-toggle="modal" data-target="#modal-block-large" data-id="{{$user->id}}" data-name="{{$user->name}}"
+												   data-position="{{$Company_Name->position}}" data-company_name="{{$Company_Name->name}}"    data-jd_start_year-edit="{{$Company_Name->start_year}}"
+												   data-jd_start_month-edit="{{$Company_Name->start_month}}"   data-specialization-edit="{{$Company_Name->specialization_id}}"
+												   data-jobspecification-edit="{{$Company_Name->job_specifications_id}}" data-endyear-edit="{{$Company_Name->end_year}}" data-endmonth-edit="{{$Company_Name->end_month}}"
+												   data-salary-edit="{{$Company_Name->salary}}"    data-id-edit="{{$Company_Name->id}}" data-job-desc-edit="{{$Company_Name->job_desc}}" data-present-edit="{{$Company_Name->jd_present}}">
+
+													<button class="btn btn-sm btn-primary pull"><i class="nav-main-link-icon fa fa-edit"></i> Edit</button>
+												</a>
+											</td>
+											<td>        
+											    <form action="{{'/profile/profile_experience/delete'}}" method="Post" >
+												  <input type="hidden"  id="val-experience-delete"  name="valexperiencedelete" value="{{$Company_Name->id}}">
+											   <button class="btn btn-sm btn-primary pull submit-experience-delete">
+											   <i class="nav-main-link-icon fa fa-trash-alt "></i> Delete
+											   </button>
+
+												</form>
+											</td>
+										</tr>
+									</table>
+								</div>
+
+
+
+                           
+                            <!--<div class="col-lg-1">
+                               
 
                                 <a href="#" class="edit-experience pull" data-toggle="modal" data-target="#modal-block-large" data-id="{{$user->id}}" data-name="{{$user->name}}"
                                    data-position="{{$Company_Name->position}}" data-company_name="{{$Company_Name->name}}"    data-jd_start_year-edit="{{$Company_Name->start_year}}"
@@ -34,7 +72,7 @@
                                    data-jobspecification-edit="{{$Company_Name->job_specifications_id}}" data-endyear-edit="{{$Company_Name->end_year}}" data-endmonth-edit="{{$Company_Name->end_month}}"
                                    data-salary-edit="{{$Company_Name->salary}}"    data-id-edit="{{$Company_Name->id}}" data-job-desc-edit="{{$Company_Name->job_desc}}" data-present-edit="{{$Company_Name->jd_present}}">
 
-                                    <i class="fa fa-edit fa-1x btn btn-primary"> Edit</i>
+                                    <button class="btn btn-sm btn-primary pull"><i class="nav-main-link-icon fa fa-edit"></i> Edit</button>
                                 </a>
                             </div>
 
@@ -42,15 +80,25 @@
 
                                 <form action="{{'/profile/profile_experience/delete'}}" method="Post" >
                                   <input type="hidden"  id="val-experience-delete"  name="valexperiencedelete" value="{{$Company_Name->id}}">
-                               <button class="fa fa-trash-alt fa-1x btn btn-primary submit-experience-delete">
-                               Delete
+                               <button class="btn btn-sm btn-primary pull submit-experience-delete">
+                               <i class="nav-main-link-icon fa fa-trash-alt "></i> Delete
                                </button>
 
                                 </form>
 
-                            </div>
+                            </div>-->
                         </div>
 
+                       <div class="row">
+
+                            <div class="col-md-4">
+                                <label class="custom-control-data-label" id="lbl_experience_industry">Position</label>
+                            </div>
+                            <div class="col-md-4">
+                                <label id="lbl_experience_industry_output">{{$Company_Name->position}}</label>
+                            </div>
+                        </div>
+                       
                         <div class="row">
 
                             <div class="col-md-4">
@@ -95,13 +143,7 @@
                 </div>
             @endforeach
         </div>
-        <div id="add-experience-btn" class=" ">
-            <div class="col-md-2 float-right @if (count($Company_Names) === 0)hide @endif ">
-                <button   type="button" id="add-experience" class="btn btn-primary add-experience float-right">
-                    <i class="fa fa-fw fa-plus mr-1"></i>
-                </button>
-            </div>
-        </div>
+        
 
 
         <!-- jQuery Validation (.js-validation class is initialized in js/pages/be_forms_validation.min.js which was auto compiled from _es6/pages/be_forms_validation.js) -->
