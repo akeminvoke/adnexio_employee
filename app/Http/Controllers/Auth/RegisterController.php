@@ -96,7 +96,8 @@ class RegisterController extends Controller
             Mail::send('emails.activation', $user, function ($message) use ($user) {
 
                 $message->to($user['email']);
-                $message->subject('Activation code');
+                $message->subject('Adnexio User Email Verification');
+				
 
 
             });
