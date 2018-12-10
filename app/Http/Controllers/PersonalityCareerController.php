@@ -97,7 +97,7 @@ class PersonalityCareerController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function createAssessmentID(Request $request)
     {
 
 		$client = new Client();
@@ -128,6 +128,7 @@ class PersonalityCareerController extends Controller
 		$data = new Personality();
 		$data->user_id = $user->id;
         $data->assessment_id = $response->id;
+		//$data->status = $response->id;
         $data->save();
         //return response()->json('Successfully added');
 		
@@ -136,7 +137,7 @@ class PersonalityCareerController extends Controller
 	}
 
 
-	public function getRequest(Request $request)
+	public function storeDataForEachAssessmentStatusYes(Request $request)
     {
 		
         $client = new Client();
@@ -175,49 +176,51 @@ class PersonalityCareerController extends Controller
 
 		foreach($response['personality_types'] as $element) {
 			
-		if ($element['personality_type']['name']=='Action-Taker')
-		{
-		$personalities->action_taker = $element['score'];
-		//$personalities->action_taker = $response['personality_types']['personality_type']['name'];
-		}
-		
-		if ($element['personality_type']['name']=='Analyzer')
-		{
-		$personalities->analyzer = $element['score'];
-		//$personalities->action_taker = $response['personality_types']['personality_type']['name'];
-		}
-		
-		if ($element['personality_type']['name']=='Inventor')
-		{
-		$personalities->inventor = $element['score'];
-		//$personalities->action_taker = $response['personality_types']['personality_type']['name'];
-		}
-		
-		if ($element['personality_type']['name']=='Mentor')
-		{
-		$personalities->mentor = $element['score'];
-		//$personalities->action_taker = $response['personality_types']['personality_type']['name'];
-		}
-		
-		if ($element['personality_type']['name']=='Naturalist')
-		{
-		$personalities->naturalist = $element['score'];
-		//$personalities->action_taker = $response['personality_types']['personality_type']['name'];
-		}
-		
-		if ($element['personality_type']['name']=='Planner')
-		{
-		$personalities->planner = $element['score'];
-		//$personalities->action_taker = $response['personality_types']['personality_type']['name'];
-		}
-		
-		if ($element['personality_type']['name']=='Visionary')
-		{
-		$personalities->visionary = $element['score'];
-		//$personalities->action_taker = $response['personality_types']['personality_type']['name'];
-		}
-		
-		//echo 
+			if ($element['personality_type']['name']=='Action-Taker')
+			{
+				$personalities->action_taker = $element['score'];
+				//$personalities->action_taker = $response['personality_types']['personality_type']['name'];
+			}
+			
+			if ($element['personality_type']['name']=='Analyzer')
+			{
+				$personalities->analyzer = $element['score'];
+				//$personalities->action_taker = $response['personality_types']['personality_type']['name'];
+			}
+			
+			if ($element['personality_type']['name']=='Inventor')
+			{
+				$personalities->inventor = $element['score'];
+				//$personalities->action_taker = $response['personality_types']['personality_type']['name'];
+			}
+			
+			if ($element['personality_type']['name']=='Mentor')
+			{
+				$personalities->mentor = $element['score'];
+				//$personalities->action_taker = $response['personality_types']['personality_type']['name'];
+			}
+			
+			if ($element['personality_type']['name']=='Naturalist')
+			{
+				$personalities->naturalist = $element['score'];
+				//$personalities->action_taker = $response['personality_types']['personality_type']['name'];
+			}
+			
+			if ($element['personality_type']['name']=='Planner')
+			{
+				$personalities->planner = $element['score'];
+				//$personalities->action_taker = $response['personality_types']['personality_type']['name'];
+			}
+			
+			if ($element['personality_type']['name']=='Visionary')
+			{
+				$personalities->visionary = $element['score'];
+				//$personalities->action_taker = $response['personality_types']['personality_type']['name'];
+			}
+
+
+			$personalities->status = "Yes";
+
 		}
 		
 		//foreach($response['personality_types'] as $element) {
@@ -257,7 +260,99 @@ class PersonalityCareerController extends Controller
     }
 
 
+	public function storeDataForEachAssessmentStatusNo(Request $request)
+    {
+		
+        $client = new Client();
+		$requestContent = [
+			//'auth' => ['Authorization' => 'Basic 67f561943ca74434b66b8740a739966c:x'],
+			'headers' => [
+				'Authorization' => "Basic 67f561943ca74434b66b8740a739966c:x",
+				'Accept' => 'application/json',
+				'Content-Type' => 'application/json',
+			],
+			'query' => [
+				'data' => 'types',
+				//'data' => 'blend,types,traits,career_matches',
+			]
+		];
+		
+		$user = Auth::guard($this->getGuard())->user();
+		
+		$assessment_id = $request->input('assessment_id');
+		
+		//$personalities = Personality::find($user->id);
+		$personalities = Personality::where('assessment_id', $assessment_id)->firstOrFail();
+		//$personalities = Personality::where('assessment_id','=',$assessment_id)->find(1);
+		//$personalities = Personality::where('assessment_id', $assessment_id)->find(2);
+		//$personalities = Personality::where('assessment_id', $assessment_id)->first();
+		//$personalities->assessment_id = $assessment_id;
+		
+        //$request = $client->get('https://api.traitify.com/v1/assessments/5c01e0c5-7099-428b-8614-d2aacff488fc', $requestContent);
+		$request = $client->get('https://api.traitify.com/v1/assessments/' . $assessment_id .'', $requestContent);
+        $response = json_decode($request->getBody()->getContents(), true);
+		
+        //echo '<pre>';
+        //print_r($response);
+        //exit;
+		//dd($response);
 
+
+		foreach($response['personality_types'] as $element) {
+			
+			if ($element['personality_type']['name']=='Action-Taker')
+			{
+				$personalities->action_taker = $element['score'];
+				//$personalities->action_taker = $response['personality_types']['personality_type']['name'];
+			}
+			
+			if ($element['personality_type']['name']=='Analyzer')
+			{
+				$personalities->analyzer = $element['score'];
+				//$personalities->action_taker = $response['personality_types']['personality_type']['name'];
+			}
+			
+			if ($element['personality_type']['name']=='Inventor')
+			{
+				$personalities->inventor = $element['score'];
+				//$personalities->action_taker = $response['personality_types']['personality_type']['name'];
+			}
+			
+			if ($element['personality_type']['name']=='Mentor')
+			{
+				$personalities->mentor = $element['score'];
+				//$personalities->action_taker = $response['personality_types']['personality_type']['name'];
+			}
+			
+			if ($element['personality_type']['name']=='Naturalist')
+			{
+				$personalities->naturalist = $element['score'];
+				//$personalities->action_taker = $response['personality_types']['personality_type']['name'];
+			}
+			
+			if ($element['personality_type']['name']=='Planner')
+			{
+				$personalities->planner = $element['score'];
+				//$personalities->action_taker = $response['personality_types']['personality_type']['name'];
+			}
+			
+			if ($element['personality_type']['name']=='Visionary')
+			{
+				$personalities->visionary = $element['score'];
+				//$personalities->action_taker = $response['personality_types']['personality_type']['name'];
+			}
+
+
+			$personalities->status = "No";
+
+		}
+
+		$personalities->save();
+		
+		return redirect('/personality/personality_career')->with('status', 'File save successfully.');
+    }
+	
+	
 
     /**
      * Display the specified resource.
