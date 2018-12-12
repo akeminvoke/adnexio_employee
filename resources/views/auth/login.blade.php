@@ -149,7 +149,7 @@
                                                 Login with Facebook
                                             </a>-->
                                             <a href="{{ url('/redirect') }}">
-                                                <img src="{!! asset('assets/media/buttons/login_facebook_small.png') !!}" style="width: 160px; height:35px;" onmouseover="this.src='{!! asset('assets/media/buttons/login_facebook_small_normal.PNG') !!}';" onmouseout="this.src='{!! asset('assets/media/buttons/login_facebook_small.png') !!}';" >
+                                                <img src="{!! asset('assets/media/buttons/login_facebook_small.png') !!}" style="width: 160px; height:35px;" onmouseover="this.src='{!! asset('assets/media/buttons/login_facebook_small_normal.png') !!}';" onmouseout="this.src='{!! asset('assets/media/buttons/login_facebook_small.png') !!}';" >
                                             </a>
    
                                             <!--<a class="btn btn-sm btn-danger d-block d-lg-inline-block mb-1" href="{{ url('/gredirect') }}">
@@ -200,6 +200,7 @@
     <!-- END Main Container -->
     
 </div>
+
 <!-- END Page Container -->
 
 
