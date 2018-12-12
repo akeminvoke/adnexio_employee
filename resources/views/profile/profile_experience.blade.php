@@ -696,7 +696,16 @@
 
                                                         <input type="checkbox" id="present-edit" class="myCheckbox-edit form-check-input-edit-custom"  value="Present" data-duration-edit="end-duration-edit" /><p class="present"> Present</p>
                                                     </div>
+                                                    {{--<div class="form-group">--}}
+                                                        {{--<label for="val-email">Specialization<span class="text-danger">*</span></label>--}}
+                                                        {{--<select class="form-control" id="specialization-edit" name="val-specialization-edit">--}}
+                                                            {{--<option disabled selected>please choose your specialization</option>--}}
+                                                            {{--<option>human resource</option>--}}
+                                                            {{--<option>programmer</option>--}}
+                                                            {{--<option>example</option>--}}
 
+                                                        {{--</select>--}}
+                                                    {{--</div>--}}
 
                                                     <div class="form-group">
                                                         <label for="val-email">Job Background<span class="text-danger">*</span></label>
@@ -719,7 +728,27 @@
                                                         </select>
                                                     </div>
 
+                                                    <div class="form-group">
+                                                        <label for="val-email">Job Specification<span class="text-danger">*</span></label>
+                                                        <select class="form-control" id="job-specification-edit" name="val-job-specification" aria-describedby="val-specialization-error" aria-invalid="true">
+                                                            {{--<option disabled="" selected="" value="0">select your Job Specification</option>--}}
+                                                            {{--<option value="1">Audit &amp; Taxation </option>--}}
+                                                            {{--<option value="2">Banking/Financial </option>--}}
+                                                            {{--<option value="3">Corporate Finance/Investment </option>--}}
+                                                            {{--<option value="4">General/Cost Accounting </option>--}}
+                                                            {{--<option disabled="" selected="" value="0">select your Job Specification</option>--}}
+                                                            {{--<option value="5">Clerical/Administrative </option>--}}
+                                                            {{--<option value="6">Human Resources </option>--}}
+                                                            {{--<option value="7">Secretarial </option>--}}
+                                                            {{--<option value="8">Top Management </option>--}}
+                                                            {{--<option disabled="" selected="" value="0">select your Job Specification</option>--}}
+                                                            {{--<option value="9">Advertising </option>--}}
+                                                            {{--<option value="10">Arts/Creative Design </option>--}}
+                                                            {{--<option value="11">Entertainment </option>--}}
+                                                            {{--<option value="12">Public Relations </option>--}}
+                                                        </select>
 
+                                                    </div>
 
                                                     <div id="keyword-job-specification-edit" class="form-group hide">
                                                         <label for="val-email">Please State Your Job Specification<span class="text-danger">*</span></label>
