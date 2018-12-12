@@ -1148,7 +1148,7 @@
 
 
 
-<script>
+<!--<script>
     (function() {
         var params = {},
             r = /([^&=]+)=?([^&]*)/g;
@@ -2956,7 +2956,7 @@
         }
         return url;
     };
-</script>
+</script>-->
 
 <script type="text/javascript">
     Dropzone.options.dropzone =
