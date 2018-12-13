@@ -25,13 +25,16 @@
                     </div>
                 </div>
                 <div class="inline-content inline-content-full overflow-hidden">
-                    <div style="text-align: center; margin:0 -15px;" id="recording-player"></div>
+                    <div style="text-align: center; margin:0 -15px; display: none;" id="recording-player"></div> 
+                    
+                 <div style="text-align: center; margin:0 -15px;" >  
+                 <p id="positions">Click</p>
+
+				 <video autoplay id="videoElement" width="662" height="524"></video>
+                    
+                 </div>  
                     
 
-
-				<video autoplay id="videoElement" width="400" height="300">
-				 
-				</video>
 				
 
 				<!--<input type='button' value='submit' name='button1' class='capture' /> -->
@@ -206,43 +209,9 @@
 <!-- END Page Content -->
 
 
+<script src="{!! asset('assets/js/build/utils.js') !!}"></script>
+<script src="{!! asset('assets/js/build/clmtrackr.js') !!}"></script>
 
-<!-- Hero -->
-<!--<div class="bg-image" style="background-image: url('assets/media/various/bg_dashboard.jpg');">
-    <div class="bg-white-90">
-        <div class="content content-full">
-            <div class="row">
-                <div class="col-md-6 d-md-flex align-items-md-center">
-                    <div class="py-4 py-md-0 text-center text-md-left invisible" data-toggle="appear">
-                        <h1 class="font-size-h2 mb-2">Dashboard</h1>
-                        <h2 class="font-size-lg font-w400 text-muted mb-0">Today is a great one!</h2>
-                    </div>
-                </div>
-                <div class="col-md-6 d-md-flex align-items-md-center">
-                    <div class="row w-100 text-center">
-                        <div class="col-6 col-xl-4 offset-xl-4 invisible" data-toggle="appear" data-timeout="300">
-                            <p class="font-size-h3 font-w600 text-body-color-dark mb-0">
-                                67
-                            </p>
-                            <p class="font-size-sm font-w700 text-uppercase mb-0">
-                                <i class="far fa-chart-bar text-muted mr-1"></i> Sales
-                            </p>
-                        </div>
-                        <div class="col-6 col-xl-4 invisible" data-toggle="appear" data-timeout="600">
-                            <p class="font-size-h3 font-w600 text-body-color-dark mb-0">
-                                $980
-                            </p>
-                            <p class="font-size-sm font-w700 text-uppercase mb-0">
-                                <i class="far fa-chart-bar text-muted mr-1"></i> Earnings
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>-->
-<!-- END Hero -->
 
 <script>
     (function() {
@@ -299,9 +268,9 @@
     var time_in_minutes = 0.5;
 
 
-    var capitals001 = [   @foreach ($questions as $question)
+    var capitals001 = [ "hello", "question1", "question1","question1"/*  @foreach ($questions as $question)
         {!!json_encode($question->question)!!},
-        @endforeach
+        @endforeach*/
     ];
 
     var capitals002=[];
@@ -321,19 +290,35 @@
         i -- ;
     }
 
+	var video1 = document.querySelector('#videoElement');
+	var ctracker = new clm.tracker();
+	
+	if (navigator.mediaDevices.getUserMedia) {       
+		navigator.mediaDevices.getUserMedia({video: true})
+	  .then(function(stream) {
+		video1.srcObject = stream;
+	  })
+	  .catch(function(err0r) {
+		console.log("Something went wrong!");
+	  });
+	}
 
-
+	
     var video = document.createElement('video');
+	
+	//video.setAttribute("width", "400");
+	//video.setAttribute("height", "300");
     video.controls = false;
     var mediaElement = getHTMLMediaElement(video, {
         title: 'Are you ready? Click Start!',
         //buttons: ['full-screen'/*, 'take-snapshot'*/],
         buttons: [],
         showOnMouseEnter: false,
-        width: 490,
+        width: 100,//490,
         //width: 100 + '%',
         //width = $('.xyz').width(),
         //parentWidth = $('.xyz').offsetParent().width(),
+
         //percent = Math.round(100 * width / parentWidth),
 
         onTakeSnapshot: function() {
@@ -427,205 +412,182 @@
 
         }
     }
+	
+	var dataString = '';
+	let minEAR = 1.0;
+	var maxEAR = 0.0;
+	var blink = 0;
+	
+	var states = {search:0, peakDetected:1};
+	
+	var earState = states.search;
+
+	
+	function distance(a, b) {
+		return Math.sqrt(((a[0] - b[0]) * (a[0] - b[0])) + ((a[1] - b[1]) * (a[1] - b[1])));
+	}
+	
+	function facelength(left, right, top, down)  {
+		var width = distance(left, right);
+		var height = distance(top, down);
+		
+		return Math.sqrt((width * width) + (height * height));
+	}
+
+	function eye_aspect_ratio(left, right, top, down) {
+	
+		//var width = Math.sqrt(((left[0] - right[0]) * (left[0] - right[0])) + ((left[1] - right[1]) * (left[1] - right[1])));
+		//var height = Math.sqrt(((top[0] - down[0]) * (top[0] - down[0])) +((top[1] - down[1]) * (top[1] - down[1])) );
+		
+		var width = distance(left, right);
+		var height = distance(top, down);
+
+		// compute the eye aspect ratio
+		var ear = height / width;
+
+		
+		return ear;
+	}				
+	/*
+	var ctracker = new clm.tracker();
+	ctracker.init();
+	ctracker.start(video);
+	*/
+	
+	function positionLoop() {
+		requestAnimFrame(positionLoop);
+		var positions = ctracker.getCurrentPosition();
+		// do something with the positions ...
+		// print the positions
+		var positionString = "";
+		
+		//console.log(positions);
+		
+		if (positions) {
+			//console.log(positions);
+			// eye blink
+			
+			leftEAR = eye_aspect_ratio(positions[23], positions[25], positions[21], positions[24]);
+			rightEAR = eye_aspect_ratio(positions[30], positions[28], positions[17], positions[29]);
+			
+			var ear = (leftEAR + rightEAR) / 2.0;
+			
+			var fLength = facelength(positions[0], positions[14], positions[33], positions[7]);
+			
+			var center = positions[37]
+			
+			
+//			if (ear < minEAR)
+//			{
+//				minEAR = ear;
+//			}
+//			
+//			if (ear > maxEAR)
+//			{
+//				maxEAR = ear;
+//			}
+//			
+//									
+//			switch (earState){
+//			
+//				case states.search:
+//					if (maxEAR - minEAR > 0.07)
+//					{
+//						earState = states.peakDetected;
+//						
+//						//minEAR = maxEAR;
+//						minEAR = 1.0;
+//						maxEAR = 0.0;
+//						
+//					}
+//				break;
+//				
+//				case states.peakDetected:
+//					if (maxEAR - minEAR > 0.07)
+//					{
+//						earState = states.search;
+//						
+//						//maxEAR = minEAR;				
+//						minEAR = 1.0;
+//						maxEAR = 0.0;
+//						
+//						blink = blink + 1;
+//						
+//						
+//					}						
+//				break;
+//				
+//				
+//			}
+			
+			
+			positionString += "blink  : " + blink +"<br/>";
+
+			document.getElementById('positions').innerHTML = positionString;						
+			
+			/*
+			dataString = dataString + ear.toFixed(2) + 
+			"," + earState + 
+			"," + minEAR.toFixed(2) + 
+			"," + maxEAR.toFixed(2) + 
+			"," + blink +  ";";
+			*/
+			
+			dataString = dataString + ear.toFixed(4) + 
+			"," + fLength.toFixed(2) +
+			"," + center[0].toFixed(2)  +						
+			"," + center[1].toFixed(2)  +  ";";
+
+	
+		
+		}
+		
+
+	}	
+
+	var recorder;
+	var started = false;
+	
+	function captureCamera(callback) {
+    navigator.mediaDevices.getUserMedia({ audio: true, video: true }).then(function(camera) {
+        callback(camera);
+    }).catch(function(error) {
+        alert('Unable to capture your camera. Please check console logs.');
+        console.error(error);
+    });
+	}
+
 
     btnStartRecording.onclick = function(event) {
         var button = btnStartRecording;
 
-				var video = document.querySelector("#videoElement");
+		if (started == false)
+		{
+			console.log("start");
+	
+			captureCamera(function(camera) {
+				setSrcObject(camera, video);
+				video.play();
+				recorder = RecordRTC(camera, {
+					type: 'video'
+				});
+				recorder.startRecording();
+				// release camera on stopRecording
+				recorder.camera = camera;
+			 
+				
 				
 
-		
-				var dataString = '';
-				let minEAR = 1.0;
-				var maxEAR = 0.0;
-				var blink = 0;
-				
-				var states = {search:0, peakDetected:1};
-				
-				var earState = states.search;
-				
-				if (navigator.mediaDevices.getUserMedia) {       
-					navigator.mediaDevices.getUserMedia({video: true})
-				  .then(function(stream) {
-					video.srcObject = stream;
-				  })
-				  .catch(function(err0r) {
-					console.log("Something went wrong!");
-				  });
-				}
-				
-				function distance(a, b) {
-					return Math.sqrt(((a[0] - b[0]) * (a[0] - b[0])) + ((a[1] - b[1]) * (a[1] - b[1])));
-				}
-				
-				function facelength(left, right, top, down)  {
-					var width = distance(left, right);
-					var height = distance(top, down);
-					
-					return Math.sqrt((width * width) + (height * height));
-				}
-
-				function eye_aspect_ratio(left, right, top, down) {
-				
-					//var width = Math.sqrt(((left[0] - right[0]) * (left[0] - right[0])) + ((left[1] - right[1]) * (left[1] - right[1])));
-					//var height = Math.sqrt(((top[0] - down[0]) * (top[0] - down[0])) +((top[1] - down[1]) * (top[1] - down[1])) );
-					
-					var width = distance(left, right);
-					var height = distance(top, down);
-
-					// compute the eye aspect ratio
-					var ear = height / width;
-
-					
-					return ear;
-				}				
-				
-				var ctracker = new clm.tracker();
-				ctracker.init();
-				ctracker.start(video);
-				
-				
-				function positionLoop() {
-					requestAnimFrame(positionLoop);
-					var positions = ctracker.getCurrentPosition();
-					// do something with the positions ...
-					// print the positions
-					var positionString = "";
-					
-					if (positions) {
-
-						// eye blink
-						
-						leftEAR = eye_aspect_ratio(positions[23], positions[25], positions[21], positions[24]);
-						rightEAR = eye_aspect_ratio(positions[30], positions[28], positions[17], positions[29]);
-						
-						var ear = (leftEAR + rightEAR) / 2.0;
-						
-						var fLength = facelength(positions[0], positions[14], positions[33], positions[7]);
-						
-						var center = positions[37]
-						
-						
-						if (ear < minEAR)
-						{
-							minEAR = ear;
-						}
-						
-						if (ear > maxEAR)
-						{
-							maxEAR = ear;
-						}
-						
-												
-						switch (earState){
-						
-							case states.search:
-								if (maxEAR - minEAR > 0.07)
-								{
-									earState = states.peakDetected;
-									
-									//minEAR = maxEAR;
-									minEAR = 1.0;
-									maxEAR = 0.0;
-									
-								}
-							break;
-							
-							case states.peakDetected:
-								if (maxEAR - minEAR > 0.07)
-								{
-									earState = states.search;
-									
-									//maxEAR = minEAR;				
-									minEAR = 1.0;
-									maxEAR = 0.0;
-									
-									blink = blink + 1;
-									
-									
-								}						
-							break;
-							
-							
-						}
-						
-						
-						positionString += "blink  : " + blink +"<br/>";
-
-						document.getElementById('positions').innerHTML = positionString;						
-						
-						/*
-						dataString = dataString + ear.toFixed(2) + 
-						"," + earState + 
-						"," + minEAR.toFixed(2) + 
-						"," + maxEAR.toFixed(2) + 
-						"," + blink +  ";";
-						*/
-						
-						dataString = dataString + ear.toFixed(4) + 
-						"," + fLength.toFixed(2) +
-						"," + center[0].toFixed(2)  +						
-						"," + center[1].toFixed(2)  +  ";";
+			});
 			
-				
-					
-					}
-					
-
-				}
-				positionLoop();
-
-				//var canvasInput = document.getElementById('canvas');
-				//var cc = canvasInput.getContext('2d');
-				/*
-				function drawLoop() {
-					requestAnimFrame(drawLoop);
-					cc.clearRect(0, 0, canvasInput.width, canvasInput.height);
-					ctracker.draw(canvasInput);
-				}
-				drawLoop();
-				*/
-				
-				function post(path, params, method) {
-					method = method || "post"; // Set method to post by default if not specified.
-
-					// The rest of this code assumes you are not using a library.
-					// It can be made less wordy if you use one.
-					var form = document.createElement("form");
-					form.setAttribute("method", method);
-					form.setAttribute("action", path);
-
-					for(var key in params) {
-						if(params.hasOwnProperty(key)) {
-							var hiddenField = document.createElement("input");
-							hiddenField.setAttribute("type", "hidden");
-							hiddenField.setAttribute("name", key);
-							hiddenField.setAttribute("value", params[key]);
-
-							form.appendChild(hiddenField);
-						}
-					}
-
-					document.body.appendChild(form);
-					form.submit();
-				}
-				
+			ctracker.init();
+			ctracker.start(video1);
 			
-/*
-				$(".capture").click(function(){
+			positionLoop();
+			
+			started = true;
+		}
 
-				var buttonName=$(this).attr('name');
-				$.ajax({
-				  type:"POST",
-				  data:"ClickedButton="+dataString, 
-				  url: "server.php",
-				  success: function(data){
-
-				  console.log('Written in Log File');
-				}
-				}); // END Ajax 
-				});	
-*/			
 
 
         var length2 = capitals002.length;
@@ -681,11 +643,13 @@
                         //button.stream = null;
                     }
 
-
                     videoBitsPerSecond = null;
                     var html = 'Your video interview has been done.<br>Kindly submit your video.';
                     //html += '<br>Size: ' + bytesToSize(button.recordRTC.getBlob().size);
                     recordingPlayer.parentNode.parentNode.querySelector('h2').innerHTML = html;
+					
+
+					
                     if(button.recordRTC) {
                         if(button.recordRTC.length) {
                             button.recordRTC[0].stopRecording(function(url) {
@@ -731,23 +695,10 @@
         }
 
 
-        if(button.innerHTML === '<i class="fa fa-fw fa-stop mr-1"></i> Stop Recording') {
-            //btnPauseRecording.style.display = 'none';
-            button.disabled = true;
-            button.disableStateWaiting = true;
-            setTimeout(function() {
-                //button.disabled = false;
-                button.disabled = true;
-                button.disableStateWaiting = false;
-            }, 2000);
-
-            button.innerHTML = 'Start Recording';
-
-            function stopStream() {
+		function stopStream() {
                 if(button.stream && button.stream.stop) {
                     button.stream.stop();
                     button.stream = null;
-
                     document.getElementById("demo").innerHTML = "the time given for answering this interview question has expired. " +
                         "Thank you for having a time with us.";
                     clearInterval(timeinterval);
@@ -766,7 +717,28 @@
                 var html = 'Your video interview has been done.<br>Kindly submit your video.';
                 //html += '<br>Size: ' + bytesToSize(button.recordRTC.getBlob().size);
                 recordingPlayer.parentNode.parentNode.querySelector('h2').innerHTML = html;
+				
+				video1.srcObject.stop();
+				//recorder.camera.stop();
+				//recorder.destroy();
+				//recorder = null;
             }
+
+
+
+        if(button.innerHTML === '<i class="fa fa-fw fa-stop mr-1"></i> Stop Recording') {
+            //btnPauseRecording.style.display = 'none';
+            button.disabled = true;
+            button.disableStateWaiting = true;
+            setTimeout(function() {
+                //button.disabled = false;
+                button.disabled = true;
+                button.disableStateWaiting = false;
+            }, 2000);
+
+            button.innerHTML = 'Start Recording';
+
+            
 
             if(button.recordRTC) {
                 if(button.recordRTC.length) {
@@ -799,12 +771,12 @@
                             url = URL.createObjectURL(blob);
                         }
 
-                        ////button.recordingEndedCallback(url);
-
-						
-						
+                        button.recordingEndedCallback(url);
                         saveToDiskOrOpenNewTab(button.recordRTC);
                         stopStream();
+	
+						
+						console.log("stop!");
                     });
                 }
             }
@@ -817,7 +789,6 @@
         if(!event) return;
 
         button.disabled = true;
-		
 
         var commonConfig = {
             onMediaCaptured: function(stream) {
@@ -828,11 +799,10 @@
 
                 button.innerHTML = '<i class="fa fa-fw fa-stop mr-1"></i> Stop Recording';
                 button.disabled = false;
-				
-				
             },
             onMediaStopped: function() {
                 button.innerHTML = 'Recording Done';
+
                 if(!button.disableStateWaiting && t.total > 0) {
                     button.disabled = false;
                 }
@@ -853,7 +823,6 @@
                 commonConfig.onMediaStopped();
             }
         };
-
 
         if(mediaContainerFormat.value === 'h264') {
             mimeType = 'video/webm\;codecs=h264';
@@ -1681,7 +1650,6 @@
         return info;
     }
 
-
     function saveToDiskOrOpenNewTab(recordRTC) {
         if(!recordRTC.getBlob().size) {
             var info = getFailureReport();
@@ -1952,320 +1920,7 @@
 
         parentNode.appendChild(recordingPlayer);
     }
-	
-	
 </script>
 
-<script>
-    /* upload_youtube_video.js Copyright 2017 Google Inc. All Rights Reserved. */
-
-    function uploadToYouTube(fileName, recordRTC, callback) {
-        var blob = recordRTC instanceof Blob ? recordRTC : recordRTC.getBlob();
-
-        blob = new File([blob], getFileName(fileExtension), {
-            type: mimeType
-        });
-
-        if(!uploadVideo) {
-            alert('YouTube API are not available.');
-            return;
-        }
-
-        uploadVideo.callback = callback;
-        uploadVideo.uploadFile(fileName, blob);
-    }
-
-    var uploadVideo;
-
-    var signinCallback = function (result){
-        if(result.access_token) {
-            uploadVideo = new UploadVideo();
-            uploadVideo.ready(result.access_token);
-
-            document.querySelector('#signinButton').style.display = 'none';
-        }
-        else {
-            // console.error('YouTube error', result);
-            // document.querySelector('#upload-to-youtube').style.display = 'none';
-        }
-    };
-
-    var STATUS_POLLING_INTERVAL_MILLIS = 60 * 1000; // One minute.
-
-    var UploadVideo = function() {
-        this.tags = ['recordrtc'];
-        this.categoryId = 28; // via: http://stackoverflow.com/a/35877512/552182
-        this.videoId = '';
-        this.uploadStartTime = 0;
-    };
-
-
-    UploadVideo.prototype.ready = function(accessToken) {
-        this.accessToken = accessToken;
-        this.gapi = gapi;
-        this.authenticated = true;
-        false && this.gapi.client.request({
-            path: '/youtube/v3/channels',
-            params: {
-                part: 'snippet',
-                mine: true
-            },
-            callback: function(response) {
-                if (!response.error) {
-                    // response.items[0].snippet.title -- channel title
-                    // response.items[0].snippet.thumbnails.default.url -- channel thumbnail
-                }
-            }.bind(this)
-        });
-    };
-
-    UploadVideo.prototype.uploadFile = function(fileName, file) {
-        var metadata = {
-            snippet: {
-                title: fileName,
-                description: fileName,
-                tags: this.tags,
-                categoryId: this.categoryId
-            },
-            status: {
-                privacyStatus: 'public'
-            }
-        };
-        var uploader = new MediaUploader({
-            baseUrl: 'https://www.googleapis.com/upload/youtube/v3/videos',
-            file: file,
-            token: this.accessToken,
-            metadata: metadata,
-            params: {
-                part: Object.keys(metadata).join(',')
-            },
-            onError: function(data) {
-                var message = data;
-                try {
-                    var errorResponse = JSON.parse(data);
-                    message = errorResponse.error.message;
-                } finally {
-                    alert(message);
-                }
-            }.bind(this),
-            onProgress: function(data) {
-                var bytesUploaded = data.loaded;
-                var totalBytes = parseInt(data.total);
-                var percentageComplete = parseInt((bytesUploaded * 100) / totalBytes);
-
-                uploadVideo.callback(percentageComplete);
-            }.bind(this),
-            onComplete: function(data) {
-                var uploadResponse = JSON.parse(data);
-                this.videoId = uploadResponse.id;
-                this.videoURL = 'https://www.youtube.com/watch?v=' + this.videoId;
-                uploadVideo.callback('uploaded', this.videoURL);
-
-                setTimeout(this.pollForVideoStatus, 2000);
-            }.bind(this)
-        });
-        this.uploadStartTime = Date.now();
-        uploader.upload();
-    };
-
-    UploadVideo.prototype.pollForVideoStatus = function() {
-        this.gapi.client.request({
-            path: '/youtube/v3/videos',
-            params: {
-                part: 'status,player',
-                id: this.videoId
-            },
-            callback: function(response) {
-                if (response.error) {
-                    uploadVideo.pollForVideoStatus();
-                } else {
-                    var uploadStatus = response.items[0].status.uploadStatus;
-                    switch (uploadStatus) {
-                        case 'uploaded':
-                            uploadVideo.callback('uploaded', uploadVideo.videoURL);
-                            uploadVideo.pollForVideoStatus();
-                            break;
-                        case 'processed':
-                            uploadVideo.callback('processed', uploadVideo.videoURL);
-                            break;
-                        default:
-                            uploadVideo.callback('failed', uploadVideo.videoURL);
-                            break;
-                    }
-                }
-            }.bind(this)
-        });
-    };
-
-</script>
-
-<script>
-    /* cors_upload.js Copyright 2015 Google Inc. All Rights Reserved. */
-
-    var DRIVE_UPLOAD_URL = 'https://www.googleapis.com/upload/drive/v2/files/';
-
-    var RetryHandler = function() {
-        this.interval = 1000; // Start at one second
-        this.maxInterval = 60 * 1000; // Don't wait longer than a minute
-    };
-
-    RetryHandler.prototype.retry = function(fn) {
-        setTimeout(fn, this.interval);
-        this.interval = this.nextInterval_();
-    };
-
-    RetryHandler.prototype.reset = function() {
-        this.interval = 1000;
-    };
-
-    RetryHandler.prototype.nextInterval_ = function() {
-        var interval = this.interval * 2 + this.getRandomInt_(0, 1000);
-        return Math.min(interval, this.maxInterval);
-    };
-
-    RetryHandler.prototype.getRandomInt_ = function(min, max) {
-        return Math.floor(Math.random() * (max - min + 1) + min);
-    };
-
-    var MediaUploader = function(options) {
-        var noop = function() {};
-        this.file = options.file;
-        this.contentType = options.contentType || this.file.type || 'application/octet-stream';
-        this.metadata = options.metadata || {
-                'title': this.file.name,
-                'mimeType': this.contentType
-            };
-        this.token = options.token;
-        this.onComplete = options.onComplete || noop;
-        this.onProgress = options.onProgress || noop;
-        this.onError = options.onError || noop;
-        this.offset = options.offset || 0;
-        this.chunkSize = options.chunkSize || 0;
-        this.retryHandler = new RetryHandler();
-
-        this.url = options.url;
-        if (!this.url) {
-            var params = options.params || {};
-            params.uploadType = 'resumable';
-            this.url = this.buildUrl_(options.fileId, params, options.baseUrl);
-        }
-        this.httpMethod = options.fileId ? 'PUT' : 'POST';
-    };
-
-    MediaUploader.prototype.upload = function() {
-        var self = this;
-        var xhr = new XMLHttpRequest();
-
-        xhr.open(this.httpMethod, this.url, true);
-        xhr.setRequestHeader('Authorization', 'Bearer ' + this.token);
-        xhr.setRequestHeader('Content-Type', 'application/json');
-        xhr.setRequestHeader('X-Upload-Content-Length', this.file.size);
-        xhr.setRequestHeader('X-Upload-Content-Type', this.contentType);
-
-        xhr.onload = function(e) {
-            if (e.target.status < 400) {
-                var location = e.target.getResponseHeader('Location');
-                this.url = location;
-                this.sendFile_();
-            } else {
-                this.onUploadError_(e);
-            }
-        }.bind(this);
-        xhr.onerror = this.onUploadError_.bind(this);
-        xhr.send(JSON.stringify(this.metadata));
-    };
-
-    MediaUploader.prototype.sendFile_ = function() {
-        var content = this.file;
-        var end = this.file.size;
-
-        if (this.offset || this.chunkSize) {
-            // Only bother to slice the file if we're either resuming or uploading in chunks
-            if (this.chunkSize) {
-                end = Math.min(this.offset + this.chunkSize, this.file.size);
-            }
-            content = content.slice(this.offset, end);
-        }
-
-        var xhr = new XMLHttpRequest();
-        xhr.open('PUT', this.url, true);
-        xhr.setRequestHeader('Content-Type', this.contentType);
-        xhr.setRequestHeader('Content-Range', 'bytes ' + this.offset + '-' + (end - 1) + '/' + this.file.size);
-        xhr.setRequestHeader('X-Upload-Content-Type', this.file.type);
-        if (xhr.upload) {
-            xhr.upload.addEventListener('progress', this.onProgress);
-        }
-        xhr.onload = this.onContentUploadSuccess_.bind(this);
-        xhr.onerror = this.onContentUploadError_.bind(this);
-        xhr.send(content);
-    };
-
-    MediaUploader.prototype.resume_ = function() {
-        var xhr = new XMLHttpRequest();
-        xhr.open('PUT', this.url, true);
-        xhr.setRequestHeader('Content-Range', 'bytes */' + this.file.size);
-        xhr.setRequestHeader('X-Upload-Content-Type', this.file.type);
-        if (xhr.upload) {
-            xhr.upload.addEventListener('progress', this.onProgress);
-        }
-        xhr.onload = this.onContentUploadSuccess_.bind(this);
-        xhr.onerror = this.onContentUploadError_.bind(this);
-        xhr.send();
-    };
-
-    MediaUploader.prototype.extractRange_ = function(xhr) {
-        var range = xhr.getResponseHeader('Range');
-        if (range) {
-            this.offset = parseInt(range.match(/\d+/g).pop(), 10) + 1;
-        }
-    };
-
-    MediaUploader.prototype.onContentUploadSuccess_ = function(e) {
-        if (e.target.status == 200 || e.target.status == 201) {
-            this.onComplete(e.target.response);
-        } else if (e.target.status == 308) {
-            this.extractRange_(e.target);
-            this.retryHandler.reset();
-            this.sendFile_();
-        }
-    };
-
-    MediaUploader.prototype.onContentUploadError_ = function(e) {
-        if (e.target.status && e.target.status < 500) {
-            this.onError(e.target.response);
-        } else {
-            this.retryHandler.retry(this.resume_.bind(this));
-        }
-    };
-
-    MediaUploader.prototype.onUploadError_ = function(e) {
-        this.onError(e.target.response); // TODO - Retries for initial upload
-    };
-
-    MediaUploader.prototype.buildQuery_ = function(params) {
-        params = params || {};
-        return Object.keys(params).map(function(key) {
-            return encodeURIComponent(key) + '=' + encodeURIComponent(params[key]);
-        }).join('&');
-    };
-
-    MediaUploader.prototype.buildUrl_ = function(id, params, baseUrl) {
-        var url = baseUrl || DRIVE_UPLOAD_URL;
-        if (id) {
-            url += id;
-        }
-        var query = this.buildQuery_(params);
-        if (query) {
-            url += '?' + query;
-        }
-        return url;
-    };
-	
-	
-	
-	
-</script>
-<script src="{!! asset('assets/js/build/utils.js') !!}"></script>
-<script src="{!! asset('assets/js/build/clmtrackr.js') !!}"></script>
 
 @endsection
