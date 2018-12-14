@@ -151,7 +151,7 @@
         <!-- <div class="block-header block-header-default">
 
             </div> -->
-        <div id="experiences" class="block-content block-content-full experience-section @if (count($Company_Names) > 0)hide @endif" >
+        <div id="experiences" class="block-content block-content-full experience-section" @if (count($Company_Names) > 0)style="display:none" @endif >
         <form id ="foradd"  method="post"  action="/profile/profile_experience/store"  class="js-validation">
             <div class="block block-rounded">
 
