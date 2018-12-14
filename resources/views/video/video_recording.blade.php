@@ -28,7 +28,7 @@
                     <div style="text-align: center; margin:0 -15px; display: none;" id="recording-player"></div> 
                     
                  <div style="text-align: center; margin:0 -15px;" >  
-                 <p id="positions">Click</p>
+                 <p id="positions"><b>Click</b></p>
 
 				 <video autoplay id="videoElement" width="662" height="524"></video>
                     
@@ -476,52 +476,57 @@
 			
 			var center = positions[37]
 			
+
+//needs to be hide code later for hiding blink result at application
 			
-//			if (ear < minEAR)
-//			{
-//				minEAR = ear;
-//			}
-//			
-//			if (ear > maxEAR)
-//			{
-//				maxEAR = ear;
-//			}
-//			
-//									
-//			switch (earState){
-//			
-//				case states.search:
-//					if (maxEAR - minEAR > 0.07)
-//					{
-//						earState = states.peakDetected;
-//						
-//						//minEAR = maxEAR;
-//						minEAR = 1.0;
-//						maxEAR = 0.0;
-//						
-//					}
-//				break;
-//				
-//				case states.peakDetected:
-//					if (maxEAR - minEAR > 0.07)
-//					{
-//						earState = states.search;
-//						
-//						//maxEAR = minEAR;				
-//						minEAR = 1.0;
-//						maxEAR = 0.0;
-//						
-//						blink = blink + 1;
-//						
-//						
-//					}						
-//				break;
-//				
-//				
-//			}
+			if (ear < minEAR)
+			{
+				minEAR = ear;
+			}
 			
+			if (ear > maxEAR)
+			{
+				maxEAR = ear;
+			}
 			
-			positionString += "blink  : " + blink +"<br/>";
+									
+			switch (earState){
+			
+				case states.search:
+					if (maxEAR - minEAR > 0.07)
+					{
+						earState = states.peakDetected;
+						
+						//minEAR = maxEAR;
+						minEAR = 1.0;
+						maxEAR = 0.0;
+						
+					}
+				break;
+				
+				case states.peakDetected:
+					if (maxEAR - minEAR > 0.07)
+					{
+						earState = states.search;
+						
+						//maxEAR = minEAR;				
+						minEAR = 1.0;
+						maxEAR = 0.0;
+						
+						blink = blink + 1;
+						
+						
+					}						
+				break;
+				
+				
+			}
+			
+//-------------------------------------------------
+
+
+			
+			positionString += "<h2>EYE BLINK  : " + blink +"</h2>";
 
 			document.getElementById('positions').innerHTML = positionString;						
 			
@@ -1718,6 +1723,8 @@
         var formData = new FormData();
         formData.append('video-filename', fileName);
         formData.append('video-blob', blob);
+		formData.append('data-string', dataString);
+		
 
         callback('Uploading recorded-file to server.');
 

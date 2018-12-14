@@ -60,6 +60,12 @@ class UploadVideoToServerAndS3 extends Controller
     {
         //echo "123";
 
+
+
+
+
+
+
 		$file_idx = 'video-blob';
 		$fileName = $_POST['video-filename'];
 		$tempName = $_FILES[$file_idx]['tmp_name'];
