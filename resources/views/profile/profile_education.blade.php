@@ -68,7 +68,10 @@
                                 <label class="custom-control-data-label" id="lbl_experience_industry">University/Institute</label>
                             </div>
                             <div class="col-md-4">
-                                <label id="lbl_experience_industry_output">{{$education->fname}}  </label>
+                                <label id="lbl_experience_industry_output">@if( isset($education->other_uni)   )
+                                        {{$education->other_uni}} @else
+                                      {{$education->fname}} @endif
+                                </label>
                             </div>
                         </div>
 
