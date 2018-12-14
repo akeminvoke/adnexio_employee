@@ -527,6 +527,9 @@
 
 			
 			positionString += "<h2>EYE BLINK  : " + blink +"</h2>";
+			
+			//positionString += "<h2>EYE BLINK  : " + blink +"<br> EYE BLINK  : " + blink +"</h2>";
+			
 
 			document.getElementById('positions').innerHTML = positionString;						
 			

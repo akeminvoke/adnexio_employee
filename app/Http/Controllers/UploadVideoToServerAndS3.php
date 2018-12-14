@@ -62,6 +62,50 @@ class UploadVideoToServerAndS3 extends Controller
 
 
 
+	
+	define("SEARCH", 1);
+	define("DETECTED", 0);
+	define("FIDGET_FPS", 10);
+	
+	$minEAR = 1.0;
+	$maxEAR = 0.0;
+	$earState = SEARCH;
+	$blink = 0;
+	
+	$stringData = $_POST['data-string'] ;
+	
+	
+		//echo '<pre>';
+		//print_r($response);	
+	
+  
+	//var_dump($stringData);
+  
+	$data = str_getcsv($stringData, ";"); //parse the rows 
+
+	foreach($data as &$row) 
+	{
+		$row = str_getcsv($row, ","); //parse the items in rows 
+	
+		//echo implode(" ", $row);
+		//echo "<br>";
+		if (sizeof($row) == 4)
+		{
+			//$bl = eye_blink($row[0]);
+			$b = $this->eye_blink($row[0]);
+			$f = $this->fidget_value($row[1], $row[2], $row[3]);
+			
+			echo "Eye blink : " . $b . ", fidget : " . $f ."<br>";
+		}
+	}
+	
+	
+	
+
+	
+	
+
+
 
 
 
@@ -77,8 +121,8 @@ class UploadVideoToServerAndS3 extends Controller
 		$videoname = $request->input('video-filename');
 		$now = new DateTime();
 		
-		$data = array('user_id'=>$user,'video_name'=>$videoname,'created_at'=>$now);
-		DB::table('video_interviews')->insert($data);
+		$videodata = array('user_id'=>$user,'video_name'=>$videoname,'eye_blink'=>$b,'fidget_value'=>$f,'created_at'=>$now);
+		DB::table('video_interviews')->insert($videodata);
 		
 		if (!move_uploaded_file($tempName, $filePath)) {
 			{
@@ -93,6 +137,109 @@ class UploadVideoToServerAndS3 extends Controller
 		}
 
 	}
+
+
+
+	public function delta_position($cur_x, $cur_y, $prev_x, $prev_y)
+	{
+		return sqrt((($cur_x - $prev_x) * ($cur_x - $prev_x)) + (($cur_y - $prev_y) * ($cur_y - $prev_y)));
+	}
+
+	
+	public function fidget_value($length, $center_x, $center_y)
+	{
+		static $counter = 0;
+		static $prev_center_x = 0.0;
+		static $prev_center_y = 0.0;
+		static $total_length = 0.0;
+		static $total_delta = 0.0;
+		
+				
+		$counter ++;
+		
+		if ($counter == 1)
+		{
+			$prev_center_x = $center_x;
+			$prev_center_y = $center_y;
+		}
+		
+		$total_length = $total_length + $length;
+	
+		$face_length = $total_length / $counter;
+		
+		$delta = $this->delta_position($center_x, $center_y, $prev_center_x, $prev_center_y) / $face_length * FIDGET_FPS;
+		
+		$prev_center_x = $center_x;
+		$prev_center_y = $center_y;
+		
+		$total_delta = $total_delta + $delta;
+		
+		$fidget = $total_delta / $counter;
+		
+		$fidget = $fidget * 33.45 + 11.41;
+		
+		return $fidget;
+		
+	}
+
+
+
+	public function eye_blink($ear)
+	{
+		
+		global $minEAR;
+		global $maxEAR;
+		global $earState;
+		global $blink;
+		
+		if ($ear < $minEAR)
+		{
+			$minEAR = $ear;
+		}
+		
+		if ($ear > $maxEAR)
+		{
+			$maxEAR = $ear;
+		}
+		
+								
+		switch ($earState){
+		
+			case SEARCH:
+				if ($maxEAR - $minEAR > 0.07)
+				{
+					$earState = DETECTED;
+					
+					//$minEAR = $maxEAR;
+					$minEAR = 1.0;
+					$maxEAR = 0.0;
+				}
+			break;
+			
+			case DETECTED:
+				if ($maxEAR - $minEAR > 0.07)
+				{
+					$earState = SEARCH;
+					
+					//maxEAR = minEAR;				
+					$minEAR = 1.0;
+					$maxEAR = 0.0;
+					
+					$blink = $blink + 1;
+					
+					
+				}						
+			break;
+			
+			
+		}
+		
+		return $blink;
+	}
+
+
+
+
 
 
     /**
