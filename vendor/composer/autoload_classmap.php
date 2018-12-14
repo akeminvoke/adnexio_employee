@@ -25,7 +25,6 @@ return array(
     'App\\Http\\Controllers\\PersonalityCareerController' => $baseDir . '/app/Http/Controllers/PersonalityCareerController.php',
     'App\\Http\\Controllers\\ProfileAboutmeController' => $baseDir . '/app/Http/Controllers/ProfileAboutmeController.php',
     'App\\Http\\Controllers\\ProfileCvuploadController' => $baseDir . '/app/Http/Controllers/ProfileCvuploadController.php',
-    'App\\Http\\Controllers\\ProfileEduactionController' => $baseDir . '/app/Http/Controllers/ProfileEducationController.php',
     'App\\Http\\Controllers\\ProfileEducationControllerr' => $baseDir . '/app/Http/Controllers/ProfileEducationControllerr.php',
     'App\\Http\\Controllers\\ProfileExperienceController' => $baseDir . '/app/Http/Controllers/ProfileExperienceController.php',
     'App\\Http\\Controllers\\SocialAuthFacebookController' => $baseDir . '/app/Http/Controllers/SocialAuthFacebookController.php',

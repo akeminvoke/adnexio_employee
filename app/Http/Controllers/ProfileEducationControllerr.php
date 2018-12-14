@@ -39,7 +39,9 @@ class ProfileEducationControllerr extends Controller
             ->join('academic_fields as e','a.academic_fields_id','=','e.id')
             ->leftjoin('universities as f','a.university_name','=','f.id')
             ->select('a.university_name','a.id','a.countries_id','a.academic_fields_id as field','a.major','a.courses_id','e.academic_field',
-                    'a.graduation_date','a.countries_id','a.grade','a.cgpa','a.desc','c.name as cname','d.name as qname','a.qualifications_id','a.other_uni','a.desc','f.name as fname')->get();
+                    'a.graduation_date','a.countries_id','a.grade','a.cgpa','a.desc','c.name as cname','d.name as qname','a.qualifications_id','a.other_uni','a.desc','f.name as fname')
+            ->where('educations.user_id',$user->id )
+            ->get();
 
         return $user->isAdmin() ? redirect('/admin') : view('/profile/profile_education')
             ->with(compact('user','questions','educations'));

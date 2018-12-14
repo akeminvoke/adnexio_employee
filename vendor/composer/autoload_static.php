@@ -508,7 +508,6 @@ class ComposerStaticInita3f54f5fe7d0b0ce12419a4bd352132a
         'App\\Http\\Controllers\\PersonalityCareerController' => __DIR__ . '/../..' . '/app/Http/Controllers/PersonalityCareerController.php',
         'App\\Http\\Controllers\\ProfileAboutmeController' => __DIR__ . '/../..' . '/app/Http/Controllers/ProfileAboutmeController.php',
         'App\\Http\\Controllers\\ProfileCvuploadController' => __DIR__ . '/../..' . '/app/Http/Controllers/ProfileCvuploadController.php',
-        'App\\Http\\Controllers\\ProfileEduactionController' => __DIR__ . '/../..' . '/app/Http/Controllers/ProfileEducationController.php',
         'App\\Http\\Controllers\\ProfileEducationControllerr' => __DIR__ . '/../..' . '/app/Http/Controllers/ProfileEducationControllerr.php',
         'App\\Http\\Controllers\\ProfileExperienceController' => __DIR__ . '/../..' . '/app/Http/Controllers/ProfileExperienceController.php',
         'App\\Http\\Controllers\\SocialAuthFacebookController' => __DIR__ . '/../..' . '/app/Http/Controllers/SocialAuthFacebookController.php',
