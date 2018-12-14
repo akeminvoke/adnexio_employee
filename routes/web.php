@@ -36,21 +36,38 @@ Route::post('/main/first_login', 'MainController@store');
 Route::get('/home', 'HomeController@index')->name('home');
 
 //Profile Function
+
+//profile-aboutme->fahmi
 Route::get('/profile/profile_aboutme', 'ProfileAboutmeController@index');
 Route::post('/profile/profile_aboutme', 'ProfileAboutmeController@editPost');
+
+//profile-experience->hakim
 Route::get('/profile/profile_experience', 'ProfileExperienceController@index');
 Route::post('/profile/profile_experience/store', 'ProfileExperienceController@store');
 Route::post('/profile/profile_experience/update', 'ProfileExperienceController@update');
 Route::post('/profile/profile_experience/getjb', 'ProfileExperienceController@getjb');
 Route::post('/profile/profile_experience/getjobspec', 'ProfileExperienceController@getjobspec');
 Route::post('/profile/profile_experience/delete', 'ProfileExperienceController@destroy');
+
+//profile-education->hakim
+Route::get('/profile/profile_education', 'ProfileEducationControllerr@index');
+Route::post('/profile/profile_education/store', 'ProfileEducationControllerr@store');
+Route::post('/profile/profile_education/update', 'ProfileEducationControllerr@update');
+Route::post('/profile/profile_education/getcountry', 'ProfileEducationControllerr@getcountry');
+Route::post('/profile/profile_education/getstates', 'ProfileEducationControllerr@getstates');
+Route::post('/profile/profile_education/getcourse', 'ProfileEducationControllerr@getcourse');
+Route::post('/profile/profile_education/getuni', 'ProfileEducationControllerr@getuni');
+
+
+//experience->hakim
 Route::get('/profile/profile_cvupload', 'ProfileCvuploadController@index');
 Route::post('/profile/profile_cvupload', 'ProfileCvuploadController@filestore');
 Route::post('/profile/profile_cvupload/dlt', 'ProfileCvuploadController@fileDestroy');
 Route::post('profile/profile_cvupload/pullback','ProfileCvuploadController@retrievefilename');
 Route::get('/cv_uploads/download/', 'ProfileCvuploadController@getdownload');
 
-//Personality Test Function
+
+//assesment-Personality Test Function->fahmi
 Route::get('/personality/personality_career', 'PersonalityCareerController@index');
 Route::post('/personality/personality_career_createAssessmentID', 'PersonalityCareerController@createAssessmentID');
 Route::post('/personality/personality_career_storeDataForEachAssessmentStatusYes', 'PersonalityCareerController@storeDataForEachAssessmentStatusYes');

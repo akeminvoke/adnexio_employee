@@ -101,6 +101,7 @@ class ProfileExperienceController extends Controller
     public function create()
     {
 
+
     }
 
 
@@ -143,10 +144,7 @@ class ProfileExperienceController extends Controller
             $company_id = company::select('id')->where('name', $request->company_name_edit)->take(1)->get();
         } ;
 
-
-
         //$industry_id=industry::select('id')->where('name',$request->industry)->get();
-
 
      //   $company_id = company::select('id')->where('name', $request->company_name)->take(1)->get();
         $experience = new experience();
@@ -154,7 +152,6 @@ class ProfileExperienceController extends Controller
         $experience->company_id = $company_id[0]->id;
         $experience->position = $request->position;
         $experience->specialization_id = $request->specialization;
-
         $experience->start_year = $request->jd_start_year;
         $experience->start_month = $request->jd_start_month;
 

@@ -12,3 +12,9 @@ npm-debug.log
 yarn-error.log
 .env
 .phpunit.result.cache
+.idea/workspace.xml
+app/Http/Controllers/ProfileExperienceController.php
+resources/views/layouts/main-app.blade.php
+.idea/workspace.xml
+app/Http/Controllers/ProfileExperienceController.php
+resources/views/layouts/main-app.blade.php
