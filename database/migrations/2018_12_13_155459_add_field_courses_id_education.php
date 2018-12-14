@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePersonalitiesTable extends Migration
+class AddFieldCoursesIdEducation extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,10 @@ class CreatePersonalitiesTable extends Migration
      */
     public function up()
     {
-        Schema::create('personalities', function (Blueprint $table) {
-            $table->increments('personality_id');
-			$table->string('user_id');
-			$table->string('assessment_id');
-            $table->timestamps();
+        Schema::table('educations', function ($table) {
+
+            $table->integer('courses_id')->after('field');
+
         });
     }
 
@@ -28,6 +27,6 @@ class CreatePersonalitiesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('personalities');
+
     }
 }

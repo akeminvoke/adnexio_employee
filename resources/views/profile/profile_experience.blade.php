@@ -149,10 +149,12 @@
         <!-- jQuery Validation (.js-validation class is initialized in js/pages/be_forms_validation.min.js which was auto compiled from _es6/pages/be_forms_validation.js) -->
         <!-- For more examples you can check out https://github.com/jzaefferer/jquery-validation -->
         <!-- <div class="block-header block-header-default">
+
             </div> -->
+        <div id="experiences" class="block-content block-content-full experience-section @if (count($Company_Names) > 0)hide @endif" >
         <form id ="foradd"  method="post"  action="/profile/profile_experience/store"  class="js-validation">
             <div class="block block-rounded">
-                <div id="experiences" class="block-content block-content-full experience-section @if (count($Company_Names) > 0)hide @endif">
+
                     <div class="">
                         <!-- Regular -->
                         <h2 class="content-heading">Experience</h2>
@@ -461,10 +463,10 @@
                     </div>
 
                 </div>
-            </div>
+
         </form>
 
-
+        </div>
 
 
         <!-- END Page Content -->
