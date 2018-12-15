@@ -151,9 +151,10 @@
         <!-- <div class="block-header block-header-default">
 
             </div> -->
-        <div id="experiences" class="block-content block-content-full experience-section" @if (count($Company_Names) > 0)style="display:none" @endif >
+
         <form id ="foradd"  method="post"  action="/profile/profile_experience/store"  class="js-validation">
             <div class="block block-rounded">
+                <div id="experiences" class="block-content block-content-full experience-section" @if (count($Company_Names) > 0)style="display:none" @endif >
 
                     <div class="">
                         <!-- Regular -->
@@ -184,6 +185,8 @@
                                     <label for="val-password">Joined Duration <span class="text-danger">*</span></label>
                                     </div>
                                 <div class="form-group-special">
+                                    <div class="row">
+                                    <div class="col-sm-5">
                                     <select class="half-second" id="val-jd-start-year" name="val-jd-start-year" >
                                         <option disabled selected>year</option>
                                         <option>1948</option>
@@ -258,6 +261,8 @@
                                         <option>2017</option>
                                         <option>2018</option>
                                     </select>
+                                        </div>
+                                        <div class="col-sm-5">
                                     <select class="half-second" id="val-jd-start-month"  name="val-jd-start-month" >
                                         <option disabled selected>month</option>
                                         <option>Jan</option>
@@ -273,17 +278,19 @@
                                         <option>Nov</option>
                                         <option>Dec</option>
                                     </select>
-                                </div>
+                                    </div>
+                                    </div>
+                                    <div class="row">
+
+                                        <div class="col-sm-1"><label>-</label> </div>
+                                    </div>
 
 
-                                <div class="form-group">
-                                    <labell class ="label-join" for="val-confirm-password">to <span class="text-danger">*</span></labell>
-
-                                </div>
-                                <div id="" class="row form-group-special" style="padding-left: 9rem";>
-                                    <div id="end-duration" >
-                                    <select class="half-third" id="val-jd-end-year" name="val-jd-end-year">
-                                        <option disabled selected>year</option>
+                                    <div class="row">
+                                     <div class="col-sm-5">
+                                    <select class="half-second form-control" id="val-jd-end-year" name="val-jd-end-year" style="  width: 26%;margin-left: 4%;
+">
+                                        <option disabled="" selected="" value="0">-year-</option>
                                         <option>1948</option>
                                         <option>1949</option>
                                         <option>1950</option>
@@ -356,8 +363,10 @@
                                         <option>2017</option>
                                         <option>2018</option>
                                     </select>
-                                    <select class="half-third" id="val-jd-end-month" name="val-jd-end-month" >
-                                        <option>month</option>
+                                     </div>
+                                        <div class="col-sm-5">
+                                    <select class="half-second form-control" id="val-jd-end-month" name="val-jd-end-month" >
+                                        <option disabled="" selected="" value="0" aria-describedby="val-specialization-error" aria-invalid="true" >-month-</option>
                                         <option>Jan</option>
                                         <option>Feb</option>
                                         <option>Mar</option>
@@ -371,12 +380,16 @@
                                         <option>Nov</option>
                                         <option>Dec</option>
                                     </select>
-                                    </div>
 
 
-                                    <input type="checkbox" id="val-present" value="Present" class="myCheckbox form-check-input" data-duration="end-duration" /><p class="present"> Present</p>
                                 </div>
-
+                                        <div class="col-sm-1">
+                                            <input type="checkbox" id="val-present" value="Present" class="myCheckbox form-check-input" data-end-y="val-jd-end-year" data-end-m="val-jd-end-month"  style="
+                                            margin-left: 1rem;
+                                            "><label style="margin-left: 2rem;">Present</label>
+                                        </div>
+                                    </div>
+                                </div>
                                 <div class="form-group">
                                     <label for="val-email">Job Background<span class="text-danger">*</span></label>
                                     <select class="form-control" id="val-specialization" name="val-specialization" aria-describedby="val-specialization-error" aria-invalid="true">
@@ -463,6 +476,7 @@
                     </div>
 
                 </div>
+            </div>
 
         </form>
 

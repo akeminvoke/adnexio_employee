@@ -1986,6 +1986,11 @@ pre code {
   opacity: 1;
 }
 
+.half-third:disabled, .half-third[readonly] {
+  background-color: #e9ecef;
+  opacity: 1;
+}
+
 select.form-control:focus::-ms-value {
   color: #495057;
   background-color: #fff;
