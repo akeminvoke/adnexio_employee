@@ -187,7 +187,7 @@
                                 <div class="form-group-special">
                                     <div class="row">
                                     <div class="col-sm-5">
-                                    <select class="half-second" id="val-jd-start-year" name="val-jd-start-year" >
+                                    <select class="half-second form-control" id="val-jd-start-year" name="val-jd-start-year" >
                                         <option disabled selected>year</option>
                                         <option>1948</option>
                                         <option>1949</option>
@@ -263,7 +263,7 @@
                                     </select>
                                         </div>
                                         <div class="col-sm-5">
-                                    <select class="half-second" id="val-jd-start-month"  name="val-jd-start-month" >
+                                    <select class="half-second form-control" id="val-jd-start-month"  name="val-jd-start-month" >
                                         <option disabled selected>month</option>
                                         <option>Jan</option>
                                         <option>Feb</option>
@@ -288,7 +288,8 @@
 
                                     <div class="row">
                                      <div class="col-sm-5">
-                                    <select class="half-second form-control" id="val-jd-end-year" name="val-jd-end-year" style="  width: 26%;margin-left: 4%;
+
+                                         <select class="half-control form-control" id="val-jd-end-year" name="val-jd-end-year" style="display :initial;width: 100%;margin-left: 11%;">
 ">
                                         <option disabled="" selected="" value="0">-year-</option>
                                         <option>1948</option>
@@ -365,7 +366,7 @@
                                     </select>
                                      </div>
                                         <div class="col-sm-5">
-                                    <select class="half-second form-control" id="val-jd-end-month" name="val-jd-end-month" >
+                                            <select class="half-second form-control" id="val-jd-end-month" name="val-jd-end-month" style="display : initial;margin-left: 11%;">
                                         <option disabled="" selected="" value="0" aria-describedby="val-specialization-error" aria-invalid="true" >-month-</option>
                                         <option>Jan</option>
                                         <option>Feb</option>
@@ -833,8 +834,8 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
+
+
 
 
 

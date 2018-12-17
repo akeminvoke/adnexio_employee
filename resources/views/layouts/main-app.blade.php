@@ -3362,6 +3362,7 @@ $('.submit-education-edit').on('click', '.submit-education-edit', function() {
 </script>
 
 <script type="text/javascript">
+    Dropzone.prototype.defaultOptions.dictDefaultMessage = "Click or Drop files here to upload";
     Dropzone.options.dropzone =
 
         {

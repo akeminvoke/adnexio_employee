@@ -84,12 +84,9 @@ class ProfileExperienceController extends Controller
     public function getjobspec(request $request)
     {
 
-
-
         $js= DB::table('job_specifications')->select('Id','Job_Specification')->where('Job_Background_ID',$request->specialization)->get();
 
         return response()->json($js);
-
     }
 
 
