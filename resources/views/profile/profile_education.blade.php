@@ -31,8 +31,6 @@
                             </div>
 
 
-
-
                             <div class="col-md-2 float-right">
                                 <table>
                                     <tr>
@@ -44,9 +42,9 @@
                                             </a>
                                         </td>
                                         <td>
-                                            <form action="{{'/profile/profile_experience/delete'}}" method="Post" >
-                                                <input type="hidden"  id="val-experience-delete"  name="valexperiencedelete" value="{{$education->id}}">
-                                                <button class="btn btn-sm btn-primary pull submit-experience-delete">
+                                            <form action="{{'/profile/profile_education/delete'}}" method="Post" >
+                                                <input type="hidden"  id="val-experience-delete"  name="valeducationdelete" value="{{$education->id}}">
+                                                <button class="btn btn-sm btn-primary pull submit-education-delete">
                                                     <i class="nav-main-link-icon fa fa-trash-alt "></i> Delete
                                                 </button>
 
@@ -126,7 +124,7 @@
             </div> -->
         <form id ="add-education"  action="/profile/profile_education/store"  method="post"    class="js-validation">
             <div class="block block-rounded">
-                <div id="educations" class="block-content block-content-full education-section hide">
+                <div id="educations" class="block-content block-content-full education-section "@if (count($educations) > 0)style="display:none" @endif>
                     <div class="">
                         <!-- Regular -->
                         <h2 class="content-heading">Education</h2>

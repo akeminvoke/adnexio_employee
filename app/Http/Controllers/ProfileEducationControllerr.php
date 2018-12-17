@@ -12,6 +12,12 @@ use Response;
 
 class ProfileEducationControllerr extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -39,7 +45,10 @@ class ProfileEducationControllerr extends Controller
             ->join('academic_fields as e','a.academic_fields_id','=','e.id')
             ->leftjoin('universities as f','a.university_name','=','f.id')
             ->select('a.university_name','a.id','a.countries_id','a.academic_fields_id as field','a.major','a.courses_id','e.academic_field',
-                    'a.graduation_date','a.countries_id','a.grade','a.cgpa','a.desc','c.name as cname','d.name as qname','a.qualifications_id','a.other_uni','a.desc','f.name as fname')->get();
+                    'a.graduation_date','a.countries_id','a.grade','a.cgpa','a.desc','c.name as cname','d.name as qname','a.qualifications_id','a.other_uni','a.desc','f.name as fname')
+            ->where('a.user_id',$user->id )
+            ->wherenull('a.deleted_at')
+            ->get();
 
         return $user->isAdmin() ? redirect('/admin') : view('/profile/profile_education')
             ->with(compact('user','questions','educations'));
@@ -190,9 +199,11 @@ class ProfileEducationControllerr extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(request $request )
     {
-        //
+        $deletedEdu = educations::where('id',$request->valeducationdelete )->delete();
+
+        return redirect('/profile/profile_education');
     }
 
     private function getGuard()

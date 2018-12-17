@@ -513,9 +513,20 @@
 <script type="text/javascript">
 
     $(document).on('click', '.myCheckbox', function () {
-        var target = $(this).data('duration');
-        if ($(this).is(':checked')) $('#' + target).addClass('disabled');
-        else $('#' + target).removeClass('disabled');
+        var y = $(this).data('end-y');
+        var m = $(this).data('end-m');
+        if ($(this).is(':checked')) {
+            $('#' + y).attr("disabled", true);
+            $('#' + m).attr("disabled", true);
+
+        }
+       // if ($(this).is(':checked')) $('#' + target).addClass('disabled') ;
+       // $("input.group1").attr("disabled", true);
+        //else $('#' + target).removeClass('disabled');
+        else {
+            $('#' + y).removeAttr("disabled");
+            $('#'+  m).removeAttr("disabled");
+        }
     });
 
     $(document).on('click', '.myCheckbox-edit', function () {
@@ -567,7 +578,7 @@
             "</select>");
 
 
-        $('#val-jd-start-year').replaceWith( "<select class='half-second' id='val-jd-start-year' name='val-jd-start-year' > " +
+        $('#val-jd-start-year').replaceWith( "<select class='half-second form-control' id='val-jd-start-year' name='val-jd-start-year' > " +
             "<option disabled selected>year</option>" +
             "<option>1948</option> " +
             "<option>1949</option> " +
@@ -643,8 +654,8 @@
             "</select>");
 
 
-        $('#val-jd-start-month').replaceWith( "<select class='half-second' id='val-jd-start-month'  name='val-jd-start-month' >" +
-            "<option disabled selected>month</option>" +
+        $('#val-jd-start-month').replaceWith( "<select class='half-second form-control' id='val-jd-start-month'  name='val-jd-start-month' >" +
+            " <option disabled='' selected='' value='month' aria-describedby='val-specialization-error' aria-invalid='true' >-month-</option>" +
             " <option>Jan</option>" +
             "  <option>Feb</option>" +
             "<option>Mar</option>" +
@@ -660,7 +671,9 @@
             "</select>");
 
 
-        $('#val-jd-end-year').replaceWith( "<select class='half-third' id='val-jd-end-year' name='val-jd-end-year'> " +
+
+
+        $('#val-jd-end-year').replaceWith( "<select class='half-control form-control' id='val-jd-end-year' name='val-jd-end-year' style='display :initial;width: 100%;margin-left: 11%;'>" +
             "<option disabled selected>year</option>" +
             "<option>1948</option> " +
             "<option>1949</option> " +
@@ -736,8 +749,8 @@
             "</select>");
 
 
-        $('#val-jd-end-month').replaceWith( "<select class='half-third' id='val-jd-end-month' name='val-jd-end-month' > " +
-            "<option>month</option> " +
+        $('#val-jd-end-month').replaceWith( "<select class='half-second form-control' id='val-jd-end-month' name='val-jd-end-month' style='display : initial;margin-left: 11%;'> " +
+            " <option disabled='' selected='' value='month' aria-describedby='val-specialization-error' aria-invalid='true' >-month-</option>" +
             "<option>Jan</option> " +
             "<option>Feb</option> " +
             "<option>Mar</option> " +
@@ -751,6 +764,7 @@
             "<option>Nov</option> " +
             "<option>Dec</option> " +
             "</select>");
+
 
 
 //        $('#val-specialization').replaceWith( "<select class='form-control' id='val-specialization' name='val-specialization'> " +
@@ -3348,6 +3362,7 @@ $('.submit-education-edit').on('click', '.submit-education-edit', function() {
 </script>-->
 
 <script type="text/javascript">
+    Dropzone.prototype.defaultOptions.dictDefaultMessage = "Click or Drop files here to upload";
     Dropzone.options.dropzone =
 
         {

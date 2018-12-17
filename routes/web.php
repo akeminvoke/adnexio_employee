@@ -53,6 +53,7 @@ Route::post('/profile/profile_experience/delete', 'ProfileExperienceController@d
 Route::get('/profile/profile_education', 'ProfileEducationControllerr@index');
 Route::post('/profile/profile_education/store', 'ProfileEducationControllerr@store');
 Route::post('/profile/profile_education/update', 'ProfileEducationControllerr@update');
+Route::post('/profile/profile_education/delete', 'ProfileEducationControllerr@destroy');
 Route::post('/profile/profile_education/getcountry', 'ProfileEducationControllerr@getcountry');
 Route::post('/profile/profile_education/getstates', 'ProfileEducationControllerr@getstates');
 Route::post('/profile/profile_education/getcourse', 'ProfileEducationControllerr@getcourse');
