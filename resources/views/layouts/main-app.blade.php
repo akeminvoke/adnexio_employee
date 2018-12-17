@@ -512,7 +512,7 @@
 
 <script type="text/javascript">
 
-    $(document).on('click', '.myCheckbox', function () {
+    $(document).on('click', '.myCheckbox',  function () {
         var y = $(this).data('end-y');
         var m = $(this).data('end-m');
         if ($(this).is(':checked')) {
@@ -529,21 +529,23 @@
         }
     });
 
-    $(document).on('click', '.myCheckbox-edit', function () {
-        var target = $(this).data('duration-edit');
-        if ($(this).is(':checked')) $('#' + target).addClass('disabled');
-        else $('#' + target).removeClass('disabled');
+    $(document).on('click', '.myCheckbox-edit',  function () {
+        var y = $(this).data('end-y-edit');
+        var m = $(this).data('end-m-edit');
+        if ($(this).is(':checked')) {
+            $('#' + y).attr("disabled", true);
+            $('#' + m).attr("disabled", true);
+
+        }
+        // if ($(this).is(':checked')) $('#' + target).addClass('disabled') ;
+        // $("input.group1").attr("disabled", true);
+        //else $('#' + target).removeClass('disabled');
+        else {
+            $('#' + y).removeAttr("disabled");
+            $('#'+  m).removeAttr("disabled");
+        }
     });
 
-    $(document).on('click', '.cancel-submit-experience', function () {
-        $('#experiences').addClass('hide');
-        $('#experiences').hide();
-        $('#add-experience-btn').show();
-        $('#add-experience').show();
-        $('#experience_prev').show();
-
-       // experiences
-    });
 
     $(document).on('click', '.cancel-submit-education', function () {
         $('#education_prev').removeClass('hide');
@@ -567,7 +569,7 @@
 
 
         $('#val-industry').replaceWith( "<select class='form-control' id='val-industry' name='val-industry'> " +
-            "<option disabled selected>please provide your industry</option> " +
+            "<option disabled selected>-please provide your industry-</option> " +
             "<option>Electricity/Gas/Water/Waste Services</option> " +
             "<option>Manufacturing</option> " +
             "<option>Construction</option> " +
@@ -579,7 +581,7 @@
 
 
         $('#val-jd-start-year').replaceWith( "<select class='half-second form-control' id='val-jd-start-year' name='val-jd-start-year' > " +
-            "<option disabled selected>year</option>" +
+            "<option disabled selected>-year-</option>" +
             "<option>1948</option> " +
             "<option>1949</option> " +
             "<option>1950</option> " +
@@ -674,7 +676,7 @@
 
 
         $('#val-jd-end-year').replaceWith( "<select class='half-control form-control' id='val-jd-end-year' name='val-jd-end-year' style='display :initial;width: 100%;margin-left: 11%;'>" +
-            "<option disabled selected>year</option>" +
+            "<option disabled selected>-year-</option>" +
             "<option>1948</option> " +
             "<option>1949</option> " +
             "<option>1950</option> " +
@@ -782,7 +784,7 @@
             },
             success: function(data) {
                 $('#val-specialization').empty();
-                $('#val-specialization').append("<option disabled selected value='0'>select your Job Background </option> ");
+                $('#val-specialization').append("<option disabled selected value='0'>-select your Job Background-</option> ");
 
                 $.each(data,function(i,item){
                     $('#val-specialization').append("<option value='"+data[i].Id+"'>"+data[i].Job_Background+"</option>");
@@ -804,7 +806,7 @@
             "</select>");
 
         $('#val-salary').replaceWith( " <select class='form-control' id='val-salary' name='val-salary'> " +
-            "<option disabled selected>please choose your salary range</option> " +
+            "<option disabled selected>-please choose salary range-</option> " +
             "<option>Below then 1,000</option> " +
             "<option>1,000 to  3,000</option> " +
             "<option>3,001 to 5,000 </option> " +
@@ -844,7 +846,6 @@
                 $('#add-country-institute').empty();
                 $('#add-country-institute').append("<option disabled selected value='0'>select country</option> ");
                 $('#add-states-institute').append("<option disabled selected value='0'>select states</option> ");
-
                 $.each(data,function(i,item){
                         $('#add-country-institute').append("<option value='"+data[i].id+"'>"+data[i].name+"</option>");
 
@@ -1239,8 +1240,27 @@
         $('#job-specification-edit').val($(this).data('jobspecification-edit'));
     }
 
-
     $(document).on('click', '.edit-education', function() {
+
+
+        $.ajax({
+            type: 'POST',
+            url: '{{ url("/profile/profile_education/getAllCourse") }}',
+            data: {
+                '_token': $('input[name=_token]').val()
+
+            },
+            success: function (data) {
+                $('#course-edit').empty();
+
+                $('#course-edit').append("<option disabled selected value='0'>select your course edit</option> ");
+
+                $.each(data, function (i, item) {
+                    $('#course-edit').append("<option value='" + data[i].Id + "'>" + data[i].course + "</option>");
+                })
+            }
+        });
+
 
 
 

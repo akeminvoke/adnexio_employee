@@ -140,6 +140,15 @@ class ProfileEducationControllerr extends Controller
 
     }
 
+    public function getAllCourse(request $request)
+    {
+
+        $course= DB::table('courses')->select('id','course')->get();
+
+        return response()->json($course);
+
+    }
+
     public function getuni()
     {
 

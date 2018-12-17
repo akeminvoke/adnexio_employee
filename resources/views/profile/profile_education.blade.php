@@ -154,7 +154,7 @@
                                     <label for="val-username">Qualification<span class="text-danger">*</span></label>
                                     <select class="form-control" id="add-qualification" name="add-qualification" aria-describedby="val-specialization-error" aria-invalid="true" style="width: 60%;
 ">
-                                        <option value="0" title="- Select Qualification -&quot;, &quot;0&quot;, ">- Select Qualification -</option>
+                                        <option value="0" title="- Select Qualification -&quot;, &quot;0&quot;, " disabled="" selected="">- Select Qualification -</option>
                                         <option value="1" title="Primary/Secondary School/SPM/'O' Level">Primary/Secondary School/SPM/'O' Level</option>
                                         <option value="2" title="Higher Secondary/STPM/'A' Level/Pre-U">Higher Secondary/STPM/'A' Level/Pre-U</option>
                                         <option value="3" title="Professional Certificate">Professional Certificate</option>
@@ -291,7 +291,7 @@
                         </div>
                         <div class="block block-rounded block-bordered">
 
-                            <form id="foredit"  method="post" action="/profile/profile_experience/update">
+                            <form id="edit-education"  method="post" action="/profile/profile_experience/update">
 
                                 <div id="experiences" class="block-content block-content-full experience-section">
 
@@ -424,7 +424,7 @@
 
 
                                                     <div class="form-group">
-                                                        <label for="val-email">Additional Information<span class="text-danger">*</span></label>
+                                                        <label for="val-email">Additional Information<span class="text-danger"></span></label>
                                                         <textarea class="form-control" id="information-edit" name="information-edit" rows="4" placeholder="Describe your experience "></textarea>
                                                     </div>
 
