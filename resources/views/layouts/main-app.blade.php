@@ -578,7 +578,7 @@
             "</select>");
 
 
-        $('#val-jd-start-year').replaceWith( "<select class='half-second' id='val-jd-start-year' name='val-jd-start-year' > " +
+        $('#val-jd-start-year').replaceWith( "<select class='half-second form-control' id='val-jd-start-year' name='val-jd-start-year' > " +
             "<option disabled selected>year</option>" +
             "<option>1948</option> " +
             "<option>1949</option> " +
@@ -654,7 +654,7 @@
             "</select>");
 
 
-        $('#val-jd-start-month').replaceWith( "<select class='half-second' id='val-jd-start-month'  name='val-jd-start-month' >" +
+        $('#val-jd-start-month').replaceWith( "<select class='half-second form-control' id='val-jd-start-month'  name='val-jd-start-month' >" +
             " <option disabled='' selected='' value='month' aria-describedby='val-specialization-error' aria-invalid='true' >-month-</option>" +
             " <option>Jan</option>" +
             "  <option>Feb</option>" +

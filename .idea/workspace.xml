@@ -2,13 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="69f72ef5-f313-4757-8395-3e86a70699c5" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/ProfileEducationControllerr.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/ProfileEducationControllerr.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/ProfileExperienceController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/ProfileExperienceController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/educations.php" afterPath="$PROJECT_DIR$/app/educations.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/layouts/main-app.blade.php" afterPath="$PROJECT_DIR$/resources/views/layouts/main-app.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/profile/profile_education.blade.php" afterPath="$PROJECT_DIR$/resources/views/profile/profile_education.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/profile/profile_experience.blade.php" afterPath="$PROJECT_DIR$/resources/views/profile/profile_experience.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/web.php" afterPath="$PROJECT_DIR$/routes/web.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -167,15 +161,15 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main-app.blade.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="main-app.blade.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/views/layouts/main-app.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="175">
-              <caret line="3364" column="80" lean-forward="false" selection-start-line="3364" selection-start-column="80" selection-end-line="3364" selection-end-column="80" />
+            <state relative-caret-position="698">
+              <caret line="583" column="38" lean-forward="true" selection-start-line="583" selection-start-column="38" selection-end-line="583" selection-end-column="38" />
               <folding>
-                <marker date="1544962276378" expanded="true" signature="32825:32871" ph="..." />
-                <marker date="1544962276378" expanded="true" signature="35868:35903" ph="..." />
-                <marker date="1544962276378" expanded="true" signature="129565:129595" ph="..." />
+                <marker date="1545012947605" expanded="true" signature="32851:32897" ph="..." />
+                <marker date="1545012947605" expanded="true" signature="35894:35929" ph="..." />
+                <marker date="1545012947605" expanded="true" signature="129591:129621" ph="..." />
               </folding>
             </state>
           </provider>
@@ -211,11 +205,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="profile_experience.blade.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="profile_experience.blade.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/profile/profile_experience.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="673">
-              <caret line="265" column="75" lean-forward="false" selection-start-line="265" selection-start-column="75" selection-end-line="265" selection-end-column="75" />
+            <state relative-caret-position="523">
+              <caret line="259" column="61" lean-forward="true" selection-start-line="259" selection-start-column="61" selection-end-line="259" selection-end-column="61" />
               <folding>
                 <element signature="e#8394#8445#0#HTML" expanded="true" />
                 <element signature="e#16449#16503#0#HTML" expanded="true" />
@@ -368,9 +362,9 @@
         <option value="$PROJECT_DIR$/routes/web.php" />
         <option value="$PROJECT_DIR$/app/educations.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/ProfileEducationControllerr.php" />
-        <option value="$PROJECT_DIR$/resources/views/layouts/main-app.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/profile/profile_education.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/profile/profile_experience.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/layouts/main-app.blade.php" />
       </list>
     </option>
   </component>
@@ -771,12 +765,12 @@
       <workItem from="1544404642459" duration="92859000" />
       <workItem from="1544703863647" duration="18864000" />
       <workItem from="1544740648247" duration="12791000" />
-      <workItem from="1544781191340" duration="28267000" />
+      <workItem from="1544781191340" duration="28605000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="737106000" />
+    <option name="totallyTimeSpent" value="737444000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="2869" y="-11" width="2542" height="1537" extended-state="6" />
@@ -1143,18 +1137,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/layouts/main-app.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="175">
-          <caret line="3364" column="80" lean-forward="false" selection-start-line="3364" selection-start-column="80" selection-end-line="3364" selection-end-column="80" />
-          <folding>
-            <marker date="1544962276378" expanded="true" signature="32825:32871" ph="..." />
-            <marker date="1544962276378" expanded="true" signature="35868:35903" ph="..." />
-            <marker date="1544962276378" expanded="true" signature="129565:129595" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ProfileExperienceController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="350">
@@ -1175,14 +1157,26 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/profile/profile_experience.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="673">
-          <caret line="265" column="75" lean-forward="false" selection-start-line="265" selection-start-column="75" selection-end-line="265" selection-end-column="75" />
+        <state relative-caret-position="523">
+          <caret line="259" column="61" lean-forward="true" selection-start-line="259" selection-start-column="61" selection-end-line="259" selection-end-column="61" />
           <folding>
             <element signature="e#8394#8445#0#HTML" expanded="true" />
             <element signature="e#16449#16503#0#HTML" expanded="true" />
             <element signature="e#21292#21335#0#HTML" expanded="true" />
             <element signature="e#22579#22695#0#HTML" expanded="true" />
             <element signature="e#22703#22729#0#HTML" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/layouts/main-app.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="698">
+          <caret line="583" column="38" lean-forward="true" selection-start-line="583" selection-start-column="38" selection-end-line="583" selection-end-column="38" />
+          <folding>
+            <marker date="1545012947605" expanded="true" signature="32851:32897" ph="..." />
+            <marker date="1545012947605" expanded="true" signature="35894:35929" ph="..." />
+            <marker date="1545012947605" expanded="true" signature="129591:129621" ph="..." />
           </folding>
         </state>
       </provider>
