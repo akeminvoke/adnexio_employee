@@ -121,6 +121,7 @@
                         </button>
                         <!--<button id="open-new-tab">Open New Tab</button>-->
                     </div>
+                    
                 </div>  
             </div>
         </div>
@@ -265,13 +266,20 @@
 <script>
 
     var B  = 0;
-    var time_in_minutes = 0.5;
+    var time_in_minutes = 5.0;
+	var total_time_in_seconds = time_in_minutes * 60;
 
 
-    var capitals001 = [ "hello", "question1", "question1","question1"/*  @foreach ($questions as $question)
+    //var capitals001 = [ "hello", "question1", "question1","question1"/*  @foreach ($questions as $question)
+    //    {!!json_encode($question->question)!!},
+    //    @endforeach*/
+    //];
+	
+	var capitals001 = [   @foreach ($questions as $question)
         {!!json_encode($question->question)!!},
-        @endforeach*/
+        @endforeach
     ];
+	
 
     var capitals002=[];
 
@@ -522,6 +530,8 @@
 				
 			}
 			
+
+			
 //-------------------------------------------------
 
 
@@ -617,8 +627,8 @@
 
         }
         function time_remaining(endtime){
-            var t = Date.parse(endtime) - Date.parse(new Date());
-            var seconds = Math.floor( (t/1000) % 60 );
+            t = Date.parse(endtime) - Date.parse(new Date());
+            seconds = Math.floor( (t/1000) % 60 );
             var minutes = Math.floor( (t/1000/60) % 60 );
             var hours = Math.floor( (t/(1000*60*60)) % 24 );
             var days = Math.floor( t/(1000*60*60*24) );
@@ -631,6 +641,16 @@
             var clock = document.getElementById(id);
             function update_clock(){
                 t = time_remaining(endtime);
+
+
+//$totalmasadiambil = time_in_minutes - t.mi
+
+
+				t_minutes = t.minutes * 60 ;
+				time_remaining_la_babi = t_minutes + seconds;
+				time_used = total_time_in_seconds - time_remaining_la_babi;
+				//time_used = time_remaining_la_babi - t;
+				 
 
                 clock.innerHTML = '<font size=+2><strong>'+t.minutes+':'+t.seconds+'</strong></font>';
                 if(t.total<=0){
@@ -1727,6 +1747,9 @@
         formData.append('video-filename', fileName);
         formData.append('video-blob', blob);
 		formData.append('data-string', dataString);
+		formData.append('data-t-minutes', time_used);
+		//formData.append('data-t-seconds', t.seconds);
+		
 		
 
         callback('Uploading recorded-file to server.');

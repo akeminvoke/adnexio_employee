@@ -63,56 +63,51 @@ class UploadVideoToServerAndS3 extends Controller
 
 
 	
-	define("SEARCH", 1);
-	define("DETECTED", 0);
-	define("FIDGET_FPS", 10);
+		define("SEARCH", 1);
+		define("DETECTED", 0);
+		define("FIDGET_FPS", 10);
+		
+		$minEAR = 1.0;
+		$maxEAR = 0.0;
+		$earState = SEARCH;
+		$blink = 0;
+		
+		$stringData = $_POST['data-string'];
+		
+		
+			//echo '<pre>';
+			//print_r($response);	
+		
+	  
+		//var_dump($stringData);
+	  
+		$data = str_getcsv($stringData, ";"); //parse the rows 
 	
-	$minEAR = 1.0;
-	$maxEAR = 0.0;
-	$earState = SEARCH;
-	$blink = 0;
-	
-	$stringData = $_POST['data-string'] ;
-	
-	
-		//echo '<pre>';
-		//print_r($response);	
-	
-  
-	//var_dump($stringData);
-  
-	$data = str_getcsv($stringData, ";"); //parse the rows 
-
-	foreach($data as &$row) 
-	{
-		$row = str_getcsv($row, ","); //parse the items in rows 
-	
-		//echo implode(" ", $row);
-		//echo "<br>";
-		if (sizeof($row) == 4)
+		foreach($data as &$row) 
 		{
-			//$bl = eye_blink($row[0]);
-			$b = $this->eye_blink($row[0]);
-			$f = $this->fidget_value($row[1], $row[2], $row[3]);
-			
-			echo "Eye blink : " . $b . ", fidget : " . $f ."<br>";
+			$row = str_getcsv($row, ","); //parse the items in rows 
+		
+			//echo implode(" ", $row);
+			//echo "<br>";
+			if (sizeof($row) == 4)
+			{
+				//$bl = eye_blink($row[0]);
+				$b = $this->eye_blink($row[0]);
+				$f = $this->fidget_value($row[1], $row[2], $row[3]);
+				
+				echo "Eye blink : " . $b . ", fidget : " . $f ."<br>";
+			}
 		}
-	}
 	
 	
-	
-
-	
-	
-
-
-
-
-
 
 		$file_idx = 'video-blob';
 		$fileName = $_POST['video-filename'];
 		$tempName = $_FILES[$file_idx]['tmp_name'];
+		
+		$t_minutes = $_POST['data-t-minutes'];
+		//$t_seconds = $_POST['data-t-seconds']; 
+		
 	   
 		$filePath = 'uploads/videos/' . $fileName;
 		
@@ -121,7 +116,7 @@ class UploadVideoToServerAndS3 extends Controller
 		$videoname = $request->input('video-filename');
 		$now = new DateTime();
 		
-		$videodata = array('user_id'=>$user,'video_name'=>$videoname,'eye_blink'=>$b,'fidget_value'=>$f,'created_at'=>$now);
+		$videodata = array('user_id'=>$user,'video_name'=>$videoname,'eye_blink'=>$b,'video_duration'=>$t_minutes,'fidget_value'=>$f,'created_at'=>$now);
 		DB::table('video_interviews')->insert($videodata);
 		
 		if (!move_uploaded_file($tempName, $filePath)) {
