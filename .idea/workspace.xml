@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="69f72ef5-f313-4757-8395-3e86a70699c5" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/ProfileEducationControllerr.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/ProfileEducationControllerr.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/layouts/main-app.blade.php" afterPath="$PROJECT_DIR$/resources/views/layouts/main-app.blade.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -153,22 +152,22 @@
       <file leaf-file-name="profile_education.blade.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/profile/profile_education.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="671">
-              <caret line="97" column="115" lean-forward="true" selection-start-line="97" selection-start-column="115" selection-end-line="97" selection-end-column="115" />
+            <state relative-caret-position="396">
+              <caret line="142" column="50" lean-forward="true" selection-start-line="142" selection-start-column="50" selection-end-line="142" selection-end-column="50" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main-app.blade.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="main-app.blade.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/views/layouts/main-app.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="732">
-              <caret line="1521" column="13" lean-forward="true" selection-start-line="1521" selection-start-column="13" selection-end-line="1521" selection-end-column="18" />
+            <state relative-caret-position="582">
+              <caret line="1608" column="0" lean-forward="true" selection-start-line="1608" selection-start-column="0" selection-end-line="1608" selection-end-column="0" />
               <folding>
-                <marker date="1545099303072" expanded="true" signature="33315:33361" ph="..." />
-                <marker date="1545099303072" expanded="true" signature="36360:36395" ph="..." />
-                <marker date="1545099303072" expanded="true" signature="131631:131661" ph="..." />
+                <marker date="1545104711343" expanded="true" signature="33315:33361" ph="..." />
+                <marker date="1545104711343" expanded="true" signature="36360:36395" ph="..." />
+                <marker date="1545104711343" expanded="true" signature="131741:131771" ph="..." />
               </folding>
             </state>
           </provider>
@@ -194,11 +193,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ProfileExperienceController.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ProfileExperienceController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ProfileExperienceController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="673">
-              <caret line="236" column="11" lean-forward="true" selection-start-line="236" selection-start-column="11" selection-end-line="236" selection-end-column="11" />
+            <state relative-caret-position="323">
+              <caret line="222" column="48" lean-forward="true" selection-start-line="222" selection-start-column="48" selection-end-line="222" selection-end-column="48" />
               <folding />
             </state>
           </provider>
@@ -217,8 +216,8 @@
       <file leaf-file-name="profile_experience.blade.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/profile/profile_experience.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17500">
-              <caret line="703" column="89" lean-forward="false" selection-start-line="703" selection-start-column="89" selection-end-line="703" selection-end-column="89" />
+            <state relative-caret-position="360">
+              <caret line="154" column="108" lean-forward="false" selection-start-line="154" selection-start-column="87" selection-end-line="154" selection-end-column="108" />
               <folding />
             </state>
           </provider>
@@ -355,9 +354,9 @@
         <option value="$PROJECT_DIR$/resources/views/profile/profile_experience.blade.php" />
         <option value="$PROJECT_DIR$/routes/web.php" />
         <option value="$PROJECT_DIR$/resources/views/profile/profile_education.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/layouts/main-app.blade.php" />
         <option value="$PROJECT_DIR$/public/assets/js/pages/be_forms_validation.min.js" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/ProfileEducationControllerr.php" />
+        <option value="$PROJECT_DIR$/resources/views/layouts/main-app.blade.php" />
       </list>
     </option>
   </component>
@@ -588,7 +587,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="DatabaseDriversLRU" value="mysql" />
-    <property name="SearchEverywhereHistoryKey" value="be&#9;FILE&#9;file://C:/Users/akem/Documents/github/adnexio_employee/public/assets/js/pages/be_forms_validation.min.js&#10;main&#9;FILE&#9;file://C:/Users/akem/Documents/github/adnexio_employee/resources/views/layouts/main-app.blade.php&#10;web&#9;FILE&#9;file://C:/Users/akem/Documents/github/adnexio_employee/routes/web.php&#10;profile&#9;FILE&#9;file://C:/Users/akem/Documents/github/adnexio_employee/resources/views/profile/profile_experience.blade.php&#10;profile_educati&#9;FILE&#9;file://C:/Users/akem/Documents/github/adnexio_employee/resources/views/profile/profile_education.blade.php&#10;pro&#9;FILE&#9;file://C:/Users/akem/Documents/github/adnexio_employee/app/Http/Controllers/ProfileExperienceController.php&#10;env&#9;FILE&#9;file://C:/Users/akem/Documents/github/adnexio_employee/.env&#10;dashmix&#9;FILE&#9;file://C:/Users/akem/Documents/github/adnexio_employee/public/css/dashmix.css&#10;dash&#9;FILE&#9;file://C:/Users/akem/Documents/github/adnexio_employee/public/assets/css/dashmix.css&#10;profi&#9;FILE&#9;file://C:/Users/akem/Documents/github/adnexio_employee/resources/views/profile/profile_education.blade.php&#10;prof&#9;FILE&#9;file://C:/Users/akem/Documents/github/adnexio_employee/resources/views/profile/profile_experience.blade.php&#10;educa&#9;FILE&#9;file://C:/Users/akem/Documents/github/adnexio_employee/app/Http/Controllers/ProfileEducationControllerr.php&#10;exper&#9;FILE&#9;file://C:/Users/akem/Documents/github/adnexio_employee/resources/views/profile/profile_experience.blade.php&#10;ex&#9;FILE&#9;file://C:/Users/akem/Documents/github/adnexio_employee/app/Http/Controllers/ProfileExperienceController.php&#10;das&#9;FILE&#9;file://C:/Users/akem/Documents/github/adnexio_employee/public/assets/css/dashmix.css&#10;main-&#9;FILE&#9;file://C:/Users/akem/Documents/github/adnexio_employee/resources/views/layouts/main-app.blade.php&#10;we&#9;FILE&#9;file://C:/Users/akem/Documents/github/adnexio_employee/resources/views/emails/welcome.blade.php&#10;abou&#9;FILE&#9;file://C:/Users/akem/Documents/github/adnexio_employee/resources/views/profile/profile_aboutme.blade.php&#10;user&#9;null&#9;null&#10;add_field_ex&#9;FILE&#9;file://C:/Users/akem/Documents/github/adnexio_employee/database/migrations/2018_12_01_081658_add_field_exp_id_user.php&#10;profil&#9;FILE&#9;file://C:/xampp/htdocs/dropzone/resources/views/profile/profile_cvupload.blade.php&#10;about&#9;FILE&#9;file://C:/xampp/htdocs/dropzone/resources/views/profile/profile_aboutme.blade.php&#10;be_forms_validation.min.js&#9;FILE&#9;file://C:/xampp/htdocs/dropzone/public/assets/js/pages/be_forms_validation.min.js&#10;addi&#9;FILE&#9;file://C:/xampp/htdocs/dropzone/public/assets/js/plugins/jquery-validation/additional-methods.js&#10;jquery.validate.min.js&#9;FILE&#9;file://C:/xampp/htdocs/dropzone/public/assets/js/plugins/jquery-validation/jquery.validate.min.js&#10;home&#9;FILE&#9;file://C:/xampp/htdocs/dropzone/app/Http/Controllers/HomeController.php&#10;app.scss&#9;FILE&#9;file://C:/Users/akem/Documents/github/adnexio_employee/resources/sass/app.scss" />
+    <property name="SearchEverywhereHistoryKey" value="main&#9;FILE&#9;file://C:/Users/akem/Documents/github/adnexio_employee/resources/views/layouts/main-app.blade.php&#10;be&#9;FILE&#9;file://C:/Users/akem/Documents/github/adnexio_employee/public/assets/js/pages/be_forms_validation.min.js&#10;web&#9;FILE&#9;file://C:/Users/akem/Documents/github/adnexio_employee/routes/web.php&#10;profile&#9;FILE&#9;file://C:/Users/akem/Documents/github/adnexio_employee/resources/views/profile/profile_experience.blade.php&#10;profile_educati&#9;FILE&#9;file://C:/Users/akem/Documents/github/adnexio_employee/resources/views/profile/profile_education.blade.php&#10;pro&#9;FILE&#9;file://C:/Users/akem/Documents/github/adnexio_employee/app/Http/Controllers/ProfileExperienceController.php&#10;env&#9;FILE&#9;file://C:/Users/akem/Documents/github/adnexio_employee/.env&#10;dashmix&#9;FILE&#9;file://C:/Users/akem/Documents/github/adnexio_employee/public/css/dashmix.css&#10;dash&#9;FILE&#9;file://C:/Users/akem/Documents/github/adnexio_employee/public/assets/css/dashmix.css&#10;profi&#9;FILE&#9;file://C:/Users/akem/Documents/github/adnexio_employee/resources/views/profile/profile_education.blade.php&#10;prof&#9;FILE&#9;file://C:/Users/akem/Documents/github/adnexio_employee/resources/views/profile/profile_experience.blade.php&#10;educa&#9;FILE&#9;file://C:/Users/akem/Documents/github/adnexio_employee/app/Http/Controllers/ProfileEducationControllerr.php&#10;exper&#9;FILE&#9;file://C:/Users/akem/Documents/github/adnexio_employee/resources/views/profile/profile_experience.blade.php&#10;ex&#9;FILE&#9;file://C:/Users/akem/Documents/github/adnexio_employee/app/Http/Controllers/ProfileExperienceController.php&#10;das&#9;FILE&#9;file://C:/Users/akem/Documents/github/adnexio_employee/public/assets/css/dashmix.css&#10;main-&#9;FILE&#9;file://C:/Users/akem/Documents/github/adnexio_employee/resources/views/layouts/main-app.blade.php&#10;we&#9;FILE&#9;file://C:/Users/akem/Documents/github/adnexio_employee/resources/views/emails/welcome.blade.php&#10;abou&#9;FILE&#9;file://C:/Users/akem/Documents/github/adnexio_employee/resources/views/profile/profile_aboutme.blade.php&#10;user&#9;null&#9;null&#10;add_field_ex&#9;FILE&#9;file://C:/Users/akem/Documents/github/adnexio_employee/database/migrations/2018_12_01_081658_add_field_exp_id_user.php&#10;profil&#9;FILE&#9;file://C:/xampp/htdocs/dropzone/resources/views/profile/profile_cvupload.blade.php&#10;about&#9;FILE&#9;file://C:/xampp/htdocs/dropzone/resources/views/profile/profile_aboutme.blade.php&#10;be_forms_validation.min.js&#9;FILE&#9;file://C:/xampp/htdocs/dropzone/public/assets/js/pages/be_forms_validation.min.js&#10;addi&#9;FILE&#9;file://C:/xampp/htdocs/dropzone/public/assets/js/plugins/jquery-validation/additional-methods.js&#10;jquery.validate.min.js&#9;FILE&#9;file://C:/xampp/htdocs/dropzone/public/assets/js/plugins/jquery-validation/jquery.validate.min.js&#10;home&#9;FILE&#9;file://C:/xampp/htdocs/dropzone/app/Http/Controllers/HomeController.php&#10;app.scss&#9;FILE&#9;file://C:/Users/akem/Documents/github/adnexio_employee/resources/sass/app.scss" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../clone" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -719,12 +718,12 @@
       <workItem from="1544703863647" duration="18864000" />
       <workItem from="1544740648247" duration="12791000" />
       <workItem from="1544781191340" duration="38946000" />
-      <workItem from="1545033938160" duration="17771000" />
+      <workItem from="1545033938160" duration="18805000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="765556000" />
+    <option name="totallyTimeSpent" value="766590000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="2869" y="-11" width="2542" height="1537" extended-state="6" />
@@ -1053,39 +1052,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/profile/profile_experience.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17500">
-          <caret line="703" column="89" lean-forward="false" selection-start-line="703" selection-start-column="89" selection-end-line="703" selection-end-column="89" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/routes/web.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="525">
           <caret line="59" column="96" lean-forward="false" selection-start-line="59" selection-start-column="84" selection-end-line="59" selection-end-column="96" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/profile/profile_education.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="671">
-          <caret line="97" column="115" lean-forward="true" selection-start-line="97" selection-start-column="115" selection-end-line="97" selection-end-column="115" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/layouts/main-app.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="732">
-          <caret line="1521" column="13" lean-forward="true" selection-start-line="1521" selection-start-column="13" selection-end-line="1521" selection-end-column="18" />
-          <folding>
-            <marker date="1545099303072" expanded="true" signature="33315:33361" ph="..." />
-            <marker date="1545099303072" expanded="true" signature="36360:36395" ph="..." />
-            <marker date="1545099303072" expanded="true" signature="131631:131661" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1119,9 +1090,37 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ProfileExperienceController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="673">
-          <caret line="236" column="11" lean-forward="true" selection-start-line="236" selection-start-column="11" selection-end-line="236" selection-end-column="11" />
+        <state relative-caret-position="323">
+          <caret line="222" column="48" lean-forward="true" selection-start-line="222" selection-start-column="48" selection-end-line="222" selection-end-column="48" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/profile/profile_experience.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="154" column="108" lean-forward="false" selection-start-line="154" selection-start-column="87" selection-end-line="154" selection-end-column="108" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/profile/profile_education.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="396">
+          <caret line="142" column="50" lean-forward="true" selection-start-line="142" selection-start-column="50" selection-end-line="142" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/layouts/main-app.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="582">
+          <caret line="1608" column="0" lean-forward="true" selection-start-line="1608" selection-start-column="0" selection-end-line="1608" selection-end-column="0" />
+          <folding>
+            <marker date="1545104711343" expanded="true" signature="33315:33361" ph="..." />
+            <marker date="1545104711343" expanded="true" signature="36360:36395" ph="..." />
+            <marker date="1545104711343" expanded="true" signature="131741:131771" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
