@@ -1608,7 +1608,7 @@ $('.submit-education-edit').on('click', '.submit-education-edit', function() {
 <script src="{!! asset('assets/js/pages/be_tables_datatables.min.js') !!}"></script>
 
 <!-- Page JS Form Validation -->
-<script src="{!! asset('assets/js/pages/be_forms_validation.min.js') !!}"></script>
+<script src="{!! asset('assets/js/pages/be_forms_validation.min.js?t=12345') !!}"></script>
 
 <!-- Page JS Code -->
 <script src="{!! asset('assets/js/pages/be_forms_wizard.min.js') !!}"></script>
