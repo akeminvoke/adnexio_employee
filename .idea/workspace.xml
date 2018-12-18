@@ -162,12 +162,12 @@
       <file leaf-file-name="main-app.blade.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/views/layouts/main-app.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="582">
-              <caret line="1608" column="0" lean-forward="true" selection-start-line="1608" selection-start-column="0" selection-end-line="1608" selection-end-column="0" />
+            <state relative-caret-position="707">
+              <caret line="1613" column="79" lean-forward="true" selection-start-line="1613" selection-start-column="79" selection-end-line="1613" selection-end-column="79" />
               <folding>
-                <marker date="1545104711343" expanded="true" signature="33315:33361" ph="..." />
-                <marker date="1545104711343" expanded="true" signature="36360:36395" ph="..." />
-                <marker date="1545104711343" expanded="true" signature="131741:131771" ph="..." />
+                <marker date="1545105904764" expanded="true" signature="33315:33361" ph="..." />
+                <marker date="1545105904764" expanded="true" signature="36360:36395" ph="..." />
+                <marker date="1545105904764" expanded="true" signature="131745:131775" ph="..." />
               </folding>
             </state>
           </provider>
@@ -176,8 +176,8 @@
       <file leaf-file-name="be_forms_validation.min.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/assets/js/pages/be_forms_validation.min.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="620">
-              <caret line="98" column="47" lean-forward="true" selection-start-line="98" selection-start-column="47" selection-end-line="98" selection-end-column="47" />
+            <state relative-caret-position="195">
+              <caret line="81" column="42" lean-forward="true" selection-start-line="81" selection-start-column="42" selection-end-line="81" selection-end-column="42" />
               <folding />
             </state>
           </provider>
@@ -268,7 +268,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>cancel</find>
       <find>'add_detail':$('#add-information').val(),</find>
       <find>pull</find>
       <find>fa-edit</find>
@@ -298,6 +297,7 @@
       <find>cancel-submit-experience</find>
       <find>submit</find>
       <find>submit-edu</find>
+      <find>validate</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -718,12 +718,12 @@
       <workItem from="1544703863647" duration="18864000" />
       <workItem from="1544740648247" duration="12791000" />
       <workItem from="1544781191340" duration="38946000" />
-      <workItem from="1545033938160" duration="18805000" />
+      <workItem from="1545033938160" duration="19834000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="766590000" />
+    <option name="totallyTimeSpent" value="767619000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="2869" y="-11" width="2542" height="1537" extended-state="6" />
@@ -1070,14 +1070,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/assets/js/pages/be_forms_validation.min.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="620">
-          <caret line="98" column="47" lean-forward="true" selection-start-line="98" selection-start-column="47" selection-end-line="98" selection-end-column="47" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ProfileEducationControllerr.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1275">
@@ -1112,14 +1104,22 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/public/assets/js/pages/be_forms_validation.min.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="81" column="42" lean-forward="true" selection-start-line="81" selection-start-column="42" selection-end-line="81" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/layouts/main-app.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="582">
-          <caret line="1608" column="0" lean-forward="true" selection-start-line="1608" selection-start-column="0" selection-end-line="1608" selection-end-column="0" />
+        <state relative-caret-position="707">
+          <caret line="1613" column="79" lean-forward="true" selection-start-line="1613" selection-start-column="79" selection-end-line="1613" selection-end-column="79" />
           <folding>
-            <marker date="1545104711343" expanded="true" signature="33315:33361" ph="..." />
-            <marker date="1545104711343" expanded="true" signature="36360:36395" ph="..." />
-            <marker date="1545104711343" expanded="true" signature="131741:131771" ph="..." />
+            <marker date="1545105904764" expanded="true" signature="33315:33361" ph="..." />
+            <marker date="1545105904764" expanded="true" signature="36360:36395" ph="..." />
+            <marker date="1545105904764" expanded="true" signature="131745:131775" ph="..." />
           </folding>
         </state>
       </provider>

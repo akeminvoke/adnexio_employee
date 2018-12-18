@@ -1598,7 +1598,7 @@ $('.submit-education-edit').on('click', '.submit-education-edit', function() {
 <script src="{!! asset('assets/js/plugins/select2/js/select2.full.min.js') !!}"></script>
 <script src="{!! asset('assets/js/plugins/jquery-bootstrap-wizard/bs4/jquery.bootstrap.wizard.min.js') !!}"></script>
 {{--<script src="{!! asset('assets/js/plugins/jquery-validation/jquery.validate.min.js') !!}"></script>--}}
-<script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.0/dist/jquery.validate.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.0/dist/jquery.validate.js?n=1"></script>
 <script src="{!! asset('assets/js/plugins/jquery-validation/additional-methods.js') !!}"></script>
 
 <!-- Page JS Home Dashboard -->
