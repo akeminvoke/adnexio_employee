@@ -75,12 +75,23 @@
 
                         <div class="row">
                             <div class="col-md-4">
-                                <label class="custom-control-data-label" id="lbl_experience_industry">course</label>
+                                <label class="custom-control-data-label" id="lbl_experience_industry">acedemic field</label>
                             </div>
                             <div class="col-md-4">
                                 <label id="lbl_experience_industry_output">{{$education->academic_field}} </label>
                             </div>
                         </div>
+
+                        <div class="row">
+
+                            <div class="col-md-4">
+                                <label class="custom-control-data-label" id="lbl_experience_industry">course</label>
+                            </div>
+                            <div class="col-md-4">
+                                <label id="lbl_experience_industry_output">{{$education->gname}}</label>
+                            </div>
+                        </div>
+
                         <div class="row">
 
                             <div class="col-md-4">

@@ -43,9 +43,10 @@ class ProfileEducationControllerr extends Controller
                      ->join('countries as c' ,'c.id','=','a.countries_id')
                      ->join('qualifications as d','d.id','=','a.qualifications_id')
             ->join('academic_fields as e','a.academic_fields_id','=','e.id')
+            ->join('courses as g','g.id','=','a.courses_id')
             ->leftjoin('universities as f','a.university_name','=','f.id')
             ->select('a.university_name','a.id','a.countries_id','a.academic_fields_id as field','a.major','a.courses_id','e.academic_field',
-                    'a.graduation_date','a.countries_id','a.grade','a.cgpa','a.desc','c.name as cname','d.name as qname','a.qualifications_id','a.other_uni','a.desc','f.name as fname')
+                    'a.graduation_date','a.countries_id','a.grade','a.cgpa','a.desc','c.name as cname','g.course as gname','d.name as qname','a.qualifications_id','a.other_uni','a.desc','f.name as fname')
             ->where('a.user_id',$user->id )
             ->wherenull('a.deleted_at')
             ->get();
@@ -147,6 +148,9 @@ class ProfileEducationControllerr extends Controller
 
         return response()->json($course);
 
+
+
+
     }
 
     public function getuni()
@@ -192,6 +196,7 @@ class ProfileEducationControllerr extends Controller
         $education->graduation_date = $request->graduation_date;
         $education->countries_id = $request->country_institute;
         $education->courses_id = $request->course;
+        $education->academic_fields_id = $request->field;
         $education->major = $request->major;
         $education->grade = $request->grade;
         $education->cgpa = $request->cgpa;

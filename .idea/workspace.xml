@@ -2,13 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="69f72ef5-f313-4757-8395-3e86a70699c5" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/ProfileEducationControllerr.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/ProfileEducationControllerr.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/js/pages/be_forms_validation.min.js" afterPath="$PROJECT_DIR$/public/assets/js/pages/be_forms_validation.min.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/layouts/main-app.blade.php" afterPath="$PROJECT_DIR$/resources/views/layouts/main-app.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/profile/profile_education.blade.php" afterPath="$PROJECT_DIR$/resources/views/profile/profile_education.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/profile/profile_experience.blade.php" afterPath="$PROJECT_DIR$/resources/views/profile/profile_experience.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/web.php" afterPath="$PROJECT_DIR$/routes/web.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -158,8 +154,8 @@
       <file leaf-file-name="profile_education.blade.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/profile/profile_education.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="796">
-              <caret line="307" column="94" lean-forward="true" selection-start-line="307" selection-start-column="94" selection-end-line="307" selection-end-column="94" />
+            <state relative-caret-position="671">
+              <caret line="97" column="115" lean-forward="true" selection-start-line="97" selection-start-column="115" selection-end-line="97" selection-end-column="115" />
               <folding />
             </state>
           </provider>
@@ -168,22 +164,22 @@
       <file leaf-file-name="main-app.blade.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/layouts/main-app.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="823">
-              <caret line="1259" column="18" lean-forward="true" selection-start-line="1259" selection-start-column="18" selection-end-line="1259" selection-end-column="18" />
+            <state relative-caret-position="732">
+              <caret line="1521" column="13" lean-forward="true" selection-start-line="1521" selection-start-column="13" selection-end-line="1521" selection-end-column="18" />
               <folding>
-                <marker date="1545039166565" expanded="true" signature="32918:32964" ph="..." />
-                <marker date="1545039166565" expanded="true" signature="35963:35998" ph="..." />
-                <marker date="1545039166565" expanded="true" signature="130277:130307" ph="..." />
+                <marker date="1545099303072" expanded="true" signature="33315:33361" ph="..." />
+                <marker date="1545099303072" expanded="true" signature="36360:36395" ph="..." />
+                <marker date="1545099303072" expanded="true" signature="131631:131661" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="be_forms_validation.min.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="be_forms_validation.min.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/assets/js/pages/be_forms_validation.min.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="81" column="42" lean-forward="true" selection-start-line="81" selection-start-column="42" selection-end-line="81" selection-end-column="42" />
+            <state relative-caret-position="845">
+              <caret line="107" column="56" lean-forward="true" selection-start-line="107" selection-start-column="56" selection-end-line="107" selection-end-column="56" />
               <folding />
             </state>
           </provider>
@@ -202,8 +198,8 @@
       <file leaf-file-name="ProfileExperienceController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ProfileExperienceController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="350">
-              <caret line="25" column="19" lean-forward="false" selection-start-line="25" selection-start-column="19" selection-end-line="25" selection-end-column="19" />
+            <state relative-caret-position="523">
+              <caret line="188" column="55" lean-forward="true" selection-start-line="188" selection-start-column="55" selection-end-line="188" selection-end-column="55" />
               <folding />
             </state>
           </provider>
@@ -229,11 +225,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ProfileEducationControllerr.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ProfileEducationControllerr.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ProfileEducationControllerr.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="944">
-              <caret line="143" column="5" lean-forward="true" selection-start-line="143" selection-start-column="5" selection-end-line="143" selection-end-column="5" />
+            <state relative-caret-position="723">
+              <caret line="198" column="57" lean-forward="true" selection-start-line="198" selection-start-column="57" selection-end-line="198" selection-end-column="57" />
               <folding>
                 <element signature="e#40#64#0#PHP" expanded="true" />
               </folding>
@@ -254,8 +250,8 @@
       <file leaf-file-name="educations.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/educations.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="350">
-              <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+            <state relative-caret-position="375">
+              <caret line="15" column="0" lean-forward="true" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
               <folding>
                 <element signature="e#23#62#0#PHP" expanded="true" />
               </folding>
@@ -274,15 +270,10 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>univer</find>
-      <find>add-education</find>
-      <find>prev</find>
       <find>cancel</find>
-      <find>submit</find>
       <find>'add_detail':$('#add-information').val(),</find>
       <find>pull</find>
       <find>fa-edit</find>
-      <find>edit-experience</find>
       <find>modal-block-large</find>
       <find>edit</find>
       <find>Company_Name</find>
@@ -304,6 +295,11 @@
       <find>submit-experience-delete</find>
       <find>myCheckbox</find>
       <find>field-edit</find>
+      <find>edit-experience</find>
+      <find>allc</find>
+      <find>cancel-submit-experience</find>
+      <find>submit</find>
+      <find>submit-edu</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -358,11 +354,11 @@
         <option value="$PROJECT_DIR$/app/Http/Controllers/ProfileExperienceController.php" />
         <option value="$PROJECT_DIR$/app/educations.php" />
         <option value="$PROJECT_DIR$/resources/views/profile/profile_experience.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/profile/profile_education.blade.php" />
         <option value="$PROJECT_DIR$/routes/web.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/ProfileEducationControllerr.php" />
-        <option value="$PROJECT_DIR$/resources/views/layouts/main-app.blade.php" />
         <option value="$PROJECT_DIR$/public/assets/js/pages/be_forms_validation.min.js" />
+        <option value="$PROJECT_DIR$/resources/views/profile/profile_education.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/layouts/main-app.blade.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/ProfileEducationControllerr.php" />
       </list>
     </option>
   </component>
@@ -587,53 +583,13 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="adnexio_employee" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="adnexio_employee" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Http" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="adnexio_employee" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="adnexio_employee" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Http" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Controllers" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="DatabaseDriversLRU" value="mysql" />
-    <property name="SearchEverywhereHistoryKey" value="web&#9;FILE&#9;file://C:/Users/akem/Documents/github/adnexio_employee/routes/web.php&#10;be&#9;FILE&#9;file://C:/Users/akem/Documents/github/adnexio_employee/public/assets/js/pages/be_forms_validation.min.js&#10;profile&#9;FILE&#9;file://C:/Users/akem/Documents/github/adnexio_employee/resources/views/profile/profile_experience.blade.php&#10;main&#9;FILE&#9;file://C:/Users/akem/Documents/github/adnexio_employee/resources/views/layouts/main-app.blade.php&#10;profile_educati&#9;FILE&#9;file://C:/Users/akem/Documents/github/adnexio_employee/resources/views/profile/profile_education.blade.php&#10;pro&#9;FILE&#9;file://C:/Users/akem/Documents/github/adnexio_employee/app/Http/Controllers/ProfileExperienceController.php&#10;env&#9;FILE&#9;file://C:/Users/akem/Documents/github/adnexio_employee/.env&#10;dashmix&#9;FILE&#9;file://C:/Users/akem/Documents/github/adnexio_employee/public/css/dashmix.css&#10;dash&#9;FILE&#9;file://C:/Users/akem/Documents/github/adnexio_employee/public/assets/css/dashmix.css&#10;profi&#9;FILE&#9;file://C:/Users/akem/Documents/github/adnexio_employee/resources/views/profile/profile_education.blade.php&#10;prof&#9;FILE&#9;file://C:/Users/akem/Documents/github/adnexio_employee/resources/views/profile/profile_experience.blade.php&#10;educa&#9;FILE&#9;file://C:/Users/akem/Documents/github/adnexio_employee/app/Http/Controllers/ProfileEducationControllerr.php&#10;exper&#9;FILE&#9;file://C:/Users/akem/Documents/github/adnexio_employee/resources/views/profile/profile_experience.blade.php&#10;ex&#9;FILE&#9;file://C:/Users/akem/Documents/github/adnexio_employee/app/Http/Controllers/ProfileExperienceController.php&#10;das&#9;FILE&#9;file://C:/Users/akem/Documents/github/adnexio_employee/public/assets/css/dashmix.css&#10;main-&#9;FILE&#9;file://C:/Users/akem/Documents/github/adnexio_employee/resources/views/layouts/main-app.blade.php&#10;we&#9;FILE&#9;file://C:/Users/akem/Documents/github/adnexio_employee/resources/views/emails/welcome.blade.php&#10;abou&#9;FILE&#9;file://C:/Users/akem/Documents/github/adnexio_employee/resources/views/profile/profile_aboutme.blade.php&#10;user&#9;null&#9;null&#10;add_field_ex&#9;FILE&#9;file://C:/Users/akem/Documents/github/adnexio_employee/database/migrations/2018_12_01_081658_add_field_exp_id_user.php&#10;profil&#9;FILE&#9;file://C:/xampp/htdocs/dropzone/resources/views/profile/profile_cvupload.blade.php&#10;about&#9;FILE&#9;file://C:/xampp/htdocs/dropzone/resources/views/profile/profile_aboutme.blade.php&#10;be_forms_validation.min.js&#9;FILE&#9;file://C:/xampp/htdocs/dropzone/public/assets/js/pages/be_forms_validation.min.js&#10;addi&#9;FILE&#9;file://C:/xampp/htdocs/dropzone/public/assets/js/plugins/jquery-validation/additional-methods.js&#10;jquery.validate.min.js&#9;FILE&#9;file://C:/xampp/htdocs/dropzone/public/assets/js/plugins/jquery-validation/jquery.validate.min.js&#10;home&#9;FILE&#9;file://C:/xampp/htdocs/dropzone/app/Http/Controllers/HomeController.php&#10;app.scss&#9;FILE&#9;file://C:/Users/akem/Documents/github/adnexio_employee/resources/sass/app.scss" />
+    <property name="SearchEverywhereHistoryKey" value="main&#9;FILE&#9;file://C:/Users/akem/Documents/github/adnexio_employee/resources/views/layouts/main-app.blade.php&#10;web&#9;FILE&#9;file://C:/Users/akem/Documents/github/adnexio_employee/routes/web.php&#10;be&#9;FILE&#9;file://C:/Users/akem/Documents/github/adnexio_employee/public/assets/js/pages/be_forms_validation.min.js&#10;profile&#9;FILE&#9;file://C:/Users/akem/Documents/github/adnexio_employee/resources/views/profile/profile_experience.blade.php&#10;profile_educati&#9;FILE&#9;file://C:/Users/akem/Documents/github/adnexio_employee/resources/views/profile/profile_education.blade.php&#10;pro&#9;FILE&#9;file://C:/Users/akem/Documents/github/adnexio_employee/app/Http/Controllers/ProfileExperienceController.php&#10;env&#9;FILE&#9;file://C:/Users/akem/Documents/github/adnexio_employee/.env&#10;dashmix&#9;FILE&#9;file://C:/Users/akem/Documents/github/adnexio_employee/public/css/dashmix.css&#10;dash&#9;FILE&#9;file://C:/Users/akem/Documents/github/adnexio_employee/public/assets/css/dashmix.css&#10;profi&#9;FILE&#9;file://C:/Users/akem/Documents/github/adnexio_employee/resources/views/profile/profile_education.blade.php&#10;prof&#9;FILE&#9;file://C:/Users/akem/Documents/github/adnexio_employee/resources/views/profile/profile_experience.blade.php&#10;educa&#9;FILE&#9;file://C:/Users/akem/Documents/github/adnexio_employee/app/Http/Controllers/ProfileEducationControllerr.php&#10;exper&#9;FILE&#9;file://C:/Users/akem/Documents/github/adnexio_employee/resources/views/profile/profile_experience.blade.php&#10;ex&#9;FILE&#9;file://C:/Users/akem/Documents/github/adnexio_employee/app/Http/Controllers/ProfileExperienceController.php&#10;das&#9;FILE&#9;file://C:/Users/akem/Documents/github/adnexio_employee/public/assets/css/dashmix.css&#10;main-&#9;FILE&#9;file://C:/Users/akem/Documents/github/adnexio_employee/resources/views/layouts/main-app.blade.php&#10;we&#9;FILE&#9;file://C:/Users/akem/Documents/github/adnexio_employee/resources/views/emails/welcome.blade.php&#10;abou&#9;FILE&#9;file://C:/Users/akem/Documents/github/adnexio_employee/resources/views/profile/profile_aboutme.blade.php&#10;user&#9;null&#9;null&#10;add_field_ex&#9;FILE&#9;file://C:/Users/akem/Documents/github/adnexio_employee/database/migrations/2018_12_01_081658_add_field_exp_id_user.php&#10;profil&#9;FILE&#9;file://C:/xampp/htdocs/dropzone/resources/views/profile/profile_cvupload.blade.php&#10;about&#9;FILE&#9;file://C:/xampp/htdocs/dropzone/resources/views/profile/profile_aboutme.blade.php&#10;be_forms_validation.min.js&#9;FILE&#9;file://C:/xampp/htdocs/dropzone/public/assets/js/pages/be_forms_validation.min.js&#10;addi&#9;FILE&#9;file://C:/xampp/htdocs/dropzone/public/assets/js/plugins/jquery-validation/additional-methods.js&#10;jquery.validate.min.js&#9;FILE&#9;file://C:/xampp/htdocs/dropzone/public/assets/js/plugins/jquery-validation/jquery.validate.min.js&#10;home&#9;FILE&#9;file://C:/xampp/htdocs/dropzone/app/Http/Controllers/HomeController.php&#10;app.scss&#9;FILE&#9;file://C:/Users/akem/Documents/github/adnexio_employee/resources/sass/app.scss" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../clone" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -764,12 +720,12 @@
       <workItem from="1544703863647" duration="18864000" />
       <workItem from="1544740648247" duration="12791000" />
       <workItem from="1544781191340" duration="38946000" />
-      <workItem from="1545033938160" duration="5456000" />
+      <workItem from="1545033938160" duration="15292000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="753241000" />
+    <option name="totallyTimeSpent" value="763077000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="2869" y="-11" width="2542" height="1537" extended-state="6" />
@@ -936,6 +892,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
           <caret line="37" column="5" lean-forward="true" selection-start-line="37" selection-start-column="5" selection-end-line="37" selection-end-column="5" />
+          <folding>
+            <element signature="e#49#79#0#PHP" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1001,6 +960,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="604">
           <caret line="33" column="0" lean-forward="true" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1093,36 +1053,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/educations.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="350">
-          <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
-          <folding>
-            <element signature="e#23#62#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ProfileExperienceController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="350">
-          <caret line="25" column="19" lean-forward="false" selection-start-line="25" selection-start-column="19" selection-end-line="25" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/profile/profile_experience.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17500">
           <caret line="703" column="89" lean-forward="false" selection-start-line="703" selection-start-column="89" selection-end-line="703" selection-end-column="89" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/profile/profile_education.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="796">
-          <caret line="307" column="94" lean-forward="true" selection-start-line="307" selection-start-column="94" selection-end-line="307" selection-end-column="94" />
           <folding />
         </state>
       </provider>
@@ -1135,33 +1069,59 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ProfileEducationControllerr.php">
+    <entry file="file://$PROJECT_DIR$/public/assets/js/pages/be_forms_validation.min.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="944">
-          <caret line="143" column="5" lean-forward="true" selection-start-line="143" selection-start-column="5" selection-end-line="143" selection-end-column="5" />
-          <folding>
-            <element signature="e#40#64#0#PHP" expanded="true" />
-          </folding>
+        <state relative-caret-position="845">
+          <caret line="107" column="56" lean-forward="true" selection-start-line="107" selection-start-column="56" selection-end-line="107" selection-end-column="56" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/profile/profile_education.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="671">
+          <caret line="97" column="115" lean-forward="true" selection-start-line="97" selection-start-column="115" selection-end-line="97" selection-end-column="115" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/layouts/main-app.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="823">
-          <caret line="1259" column="18" lean-forward="true" selection-start-line="1259" selection-start-column="18" selection-end-line="1259" selection-end-column="18" />
+        <state relative-caret-position="732">
+          <caret line="1521" column="13" lean-forward="true" selection-start-line="1521" selection-start-column="13" selection-end-line="1521" selection-end-column="18" />
           <folding>
-            <marker date="1545039166565" expanded="true" signature="32918:32964" ph="..." />
-            <marker date="1545039166565" expanded="true" signature="35963:35998" ph="..." />
-            <marker date="1545039166565" expanded="true" signature="130277:130307" ph="..." />
+            <marker date="1545099303072" expanded="true" signature="33315:33361" ph="..." />
+            <marker date="1545099303072" expanded="true" signature="36360:36395" ph="..." />
+            <marker date="1545099303072" expanded="true" signature="131631:131661" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/assets/js/pages/be_forms_validation.min.js">
+    <entry file="file://$PROJECT_DIR$/app/educations.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="81" column="42" lean-forward="true" selection-start-line="81" selection-start-column="42" selection-end-line="81" selection-end-column="42" />
+        <state relative-caret-position="375">
+          <caret line="15" column="0" lean-forward="true" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+          <folding>
+            <element signature="e#23#62#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ProfileExperienceController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="523">
+          <caret line="188" column="55" lean-forward="true" selection-start-line="188" selection-start-column="55" selection-end-line="188" selection-end-column="55" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ProfileEducationControllerr.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="723">
+          <caret line="198" column="57" lean-forward="true" selection-start-line="198" selection-start-column="57" selection-end-line="198" selection-end-column="57" />
+          <folding>
+            <element signature="e#40#64#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

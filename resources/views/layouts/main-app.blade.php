@@ -547,6 +547,8 @@
     });
 
 
+
+
     $(document).on('click', '.cancel-submit-education', function () {
         $('#education_prev').removeClass('hide');
         $('#education_prev').show();
@@ -558,6 +560,18 @@
 
         // experiences
     });
+    $(document).on('click', '.cancel-submit-experience', function () {
+        $('#experience_prev').removeClass('hide');
+        $('#experience_prev').show();
+        $('#experiences').addClass('hide');
+        $('#experiences').hide();
+        $('#add-experience-btn').show();
+        // $('#add-experience').show();
+        // $('#education_prev').show();
+
+        // experiences
+    });
+
 
     $(document).on('click', '.add-experience', function() {
         //  $('.foredit').removeClass('js-validation');
@@ -566,6 +580,9 @@
         // $('#foradd').addClass('js-validation');
         $('#val-position').replaceWith( " <input type='text' class='form-control' id='val-position' name='val-position' placeholder='Enter your position'>");
         $('#val-company-name').replaceWith( " <input type='text' class='form-control' id='val-company-name' name='val-company-name' placeholder='Enter your company name'>");
+
+
+
 
 
         $('#val-industry').replaceWith( "<select class='form-control' id='val-industry' name='val-industry'> " +
@@ -1256,15 +1273,41 @@
                 $('#course-edit').append("<option disabled selected value='0'>select your course edit</option> ");
 
                 $.each(data, function (i, item) {
-                    $('#course-edit').append("<option value='" + data[i].Id + "'>" + data[i].course + "</option>");
+
+                    $('#course-edit').append("<option value=" + data[i].id + ">" + data[i].course + "</option>");
                 })
             }
         });
 
+        {{--$.ajax({--}}
+            {{--type: 'POST',--}}
+            {{--url: '{{ url("/profile/profile_education/getcourse") }}',--}}
+            {{--data: {--}}
+                {{--'_token': $('input[name=_token]').val(),--}}
+                {{--'field': $('#field-edit').val(),--}}
+            {{--},--}}
+            {{--success: function (data) {--}}
+                {{--$('#course-edit').empty();--}}
+
+                {{--$('#course-edit').append("<option disabled selected value='0'>select course</option> ");--}}
+
+
+                {{--$.each(data, function (i, item) {--}}
+                        {{--$('#course-edit').append("<option value='" + data[i].id + "'>" + data[i].course + "</option>");--}}
+
+                    {{--}--}}
+                {{--)--}}
+                {{--$('#course-edit').append("<option value='79'>Others</option> ");--}}
+            {{--}--}}
+        {{--});--}}
+
+    {{--});--}}
 
 
 
-        $('#footer_action_button').text("Update");
+
+
+    $('#footer_action_button').text("Update");
         $('#footer_action_button').addClass('glyphicon-check');
         $('#footer_action_button').removeClass('glyphicon-trash');
         $('.actionBtn').addClass('btn-primary');
@@ -1476,6 +1519,7 @@ $('.submit-education-edit').on('click', '.submit-education-edit', function() {
             'graduation_date': $('#graduation-date-edit').val(),
             'country_institute': $('#country-institute-edit').val(),
             'course': $('#course-edit').val(),
+            'field': $('#field-edit').val(),
             'major': $('#major-edit').val(),
             'grade': $('#grade-edit').val(),
             'cgpa': $('#cgpa-edit').val(),
