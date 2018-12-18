@@ -833,11 +833,22 @@
 
 
 
+
+
                                         <!-- Submit -->
                                         <div class="row items-push">
-                                            <div class="col-lg-7 offset-lg-4 submit-experience-edit">
+                                            <div class="col-sm-1 offset-md-4 submit-experience-edit" style="
+    margin-left: 27rem;">
                                                 <button type="submit" class="btn btn-primary submit-experience-edit">Submit</button>
                                             </div>
+
+                                            <div class="col-sm-1 offset-md-4 " style="margin-left: 2rem;">
+                                                <button type="button" class="btn btn-primary" data-dismiss="modal">
+                                                    <span class="glyphicon glyphicon"></span>close
+                                                </button>
+                                            </div>
+
+
                                         </div>
                                         <!-- END Submit -->
                                     </div>
@@ -847,15 +858,7 @@
 
                             <!-- jQuery Validation -->
                         </div>
-                        <div class="modal-footer">
-
-
-
-                            <button type="button" class="btn btn-warning" data-dismiss="modal">
-                                <span class="glyphicon glyphicon"></span>close
-                            </button>
-
-                        </div>
+                       
                     </div>
                 </div>
             </div>

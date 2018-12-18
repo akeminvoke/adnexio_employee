@@ -223,6 +223,13 @@
                                     </select>
                                 </div>
 
+                                <input type="text" class="form-control hide" id="add-others-academic_field" name="add-others-academic_field" placeholder="Please enter your academic field here" >
+
+
+                                <input type="text" class="form-control hide" id="add-others-course" name="add-others-course" placeholder="Please enter your course here"  style="
+    margin-top: 16px"; >
+
+
                                 <div id="keyword-job-specification" class="form-group ">
                                     <label for="val-email">Course<span class="text-danger">*</span></label>
                                     <select class="form-control" id="add-course" name="add-course" aria-describedby="val-specialization-error" aria-invalid="true">
@@ -233,7 +240,8 @@
 
 
 
-                                <div class="form-group">
+                                <div class="form-group" style="
+    margin-top: 12px;">
                                     <label for="val-email">Major<span class="text-danger">*</span></label>
                                     <input type="text" class="form-control" id="add-major" name="add-major" placeholder="">
                                 </div>
@@ -394,6 +402,11 @@
                                                         </select>
                                                     </div>
 
+                                                    <input type="text" class="form-control hide" id="others-academic_field_edit" name="others-academic_field_edit" placeholder="Please state your academic field" >
+
+
+                                                    <input type="text" class="form-control hide" id="others-course-edit" name="others-course-edit" placeholder="Please enter your course here"  style="
+    margin-top: 16px"; >
                                                     <div id="keyword-job-specification" class="form-group ">
                                                         <label for="val-email">Course<span class="text-danger">*</span></label>
                                                         <select class="form-control" id="course-edit" name="course-edit" aria-describedby="val-specialization-error" aria-invalid="true">
@@ -404,7 +417,7 @@
 
 
 
-                                                    <div class="form-group">
+                                                    <div class="form-group" style="margin-top: 12px;">
                                                         <label for="val-email">Major<span class="text-danger">*</span></label>
                                                         <input type="text" class="form-control" id="major-edit" name="major-edit" placeholder="">
                                                     </div>
@@ -451,8 +464,14 @@
 
                                         <!-- Submit -->
                                         <div class="row items-push">
-                                            <div class="col-lg-7 offset-lg-4 submit-education-edit">
+                                            <div class="col-sm-1 offset-md-4 submit-education-edit"style="margin-left: 27rem;
+">
                                                 <button type="submit" class="btn btn-primary submit-education-edit">Submit</button>
+                                            </div>
+                                            <div class="col-sm-1 offset-md-4 " style="margin-left: 2rem;">
+                                            <button type="button" class="btn btn-primary" data-dismiss="modal">
+                                                <span class="glyphicon glyphicon"></span>close
+                                            </button>
                                             </div>
                                         </div>
                                         <!-- END Submit -->
@@ -463,15 +482,7 @@
 
                             <!-- jQuery Validation -->
                         </div>
-                        <div class="modal-footer">
 
-
-
-                            <button type="button" class="btn btn-warning" data-dismiss="modal">
-                                <span class="glyphicon glyphicon"></span>close
-                            </button>
-
-                        </div>
                     </div>
                 </div>
             </div>

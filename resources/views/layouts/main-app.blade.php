@@ -1046,6 +1046,51 @@
 
     });
 
+
+
+    $('#add-field').change(function() {
+        var other_field= $("#add-field :selected").val();
+
+        if ( other_field == "Others")
+        {
+            $('#add-others-academic_field').removeClass('hide');
+            $('#add-others-course').removeClass('hide');
+            $('#keyword-job-specification').hide();
+
+            $('#add-others-academic_field').show();
+            $('#add-others-course').show();
+        } else
+        {
+            $('#add-others-academic_field').addClass('hide');
+            $('#add-others-course').hide();
+            $('#add-others-academic_field').hide();
+            $('#keyword-job-specification').show();
+        }
+
+    });
+
+
+    $('#field-edit').change(function() {
+        var other_field= $("#field-edit :selected").val();
+
+        if ( other_field == "Others")
+        {
+            $('#others-course-edit').show();
+            $('#others-academic_field_edit').removeClass('hide');
+
+            $('#others-academic_field_edit').show();
+        } else
+        {
+
+            $('#others-course-edit').hide();
+            $('#others-course-edit').hide();
+            $('#others-academic_field_edit').addClass('hide');
+            $('#others-academic_field_edit').hide();
+        }
+
+    });
+
+
     $('#institute-name-edit').change(function() {
         var uniedit= $("#institute-name-edit :selected").val();
 
