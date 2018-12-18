@@ -77,6 +77,13 @@ class ProfileEducationControllerr extends Controller
 
         $this->validate($request, [
             'university_name' => 'required',
+            'graduation_date' => 'required',
+            'country_institute' => 'required',
+            'add_major' => 'required',
+            'add_field' => 'required',
+            'add_course' => 'required',
+            'add_grade' => 'required',
+            'add_qualification' => 'required',
 
         ]);
 
