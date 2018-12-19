@@ -8,7 +8,7 @@ class VideoInterview extends Model
 {
 	
 	protected $fillable = [
-        'user_id', 'video_name', 'assessment_id', 'eye_blink', 'video_duration', 'fidget_value', 'created_at'
+        'user_id', 'video_name', 'assessment_id', 'eye_blink', 'video_duration', 'fidget_value', 'text', 'created_at'
     ];
 	
 	

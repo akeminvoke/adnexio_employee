@@ -422,9 +422,10 @@
     }
 	
 	var dataString = '';
-	let minEAR = 1.0;
-	var maxEAR = 0.0;
+	//let minEAR = 1.0;
+	//var maxEAR = 0.0;
 	var blink = 0;
+	var FIDGET_FPS = 20;
 	
 	var states = {search:0, peakDetected:1};
 	
@@ -442,25 +443,268 @@
 		return Math.sqrt((width * width) + (height * height));
 	}
 
-	function eye_aspect_ratio(left, right, top, down) {
-	
-		//var width = Math.sqrt(((left[0] - right[0]) * (left[0] - right[0])) + ((left[1] - right[1]) * (left[1] - right[1])));
-		//var height = Math.sqrt(((top[0] - down[0]) * (top[0] - down[0])) +((top[1] - down[1]) * (top[1] - down[1])) );
+	// version 0.1
+	function eye_aspect_ratio(l_left, l_right, l_top, l_down, r_left, r_right, r_top, r_down) {
+
+		var l_width = distance(l_left, l_right);
+		var r_width = distance(r_left, r_right);
 		
-		var width = distance(left, right);
-		var height = distance(top, down);
 
+		var l_height = distance(l_top, l_down);
+		var r_height = distance(r_top, r_down);
+							
 		// compute the eye aspect ratio
-		var ear = height / width;
-
+		var l_EAR = l_height / l_width;
+		
+		var r_EAR = r_height / r_width;
+		
+		var ear = (l_EAR + r_EAR) / 2.0;
+		
+		height_average = (l_height + r_height)/ 2.0; 
+		
 		
 		return ear;
-	}				
+	}	
+
+
+//	function eye_aspect_ratio(left, right, top, down) {
+//	
+//		//var width = Math.sqrt(((left[0] - right[0]) * (left[0] - right[0])) + ((left[1] - right[1]) * (left[1] - right[1])));
+//		//var height = Math.sqrt(((top[0] - down[0]) * (top[0] - down[0])) +((top[1] - down[1]) * (top[1] - down[1])) );
+//		
+//		var width = distance(left, right);
+//		var height = distance(top, down);
+//
+//		// compute the eye aspect ratio
+//		var ear = height / width;
+//
+//		
+//		return ear;
+//	}	
+
+
+	var counter = 0;
+	var	prev_center_x = 0.0;
+	var prev_center_y = 0.0;
+	var total_length = 0.0;
+	var total_delta = 0.0;
+	
+	
+	
+		
+	function delta_position(cur_x, cur_y, prev_x, prev_y)
+	{
+		return Math.sqrt(((cur_x - prev_x) * (cur_x - prev_x)) + ((cur_y - prev_y) * (cur_y - prev_y)));
+	}
+
+
+	function fidget_value(length, center_x, center_y)
+	{					
+		
+		
+		counter ++;
+		
+		if (counter == 1)
+		{
+			prev_center_x = center_x;
+			prev_center_y = center_y;
+		}
+		
+		
+		total_length = +total_length + +length; //  prefix + sign to make it an arithmetic sum instead of string concatenation operation
+	
+		var face_length = total_length / counter;
+		
+		var delta = delta_position(center_x, center_y, prev_center_x, prev_center_y) / face_length * FIDGET_FPS;
+		
+		prev_center_x = center_x;
+		prev_center_y = center_y;
+		
+		total_delta = +total_delta + +delta;
+		
+		var fidget = total_delta / counter;
+		
+		//echo $fidget . "," . $counter . "," . $total_delta ."<br>";
+		
+		fidget = fidget * 43.43 + 11.64;
+		
+
+		
+		return fidget;
+		
+	}
+			
 	/*
 	var ctracker = new clm.tracker();
 	ctracker.init();
 	ctracker.start(video);
 	*/
+	
+	// version 0.1
+	var samples = [];
+	var h_samples = [];
+	var c_samples = [];
+	var height_average = 0.0;
+
+	var stopped = false;
+
+	// version 0.1
+	function average(num1, num2)
+	{
+		return (+num1 + +num2)/2.0;
+	}
+
+	// version 0.1
+	function up_down_slope(arr, lower, upper)
+	{
+		var ave = [];
+		var i;
+		var isSlope = true;
+		var min = arr[0];
+		var max = arr[0];
+		var maxIndex = 0;
+		var minIndex = 0;
+		
+		
+		
+		for (i = 0; i < arr.length-1; i ++)
+		{
+			ave.push(average(arr[i], arr[i+1]));
+			
+			
+			if (arr[i] < min)
+			{
+				min = arr[i];
+				
+				minIndex = i;
+			}
+		
+			if (arr[i] > max)
+			{
+				max = arr[i];
+				
+				maxIndex = i;
+			}
+			
+		}
+		
+		
+		
+		
+		
+		if (arr[arr.length-1] < min)
+		{
+			min = arr[arr.length-1];
+			minIndex = arr.length-1;
+			
+		}
+	
+		if (arr[arr.length-1] > max)
+		{
+			max = arr[arr.length-1];
+			maxIndex = arr.length-1;
+		}
+		
+		
+
+		if ((lower != 0.0 && (max - min < lower || max - min > upper)) || (maxIndex == 0 || maxIndex  == arr.length-1) || (minIndex > 0 && minIndex < arr.length-1) )
+		{
+			isSlope = false;
+		}
+		else
+		{
+		
+			for (i = 0; i < ave.length; i ++)
+			{	
+				if (ave[i] < min)
+				{
+					min = ave[i];
+					
+					minIndex = i;
+				}
+			
+				if (ave[i] > max)
+				{
+					max = ave[i];
+					
+					maxIndex = i;
+				}
+			}
+		
+			for (i = 0; i < ave.length-1; i ++)
+			{		
+				if (i < maxIndex - 1)//if (i < (ave.length / 2) - 1)
+				{
+					if ((ave[i] <= ave[i + 1]) == false)
+					{
+						isSlope = false;
+					}
+				}
+				else if (i >= maxIndex) //else if (i >= ave.length / 2)
+				{
+					if ((ave[i] >= ave[i + 1]) == false)
+					{
+						isSlope = false;
+					}
+				}
+			}	
+		}					
+		
+		if (isSlope == true)
+		{
+			//console.log("max index : ", maxIndex);
+		}
+		
+		return [isSlope, maxIndex, minIndex];
+	}
+
+	
+	
+	// version 0.1
+	function sample_window(ear, center)
+	{	
+		var is_detected = false;
+		
+		samples.push(ear.toFixed(4)); // add latest value
+		c_samples.push(center.toFixed(2) * -1.0);
+		h_samples.push(height_average.toFixed(2));
+		
+		
+		
+		if (samples.length == 6) // mobile uses smaller sample length ie. 6
+		{
+
+			var [ear_slope, ear_max_index, earMinIndex] = up_down_slope(samples, 0.06, 0.2);
+			var [h_slope, h_max_index, hMinIndex] = up_down_slope(h_samples, 0.0, 0.0);
+			var [c_slope, c_max_index, cMinIndex] = up_down_slope(c_samples, 0.0, 0.0);
+			
+
+			
+			if (h_slope && ear_slope && ear_max_index == h_max_index && earMinIndex == hMinIndex && h_max_index != c_max_index && hMinIndex != cMinIndex)
+			{
+				is_detected = true;
+
+			}
+								
+
+			samples.shift(); // remove first element
+			h_samples.shift();
+			c_samples.shift();
+									
+		}
+		
+		if (is_detected == true)
+		{
+			
+			samples = []; //reset array 
+			h_samples = [];
+			c_samples = [];
+		}
+		
+		return is_detected;
+	}	
+	
+	
 	
 	function positionLoop() {
 		requestAnimFrame(positionLoop);
@@ -471,64 +715,94 @@
 		
 		//console.log(positions);
 		
-		if (positions) {
+		if (positions && stopped == false) {
 			//console.log(positions);
 			// eye blink
-			
-			leftEAR = eye_aspect_ratio(positions[23], positions[25], positions[21], positions[24]);
-			rightEAR = eye_aspect_ratio(positions[30], positions[28], positions[17], positions[29]);
-			
-			var ear = (leftEAR + rightEAR) / 2.0;
-			
+
+			var center = positions[37];
 			var fLength = facelength(positions[0], positions[14], positions[33], positions[7]);
-			
-			var center = positions[37]
+			var fidget = fidget_value(fLength.toFixed(2), center[0].toFixed(2), center[1].toFixed(2));
 			
 
-//needs to be hide code later for hiding blink result at application
+			// version 0.1
+			var ear = eye_aspect_ratio(positions[23], positions[25], positions[21], positions[24], positions[30], positions[28], positions[17], positions[29]);
 			
-			if (ear < minEAR)
+			if (sample_window(ear, center[1]) == true)
 			{
-				minEAR = ear;
+				blink ++;
 			}
+
+			positionString += "blink  : " + blink +"<br/>";
 			
-			if (ear > maxEAR)
-			{
-				maxEAR = ear;
-			}
+			positionString += "fidget  : " + fidget.toFixed(2) +"<br/>";
 			
-									
-			switch (earState){
 			
-				case states.search:
-					if (maxEAR - minEAR > 0.07)
-					{
-						earState = states.peakDetected;
-						
-						//minEAR = maxEAR;
-						minEAR = 1.0;
-						maxEAR = 0.0;
-						
-					}
-				break;
-				
-				case states.peakDetected:
-					if (maxEAR - minEAR > 0.07)
-					{
-						earState = states.search;
-						
-						//maxEAR = minEAR;				
-						minEAR = 1.0;
-						maxEAR = 0.0;
-						
-						blink = blink + 1;
-						
-						
-					}						
-				break;
-				
-				
-			}
+			document.getElementById('positions').innerHTML = positionString;						
+			
+
+			
+			dataString = dataString + ear.toFixed(4) + 
+			"," + fLength.toFixed(2) +
+			"," + center[0].toFixed(2)  +						
+			"," + center[1].toFixed(2)  +  
+			"," + height_average.toFixed(2) + ";";
+			//"," + blink + ";";
+
+			
+//			leftEAR = eye_aspect_ratio(positions[23], positions[25], positions[21], positions[24]);
+//			rightEAR = eye_aspect_ratio(positions[30], positions[28], positions[17], positions[29]);
+//			
+//			var ear = (leftEAR + rightEAR) / 2.0;
+//			
+//			var fLength = facelength(positions[0], positions[14], positions[33], positions[7]);
+//			
+//			var center = positions[37]
+//			
+//
+//			//needs to be hide code later for hiding blink result at application
+//			
+//			if (ear < minEAR)
+//			{
+//				minEAR = ear;
+//			}
+//			
+//			if (ear > maxEAR)
+//			{
+//				maxEAR = ear;
+//			}
+//			
+//									
+//			switch (earState){
+//			
+//				case states.search:
+//					if (maxEAR - minEAR > 0.07)
+//					{
+//						earState = states.peakDetected;
+//						
+//						//minEAR = maxEAR;
+//						minEAR = 1.0;
+//						maxEAR = 0.0;
+//						
+//					}
+//				break;
+//				
+//				case states.peakDetected:
+//					if (maxEAR - minEAR > 0.07)
+//					{
+//						earState = states.search;
+//						
+//						//maxEAR = minEAR;				
+//						minEAR = 1.0;
+//						maxEAR = 0.0;
+//						
+//						blink = blink + 1;
+//						
+//						
+//					}						
+//				break;
+//				
+//				
+//			}
 			
 
 			
@@ -536,25 +810,25 @@
 
 
 			
-			positionString += "<h2>EYE BLINK  : " + blink +"</h2>";
-			
-			//positionString += "<h2>EYE BLINK  : " + blink +"<br> EYE BLINK  : " + blink +"</h2>";
-			
-
-			document.getElementById('positions').innerHTML = positionString;						
-			
-			/*
-			dataString = dataString + ear.toFixed(2) + 
-			"," + earState + 
-			"," + minEAR.toFixed(2) + 
-			"," + maxEAR.toFixed(2) + 
-			"," + blink +  ";";
-			*/
-			
-			dataString = dataString + ear.toFixed(4) + 
-			"," + fLength.toFixed(2) +
-			"," + center[0].toFixed(2)  +						
-			"," + center[1].toFixed(2)  +  ";";
+//			positionString += "<h2>EYE BLINK  : " + blink +"</h2>";
+//			
+//			//positionString += "<h2>EYE BLINK  : " + blink +"<br> EYE BLINK  : " + blink +"</h2>";
+//			
+//
+//			document.getElementById('positions').innerHTML = positionString;						
+//			
+//			/*
+//			dataString = dataString + ear.toFixed(2) + 
+//			"," + earState + 
+//			"," + minEAR.toFixed(2) + 
+//			"," + maxEAR.toFixed(2) + 
+//			"," + blink +  ";";
+//			*/
+//			
+//			dataString = dataString + ear.toFixed(4) + 
+//			"," + fLength.toFixed(2) +
+//			"," + center[0].toFixed(2)  +						
+//			"," + center[1].toFixed(2)  +  ";";
 
 	
 		
@@ -722,6 +996,7 @@
             timeinterval = setInterval(update_clock,1000);
         }
 
+		
 
 		function stopStream() {
                 if(button.stream && button.stream.stop) {
@@ -747,6 +1022,7 @@
                 recordingPlayer.parentNode.parentNode.querySelector('h2').innerHTML = html;
 				
 				video1.srcObject.stop();
+				stopped = true;
 				//recorder.camera.stop();
 				//recorder.destroy();
 				//recorder = null;
