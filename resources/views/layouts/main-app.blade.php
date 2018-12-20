@@ -1642,8 +1642,10 @@ $('.submit-education-edit').on('click', '.submit-education-edit', function() {
 <!-- Page JS Select2 -->
 <script src="{!! asset('assets/js/plugins/select2/js/select2.full.min.js') !!}"></script>
 <script src="{!! asset('assets/js/plugins/jquery-bootstrap-wizard/bs4/jquery.bootstrap.wizard.min.js') !!}"></script>
-{{--<script src="{!! asset('assets/js/plugins/jquery-validation/jquery.validate.min.js') !!}"></script>--}}
+
+<!--<script src="{!! asset('assets/js/plugins/jquery-validation/jquery.validate.min.js') !!}"></script>-->
 <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.0/dist/jquery.validate.js"></script>
+
 <script src="{!! asset('assets/js/plugins/jquery-validation/additional-methods.js') !!}"></script>
 
 <!-- Page JS Home Dashboard -->
@@ -1663,7 +1665,7 @@ $('.submit-education-edit').on('click', '.submit-education-edit', function() {
 
 
 
-<script>
+<!--<script>
     (function() {
         var params = {},
             r = /([^&=]+)=?([^&]*)/g;
@@ -3469,7 +3471,7 @@ $('.submit-education-edit').on('click', '.submit-education-edit', function() {
         }
         return url;
     };
-</script>
+</script>-->
 
 <script type="text/javascript">
     Dropzone.prototype.defaultOptions.dictDefaultMessage = "Click or Drop files here to upload";
