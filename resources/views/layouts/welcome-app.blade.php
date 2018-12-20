@@ -1,207 +1,166 @@
-@extends('layouts.login-app')
+<!doctype html>
+<html id="id1" style="min-height:100%" lang="{{ config('app.locale') }}">
 
-@section('content')
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<meta name="description" content="This is a boilerplate for a Bootstrap 4.1.1 project">
+	<meta name="keywords" content="HTML, CSS, JS, Sass, JavaScript, framework, bootstrap, front-end, frontend, web development">
+	<meta name="author" content="Henrik H. Boelsmand">
+	<title>{{ config('app.name') }}</title>
+	<!-- Icons -->
+	<link rel="shortcut icon" href="{{ asset('assets/media/favicons/ic_favicon.png') }}">@yield('css_before')
+	{{--<script src="{!! asset('assets/js/plugins/jquery-validation/jquery.validate.min.js') !!}"></script>--}}
 
+	<!-- Fonts and Styles -->
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+	<link rel="stylesheet" href="{{ asset('assets/css/main.min.css') }}">
+	<!-- You can include a specific file from public/css/themes/ folder to alter the default color theme of the template. eg: -->
+	<!-- <link rel="stylesheet" href="{{ mix('/css/themes/xwork.css') }}"> -->@yield('css_after')
+	<style media="screen" type="text/css">
+		/*<![CDATA[*/@import '{{ asset('fonts/roboto-thin.css') }}';/*]]>*/
+	</style>
+	<style media="screen" type="text/css">
+		/*<![CDATA[*/@import '{{ asset('fonts/roboto-regular.css') }}';/*]]>*/
+	</style>
+    <style>
 
+	</style>
+</head>
+<script>
+  function htmlfunction() {
+  document.getElementById('id1').style.cssText = 'height:inherit !important';
+}
+</script>
 
-<div id="page-container"> 
+<body id="id1" style="min-height:100%">
+	<div id="carouselExampleIndicators" class="carousel slide h-100 w-100">
+		<div class="carousel-inner h-100">
+			<div class="carousel-item 	@if ($errors->count('email') < 1  )  active @endif h-100">
+				<table class="bg-slider">
+					<tr>
+						<td>
+                        <div class="text-center w-100 text-white"><a data-target="#carouselExampleIndicators" data-slide-to="1"><i class="display-4 far fa-play-circle"></i></a></div>
+							<div class="css-typing">
+								<p class="text-white">Welcome to adnexio</p>
+								<p class="text-white">Press PLAY above</p>
+							</div>
+						</td>
+					</tr>
+				</table>
+			</div>
+			<div class="carousel-item h-100">
+				<table class="bg-slider">
+					<tr>
+						<td class="h-100">
+							<div id="first-slide">
+								<div id="equaliser">
+									<div class="bar first"></div>
+									<div class="bar second"></div>
+									<div class="bar third"></div>
+									<div class="bar fourth"></div>
+								</div>
+								<div class="css-typing-2 content-margin">
+									<p>Hello, my name is NEX</p>
+								</div>
+							</div>
+							<div id="second-slide">
+								<div id="equaliser">
+									<div class="bar first"></div>
+									<div class="bar second"></div>
+									<div class="bar third"></div>
+									<div class="bar fourth"></div>
+								</div>
+								<div class="css-typing-3 content-margin">
+									<p>and welcome to adnexio</p>
+								</div>
+							</div>
+							<div id="third-slide">
+								<div id="equaliser">
+									<div class="bar first1"></div>
+									<div class="bar second1"></div>
+									<div class="bar third1"></div>
+									<div class="bar fourth1"></div>
+								</div>
+								<div class="css-typing-4 content-margin">
+									<p>The place where you</p>
+									<p>don't look for job, adnexio</p>
+									<p>brings it to you</p>
+								</div>
+							</div>
+							<div class="skip-content">
+								<button onclick="htmlfunction()" type="button" class="btn btn-outline-dark btn-sm skip-but" data-target="#carouselExampleIndicators" data-slide-to="2">Skip</button>
+							</div>
+						</td>
+					</tr>
+				</table>
+			</div>
+			<div class="carousel-item active">
+				<div class="bg-header">
+					<nav class="navbar navbar-light navbar-expand-md justify-content-center" data-toggle="affix">
+						<div class="container">
+							<a href="/" class="golkash-navbar navbar-brand d-flex w-50 mr-auto">
+								<img class="nav-logo" src="{{ asset('media/photos/Adnexio__logo header.png') }}" height="40" width="auto">
+							</a>
+							<button  class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsingNavbar3" > <span class="navbar-toggler-icon"></span>
+							</button>
+							<div class="navbar-collapse collapse w-100" id="collapsingNavbar3">
+								<ul class="nav navbar-nav ml-auto w-100 text-center justify-content-end">
+                                    <li class="nav-item ml-3">
+										<a href="#">
+											<button class="btn btn-primary btn-md btn-adnexio mt-1">EMPLOYER</button>
+										</a>
+									</li>
+									<li class="nav-item ml-3">
+										<a href="#">
+											<button class="btn btn-primary btn-md btn-adnexio mt-1 ">JOBSEEKER</button>
+										</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</nav>
+				</div>
+				<div id="page-container">
+					<!-- Main Container -->
+					<main id="main-container">@yield('content')</main>
+					<!-- END Main Container -->
+				</div>
+				<!-- END Page Container -->
+				<footer class="adnexio-footer-container">
+					<div class="container pt-4">
+						<div class="row justify-content-between">
+							<div class="col-md-4 d-flex flex-column">
+								<div class="p-2 mb-4 text-center text-md-left">
+									<img src="{{ asset('media/photos/Adnexio__logo footer.png') }}" height="60" width="auto">
+									<p class="text-white">Copyright © 2018. All Right Reserved</p>
+								</div>
+							</div>
+							<div class="col-md-2">
+								<h6 class="footer-title text-center text-md-left">Contact</h6>
+								<ul class="list-unstyled quick-links text-center text-md-left">
+									<li><a href="#">Facebook</a>
+									</li>
+									<li><a href="#">Twitter</a>
+									</li>
+									<li><a href="#">LinkedIn</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</footer>
+			</div>
+		</div>
+	</div>
+	<!-- Dashmix Core JS -->
+	<script src="{!! asset('assets/js/main.min.js') !!}"></script>@yield('js_after')</body>
+<script src="{!! asset('assets/js/plugins/jquery-validation/jquery.validate.min.js') !!}"></script>
 
-    <!-- Main Container -->
-    <main id="main-container">
+<!-- Page JS Code -->
+<script src="{!! asset('assets/js/pages/op_auth_signup.min.js') !!}"></script>
 
-        <!-- Page Content -->
-        <div class="bg-image" style="background-image: url('{{asset('media/photos/photo22@2x.jpg')}}');">
-            <div class="row no-gutters bg-primary-op"> 
-                <!-- Main Section -->
-                <div class="hero-static col-md-6 d-flex align-items-center bg-white">
-                    <div class="p-3 w-100">
-                        <!-- Header -->
-                        <div class="mb-3 text-center">
-                            <a class="link-fx font-w700 font-size-h1" href="{{ url('/') }}">
-                                <span class="text-dark">Adnexio</span><span class="text-primary">.com</span>
-                            </a>
-                            <p class="text-uppercase font-w700 font-size-sm text-muted">Sign In</p>
-                        </div>
-                        <!-- END Header -->
+</body>
 
-                        <!-- Sign In Form -->
-                        <!-- jQuery Validation (.js-validation-signin class is initialized in js/pages/op_auth_signin.min.js which was auto compiled from _es6/pages/op_auth_signin.js) -->
-                        <!-- For more info and examples you can check out https://github.com/jzaefferer/jquery-validation -->
-
-                        <!--<div class="card-body">
-                            <form method="POST" action="{{ route('login') }}">
-                                @csrf
-
-                                <div class="form-group row">
-                                    <label for="email" class="col-sm-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
-
-                                    <div class="col-md-6">
-                                        <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required autofocus>
-
-                                        @if ($errors->has('email'))
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $errors->first('email') }}</strong>
-                                            </span>
-                                        @endif
-                                    </div>
-                                </div>
-
-                                <div class="form-group row">
-                                    <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
-
-                                    <div class="col-md-6">
-                                        <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
-
-                                        @if ($errors->has('password'))
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $errors->first('password') }}</strong>
-                                            </span>
-                                        @endif
-                                    </div>
-                                </div>
-
-                                <div class="form-group row">
-                                    <div class="col-md-6 offset-md-4">
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-
-                                            <label class="form-check-label" for="remember">
-                                                {{ __('Remember Me') }}
-                                            </label>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="form-group row mb-0">
-                                    <div class="col-md-8 offset-md-4">
-                                        <button type="submit" class="btn btn-primary">
-                                            {{ __('Login') }}
-                                        </button>
-
-                                        <a class="btn btn-link" href="{{ route('password.request') }}">
-                                            {{ __('Forgot Your Password?') }}
-                                        </a>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>-->
-
-                        <div class="row no-gutters justify-content-center">
-                            <div class="col-sm-8 col-xl-6">
-                                <!--<form class="js-validation-signin" action="be_pages_auth_all.html" method="post">-->
-                                <!--<form class="js-validation-signin" action="/be_pages_dashboard" method="POST">-->
-
-                                <form class="js-validation-signin" action="{{ route('login') }}" method="POST">
-
-                                @csrf
-
-                                    @if ($message = Session::get('success'))
-                                        <div class="alert alert-success">
-                                            <p>
-                                                {{ $message }}
-                                            </p>
-                                        </div>
-                                    @endif
-                                    @if ($message = Session::get('warning'))
-                                        <div class="alert alert-warning">
-                                            <p>
-                                                {{ $message }}
-                                            </p>
-                                        </div>
-                                    @endif
-
-
-
-                                    <div class="py-3">
-                                        <div class="form-group">
-                                            <!--<input type="email" class="form-control form-control-lg form-control-alt" id="email" name="login-username"  placeholder="Email">-->
-                                            <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }} form-control-lg form-control-alt" name="email" placeholder="Email" value="{{ old('email') }}" required autofocus>
-
-                                            @if ($errors->has('email'))
-                                                <span class="invalid-feedback" role="alert">
-                                                    <strong>{{ $errors->first('email') }}</strong>
-                                                </span>
-                                            @endif
-
-                                        </div>
-                                        <div class="form-group">
-                                            <!--<input type="password" class="form-control form-control-lg form-control-alt" id="password" name="login-password" placeholder="Password">-->
-                                            <input id="password" type="password" class="form-control form-control-lg form-control-alt" name="password" placeholder="Password" required>
-
-                                        </div>
-                                    </div>
-                                    
-                                    
-                                    <div class="form-group">
-                                        <button type="submit" class="btn btn-block btn-hero-lg btn-hero-primary">
-                                            <i class="fa fa-fw fa-sign-in-alt mr-1"></i> Sign In
-                                        </button>
-                                       
-                                        <!--<p class="mt-3 mb-0 d-lg-flex justify-content-lg-between">
-                                            <a href="{{ url('/redirect') }}"><img src="https://www.freeiconspng.com/uploads/login-with-facebook-button-png-32.png" width="210" alt="login with facebook button png" /></a>
-
-
-                                            <a href="{{ url('/gredirect') }}" ><img src="{!! asset('media/buttons/btn_google_signin_light_normal_web.png') !!}" /></a>
-                                        </p>-->
-                                       
-                                         <p class="mt-2 mb-0 d-lg-flex justify-content-lg-between">
-                                            <!--<a class="btn btn-sm btn-primary d-block d-lg-inline-block mb-1" href="{{ url('/redirect') }}">
-                                                Login with Facebook
-                                            </a>-->
-                                            <a href="{{ url('/redirect') }}">
-                                                <img src="{!! asset('assets/media/buttons/login_facebook_small.png') !!}" style="width: 160px; height:35px;" onmouseover="this.src='{!! asset('assets/media/buttons/login_facebook_small_normal.PNG') !!}';" onmouseout="this.src='{!! asset('assets/media/buttons/login_facebook_small.png') !!}';" >
-                                            </a>
-   
-                                            <!--<a class="btn btn-sm btn-danger d-block d-lg-inline-block mb-1" href="{{ url('/gredirect') }}">
-                                                Sign in with Google
-                                            </a>-->
-                                            <a href="{{ url('/gredirect') }}">
-                                                <img src="{!! asset('assets/media/buttons/login_google_small.png') !!}" style="width: 160px; height:35px;" onmouseover="this.src='{!! asset('assets/media/buttons/btn_google_signin_dark_normal_web@2x.png') !!}';" onmouseout="this.src='{!! asset('assets/media/buttons/btn_google_signin_dark_pressed_web@2x.png') !!}';" >
-                                            </a>
-                                            
-                                        </p>
-                                       
-                                        <p class="mt-3 mb-0 d-lg-flex justify-content-lg-between">
-                                            <a class="btn btn-sm btn-light d-block d-lg-inline-block mb-1" href="{{ url('/password/reset') }}">
-                                                <i class="fa fa-exclamation-triangle text-muted mr-1"></i> Forgot password
-                                            </a>
-                                            <a class="btn btn-sm btn-light d-block d-lg-inline-block mb-1" href="{{ route('register') }}">
-                                                <i class="fa fa-plus text-muted mr-1"></i> New Account
-                                            </a>
-                                        </p>
-
-                                    </div>
-
-
-                            </div>
-                        </div>
-                        <!-- END Sign In Form -->
-                    </div>
-                </div>
-                <!-- END Main Section -->
-
-                <!-- Meta Info Section -->
-                <div class="hero-static col-md-6 d-none d-md-flex align-items-md-center justify-content-md-center text-md-center">
-                    <div class="p-3">
-                        <p class="display-4 font-w700 text-white mb-3">
-                            The perfect job match
-                        </p>
-                        <p class="font-size-lg font-w600 text-white-75 mb-0">
-                            Copyright &copy; <span class="js-year-copy">2018</span>
-                        </p>
-                    </div>
-                </div>
-                <!-- END Meta Info Section -->
-            </div>
-        </div>
-        <!-- END Page Content -->
-
-    </main>
-    <!-- END Main Container -->
-    
-</div>
-
-<!-- END Page Container -->
-
-
-@endsection
+</html>

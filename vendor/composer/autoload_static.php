@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInita3f54f5fe7d0b0ce12419a4bd352132a
+class ComposerStaticInit5311687f8dffd096b671492d06a230c2
 {
     public static $files = array (
         '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
@@ -559,6 +559,10 @@ class ComposerStaticInita3f54f5fe7d0b0ce12419a4bd352132a
         'Aws\\AlexaForBusiness\\Exception\\AlexaForBusinessException' => __DIR__ . '/..' . '/aws/aws-sdk-php/src/AlexaForBusiness/Exception/AlexaForBusinessException.php',
         'Aws\\Amplify\\AmplifyClient' => __DIR__ . '/..' . '/aws/aws-sdk-php/src/Amplify/AmplifyClient.php',
         'Aws\\Amplify\\Exception\\AmplifyException' => __DIR__ . '/..' . '/aws/aws-sdk-php/src/Amplify/Exception/AmplifyException.php',
+        'Aws\\ApiGatewayManagementApi\\ApiGatewayManagementApiClient' => __DIR__ . '/..' . '/aws/aws-sdk-php/src/ApiGatewayManagementApi/ApiGatewayManagementApiClient.php',
+        'Aws\\ApiGatewayManagementApi\\Exception\\ApiGatewayManagementApiException' => __DIR__ . '/..' . '/aws/aws-sdk-php/src/ApiGatewayManagementApi/Exception/ApiGatewayManagementApiException.php',
+        'Aws\\ApiGatewayV2\\ApiGatewayV2Client' => __DIR__ . '/..' . '/aws/aws-sdk-php/src/ApiGatewayV2/ApiGatewayV2Client.php',
+        'Aws\\ApiGatewayV2\\Exception\\ApiGatewayV2Exception' => __DIR__ . '/..' . '/aws/aws-sdk-php/src/ApiGatewayV2/Exception/ApiGatewayV2Exception.php',
         'Aws\\ApiGateway\\ApiGatewayClient' => __DIR__ . '/..' . '/aws/aws-sdk-php/src/ApiGateway/ApiGatewayClient.php',
         'Aws\\ApiGateway\\Exception\\ApiGatewayException' => __DIR__ . '/..' . '/aws/aws-sdk-php/src/ApiGateway/Exception/ApiGatewayException.php',
         'Aws\\Api\\AbstractModel' => __DIR__ . '/..' . '/aws/aws-sdk-php/src/Api/AbstractModel.php',
@@ -3044,6 +3048,7 @@ class ComposerStaticInita3f54f5fe7d0b0ce12419a4bd352132a
         'Monolog\\Utils' => __DIR__ . '/..' . '/monolog/monolog/src/Monolog/Utils.php',
         'Nexmo\\Account\\Balance' => __DIR__ . '/..' . '/nexmo/client/src/Account/Balance.php',
         'Nexmo\\Account\\Client' => __DIR__ . '/..' . '/nexmo/client/src/Account/Client.php',
+        'Nexmo\\Account\\PrefixPrice' => __DIR__ . '/..' . '/nexmo/client/src/Account/PrefixPrice.php',
         'Nexmo\\Account\\Price' => __DIR__ . '/..' . '/nexmo/client/src/Account/Price.php',
         'Nexmo\\Account\\Secret' => __DIR__ . '/..' . '/nexmo/client/src/Account/Secret.php',
         'Nexmo\\Account\\SecretCollection' => __DIR__ . '/..' . '/nexmo/client/src/Account/SecretCollection.php',
@@ -3324,6 +3329,7 @@ class ComposerStaticInita3f54f5fe7d0b0ce12419a4bd352132a
         'PHPUnit\\Runner\\AfterSuccessfulTestHook' => __DIR__ . '/..' . '/phpunit/phpunit/src/Runner/Hook/AfterSuccessfulTestHook.php',
         'PHPUnit\\Runner\\AfterTestErrorHook' => __DIR__ . '/..' . '/phpunit/phpunit/src/Runner/Hook/AfterTestErrorHook.php',
         'PHPUnit\\Runner\\AfterTestFailureHook' => __DIR__ . '/..' . '/phpunit/phpunit/src/Runner/Hook/AfterTestFailureHook.php',
+        'PHPUnit\\Runner\\AfterTestHook' => __DIR__ . '/..' . '/phpunit/phpunit/src/Runner/Hook/AfterTestHook.php',
         'PHPUnit\\Runner\\AfterTestWarningHook' => __DIR__ . '/..' . '/phpunit/phpunit/src/Runner/Hook/AfterTestWarningHook.php',
         'PHPUnit\\Runner\\BaseTestRunner' => __DIR__ . '/..' . '/phpunit/phpunit/src/Runner/BaseTestRunner.php',
         'PHPUnit\\Runner\\BeforeFirstTestHook' => __DIR__ . '/..' . '/phpunit/phpunit/src/Runner/Hook/BeforeFirstTestHook.php',
@@ -5016,11 +5022,11 @@ class ComposerStaticInita3f54f5fe7d0b0ce12419a4bd352132a
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInita3f54f5fe7d0b0ce12419a4bd352132a::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInita3f54f5fe7d0b0ce12419a4bd352132a::$prefixDirsPsr4;
-            $loader->fallbackDirsPsr4 = ComposerStaticInita3f54f5fe7d0b0ce12419a4bd352132a::$fallbackDirsPsr4;
-            $loader->prefixesPsr0 = ComposerStaticInita3f54f5fe7d0b0ce12419a4bd352132a::$prefixesPsr0;
-            $loader->classMap = ComposerStaticInita3f54f5fe7d0b0ce12419a4bd352132a::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit5311687f8dffd096b671492d06a230c2::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit5311687f8dffd096b671492d06a230c2::$prefixDirsPsr4;
+            $loader->fallbackDirsPsr4 = ComposerStaticInit5311687f8dffd096b671492d06a230c2::$fallbackDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInit5311687f8dffd096b671492d06a230c2::$prefixesPsr0;
+            $loader->classMap = ComposerStaticInit5311687f8dffd096b671492d06a230c2::$classMap;
 
         }, null, ClassLoader::class);
     }
