@@ -57,6 +57,7 @@ Route::post('/profile/profile_education/delete', 'ProfileEducationControllerr@de
 Route::post('/profile/profile_education/getcountry', 'ProfileEducationControllerr@getcountry');
 Route::post('/profile/profile_education/getstates', 'ProfileEducationControllerr@getstates');
 Route::post('/profile/profile_education/getcourse', 'ProfileEducationControllerr@getcourse');
+Route::post('/profile/profile_education/getAllCourse', 'ProfileEducationControllerr@getAllCourse');
 Route::post('/profile/profile_education/getuni', 'ProfileEducationControllerr@getuni');
 
 

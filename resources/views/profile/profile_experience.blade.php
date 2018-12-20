@@ -520,199 +520,224 @@
                                                         <input type="text" class="form-control" id="company_name-edit" name="val-company-name-edit" placeholder="Enter your company name">
                                                     </div>
 
+
                                                     <div class="form-group">
                                                         <label for="val-password">Joined Duration <span class="text-danger">*</span></label>
-                                                        <select class="half-second" id="jd_start_year-edit" name="val-jd-start-year-edit" >
-                                                            <option disabled selected>year</option>
-                                                            <option>1948</option>
-                                                            <option>1949</option>
-                                                            <option>1950</option>
-                                                            <option>1951</option>
-                                                            <option>1952</option>
-                                                            <option>1953</option>
-                                                            <option>1954</option>
-                                                            <option>1955</option>
-                                                            <option>1956</option>
-                                                            <option>1957</option>
-                                                            <option>1958</option>
-                                                            <option>1959</option>
-                                                            <option>1960</option>
-                                                            <option>1961</option>
-                                                            <option>1962</option>
-                                                            <option>1963</option>
-                                                            <option>1964</option>
-                                                            <option>1965</option>
-                                                            <option>1966</option>
-                                                            <option>1967</option>
-                                                            <option>1968</option>
-                                                            <option>1969</option>
-                                                            <option>1970</option>
-                                                            <option>1971</option>
-                                                            <option>1972</option>
-                                                            <option>1973</option>
-                                                            <option>1974</option>
-                                                            <option>1975</option>
-                                                            <option>1976</option>
-                                                            <option>1977</option>
-                                                            <option>1978</option>
-                                                            <option>1979</option>
-                                                            <option>1980</option>
-                                                            <option>1981</option>
-                                                            <option>1982</option>
-                                                            <option>1983</option>
-                                                            <option>1984</option>
-                                                            <option>1985</option>
-                                                            <option>1986</option>
-                                                            <option>1987</option>
-                                                            <option>1988</option>
-                                                            <option>1989</option>
-                                                            <option>1990</option>
-                                                            <option>1991</option>
-                                                            <option>1992</option>
-                                                            <option>1993</option>
-                                                            <option>1994</option>
-                                                            <option>1995</option>
-                                                            <option>1996</option>
-                                                            <option>1997</option>
-                                                            <option>1998</option>
-                                                            <option>1999</option>
-                                                            <option>2000</option>
-                                                            <option>2001</option>
-                                                            <option>2002</option>
-                                                            <option>2003</option>
-                                                            <option>2004</option>
-                                                            <option>2005</option>
-                                                            <option>2006</option>
-                                                            <option>2007</option>
-                                                            <option>2008</option>
-                                                            <option>2009</option>
-                                                            <option>2010</option>
-                                                            <option>2011</option>
-                                                            <option>2012</option>
-                                                            <option>2013</option>
-                                                            <option>2014</option>
-                                                            <option>2015</option>
-                                                            <option>2016</option>
-                                                            <option>2017</option>
-                                                            <option>2018</option>
-                                                        </select>
-                                                        <select class="half-second" id="jd_start_month-edit"  name="val-jd-start-month-edit" >
-                                                            <option disabled selected>month</option>
-                                                            <option>Jan</option>
-                                                            <option>Feb</option>
-                                                            <option>Mar</option>
-                                                            <option>Apr</option>
-                                                            <option>May</option>
-                                                            <option>Jun</option>
-                                                            <option>Jul</option>
-                                                            <option>Aug</option>
-                                                            <option>Sep</option>
-                                                            <option>Oct</option>
-                                                            <option>Nov</option>
-                                                            <option>Dec</option>
-                                                        </select>
                                                     </div>
+                                                    <div class="form-group-special">
+                                                        <div class="row">
+                                                            <div class="col-sm-5">
+                                                                <select class="half-second form-control" id="jd_start_year-edit" name="val-jd-start-year-edit" >
+                                                                    <option disabled selected>year</option>
+                                                                    <option>1948</option>
+                                                                    <option>1949</option>
+                                                                    <option>1950</option>
+                                                                    <option>1951</option>
+                                                                    <option>1952</option>
+                                                                    <option>1953</option>
+                                                                    <option>1954</option>
+                                                                    <option>1955</option>
+                                                                    <option>1956</option>
+                                                                    <option>1957</option>
+                                                                    <option>1958</option>
+                                                                    <option>1959</option>
+                                                                    <option>1960</option>
+                                                                    <option>1961</option>
+                                                                    <option>1962</option>
+                                                                    <option>1963</option>
+                                                                    <option>1964</option>
+                                                                    <option>1965</option>
+                                                                    <option>1966</option>
+                                                                    <option>1967</option>
+                                                                    <option>1968</option>
+                                                                    <option>1969</option>
+                                                                    <option>1970</option>
+                                                                    <option>1971</option>
+                                                                    <option>1972</option>
+                                                                    <option>1973</option>
+                                                                    <option>1974</option>
+                                                                    <option>1975</option>
+                                                                    <option>1976</option>
+                                                                    <option>1977</option>
+                                                                    <option>1978</option>
+                                                                    <option>1979</option>
+                                                                    <option>1980</option>
+                                                                    <option>1981</option>
+                                                                    <option>1982</option>
+                                                                    <option>1983</option>
+                                                                    <option>1984</option>
+                                                                    <option>1985</option>
+                                                                    <option>1986</option>
+                                                                    <option>1987</option>
+                                                                    <option>1988</option>
+                                                                    <option>1989</option>
+                                                                    <option>1990</option>
+                                                                    <option>1991</option>
+                                                                    <option>1992</option>
+                                                                    <option>1993</option>
+                                                                    <option>1994</option>
+                                                                    <option>1995</option>
+                                                                    <option>1996</option>
+                                                                    <option>1997</option>
+                                                                    <option>1998</option>
+                                                                    <option>1999</option>
+                                                                    <option>2000</option>
+                                                                    <option>2001</option>
+                                                                    <option>2002</option>
+                                                                    <option>2003</option>
+                                                                    <option>2004</option>
+                                                                    <option>2005</option>
+                                                                    <option>2006</option>
+                                                                    <option>2007</option>
+                                                                    <option>2008</option>
+                                                                    <option>2009</option>
+                                                                    <option>2010</option>
+                                                                    <option>2011</option>
+                                                                    <option>2012</option>
+                                                                    <option>2013</option>
+                                                                    <option>2014</option>
+                                                                    <option>2015</option>
+                                                                    <option>2016</option>
+                                                                    <option>2017</option>
+                                                                    <option>2018</option>
+                                                                </select>
+                                                            </div>
+                                                            <div class="col-sm-5">
+                                                                <select class="half-second form-control" id="jd_start_month-edit"  name="val-jd-start-month-edit" >
+                                                                    <option disabled selected>month</option>
+                                                                    <option>Jan</option>
+                                                                    <option>Feb</option>
+                                                                    <option>Mar</option>
+                                                                    <option>Apr</option>
+                                                                    <option>May</option>
+                                                                    <option>Jun</option>
+                                                                    <option>Jul</option>
+                                                                    <option>Aug</option>
+                                                                    <option>Sep</option>
+                                                                    <option>Oct</option>
+                                                                    <option>Nov</option>
+                                                                    <option>Dec</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
 
-
-                                                    <div class="form-group">
-                                                        <labell class ="label-join" for="val-confirm-password">to <span class="text-danger">*</span></labell>
-
-                                                    </div>
-                                                    <div id="" class="row form-group-special" style="padding-left: 9rem";>
-                                                        <div  id="end-duration-edit" class="end-duration-edit">
-                                                        <select class="half-third-custom" id="val-jd-end-year-edit" name="val-jd-end-year-edit">
-                                                            <option disabled selected>year</option>
-                                                            <option>1948</option>
-                                                            <option>1949</option>
-                                                            <option>1950</option>
-                                                            <option>1951</option>
-                                                            <option>1952</option>
-                                                            <option>1953</option>
-                                                            <option>1954</option>
-                                                            <option>1955</option>
-                                                            <option>1956</option>
-                                                            <option>1957</option>
-                                                            <option>1958</option>
-                                                            <option>1959</option>
-                                                            <option>1960</option>
-                                                            <option>1961</option>
-                                                            <option>1962</option>
-                                                            <option>1963</option>
-                                                            <option>1964</option>
-                                                            <option>1965</option>
-                                                            <option>1966</option>
-                                                            <option>1967</option>
-                                                            <option>1968</option>
-                                                            <option>1969</option>
-                                                            <option>1970</option>
-                                                            <option>1971</option>
-                                                            <option>1972</option>
-                                                            <option>1973</option>
-                                                            <option>1974</option>
-                                                            <option>1975</option>
-                                                            <option>1976</option>
-                                                            <option>1977</option>
-                                                            <option>1978</option>
-                                                            <option>1979</option>
-                                                            <option>1980</option>
-                                                            <option>1981</option>
-                                                            <option>1982</option>
-                                                            <option>1983</option>
-                                                            <option>1984</option>
-                                                            <option>1985</option>
-                                                            <option>1986</option>
-                                                            <option>1987</option>
-                                                            <option>1988</option>
-                                                            <option>1989</option>
-                                                            <option>1990</option>
-                                                            <option>1991</option>
-                                                            <option>1992</option>
-                                                            <option>1993</option>
-                                                            <option>1994</option>
-                                                            <option>1995</option>
-                                                            <option>1996</option>
-                                                            <option>1997</option>
-                                                            <option>1998</option>
-                                                            <option>1999</option>
-                                                            <option>2000</option>
-                                                            <option>2001</option>
-                                                            <option>2002</option>
-                                                            <option>2003</option>
-                                                            <option>2004</option>
-                                                            <option>2005</option>
-                                                            <option>2006</option>
-                                                            <option>2007</option>
-                                                            <option>2008</option>
-                                                            <option>2009</option>
-                                                            <option>2010</option>
-                                                            <option>2011</option>
-                                                            <option>2012</option>
-                                                            <option>2013</option>
-                                                            <option>2014</option>
-                                                            <option>2015</option>
-                                                            <option>2016</option>
-                                                            <option>2017</option>
-                                                            <option>2018</option>
-                                                        </select>
-                                                        <select class="half-third-custom" id="val-jd-end-month-edit" name="val-jd-end-month-edit" >
-                                                            <option>month</option>
-                                                            <option>Jan</option>
-                                                            <option>Feb</option>
-                                                            <option>Mar</option>
-                                                            <option>Apr</option>
-                                                            <option>May</option>
-                                                            <option>Jun</option>
-                                                            <option>Jul</option>
-                                                            <option>Aug</option>
-                                                            <option>Sep</option>
-                                                            <option>Oct</option>
-                                                            <option>Nov</option>
-                                                            <option>Dec</option>
-                                                        </select>
+                                                            <div class="col-sm-1"><label>-</label> </div>
                                                         </div>
 
-                                                        <input type="checkbox" id="present-edit" class="myCheckbox-edit form-check-input-edit-custom"  value="Present" data-duration-edit="end-duration-edit" /><p class="present"> Present</p>
+
+                                                        <div class="row">
+                                                            <div class="col-sm-5">
+
+                                                                <select class="half-control form-control" id="val-jd-end-year-edit" name="val-jd-end-year-edit" style="display :initial;width: 100%;margin-left: 11%;">
+                                                                    ">
+                                                                    <option disabled="" selected="" value="0">-year-</option>
+                                                                    <option>1948</option>
+                                                                    <option>1949</option>
+                                                                    <option>1950</option>
+                                                                    <option>1951</option>
+                                                                    <option>1952</option>
+                                                                    <option>1953</option>
+                                                                    <option>1954</option>
+                                                                    <option>1955</option>
+                                                                    <option>1956</option>
+                                                                    <option>1957</option>
+                                                                    <option>1958</option>
+                                                                    <option>1959</option>
+                                                                    <option>1960</option>
+                                                                    <option>1961</option>
+                                                                    <option>1962</option>
+                                                                    <option>1963</option>
+                                                                    <option>1964</option>
+                                                                    <option>1965</option>
+                                                                    <option>1966</option>
+                                                                    <option>1967</option>
+                                                                    <option>1968</option>
+                                                                    <option>1969</option>
+                                                                    <option>1970</option>
+                                                                    <option>1971</option>
+                                                                    <option>1972</option>
+                                                                    <option>1973</option>
+                                                                    <option>1974</option>
+                                                                    <option>1975</option>
+                                                                    <option>1976</option>
+                                                                    <option>1977</option>
+                                                                    <option>1978</option>
+                                                                    <option>1979</option>
+                                                                    <option>1980</option>
+                                                                    <option>1981</option>
+                                                                    <option>1982</option>
+                                                                    <option>1983</option>
+                                                                    <option>1984</option>
+                                                                    <option>1985</option>
+                                                                    <option>1986</option>
+                                                                    <option>1987</option>
+                                                                    <option>1988</option>
+                                                                    <option>1989</option>
+                                                                    <option>1990</option>
+                                                                    <option>1991</option>
+                                                                    <option>1992</option>
+                                                                    <option>1993</option>
+                                                                    <option>1994</option>
+                                                                    <option>1995</option>
+                                                                    <option>1996</option>
+                                                                    <option>1997</option>
+                                                                    <option>1998</option>
+                                                                    <option>1999</option>
+                                                                    <option>2000</option>
+                                                                    <option>2001</option>
+                                                                    <option>2002</option>
+                                                                    <option>2003</option>
+                                                                    <option>2004</option>
+                                                                    <option>2005</option>
+                                                                    <option>2006</option>
+                                                                    <option>2007</option>
+                                                                    <option>2008</option>
+                                                                    <option>2009</option>
+                                                                    <option>2010</option>
+                                                                    <option>2011</option>
+                                                                    <option>2012</option>
+                                                                    <option>2013</option>
+                                                                    <option>2014</option>
+                                                                    <option>2015</option>
+                                                                    <option>2016</option>
+                                                                    <option>2017</option>
+                                                                    <option>2018</option>
+                                                                </select>
+                                                            </div>
+                                                            <div class="col-sm-5">
+                                                                <select class="half-second form-control" id="val-jd-end-month-edit" name="val-jd-end-month-edit" style="display : initial;margin-left: 11%;">
+                                                                    <option disabled="" selected="" value="0" aria-describedby="val-specialization-error" aria-invalid="true" >-month-</option>
+                                                                    <option>Jan</option>
+                                                                    <option>Feb</option>
+                                                                    <option>Mar</option>
+                                                                    <option>Apr</option>
+                                                                    <option>May</option>
+                                                                    <option>Jun</option>
+                                                                    <option>Jul</option>
+                                                                    <option>Aug</option>
+                                                                    <option>Sep</option>
+                                                                    <option>Oct</option>
+                                                                    <option>Nov</option>
+                                                                    <option>Dec</option>
+                                                                </select>
+
+
+                                                            </div>
+                                                            <div class="col-sm-1">
+                                                                <input type="checkbox" id="present-edit"   value="Present" data-end-y-edit="val-jd-end-year-edit" data-end-m-edit="val-jd-end-month-edit"class="myCheckbox-edit form-check-input" data-end-y="val-jd-end-year" data-end-m="val-jd-end-month"  style="
+                                            margin-left: 1rem;
+                                            "><label style="margin-left: 2rem;">Present</label>
+                                                            </div>
+                                                        </div>
                                                     </div>
+
+
+
+
+
+
+
                                                     {{--<div class="form-group">--}}
                                                         {{--<label for="val-email">Specialization<span class="text-danger">*</span></label>--}}
                                                         {{--<select class="form-control" id="specialization-edit" name="val-specialization-edit">--}}
@@ -808,11 +833,22 @@
 
 
 
+
+
                                         <!-- Submit -->
                                         <div class="row items-push">
-                                            <div class="col-lg-7 offset-lg-4 submit-experience-edit">
+                                            <div class="col-sm-1 offset-md-4 submit-experience-edit" style="
+    margin-left: 27rem;">
                                                 <button type="submit" class="btn btn-primary submit-experience-edit">Submit</button>
                                             </div>
+
+                                            <div class="col-sm-1 offset-md-4 " style="margin-left: 2rem;">
+                                                <button type="button" class="btn btn-primary" data-dismiss="modal">
+                                                    <span class="glyphicon glyphicon"></span>close
+                                                </button>
+                                            </div>
+
+
                                         </div>
                                         <!-- END Submit -->
                                     </div>
@@ -822,15 +858,7 @@
 
                             <!-- jQuery Validation -->
                         </div>
-                        <div class="modal-footer">
 
-
-
-                            <button type="button" class="btn btn-warning" data-dismiss="modal">
-                                <span class="glyphicon glyphicon"></span>close
-                            </button>
-
-                        </div>
                     </div>
                 </div>
             </div>

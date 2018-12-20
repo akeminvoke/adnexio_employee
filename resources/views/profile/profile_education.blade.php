@@ -75,12 +75,23 @@
 
                         <div class="row">
                             <div class="col-md-4">
-                                <label class="custom-control-data-label" id="lbl_experience_industry">course</label>
+                                <label class="custom-control-data-label" id="lbl_experience_industry">acedemic field</label>
                             </div>
                             <div class="col-md-4">
                                 <label id="lbl_experience_industry_output">{{$education->academic_field}} </label>
                             </div>
                         </div>
+
+                        <div class="row">
+
+                            <div class="col-md-4">
+                                <label class="custom-control-data-label" id="lbl_experience_industry">course</label>
+                            </div>
+                            <div class="col-md-4">
+                                <label id="lbl_experience_industry_output">{{$education->gname}}</label>
+                            </div>
+                        </div>
+
                         <div class="row">
 
                             <div class="col-md-4">
@@ -154,7 +165,7 @@
                                     <label for="val-username">Qualification<span class="text-danger">*</span></label>
                                     <select class="form-control" id="add-qualification" name="add-qualification" aria-describedby="val-specialization-error" aria-invalid="true" style="width: 60%;
 ">
-                                        <option value="0" title="- Select Qualification -&quot;, &quot;0&quot;, ">- Select Qualification -</option>
+                                        <option value="0" title="- Select Qualification -&quot;, &quot;0&quot;, " disabled="" selected="">- Select Qualification -</option>
                                         <option value="1" title="Primary/Secondary School/SPM/'O' Level">Primary/Secondary School/SPM/'O' Level</option>
                                         <option value="2" title="Higher Secondary/STPM/'A' Level/Pre-U">Higher Secondary/STPM/'A' Level/Pre-U</option>
                                         <option value="3" title="Professional Certificate">Professional Certificate</option>
@@ -212,6 +223,13 @@
                                     </select>
                                 </div>
 
+                                <input type="text" class="form-control hide" id="add-others-academic_field" name="add-others-academic_field" placeholder="Please enter your academic field here" >
+
+
+                                <input type="text" class="form-control hide" id="add-others-course" name="add-others-course" placeholder="Please enter your course here"  style="
+    margin-top: 16px"; >
+
+
                                 <div id="keyword-job-specification" class="form-group ">
                                     <label for="val-email">Course<span class="text-danger">*</span></label>
                                     <select class="form-control" id="add-course" name="add-course" aria-describedby="val-specialization-error" aria-invalid="true">
@@ -222,7 +240,8 @@
 
 
 
-                                <div class="form-group">
+                                <div class="form-group" style="
+    margin-top: 12px;">
                                     <label for="val-email">Major<span class="text-danger">*</span></label>
                                     <input type="text" class="form-control" id="add-major" name="add-major" placeholder="">
                                 </div>
@@ -291,7 +310,7 @@
                         </div>
                         <div class="block block-rounded block-bordered">
 
-                            <form id="foredit"  method="post" action="/profile/profile_experience/update">
+                            <form id="edit-education"  method="post" action="/profile/profile_experience/update">
 
                                 <div id="experiences" class="block-content block-content-full experience-section">
 
@@ -383,6 +402,11 @@
                                                         </select>
                                                     </div>
 
+                                                    <input type="text" class="form-control hide" id="others-academic_field_edit" name="others-academic_field_edit" placeholder="Please state your academic field" >
+
+
+                                                    <input type="text" class="form-control hide" id="others-course-edit" name="others-course-edit" placeholder="Please enter your course here"  style="
+    margin-top: 16px"; >
                                                     <div id="keyword-job-specification" class="form-group ">
                                                         <label for="val-email">Course<span class="text-danger">*</span></label>
                                                         <select class="form-control" id="course-edit" name="course-edit" aria-describedby="val-specialization-error" aria-invalid="true">
@@ -393,7 +417,7 @@
 
 
 
-                                                    <div class="form-group">
+                                                    <div class="form-group" style="margin-top: 12px;">
                                                         <label for="val-email">Major<span class="text-danger">*</span></label>
                                                         <input type="text" class="form-control" id="major-edit" name="major-edit" placeholder="">
                                                     </div>
@@ -424,7 +448,7 @@
 
 
                                                     <div class="form-group">
-                                                        <label for="val-email">Additional Information<span class="text-danger">*</span></label>
+                                                        <label for="val-email">Additional Information<span class="text-danger"></span></label>
                                                         <textarea class="form-control" id="information-edit" name="information-edit" rows="4" placeholder="Describe your experience "></textarea>
                                                     </div>
 
@@ -440,8 +464,14 @@
 
                                         <!-- Submit -->
                                         <div class="row items-push">
-                                            <div class="col-lg-7 offset-lg-4 submit-education-edit">
+                                            <div class="col-sm-1 offset-md-4 submit-education-edit"style="margin-left: 27rem;
+">
                                                 <button type="submit" class="btn btn-primary submit-education-edit">Submit</button>
+                                            </div>
+                                            <div class="col-sm-1 offset-md-4 " style="margin-left: 2rem;">
+                                            <button type="button" class="btn btn-primary" data-dismiss="modal">
+                                                <span class="glyphicon glyphicon"></span>close
+                                            </button>
                                             </div>
                                         </div>
                                         <!-- END Submit -->
@@ -452,15 +482,7 @@
 
                             <!-- jQuery Validation -->
                         </div>
-                        <div class="modal-footer">
 
-
-
-                            <button type="button" class="btn btn-warning" data-dismiss="modal">
-                                <span class="glyphicon glyphicon"></span>close
-                            </button>
-
-                        </div>
                     </div>
                 </div>
             </div>

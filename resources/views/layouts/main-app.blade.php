@@ -512,7 +512,7 @@
 
 <script type="text/javascript">
 
-    $(document).on('click', '.myCheckbox', function () {
+    $(document).on('click', '.myCheckbox',  function () {
         var y = $(this).data('end-y');
         var m = $(this).data('end-m');
         if ($(this).is(':checked')) {
@@ -529,21 +529,25 @@
         }
     });
 
-    $(document).on('click', '.myCheckbox-edit', function () {
-        var target = $(this).data('duration-edit');
-        if ($(this).is(':checked')) $('#' + target).addClass('disabled');
-        else $('#' + target).removeClass('disabled');
+    $(document).on('click', '.myCheckbox-edit',  function () {
+        var y = $(this).data('end-y-edit');
+        var m = $(this).data('end-m-edit');
+        if ($(this).is(':checked')) {
+            $('#' + y).attr("disabled", true);
+            $('#' + m).attr("disabled", true);
+
+        }
+        // if ($(this).is(':checked')) $('#' + target).addClass('disabled') ;
+        // $("input.group1").attr("disabled", true);
+        //else $('#' + target).removeClass('disabled');
+        else {
+            $('#' + y).removeAttr("disabled");
+            $('#'+  m).removeAttr("disabled");
+        }
     });
 
-    $(document).on('click', '.cancel-submit-experience', function () {
-        $('#experiences').addClass('hide');
-        $('#experiences').hide();
-        $('#add-experience-btn').show();
-        $('#add-experience').show();
-        $('#experience_prev').show();
 
-       // experiences
-    });
+
 
     $(document).on('click', '.cancel-submit-education', function () {
         $('#education_prev').removeClass('hide');
@@ -556,6 +560,18 @@
 
         // experiences
     });
+    $(document).on('click', '.cancel-submit-experience', function () {
+        $('#experience_prev').removeClass('hide');
+        $('#experience_prev').show();
+        $('#experiences').addClass('hide');
+        $('#experiences').hide();
+        $('#add-experience-btn').show();
+        // $('#add-experience').show();
+        // $('#education_prev').show();
+
+        // experiences
+    });
+
 
     $(document).on('click', '.add-experience', function() {
         //  $('.foredit').removeClass('js-validation');
@@ -566,8 +582,11 @@
         $('#val-company-name').replaceWith( " <input type='text' class='form-control' id='val-company-name' name='val-company-name' placeholder='Enter your company name'>");
 
 
+
+
+
         $('#val-industry').replaceWith( "<select class='form-control' id='val-industry' name='val-industry'> " +
-            "<option disabled selected>please provide your industry</option> " +
+            "<option disabled selected>-please provide your industry-</option> " +
             "<option>Electricity/Gas/Water/Waste Services</option> " +
             "<option>Manufacturing</option> " +
             "<option>Construction</option> " +
@@ -579,7 +598,7 @@
 
 
         $('#val-jd-start-year').replaceWith( "<select class='half-second form-control' id='val-jd-start-year' name='val-jd-start-year' > " +
-            "<option disabled selected>year</option>" +
+            "<option disabled selected>-year-</option>" +
             "<option>1948</option> " +
             "<option>1949</option> " +
             "<option>1950</option> " +
@@ -674,7 +693,7 @@
 
 
         $('#val-jd-end-year').replaceWith( "<select class='half-control form-control' id='val-jd-end-year' name='val-jd-end-year' style='display :initial;width: 100%;margin-left: 11%;'>" +
-            "<option disabled selected>year</option>" +
+            "<option disabled selected>-year-</option>" +
             "<option>1948</option> " +
             "<option>1949</option> " +
             "<option>1950</option> " +
@@ -782,7 +801,7 @@
             },
             success: function(data) {
                 $('#val-specialization').empty();
-                $('#val-specialization').append("<option disabled selected value='0'>select your Job Background </option> ");
+                $('#val-specialization').append("<option disabled selected value='0'>-select your Job Background-</option> ");
 
                 $.each(data,function(i,item){
                     $('#val-specialization').append("<option value='"+data[i].Id+"'>"+data[i].Job_Background+"</option>");
@@ -804,7 +823,7 @@
             "</select>");
 
         $('#val-salary').replaceWith( " <select class='form-control' id='val-salary' name='val-salary'> " +
-            "<option disabled selected>please choose your salary range</option> " +
+            "<option disabled selected>-please choose salary range-</option> " +
             "<option>Below then 1,000</option> " +
             "<option>1,000 to  3,000</option> " +
             "<option>3,001 to 5,000 </option> " +
@@ -844,7 +863,6 @@
                 $('#add-country-institute').empty();
                 $('#add-country-institute').append("<option disabled selected value='0'>select country</option> ");
                 $('#add-states-institute').append("<option disabled selected value='0'>select states</option> ");
-
                 $.each(data,function(i,item){
                         $('#add-country-institute').append("<option value='"+data[i].id+"'>"+data[i].name+"</option>");
 
@@ -1027,6 +1045,51 @@
         }
 
     });
+
+
+
+    $('#add-field').change(function() {
+        var other_field= $("#add-field :selected").val();
+
+        if ( other_field == "Others")
+        {
+            $('#add-others-academic_field').removeClass('hide');
+            $('#add-others-course').removeClass('hide');
+            $('#keyword-job-specification').hide();
+
+            $('#add-others-academic_field').show();
+            $('#add-others-course').show();
+        } else
+        {
+            $('#add-others-academic_field').addClass('hide');
+            $('#add-others-course').hide();
+            $('#add-others-academic_field').hide();
+            $('#keyword-job-specification').show();
+        }
+
+    });
+
+
+    $('#field-edit').change(function() {
+        var other_field= $("#field-edit :selected").val();
+
+        if ( other_field == "Others")
+        {
+            $('#others-course-edit').show();
+            $('#others-academic_field_edit').removeClass('hide');
+
+            $('#others-academic_field_edit').show();
+        } else
+        {
+
+            $('#others-course-edit').hide();
+            $('#others-course-edit').hide();
+            $('#others-academic_field_edit').addClass('hide');
+            $('#others-academic_field_edit').hide();
+        }
+
+    });
+
 
     $('#institute-name-edit').change(function() {
         var uniedit= $("#institute-name-edit :selected").val();
@@ -1239,12 +1302,57 @@
         $('#job-specification-edit').val($(this).data('jobspecification-edit'));
     }
 
-
     $(document).on('click', '.edit-education', function() {
 
 
+        $.ajax({
+            type: 'POST',
+            url: '{{ url("/profile/profile_education/getAllCourse") }}',
+            data: {
+                '_token': $('input[name=_token]').val()
 
-        $('#footer_action_button').text("Update");
+            },
+            success: function (data) {
+                $('#course-edit').empty();
+
+                $('#course-edit').append("<option disabled selected value='0'>select your course edit</option> ");
+
+                $.each(data, function (i, item) {
+
+                    $('#course-edit').append("<option value=" + data[i].id + ">" + data[i].course + "</option>");
+                })
+            }
+        });
+
+        {{--$.ajax({--}}
+            {{--type: 'POST',--}}
+            {{--url: '{{ url("/profile/profile_education/getcourse") }}',--}}
+            {{--data: {--}}
+                {{--'_token': $('input[name=_token]').val(),--}}
+                {{--'field': $('#field-edit').val(),--}}
+            {{--},--}}
+            {{--success: function (data) {--}}
+                {{--$('#course-edit').empty();--}}
+
+                {{--$('#course-edit').append("<option disabled selected value='0'>select course</option> ");--}}
+
+
+                {{--$.each(data, function (i, item) {--}}
+                        {{--$('#course-edit').append("<option value='" + data[i].id + "'>" + data[i].course + "</option>");--}}
+
+                    {{--}--}}
+                {{--)--}}
+                {{--$('#course-edit').append("<option value='79'>Others</option> ");--}}
+            {{--}--}}
+        {{--});--}}
+
+    {{--});--}}
+
+
+
+
+
+    $('#footer_action_button').text("Update");
         $('#footer_action_button').addClass('glyphicon-check');
         $('#footer_action_button').removeClass('glyphicon-trash');
         $('.actionBtn').addClass('btn-primary');
@@ -1456,6 +1564,7 @@ $('.submit-education-edit').on('click', '.submit-education-edit', function() {
             'graduation_date': $('#graduation-date-edit').val(),
             'country_institute': $('#country-institute-edit').val(),
             'course': $('#course-edit').val(),
+            'field': $('#field-edit').val(),
             'major': $('#major-edit').val(),
             'grade': $('#grade-edit').val(),
             'cgpa': $('#cgpa-edit').val(),
@@ -1533,6 +1642,7 @@ $('.submit-education-edit').on('click', '.submit-education-edit', function() {
 <!-- Page JS Select2 -->
 <script src="{!! asset('assets/js/plugins/select2/js/select2.full.min.js') !!}"></script>
 <script src="{!! asset('assets/js/plugins/jquery-bootstrap-wizard/bs4/jquery.bootstrap.wizard.min.js') !!}"></script>
+
 <!--<script src="{!! asset('assets/js/plugins/jquery-validation/jquery.validate.min.js') !!}"></script>-->
 <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.0/dist/jquery.validate.js"></script>
 
@@ -1545,7 +1655,7 @@ $('.submit-education-edit').on('click', '.submit-education-edit', function() {
 <script src="{!! asset('assets/js/pages/be_tables_datatables.min.js') !!}"></script>
 
 <!-- Page JS Form Validation -->
-<script src="{!! asset('assets/js/pages/be_forms_validation.min.js') !!}"></script>
+<script src="{!! asset('assets/js/pages/be_forms_validation.min.js?t=12345') !!}"></script>
 
 <!-- Page JS Code -->
 <script src="{!! asset('assets/js/pages/be_forms_wizard.min.js') !!}"></script>
