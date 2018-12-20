@@ -12,9 +12,8 @@ use DB;
 class UploadVideoToServerAndS3 extends Controller
 {
 	
-	
 	private $fileName;
-	
+
     /**
      * Create a new controller instance.
      *
@@ -76,64 +75,47 @@ class UploadVideoToServerAndS3 extends Controller
 		$blink = 0;
 		$samples = array();
 		$h_samples = array();
-		$c_samples = array();		
+		$c_samples = array();
+		
+		var_dump($samples);
+		var_dump($h_samples);
+		var_dump($c_samples);
 		
 		$stringData = $_POST['data-string'];
-		
-		
-			//echo '<pre>';
-			//print_r($response);	
-		
-	  
+
 		var_dump($stringData);
+
 	  
 		$data = str_getcsv($stringData, ";"); //parse the rows 
 	
 		foreach($data as &$row) 
 		{
 			$row = str_getcsv($row, ","); //parse the items in rows 
-		
+
 			//echo implode(" ", $row);
 			//echo "<br>";
-			if (sizeof($row) == 4)
+			if (sizeof($row) == 5)
 			{
-				//$bl = eye_blink($row[0]);
+				
+//				//$bl = eye_blink($row[0]);
 //				$b = $this->eye_blink($row[0]);
 //				$f = $this->fidget_value($row[1], $row[2], $row[3]);
 				$b = $this->eye_blink($row[0], $row[3], $row[4]);
 				$f = $this->fidget_value($row[1], $row[2], $row[3]);
-
 				
 				echo "Eye blink : " . $b . ", fidget : " . $f ."<br>";
 			}
 		}
 	
-		/*-------------------- Eye Blink & Fidget Value --------------------*/
-		
-		
-		/*-------------------- Tone Analyzer --------------------*/
-
-		//ini_set('max_execution_time', 300); 
-		
-		
-		//$audio_file = convert_mp3($source);
-		//echo $audio_file . '<br>';
+		/*-------------------- End Of Eye Blink & Fidget Value --------------------*/
 		
 
-		
-
-		//echo $text . '<br>';
-
-		/*-------------------- End Tone Analyzer --------------------*/
-
-
-		/*-------------------- Save All Data --------------------*/
+		/*-------------------- Insert Blink Eye & Fidget Value Data --------------------*/
 
 
 		$file_idx = 'video-blob';
 		$this->fileName = $_POST['video-filename'];
 		$tempName = $_FILES[$file_idx]['tmp_name'];
-		
 		$t_minutes = $_POST['data-t-minutes'];
 		//$t_seconds = $_POST['data-t-seconds']; 
 		
@@ -142,19 +124,12 @@ class UploadVideoToServerAndS3 extends Controller
 		
 		//Store data in the database
 		$user = Auth::user()->id;
-		$videoname = $request->input('video-filename');
-
-			
-			
+		$videoname = $request->input('video-filename');	
 		$now = new DateTime();
 		
 		$videodata = array('user_id'=>$user,'video_name'=>$videoname,'eye_blink'=>$b,'video_duration'=>$t_minutes,'fidget_value'=>$f,'created_at'=>$now);
 		DB::table('video_interviews')->insert($videodata);
-		
-		
-		
-		
-		
+
 		if (!move_uploaded_file($tempName, $filePath)) {
 			{
 				echo 'Problem saving file: '.$tempName;
@@ -166,11 +141,27 @@ class UploadVideoToServerAndS3 extends Controller
 			//Store video file in Amazon S3
 			Storage::disk('s3')->put($this->fileName,  fopen($filePath, 'r+'), 'public');	
 			
-	
+		/*-------------------- End Of Insert Blink Eye & Fidget Value Data --------------------*/
+			
+			
+		/*-------------------- Tone Analyzer --------------------*/
+
+		//ini_set('max_execution_time', 300); 
+		
+		
+		//$audio_file = convert_mp3($source);
+		//echo $audio_file . '<br>';
+		
 		$text = $this->speech_to_text();
 		$tone_analyzer = $this->tone_analyzer($text);	
+		
+		//echo $text . '<br>';
+
+		/*-------------------- End Tone Analyzer --------------------*/
 
 		}
+		
+		/*-------------------- Insert Tone Analyzer Data --------------------*/
 		
 		$insert_tone = DB::table('video_interviews')->select('video_id','user_id')->where('user_id', $user)->take(1)->orderBy('video_id', 'desc')->get(); 
 		
@@ -179,10 +170,12 @@ class UploadVideoToServerAndS3 extends Controller
             ->where('user_id', $insert_tone[0]->user_id)->where('video_id', $insert_tone[0]->video_id)
 			->update(['text' => $text]);
             //->update(['text' => 'test']);
-
+			
+		/*-------------------- End Of Insert Tone Analyzer Data --------------------*/	
+		
 	}
 
-	/*-------------------- End Of Save All Data --------------------*/
+
 
 
 	/*-------------------- Funtions For Eye Blink & Fidget Value --------------------*/
@@ -223,15 +216,13 @@ class UploadVideoToServerAndS3 extends Controller
 		$total_delta = $total_delta + $delta;
 		
 		$fidget = $total_delta / $counter;
-		
+
 		$fidget = $fidget * 43.43 + 11.64;
 		
 		return $fidget;
 		
 	}
-
-
-
+	
 	// version 0.1
 	public function average($num1, $num2)
 	{
@@ -351,6 +342,10 @@ class UploadVideoToServerAndS3 extends Controller
 		
 		$is_detected = false;
 		
+		$samples = (array) $samples;
+		$c_samples = (array) $c_samples;
+		$h_samples = (array) $h_samples;
+		
 		// Push latest values to respective arrays
 		array_push($samples, $ear);
 		array_push($c_samples, $center * -1.0);
@@ -404,19 +399,20 @@ class UploadVideoToServerAndS3 extends Controller
 		
 		return $is_detected;
 	}
-
-
+				
+				
 	public function eye_blink($ear, $center, $height)
 	{
 		global $blink;
 		
-		if (sample_window($ear, $center, $height))
+		if ($this->sample_window($ear, $center, $height))
 		{
 			$blink = $blink + 1;
 		}
 		
-	
+		return $blink;
 	}
+
 
 
 //	public function eye_blink($ear)

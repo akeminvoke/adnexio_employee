@@ -427,9 +427,9 @@
 	var blink = 0;
 	var FIDGET_FPS = 20;
 	
-	var states = {search:0, peakDetected:1};
+	//var states = {search:0, peakDetected:1};
 	
-	var earState = states.search;
+	//var earState = states.search;
 
 	
 	function distance(a, b) {
