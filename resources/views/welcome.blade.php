@@ -23,7 +23,7 @@
 
                                     <div class="col form-group">
 										<label for="exampleInputEmail1">Full Name</label>
-                                      <input type="text" class="form-style form-control form-control-sm" >
+                                      <input type="text" id="name" name="name" class="form-style form-control form-control-sm" >
                                     </div>
                                   </div>
 
