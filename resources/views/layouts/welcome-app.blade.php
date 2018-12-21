@@ -15,7 +15,7 @@
 
 	<!-- Fonts and Styles -->
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
-	<link rel="stylesheet" href="{{ asset('assets/css/main.min.css') }}">
+	<link rel="stylesheet" href="{{ asset('assets/css/main.min.css?t=12345') }}">
 	<!-- You can include a specific file from public/css/themes/ folder to alter the default color theme of the template. eg: -->
 	<!-- <link rel="stylesheet" href="{{ mix('/css/themes/xwork.css') }}"> -->@yield('css_after')
 	<style media="screen" type="text/css">
