@@ -155,7 +155,7 @@
 		</div>
 	</div>
 	<!-- Dashmix Core JS -->
-	<script src="{!! asset('assets/js/main.min.js') !!}"></script>@yield('js_after')</body>
+	<script src="{!! asset('assets/js/main.min.js?t=12345') !!}"></script>@yield('js_after')</body>
 <script src="{!! asset('assets/js/plugins/jquery-validation/jquery.validate.min.js') !!}"></script>
 
 <!-- Page JS Code -->
