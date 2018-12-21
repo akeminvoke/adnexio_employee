@@ -139,7 +139,7 @@ class UploadVideoToServerAndS3 extends Controller
 		else 
 		{	
 			//Store video file in Amazon S3
-			Storage::disk('s3')->put($this->fileName,  fopen($filePath, 'r+'), 'public');	
+		Storage::disk('s3')->put($this->fileName,  fopen($filePath, 'r+'), 'public');
 			
 		/*-------------------- End Of Insert Blink Eye & Fidget Value Data --------------------*/
 			

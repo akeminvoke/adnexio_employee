@@ -1239,9 +1239,6 @@
 
     $(document).on('click', '.edit-experience', function() {
 
-
-
-
         $('#footer_action_button').text("Update");
         $('#footer_action_button').addClass('glyphicon-check');
         $('#footer_action_button').removeClass('glyphicon-trash');
@@ -1261,16 +1258,8 @@
         $('#val-jd-end-year-edit').val($(this).data('endyear-edit'));
         $('#val-jd-end-month-edit').val($(this).data('endmonth-edit'));
 
-
-
-
-
-
         //$('#job-specification').val($(this).data('jobspecification-edit'));
-
         var  counter =$(this).data('specialization-edit');
-
-
             $.ajax({
                 type: 'POST',
                 url: '{{ url("/profile/profile_experience/getjobspec") }}',
@@ -1305,24 +1294,24 @@
     $(document).on('click', '.edit-education', function() {
 
 
-        $.ajax({
-            type: 'POST',
-            url: '{{ url("/profile/profile_education/getAllCourse") }}',
-            data: {
-                '_token': $('input[name=_token]').val()
+        {{--$.ajax({--}}
+            {{--type: 'POST',--}}
+            {{--url: '{{ url("/profile/profile_education/getAllCourse") }}',--}}
+            {{--data: {--}}
+                {{--'_token': $('input[name=_token]').val()--}}
 
-            },
-            success: function (data) {
-                $('#course-edit').empty();
+            {{--},--}}
+            {{--success: function (data) {--}}
+                {{--$('#course-edit').empty();--}}
 
-                $('#course-edit').append("<option disabled selected value='0'>select your course edit</option> ");
+                {{--$('#course-edit').append("<option disabled selected value='0'>select your course edit</option> ");--}}
 
-                $.each(data, function (i, item) {
+                {{--$.each(data, function (i, item) {--}}
 
-                    $('#course-edit').append("<option value=" + data[i].id + ">" + data[i].course + "</option>");
-                })
-            }
-        });
+                    {{--$('#course-edit').append("<option value=" + data[i].id + ">" + data[i].course + "</option>");--}}
+                {{--})--}}
+            {{--}--}}
+        {{--});--}}
 
         {{--$.ajax({--}}
             {{--type: 'POST',--}}
@@ -1405,6 +1394,27 @@
         }
 
         $('#cgpa-edit').val($(this).data('cgpa'));
+
+
+        var  counter =$(this).data('field');
+        $.ajax({
+            type: 'POST',
+            url: '{{ url("/profile/profile_education/getselectedcourse") }}',
+            data: {
+                '_token': $('input[name=_token]').val(),
+                'industry': counter
+            },
+            success: function (data) {
+                $('#course-edit').empty();
+
+                $('#course-edit').append("<option disabled selected value='0'>select your course</option> ");
+
+                $.each(data, function (i, item) {
+                    $('#course-edit').append("<option value='" + data[i].id + "'>" + data[i].coursename+"</option>");
+                })
+            }
+        });
+
 
     });
 
@@ -1547,7 +1557,6 @@ console.log(data);
 
 $('.submit-education-edit').on('click', '.submit-education-edit', function() {
 
-
     $.ajax({
         // headers: {
         //     'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
@@ -1569,8 +1578,6 @@ $('.submit-education-edit').on('click', '.submit-education-edit', function() {
             'grade': $('#grade-edit').val(),
             'cgpa': $('#cgpa-edit').val(),
             'information': $('#information-edit').val(),
-
-
         },
         success: function(data) {
             location.reload();
