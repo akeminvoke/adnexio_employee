@@ -67,7 +67,7 @@ class UploadVideoToServerAndS3 extends Controller
 
 		define("SEARCH", 1);
 		define("DETECTED", 0);
-		define("FIDGET_FPS", 10);
+		define("FIDGET_FPS", 20);
 		
 		$minEAR = 1.0;
 		$maxEAR = 0.0;
@@ -171,8 +171,8 @@ class UploadVideoToServerAndS3 extends Controller
 //			->update(['text' => $text]);
 //            //->update(['text' => 'test']);
 
-		$select_tone = DB::table('video_interviews')->select('video_id','user_id')->where('user_id', $user)->take(1)->orderBy('video_id', 'desc')->get(); 
-		
+//		$select_tone = DB::table('video_interviews')->select('video_id','user_id')->where('user_id', $user)->take(1)->orderBy('video_id', 'desc')->get(); 
+//		
 //		foreach($text as $texts)
 //		{
 //			
@@ -180,9 +180,9 @@ class UploadVideoToServerAndS3 extends Controller
 //		DB::table('tone_analyzers')->insert($tonedata);
 //		
 //		}
-		
-		$tonedata = array('video_id'=>$select_tone[0]->video_id,'user_id'=>$select_tone[0]->user_id,'transcript'=>$text,'created_at'=>$now);
-		DB::table('tone_analyzers')->insert($tonedata);
+//		
+//		$tonedata = array('video_id'=>$select_tone[0]->video_id,'user_id'=>$select_tone[0]->user_id,'transcript'=>$text,'created_at'=>$now);
+//		DB::table('tone_analyzers')->insert($tonedata);
 
 
 			
@@ -210,6 +210,12 @@ class UploadVideoToServerAndS3 extends Controller
 		static $total_length = 0.0;
 		static $total_delta = 0.0;
 		
+		
+//		echo 'counter : '. $counter. '<br><br>' ;
+//		echo 'prev_center_x : '. $prev_center_x. '<br><br>' ;
+//		echo 'prev_center_y : '. $prev_center_y. '<br><br>' ;
+//		echo 'total_length : '. $total_length. '<br><br>' ;
+//		echo 'total_delta : '. $total_delta. '<br><br>' ;
 				
 		$counter ++;
 		
@@ -233,6 +239,9 @@ class UploadVideoToServerAndS3 extends Controller
 		$fidget = $total_delta / $counter;
 
 		$fidget = $fidget * 43.43 + 11.64;
+		
+
+		
 		
 		return $fidget;
 		
@@ -524,7 +533,7 @@ class UploadVideoToServerAndS3 extends Controller
 		$result=curl_exec ($ch);
 		curl_close ($ch);
 		//echo $result . '<br>' ;
-		//echo 'result mp4 -> mp3 : '. $result . '<br>' ;
+		echo 'result mp4 -> mp3 : '. $result . '<br>' ;
 		
 		
 		$json = @json_decode($result);
@@ -573,7 +582,7 @@ class UploadVideoToServerAndS3 extends Controller
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER,1);
 		$result=curl_exec($ch);
 		curl_close ($ch);
-		//echo 'result mp3 -> text : '. $result . '<br>' ;
+		echo 'result mp3 -> text : '. $result . '<br>' ;
 		
 		
 		$json = @json_decode($result);
@@ -583,19 +592,34 @@ class UploadVideoToServerAndS3 extends Controller
 		$transcripts = "";
 		//$confidence = "";
 		
+		//$i = 0;
 
 		foreach($json->results as $result)
-		{
-			
+		{			
+			//$result['personality_type']['name'];
 			
 			//echo $result->alternatives->transcript . '<br>' ;
 			
-			$alternatives = $result->alternatives;
+			//$alternativesss = $result->alternatives[0]->transcript[1];
 			//$alternatives = $result->confidence;
+		$user = Auth::user()->id;			
 			
-			echo $alternatives[0]->transcript . '<br>' ;
+		$select_tone = DB::table('video_interviews')->select('video_id','user_id')->where('user_id', $user)->take(1)->orderBy('video_id', 'desc')->get(); 
 			
-			$transcripts = $transcripts . $alternatives[0]->transcript . ". ";
+			DB::table('tone_analyzers')->insert(
+				['video_id' => $select_tone[0]->video_id,
+				 'user_id' => $select_tone[0]->user_id,
+				 'transcript' => $result->alternatives[0]->transcript,
+				 'confidence_score' => $result->alternatives[0]->confidence
+				]
+				
+			);	
+			
+			//$i++;
+			
+			//echo $alternatives[0]->transcript . '<br>' ;
+			
+			$transcripts = $transcripts . $result->alternatives[0]->transcript . ". ";
 			//$confidence = $confidence . $alternatives[0]->confidence . ". ";
 		}
 		
@@ -646,7 +670,7 @@ class UploadVideoToServerAndS3 extends Controller
 		//var_dump($json);
 		//$tones = $json->document_tone->tones;
 		
-		//echo 'text -> tones : '.  '<br>' ;
+		echo 'text -> tones : '.  '<br>' ;
 		//var_dump($tones);
 		
 		return $json;

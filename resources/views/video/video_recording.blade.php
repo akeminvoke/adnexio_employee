@@ -748,6 +748,8 @@
 			"," + height_average.toFixed(2) + ";";
 			//"," + blink + ";";
 
+			//console.log(dataString);
+
 			
 //			leftEAR = eye_aspect_ratio(positions[23], positions[25], positions[21], positions[24]);
 //			rightEAR = eye_aspect_ratio(positions[30], positions[28], positions[17], positions[29]);
@@ -2025,6 +2027,8 @@
 		formData.append('data-string', dataString);
 		formData.append('data-t-minutes', time_used);
 		//formData.append('data-t-seconds', t.seconds);
+		
+		//console.log(dataString);
 		
 		
 
