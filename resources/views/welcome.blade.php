@@ -1,206 +1,177 @@
-@extends('layouts.login-app')
+@extends('layouts.welcome-app')
 
 @section('content')
 
+<div class="bg-section-1">
+	<div class="container">
+        <div class="row align-items-center no-gutters section-1-padding">
+            <div class="col">
+                <div class="row justify-content-center no-gutters">
+                    <div class="col-6">
+                    	<div class="register-form">
+                            <div class="container">
+                            	<h4 class="text-white"> Create Account</h4>
+                                <h5 class="text-white">fill in below to create an account</h5>
+                                <br />
+                                <form class="js-validation-signup" action="{{ route('register') }}" method="post">
 
-
-<div id="page-container"> 
-
-    <!-- Main Container -->
-    <main id="main-container">
-
-        <!-- Page Content -->
-        <div class="bg-image" style="background-image: url('{{asset('media/photos/photo22@2x.jpg')}}');">
-            <div class="row no-gutters bg-primary-op"> 
-                <!-- Main Section -->
-                <div class="hero-static col-md-6 d-flex align-items-center bg-white">
-                    <div class="p-3 w-100">
-                        <!-- Header -->
-                        <div class="mb-3 text-center">
-                            <a class="link-fx font-w700 font-size-h1" href="{{ url('/') }}">
-                                <span class="text-dark">Adnexio</span><span class="text-primary">.com</span>
-                            </a>
-                            <p class="text-uppercase font-w700 font-size-sm text-muted">Sign In</p>
-                        </div>
-                        <!-- END Header -->
-
-                        <!-- Sign In Form -->
-                        <!-- jQuery Validation (.js-validation-signin class is initialized in js/pages/op_auth_signin.min.js which was auto compiled from _es6/pages/op_auth_signin.js) -->
-                        <!-- For more info and examples you can check out https://github.com/jzaefferer/jquery-validation -->
-
-                        <!--<div class="card-body">
-                            <form method="POST" action="{{ route('login') }}">
-                                @csrf
-
-                                <div class="form-group row">
-                                    <label for="email" class="col-sm-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
-
-                                    <div class="col-md-6">
-                                        <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required autofocus>
-
-                                        @if ($errors->has('email'))
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $errors->first('email') }}</strong>
-                                            </span>
-                                        @endif
-                                    </div>
-                                </div>
-
-                                <div class="form-group row">
-                                    <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
-
-                                    <div class="col-md-6">
-                                        <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
-
-                                        @if ($errors->has('password'))
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $errors->first('password') }}</strong>
-                                            </span>
-                                        @endif
-                                    </div>
-                                </div>
-
-                                <div class="form-group row">
-                                    <div class="col-md-6 offset-md-4">
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-
-                                            <label class="form-check-label" for="remember">
-                                                {{ __('Remember Me') }}
-                                            </label>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="form-group row mb-0">
-                                    <div class="col-md-8 offset-md-4">
-                                        <button type="submit" class="btn btn-primary">
-                                            {{ __('Login') }}
-                                        </button>
-
-                                        <a class="btn btn-link" href="{{ route('password.request') }}">
-                                            {{ __('Forgot Your Password?') }}
-                                        </a>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>-->
-
-                        <div class="row no-gutters justify-content-center">
-                            <div class="col-sm-8 col-xl-6">
-                                <!--<form class="js-validation-signin" action="be_pages_auth_all.html" method="post">-->
-                                <!--<form class="js-validation-signin" action="/be_pages_dashboard" method="POST">-->
-
-                                <form class="js-validation-signin" action="{{ route('login') }}" method="POST">
-
-                                @csrf
-
-                                    @if ($message = Session::get('success'))
-                                        <div class="alert alert-success">
-                                            <p>
-                                                {{ $message }}
-                                            </p>
-                                        </div>
-                                    @endif
-                                    @if ($message = Session::get('warning'))
-                                        <div class="alert alert-warning">
-                                            <p>
-                                                {{ $message }}
-                                            </p>
-                                        </div>
-                                    @endif
-
-
-
-                                    <div class="py-3">
-                                        <div class="form-group">
-                                            <!--<input type="email" class="form-control form-control-lg form-control-alt" id="email" name="login-username"  placeholder="Email">-->
-                                            <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }} form-control-lg form-control-alt" name="email" placeholder="Email" value="{{ old('email') }}" required autofocus>
-
-                                            @if ($errors->has('email'))
-                                                <span class="invalid-feedback" role="alert">
-                                                    <strong>{{ $errors->first('email') }}</strong>
-                                                </span>
-                                            @endif
-
-                                        </div>
-                                        <div class="form-group">
-                                            <!--<input type="password" class="form-control form-control-lg form-control-alt" id="password" name="login-password" placeholder="Password">-->
-                                            <input id="password" type="password" class="form-control form-control-lg form-control-alt" name="password" placeholder="Password" required>
-
-                                        </div>
-                                    </div>
-                                    
-                                    
-                                    <div class="form-group">
-                                        <button type="submit" class="btn btn-block btn-hero-lg btn-hero-primary">
-                                            <i class="fa fa-fw fa-sign-in-alt mr-1"></i> Sign In
-                                        </button>
-                                       
-                                        <!--<p class="mt-3 mb-0 d-lg-flex justify-content-lg-between">
-                                            <a href="{{ url('/redirect') }}"><img src="https://www.freeiconspng.com/uploads/login-with-facebook-button-png-32.png" width="210" alt="login with facebook button png" /></a>
-
-
-                                            <a href="{{ url('/gredirect') }}" ><img src="{!! asset('media/buttons/btn_google_signin_light_normal_web.png') !!}" /></a>
-                                        </p>-->
-                                       
-                                         <p class="mt-2 mb-0 d-lg-flex justify-content-lg-between">
-                                            <!--<a class="btn btn-sm btn-primary d-block d-lg-inline-block mb-1" href="{{ url('/redirect') }}">
-                                                Login with Facebook
-                                            </a>-->
-                                            <a href="{{ url('/redirect') }}">
-                                                <img src="{!! asset('assets/media/buttons/login_facebook_small.png') !!}" style="width: 160px; height:35px;" onmouseover="this.src='{!! asset('assets/media/buttons/login_facebook_small_normal.png') !!}';" onmouseout="this.src='{!! asset('assets/media/buttons/login_facebook_small.png') !!}';" >
-                                            </a>
-   
-                                            <!--<a class="btn btn-sm btn-danger d-block d-lg-inline-block mb-1" href="{{ url('/gredirect') }}">
-                                                Sign in with Google
-                                            </a>-->
-                                            <a href="{{ url('/gredirect') }}">
-                                                <img src="{!! asset('assets/media/buttons/login_google_small.png') !!}" style="width: 160px; height:35px;" onmouseover="this.src='{!! asset('assets/media/buttons/btn_google_signin_dark_normal_web@2x.png') !!}';" onmouseout="this.src='{!! asset('assets/media/buttons/btn_google_signin_dark_pressed_web@2x.png') !!}';" >
-                                            </a>
-                                            
-                                        </p>
-                                       
-                                        <p class="mt-3 mb-0 d-lg-flex justify-content-lg-between">
-                                            <a class="btn btn-sm btn-light d-block d-lg-inline-block mb-1" href="{{ url('/password/reset') }}">
-                                                <i class="fa fa-exclamation-triangle text-muted mr-1"></i> Forgot password
-                                            </a>
-                                            <a class="btn btn-sm btn-light d-block d-lg-inline-block mb-1" href="{{ route('register') }}">
-                                                <i class="fa fa-plus text-muted mr-1"></i> New Account
-                                            </a>
-                                        </p>
-
+                                  <div class="form-row">
+                                    <div class="col form-group">
+										<label for="exampleInputEmail1">Username</label>
+                                      <input type="text" id="name" name="name" class="form-style form-control form-control-sm" >
                                     </div>
 
+                                    <div class="col form-group">
+										<label for="exampleInputEmail1">Full Name</label>
+                                      <input type="text" class="form-style form-control form-control-sm" >
+                                    </div>
+                                  </div>
 
+
+									@if ($errors->has('email'))
+
+                                				<strong>The email address has been taken. Try another.</strong>
+
+									@endif
+                                  <div class="form-row">
+                                    <div class="col form-group">
+										<label for="exampleInputEmail1">Email Address</label>
+										<input type="text" name="email" class="form-style form-control form-control-sm  {{ $errors->has('email') ? ' is-invalid' : '' }}" >
+                                    </div>
+                                  </div>
+
+                                  <div class="form-row">
+                                    <div class="col form-group">
+										<label for="exampleInputPassword1">Password</label>
+                                      <input type="text" id="password" name="password" class="form-style form-control form-control-sm form-style" >
+                                    </div>
+									<div class="col form-group">
+										<label for="exampleInputPassword1"> Comfirm Password</label>
+										<input type="text" id="password-confirm" name="password_confirmation" class="form-style form-control form-control-sm" >
+									</div>
+										<input type="hidden" id="role_id" name="role_id" value="1">
+									</div>
+									<div class="form-row">
+										<div class="col form-group">
+											<br>
+                                  			<button type="submit" class="btn btn-md btn-adnexio-white mt-1 bg-light"><strong>CREATE ACCOUNT</strong></button>
+										</div>
+									</div>
+                                </form>
                             </div>
-                        </div>
-                        <!-- END Sign In Form -->
+                         </div>
                     </div>
-                </div>
-                <!-- END Main Section -->
-
-                <!-- Meta Info Section -->
-                <div class="hero-static col-md-6 d-none d-md-flex align-items-md-center justify-content-md-center text-md-center">
-                    <div class="p-3">
-                        <p class="display-4 font-w700 text-white mb-3">
-                            The perfect job match
-                        </p>
-                        <p class="font-size-lg font-w600 text-white-75 mb-0">
-                            Copyright &copy; <span class="js-year-copy">2018</span>
-                        </p>
+                     <div class="col-6 align-self-center">
+                        <center>
+                            <h1 class="text-white">Don't Look for a Job</h1>
+							<h1 class="text-white"><strong>Adnexio</strong> bring it you</h1><br>
+                            <h2 class="text-white">Register Now</h2>
+                        </center>
                     </div>
-                </div>
-                <!-- END Meta Info Section -->
+                  </div>
             </div>
         </div>
-        <!-- END Page Content -->
-
-    </main>
-    <!-- END Main Container -->
-    
+     </div>
 </div>
-<!-- END Page Container -->
+<div class="nex p-3 bg-dark">
+	<div class="row justify-content-center no-gutters">
+		<div class="col-11">
+			<div class="row justify-content-center no-gutters">
+				<div class="col">
+					<center>
+						<h2 class="text-white">hello my name is NEX &nbsp;&nbsp;&nbsp;<button type="button" class="btn btn-md btn-adnexio-white mt-1 bg-light">MEET NEX</button></h2>
+					</center>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div id="section2" class="row align-items-center no-gutters ">
+    <div class="col">
+    	<div class="container section-2-padding">
+      		<div class="row justify-content-center no-gutters">
+			    <div class="col-10">
+			    	<div class="row">
+			    		<div class="col">
+					    	<center>
+						    	<p><strong>Adnexio</strong> is Latin for connecting.</p>
+						    	<p>We use a mechine learning and artificial intelligrnce<br>
+						    	to bring you the best career that matches your skill<br>
+						    	education, salary and individually</p>
+						    </center>
+						</div>
+					</div>
+					<div class="row justify-content-center">
+						<div class="col-10">
+							<hr>
+						</div>
+					</div>
+					<div class="row justify-content-center">
+			    		<div class="col-md-4">
+						    	<h3>Jobseekers  &nbsp;<i class="fas fa-search"></i></h3>
+						    	<p>Joint thousands of professionals on adnexio.</p>
+						    	<p>Fill in your education and work experience details.</p>
+						    	<p>Complete the personality and essay tests.</p>
+						    	<p>Take the 5 minutes online interview.</p>
+						    	<p>Every day, we analyse thausands of vacancies to find the perfect career match for you.</p>
+						</div>
+						<div class="col--md-1">
+							<div>
+
+							</div>
+						</div>
+						<div class="col-md-7">
+						    	<h3>Employers</h3>
+						    	<p>Get access to instant job-fit assessment of thousands of professionals on adnexio.</p>
+						    	<p>advertise vacancies in you organization for FREE.</p>
+						    	<p>Our artificial intelligence systems runs analytics on prospective candidates' education, job experience, IQ, personality and video interviews to rate suitability.</p>
+						    	<p>We refers only the candidates who match your requirement.</p>
+						    	<p>Employers can now cut up to 80% of the recruitment process because we have done it for you and browse shortlisted applicants and choose the top match for a final interview.</p>
+						</div>
+					</div>
+			    </div>
+			</div>
+		</div>
+    </div>
+</div>
+<div class="bg-section-3">
+	<div class="row align-items-center no-gutters ">
+	    <div class="col">
+	    	<div class="container section-3-padding">
+	      		<div class="row justify-content-center no-gutters">
+				    <div class="col-10">
+						<div class="row justify-content-center">
+				    		<div class="col-md-5">
+				    			<center>
+				    				<p><img class="circle-img" src="{{ asset('media/photos/franck-v-516603-unsplash.jpg') }}" height="250" width="250"><p>
+							    	<h4>Job Analytics.</h4>
+							    	<p>We use data analytics to develop adnexio's machine learning.</p>
+							    	<p>Adnexio works (almost) like a real-life career coach. It goes through your resume, educational background, grades in school, your hobbies, personality, salary expectation to access you.</p>
+							    	<p>It compares your essay and personality test with thousands of other applicants to rank you.</p>
+							    	<p>Adnexio analytically rates your interview video to assess your confidence level, leadership traits and personality.</p>
+							    	<p>With four layers of analytical assessments, using machine learning and artificial intelligence to compare thousands of applicants, adnexio can match top applicants with the best available vacancies.</p>
+							    </center>
+							</div>
+							<div class="col--md-1">
+							</div>
+							<div class="col-md-5">
+								<center>
+									<p><img class="circle-img" src="{{ asset('media/photos/glenn-carstens-peters-203007-unsplash.jpg') }}" height="250" width="250"><p>
+							    	<h3>Career Coach</h3>
+							    	<p>When you join adnexio, we will continuously work to help you improve your assessment score, to increase your chance of being matched to the best vacancy available.</p>
+							    	<p>We do this iteratively, mush like machine learning algorithms iteratively going through thousands of vacancies and applicants each day. You can regularly see how you fare compared to other applicants and why you were not picked for availablevacancies.</p>
+							    	<p>More importantly, adnexio makes sugestions of courses and steps you need to take to improve your assessment score, so that you can be matched with the next best vacancy available.</p>
+							    	<p>This iterative self-improvement process will guide you to grow in whatever career you choose.</p>
+
+							    </center>
+							</div>
+						</div>
+				    </div>
+				</div>
+			</div>
+	    </div>
+	</div>
+</div>
 
 
 @endsection
