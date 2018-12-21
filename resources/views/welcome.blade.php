@@ -16,10 +16,10 @@
                                 <form class="js-validation-signup" action="{{ route('register') }}" method="post">
 
                                   <div class="form-row">
-                                    <div class="col form-group">
+                                    <!--<div class="col form-group">
 										<label for="exampleInputEmail1">Username</label>
                                       <input type="text" id="name" name="name" class="form-style form-control form-control-sm" >
-                                    </div>
+                                    </div>-->
 
                                     <div class="col form-group">
 										<label for="exampleInputEmail1">Full Name</label>
@@ -43,11 +43,11 @@
                                   <div class="form-row">
                                     <div class="col form-group">
 										<label for="exampleInputPassword1">Password</label>
-                                      <input type="text" id="password" name="password" class="form-style form-control form-control-sm form-style" >
+                                      <input type="password" id="password" name="password" class="form-style form-control form-control-sm form-style" >
                                     </div>
 									<div class="col form-group">
 										<label for="exampleInputPassword1"> Comfirm Password</label>
-										<input type="text" id="password-confirm" name="password_confirmation" class="form-style form-control form-control-sm" >
+										<input type="password" id="password-confirm" name="password_confirmation" class="form-style form-control form-control-sm" >
 									</div>
 										<input type="hidden" id="role_id" name="role_id" value="1">
 									</div>
