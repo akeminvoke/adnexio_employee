@@ -77,13 +77,13 @@ class UploadVideoToServerAndS3 extends Controller
 		$h_samples = array();
 		$c_samples = array();
 		
-		var_dump($samples);
-		var_dump($h_samples);
-		var_dump($c_samples);
+		//var_dump($samples);
+		//var_dump($h_samples);
+		//var_dump($c_samples);
 		
 		$stringData = $_POST['data-string'];
 
-		var_dump($stringData);
+		//var_dump($stringData);
 
 	  
 		$data = str_getcsv($stringData, ";"); //parse the rows 
@@ -103,7 +103,7 @@ class UploadVideoToServerAndS3 extends Controller
 				$b = $this->eye_blink($row[0], $row[3], $row[4]);
 				$f = $this->fidget_value($row[1], $row[2], $row[3]);
 				
-				echo "Eye blink : " . $b . ", fidget : " . $f ."<br>";
+				//echo "Eye blink : " . $b . ", fidget : " . $f ."<br>";
 			}
 		}
 	
@@ -163,13 +163,28 @@ class UploadVideoToServerAndS3 extends Controller
 		
 		/*-------------------- Insert Tone Analyzer Data --------------------*/
 		
-		$insert_tone = DB::table('video_interviews')->select('video_id','user_id')->where('user_id', $user)->take(1)->orderBy('video_id', 'desc')->get(); 
+//		$insert_tone = DB::table('video_interviews')->select('video_id','user_id')->where('user_id', $user)->take(1)->orderBy('video_id', 'desc')->get(); 
+//		
+//		
+//		DB::table('video_interviews')
+//            ->where('user_id', $insert_tone[0]->user_id)->where('video_id', $insert_tone[0]->video_id)
+//			->update(['text' => $text]);
+//            //->update(['text' => 'test']);
+
+		$select_tone = DB::table('video_interviews')->select('video_id','user_id')->where('user_id', $user)->take(1)->orderBy('video_id', 'desc')->get(); 
 		
+//		foreach($text as $texts)
+//		{
+//			
+//		$tonedata = array('video_id'=>$select_tone[0]->video_id,'user_id'=>$select_tone[0]->user_id,'transcript'=>$texts,'created_at'=>$now);
+//		DB::table('tone_analyzers')->insert($tonedata);
+//		
+//		}
 		
-		DB::table('video_interviews')
-            ->where('user_id', $insert_tone[0]->user_id)->where('video_id', $insert_tone[0]->video_id)
-			->update(['text' => $text]);
-            //->update(['text' => 'test']);
+		$tonedata = array('video_id'=>$select_tone[0]->video_id,'user_id'=>$select_tone[0]->user_id,'transcript'=>$text,'created_at'=>$now);
+		DB::table('tone_analyzers')->insert($tonedata);
+
+
 			
 		/*-------------------- End Of Insert Tone Analyzer Data --------------------*/	
 		
@@ -509,7 +524,7 @@ class UploadVideoToServerAndS3 extends Controller
 		$result=curl_exec ($ch);
 		curl_close ($ch);
 		//echo $result . '<br>' ;
-		echo 'result mp4 -> mp3 : '. $result . '<br>' ;
+		//echo 'result mp4 -> mp3 : '. $result . '<br>' ;
 		
 		
 		$json = @json_decode($result);
@@ -558,7 +573,7 @@ class UploadVideoToServerAndS3 extends Controller
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER,1);
 		$result=curl_exec($ch);
 		curl_close ($ch);
-		echo 'result mp3 -> text : '. $result . '<br>' ;
+		//echo 'result mp3 -> text : '. $result . '<br>' ;
 		
 		
 		$json = @json_decode($result);
@@ -566,25 +581,28 @@ class UploadVideoToServerAndS3 extends Controller
 		//var_dump($json);
 		
 		$transcripts = "";
-		$confidence = "";
+		//$confidence = "";
 		
+
 		foreach($json->results as $result)
 		{
+			
+			
 			//echo $result->alternatives->transcript . '<br>' ;
 			
 			$alternatives = $result->alternatives;
 			//$alternatives = $result->confidence;
 			
-			//echo $alternatives[0]->transcript . '<br>' ;
+			echo $alternatives[0]->transcript . '<br>' ;
 			
 			$transcripts = $transcripts . $alternatives[0]->transcript . ". ";
-			$confidence = $confidence . $alternatives[0]->confidence . ". ";
+			//$confidence = $confidence . $alternatives[0]->confidence . ". ";
 		}
 		
 		//echo $transcripts;
 		
 		return $transcripts;
-		return $confidence;
+		//return $confidence;
 		
 		return $json->file;
 	}
