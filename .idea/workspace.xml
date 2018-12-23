@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="69f72ef5-f313-4757-8395-3e86a70699c5" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/adnexio_latest.iml" afterPath="$PROJECT_DIR$/.idea/adnexio_latest.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/services.php" afterPath="$PROJECT_DIR$/config/services.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -150,16 +149,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="450">
-      <file leaf-file-name=".env" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/.env">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="200">
-              <caret line="8" column="19" lean-forward="false" selection-start-line="8" selection-start-column="19" selection-end-line="8" selection-end-column="19" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="UploadVideoToServerAndS3.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/UploadVideoToServerAndS3.php">
           <provider selected="true" editor-type-id="text-editor">
@@ -180,11 +169,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main-app.blade.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="main-app.blade.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/layouts/main-app.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="25">
-              <caret line="1398" column="41" lean-forward="false" selection-start-line="1398" selection-start-column="41" selection-end-line="1398" selection-end-column="41" />
+            <state relative-caret-position="175">
+              <caret line="1404" column="35" lean-forward="true" selection-start-line="1404" selection-start-column="35" selection-end-line="1404" selection-end-column="35" />
               <folding>
                 <marker date="1545388270000" expanded="true" signature="33315:33361" ph="..." />
                 <marker date="1545388270000" expanded="true" signature="36360:36395" ph="..." />
@@ -194,11 +183,61 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="SocialAuthFacebookController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/SocialAuthFacebookController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="225">
+              <caret line="18" column="5" lean-forward="true" selection-start-line="18" selection-start-column="5" selection-end-line="18" selection-end-column="5" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="app.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/config/app.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="services.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/config/services.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="272">
+              <caret line="40" column="31" lean-forward="false" selection-start-line="40" selection-start-column="31" selection-end-line="40" selection-end-column="31" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="StatefulGuard.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Contracts/Auth/StatefulGuard.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="54">
+              <caret line="30" column="24" lean-forward="true" selection-start-line="30" selection-start-column="24" selection-end-line="30" selection-end-column="24" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SocialFacebookAccountService.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/services/SocialFacebookAccountService.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="25">
+              <caret line="26" column="5" lean-forward="true" selection-start-line="26" selection-start-column="5" selection-end-line="26" selection-end-column="5" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="web.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routes/web.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1225">
-              <caret line="58" column="93" lean-forward="false" selection-start-line="58" selection-start-column="93" selection-end-line="58" selection-end-column="93" />
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -212,48 +251,6 @@
               <folding>
                 <element signature="e#40#64#0#PHP" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="VideoRecordingController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/VideoRecordingController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2000">
-              <caret line="85" column="55" lean-forward="false" selection-start-line="85" selection-start-column="55" selection-end-line="85" selection-end-column="55" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="RegisterController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3050">
-              <caret line="131" column="26" lean-forward="false" selection-start-line="131" selection-start-column="26" selection-end-line="131" selection-end-column="26" />
-              <folding>
-                <marker date="1545376188274" expanded="true" signature="2673:2796" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="activation.blade.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/emails/activation.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="50">
-              <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SocialAuthGoogleController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/SocialAuthGoogleController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="975">
-              <caret line="45" column="30" lean-forward="false" selection-start-line="45" selection-start-column="30" selection-end-line="45" selection-end-column="30" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -307,7 +304,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/resources/views/layouts/profile/profile-experience-app.blade.php" />
         <option value="$PROJECT_DIR$/database/migrations/2018_11_15_160731_create_companies_table.php" />
         <option value="$PROJECT_DIR$/app/Http/Requests/ExperienceRequest.php" />
         <option value="$PROJECT_DIR$/app/industry.php" />
@@ -358,6 +354,7 @@
         <option value="$PROJECT_DIR$/routes/web.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/ProfileEducationControllerr.php" />
         <option value="$PROJECT_DIR$/resources/views/layouts/main-app.blade.php" />
+        <option value="$PROJECT_DIR$/config/services.php" />
       </list>
     </option>
   </component>
@@ -546,11 +543,7 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
+              <option name="myItemId" value="config" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -564,43 +557,7 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="video" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="adnexio_employee" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="adnexio_employee" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="adnexio_employee" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="adnexio_employee" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
+              <option name="myItemId" value="app" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -610,7 +567,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="DatabaseDriversLRU" value="mysql" />
-    <property name="SearchEverywhereHistoryKey" value="profile&#9;FILE&#9;file://C:/Users/akem/Documents/github/adnexio_employee/app/Http/Controllers/ProfileEducationControllerr.php&#10;web&#9;FILE&#9;file://C:/Users/akem/Documents/github/adnexio_employee/routes/web.php&#10;main&#9;FILE&#9;file://C:/Users/akem/Documents/github/adnexio_employee/resources/views/layouts/main-app.blade.php&#10;be&#9;FILE&#9;file://C:/Users/akem/Documents/github/adnexio_employee/public/assets/js/pages/be_forms_validation.min.js&#10;profile_educati&#9;FILE&#9;file://C:/Users/akem/Documents/github/adnexio_employee/resources/views/profile/profile_education.blade.php&#10;pro&#9;FILE&#9;file://C:/Users/akem/Documents/github/adnexio_employee/app/Http/Controllers/ProfileExperienceController.php&#10;env&#9;FILE&#9;file://C:/Users/akem/Documents/github/adnexio_employee/.env&#10;dashmix&#9;FILE&#9;file://C:/Users/akem/Documents/github/adnexio_employee/public/css/dashmix.css&#10;dash&#9;FILE&#9;file://C:/Users/akem/Documents/github/adnexio_employee/public/assets/css/dashmix.css&#10;profi&#9;FILE&#9;file://C:/Users/akem/Documents/github/adnexio_employee/resources/views/profile/profile_education.blade.php&#10;prof&#9;FILE&#9;file://C:/Users/akem/Documents/github/adnexio_employee/resources/views/profile/profile_experience.blade.php&#10;educa&#9;FILE&#9;file://C:/Users/akem/Documents/github/adnexio_employee/app/Http/Controllers/ProfileEducationControllerr.php&#10;exper&#9;FILE&#9;file://C:/Users/akem/Documents/github/adnexio_employee/resources/views/profile/profile_experience.blade.php&#10;ex&#9;FILE&#9;file://C:/Users/akem/Documents/github/adnexio_employee/app/Http/Controllers/ProfileExperienceController.php&#10;das&#9;FILE&#9;file://C:/Users/akem/Documents/github/adnexio_employee/public/assets/css/dashmix.css&#10;main-&#9;FILE&#9;file://C:/Users/akem/Documents/github/adnexio_employee/resources/views/layouts/main-app.blade.php&#10;we&#9;FILE&#9;file://C:/Users/akem/Documents/github/adnexio_employee/resources/views/emails/welcome.blade.php&#10;abou&#9;FILE&#9;file://C:/Users/akem/Documents/github/adnexio_employee/resources/views/profile/profile_aboutme.blade.php&#10;user&#9;null&#9;null&#10;add_field_ex&#9;FILE&#9;file://C:/Users/akem/Documents/github/adnexio_employee/database/migrations/2018_12_01_081658_add_field_exp_id_user.php&#10;profil&#9;FILE&#9;file://C:/xampp/htdocs/dropzone/resources/views/profile/profile_cvupload.blade.php&#10;about&#9;FILE&#9;file://C:/xampp/htdocs/dropzone/resources/views/profile/profile_aboutme.blade.php&#10;be_forms_validation.min.js&#9;FILE&#9;file://C:/xampp/htdocs/dropzone/public/assets/js/pages/be_forms_validation.min.js&#10;addi&#9;FILE&#9;file://C:/xampp/htdocs/dropzone/public/assets/js/plugins/jquery-validation/additional-methods.js&#10;jquery.validate.min.js&#9;FILE&#9;file://C:/xampp/htdocs/dropzone/public/assets/js/plugins/jquery-validation/jquery.validate.min.js&#10;home&#9;FILE&#9;file://C:/xampp/htdocs/dropzone/app/Http/Controllers/HomeController.php&#10;app.scss&#9;FILE&#9;file://C:/Users/akem/Documents/github/adnexio_employee/resources/sass/app.scss" />
+    <property name="SearchEverywhereHistoryKey" value="web&#9;FILE&#9;file://C:/Users/akem/Documents/github/adnexio_employee/routes/web.php&#10;profile&#9;FILE&#9;file://C:/Users/akem/Documents/github/adnexio_employee/app/Http/Controllers/ProfileEducationControllerr.php&#10;main&#9;FILE&#9;file://C:/Users/akem/Documents/github/adnexio_employee/resources/views/layouts/main-app.blade.php&#10;be&#9;FILE&#9;file://C:/Users/akem/Documents/github/adnexio_employee/public/assets/js/pages/be_forms_validation.min.js&#10;profile_educati&#9;FILE&#9;file://C:/Users/akem/Documents/github/adnexio_employee/resources/views/profile/profile_education.blade.php&#10;pro&#9;FILE&#9;file://C:/Users/akem/Documents/github/adnexio_employee/app/Http/Controllers/ProfileExperienceController.php&#10;env&#9;FILE&#9;file://C:/Users/akem/Documents/github/adnexio_employee/.env&#10;dashmix&#9;FILE&#9;file://C:/Users/akem/Documents/github/adnexio_employee/public/css/dashmix.css&#10;dash&#9;FILE&#9;file://C:/Users/akem/Documents/github/adnexio_employee/public/assets/css/dashmix.css&#10;profi&#9;FILE&#9;file://C:/Users/akem/Documents/github/adnexio_employee/resources/views/profile/profile_education.blade.php&#10;prof&#9;FILE&#9;file://C:/Users/akem/Documents/github/adnexio_employee/resources/views/profile/profile_experience.blade.php&#10;educa&#9;FILE&#9;file://C:/Users/akem/Documents/github/adnexio_employee/app/Http/Controllers/ProfileEducationControllerr.php&#10;exper&#9;FILE&#9;file://C:/Users/akem/Documents/github/adnexio_employee/resources/views/profile/profile_experience.blade.php&#10;ex&#9;FILE&#9;file://C:/Users/akem/Documents/github/adnexio_employee/app/Http/Controllers/ProfileExperienceController.php&#10;das&#9;FILE&#9;file://C:/Users/akem/Documents/github/adnexio_employee/public/assets/css/dashmix.css&#10;main-&#9;FILE&#9;file://C:/Users/akem/Documents/github/adnexio_employee/resources/views/layouts/main-app.blade.php&#10;we&#9;FILE&#9;file://C:/Users/akem/Documents/github/adnexio_employee/resources/views/emails/welcome.blade.php&#10;abou&#9;FILE&#9;file://C:/Users/akem/Documents/github/adnexio_employee/resources/views/profile/profile_aboutme.blade.php&#10;user&#9;null&#9;null&#10;add_field_ex&#9;FILE&#9;file://C:/Users/akem/Documents/github/adnexio_employee/database/migrations/2018_12_01_081658_add_field_exp_id_user.php&#10;profil&#9;FILE&#9;file://C:/xampp/htdocs/dropzone/resources/views/profile/profile_cvupload.blade.php&#10;about&#9;FILE&#9;file://C:/xampp/htdocs/dropzone/resources/views/profile/profile_aboutme.blade.php&#10;be_forms_validation.min.js&#9;FILE&#9;file://C:/xampp/htdocs/dropzone/public/assets/js/pages/be_forms_validation.min.js&#10;addi&#9;FILE&#9;file://C:/xampp/htdocs/dropzone/public/assets/js/plugins/jquery-validation/additional-methods.js&#10;jquery.validate.min.js&#9;FILE&#9;file://C:/xampp/htdocs/dropzone/public/assets/js/plugins/jquery-validation/jquery.validate.min.js&#10;home&#9;FILE&#9;file://C:/xampp/htdocs/dropzone/app/Http/Controllers/HomeController.php&#10;app.scss&#9;FILE&#9;file://C:/Users/akem/Documents/github/adnexio_employee/resources/sass/app.scss" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -743,15 +700,16 @@
       <workItem from="1544781191340" duration="38946000" />
       <workItem from="1545033938160" duration="31211000" />
       <workItem from="1545300338300" duration="1147000" />
-      <workItem from="1545493529931" duration="221000" />
+      <workItem from="1545493529931" duration="2361000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="790129000" />
+    <option name="totallyTimeSpent" value="792269000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-11" y="-11" width="1942" height="1042" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24108107" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -761,7 +719,7 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.4649227" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.4649227" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -798,41 +756,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Notifications/Notifiable.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="6" column="41" lean-forward="false" selection-start-line="6" selection-start-column="41" selection-end-line="6" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Notifications/RoutesNotifications.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="584">
-          <caret line="55" column="0" lean-forward="false" selection-start-line="55" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Mail/WelcomeMail.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="534">
-          <caret line="32" column="5" lean-forward="false" selection-start-line="32" selection-start-column="5" selection-end-line="32" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Foundation/Auth/RegistersUsers.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="18" lean-forward="false" selection-start-line="10" selection-start-column="18" selection-end-line="10" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Foundation/Auth/RedirectsUsers.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="175">
-          <caret line="7" column="34" lean-forward="false" selection-start-line="7" selection-start-column="34" selection-end-line="7" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/User.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="375">
@@ -939,6 +862,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="525">
           <caret line="34" column="0" lean-forward="true" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1045,6 +969,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="574">
           <caret line="117" column="1" lean-forward="true" selection-start-line="117" selection-start-column="1" selection-end-line="117" selection-end-column="1" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1059,6 +984,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="574">
           <caret line="124" column="5" lean-forward="false" selection-start-line="124" selection-start-column="5" selection-end-line="124" selection-end-column="5" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1090,20 +1016,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2525">
           <caret line="101" column="48" lean-forward="false" selection-start-line="101" selection-start-column="48" selection-end-line="101" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/SocialAuthFacebookController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="550">
-          <caret line="24" column="6" lean-forward="false" selection-start-line="24" selection-start-column="6" selection-end-line="24" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/web.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1225">
-          <caret line="58" column="93" lean-forward="false" selection-start-line="58" selection-start-column="93" selection-end-line="58" selection-end-column="93" />
           <folding />
         </state>
       </provider>
@@ -1120,13 +1032,69 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/layouts/main-app.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="25">
-          <caret line="1398" column="41" lean-forward="false" selection-start-line="1398" selection-start-column="41" selection-end-line="1398" selection-end-column="41" />
+        <state relative-caret-position="175">
+          <caret line="1404" column="35" lean-forward="true" selection-start-line="1404" selection-start-column="35" selection-end-line="1404" selection-end-column="35" />
           <folding>
             <marker date="1545388270000" expanded="true" signature="33315:33361" ph="..." />
             <marker date="1545388270000" expanded="true" signature="36360:36395" ph="..." />
             <marker date="1545388270000" expanded="true" signature="133802:133832" ph="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/SocialAuthGoogleController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="975">
+          <caret line="45" column="30" lean-forward="false" selection-start-line="45" selection-start-column="30" selection-end-line="45" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/services/SocialFacebookAccountService.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="25">
+          <caret line="26" column="5" lean-forward="true" selection-start-line="26" selection-start-column="5" selection-end-line="26" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Contracts/Auth/StatefulGuard.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="54">
+          <caret line="30" column="24" lean-forward="true" selection-start-line="30" selection-start-column="24" selection-end-line="30" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/SocialAuthFacebookController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="18" column="5" lean-forward="true" selection-start-line="18" selection-start-column="5" selection-end-line="18" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/app.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/web.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/services.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="40" column="31" lean-forward="false" selection-start-line="40" selection-start-column="31" selection-end-line="40" selection-end-column="31" />
+          <folding />
         </state>
       </provider>
     </entry>
