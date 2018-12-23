@@ -38,7 +38,7 @@ return [
     'facebook' => [
         'client_id' => '369718840435260',
         'client_secret' => 'b4b09df578850dc4538ef162673b886c',
-        'redirect' => 'https://adnexio.my/callback',
+        'redirect' => 'https://akeem.adnexio.my/callback',
     ],
 	
 	/*
