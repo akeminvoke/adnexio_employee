@@ -37,7 +37,7 @@
 <body id="id1" style="min-height:100%">
 	<div id="carouselExampleIndicators" class="carousel slide h-100 w-100">
 		<div class="carousel-inner h-100">
-			<div class="carousel-item 	@if ($errors->count('email') < 1  )  active @endif h-100">
+			<div class="carousel-item 	 @if ($errors->count('email') < 1  )  active @endif  h-100">
 				<table class="bg-slider">
 					<tr>
 						<td>

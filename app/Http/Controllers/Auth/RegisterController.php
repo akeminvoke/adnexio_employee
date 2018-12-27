@@ -97,8 +97,6 @@ class RegisterController extends Controller
 
                 $message->to($user['email']);
                 $message->subject('Adnexio User Email Verification');
-				
-
 
             });
 

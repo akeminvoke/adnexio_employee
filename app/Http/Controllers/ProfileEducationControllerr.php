@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\create_question;
 use App\educations;
+use App\Http\Requests\validate_education;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -36,12 +37,12 @@ class ProfileEducationControllerr extends Controller
 
         $educations = DB::table('educations as a')
 
-                     ->join('countries as c' ,'c.id','=','a.countries_id')
-                     ->join('qualifications as d','d.id','=','a.qualifications_id')
-            ->join('academic_fields as e','a.academic_fields_id','=','e.id')
-            ->join('courses as g','g.id','=','a.courses_id')
+            ->join('countries as c' ,'c.id','=','a.countries_id')
+            ->join('qualifications as d','d.id','=','a.qualifications_id')
+            ->leftjoin('academic_fields as e','a.academic_fields_id','=','e.id')
+            ->leftjoin('courses as g','g.id','=','a.courses_id')
             ->leftjoin('universities as f','a.university_name','=','f.id')
-            ->select('a.university_name','a.id','a.countries_id','a.academic_fields_id as field','a.major','a.courses_id','e.academic_field',
+            ->select('a.university_name','a.id','a.countries_id','a.academic_fields_id as field','a.major','a.courses_id','e.academic_field','a.other_academic_field','a.other_course',
                     'a.graduation_date','a.countries_id','a.grade','a.cgpa','a.desc','c.name as cname','g.course as gname','d.name as qname','a.qualifications_id','a.other_uni','a.desc','f.name as fname')
             ->where('a.user_id',$user->id )
             ->wherenull('a.deleted_at')
@@ -59,41 +60,12 @@ class ProfileEducationControllerr extends Controller
     }
 
 
-    public function store(Request $request)
+    public function store(validate_education $request)
     {
-
-        $this->validate($request, [
-            'university_name' => 'required',
-            'graduation_date' => 'required',
-            'country_institute' => 'required',
-            'add_major' => 'required',
-            'add_field' => 'required',
-            'add_course' => 'required',
-            'add_grade' => 'required',
-            'add_qualification' => 'required',
-
-        ]);
-
-
-
-
-        $user = Auth::user();
         $add_education = new educations();
-        $add_education->university_name = $request->university_name;
-        $add_education->graduation_date = $request->graduation_date;
-        $add_education->user_id = $user->id;
-        $add_education->countries_id = $request->country_institute;
-       // $add_education->states_id = $request->state_institute;
-        $add_education->major = $request->add_major;
-        $add_education->academic_fields_id = $request->add_field;
-        $add_education->courses_id = $request->add_course;
-        $add_education->grade = $request->add_grade;
-        $add_education->qualifications_id = $request->add_qualification;
-        $add_education->cgpa = $request->add_cgpa;
-        $add_education->other_uni = $request->add_others_uni;
-        $add_education->desc = $request->add_information;
 
-        $add_education->save();
+        $add_education->saveEducation($request);
+
 
     }
 
@@ -169,27 +141,15 @@ class ProfileEducationControllerr extends Controller
     public function update(Request $request)
     {
 
+        $education = new educations();
+
         $this->validate($request, [
             'institute_name' => 'required',
             'qualification' => 'required',
 
         ]);
 
-
-        $education = educations::find ($request->id);
-        $education->university_name = $request->institute_name;
-        $education->other_uni = $request->others_institute_name;
-        $education->qualifications_id = $request->qualification;
-        $education->graduation_date = $request->graduation_date;
-        $education->countries_id = $request->country_institute;
-        $education->courses_id = $request->course;
-        $education->academic_fields_id = $request->field;
-        $education->major = $request->major;
-        $education->grade = $request->grade;
-        $education->cgpa = $request->cgpa;
-        $education->desc = $request->information;
-
-        $education->save();
+       $education->updateEducation($request);
 
 
     }

@@ -18,3 +18,4 @@ resources/views/layouts/main-app.blade.php
 .idea/workspace.xml
 app/Http/Controllers/ProfileExperienceController.php
 resources/views/layouts/main-app.blade.php
+public/assets/js/plugins/ckeditor/plugins/scayt/CHANGELOG.md

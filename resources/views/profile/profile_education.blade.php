@@ -78,7 +78,8 @@
                                 <label class="custom-control-data-label" id="lbl_experience_industry">acedemic field</label>
                             </div>
                             <div class="col-md-4">
-                                <label id="lbl_experience_industry_output">{{$education->academic_field}} </label>
+                                <label id="lbl_experience_industry_output">@if(isset($education->academic_field)) {{$education->academic_field}} @else
+                                        {{$education->other_academic_field}} @endif</label>
                             </div>
                         </div>
 
@@ -88,7 +89,7 @@
                                 <label class="custom-control-data-label" id="lbl_experience_industry">course</label>
                             </div>
                             <div class="col-md-4">
-                                <label id="lbl_experience_industry_output">{{$education->gname}}</label>
+                                <label id="lbl_experience_industry_output">@if(isset($education->gname))  {{$education->gname}} @else {{$education->other_course}} @endif </label>
                             </div>
                         </div>
 
@@ -118,7 +119,7 @@
                                 <label class="custom-control-data-label" id="lbl_experience_industry">Grade</label>
                             </div>
                             <div class="col-md-4">
-                                <label id="lbl_experience_industry_output"> {{$education->grade}}  </label>
+                                <label id="lbl_experience_industry_output"> @if($education->grade != "CGPA") {{$education->grade}} @else   {{$education->cgpa}}&nbsp{{"(".$education->grade.")"}}  @endif </label>
                             </div>
                         </div>
 
