@@ -66,7 +66,6 @@ class ProfileEducationControllerr extends Controller
 
         $add_education->saveEducation($request);
 
-
     }
 
 

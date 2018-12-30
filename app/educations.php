@@ -26,7 +26,7 @@ class educations extends Model
         // $add_education->states_id = $request['state_institute'];
         $this->major = $request['add_major'];
 
-        $this->courses_id = $request['add_course'];
+
         $this->grade = $request['add_grade'];
         $this->qualifications_id = $request['add_qualification'];
         $this->cgpa = $request['add_cgpa'];
@@ -39,6 +39,7 @@ class educations extends Model
          else
         {
             $this->academic_fields_id = $request['add_field'];
+            $this->courses_id = $request['add_course'];
         }
         $this->save();
 
@@ -53,8 +54,20 @@ class educations extends Model
         $education->qualifications_id = $request['qualification'];
         $education->graduation_date = $request['graduation_date'];
         $education->countries_id = $request['country_institute'];
-        $education->courses_id = $request['course'];
-        $education->academic_fields_id = $request['field'];
+
+        if($request['field']==='Others')
+        {
+            $education->academic_fields_id = 79;
+            $education->courses_id = 79 ;
+            $education->other_academic_field = $request['oth_field'];
+            $education->other_course = $request['oth_course'];
+        }
+        else
+        {
+            $education->academic_fields_id = $request['field'];
+            $education->courses_id = $request['course'];
+        }
+
         $education->major = $request['major'];
         $education->grade = $request['grade'];
         $education->cgpa = $request['cgpa'];

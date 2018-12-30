@@ -403,12 +403,14 @@
                                                         </select>
                                                     </div>
 
+
+
                                                     <input type="text" class="form-control hide" id="others-academic_field_edit" name="others-academic_field_edit" placeholder="Please state your academic field" >
 
 
                                                     <input type="text" class="form-control hide" id="others-course-edit" name="others-course-edit" placeholder="Please enter your course here"  style="
     margin-top: 16px"; >
-                                                    <div id="keyword-job-specification" class="form-group ">
+                                                    <div id="promp-course" class="form-group ">
                                                         <label for="val-email">Course<span class="text-danger">*</span></label>
                                                         <select class="form-control" id="course-edit" name="course-edit" aria-describedby="val-specialization-error" aria-invalid="true">
                                                             <option disabled="" selected="" value="0">select course field</option>
