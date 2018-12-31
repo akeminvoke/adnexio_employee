@@ -55,7 +55,7 @@ class educations extends Model
         $education->graduation_date = $request['graduation_date'];
         $education->countries_id = $request['country_institute'];
 
-        if($request['field']==='Others')
+        if($request['field']==='79')
         {
             $education->academic_fields_id = 79;
             $education->courses_id = 79 ;
@@ -64,6 +64,8 @@ class educations extends Model
         }
         else
         {
+            $education->other_academic_field = null;
+                 $education->other_course = null;
             $education->academic_fields_id = $request['field'];
             $education->courses_id = $request['course'];
         }

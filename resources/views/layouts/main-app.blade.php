@@ -1077,7 +1077,7 @@
     $('#field-edit').change(function() {
         var other_field= $("#field-edit :selected").val();
 
-        if ( other_field == "Others")
+        if ( other_field == 79)
         {
             $('#others-course-edit').show();
             $('#others-academic_field_edit').removeClass('hide');

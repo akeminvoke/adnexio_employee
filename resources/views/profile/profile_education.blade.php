@@ -36,7 +36,7 @@
                                     <tr>
                                         <td>
                                             <a href="#" class="edit-education pull" data-toggle="modal" data-target="#modal-block-large"
-                                               data-id="{{$user->id}}" data-idform="{{$education->id}}" data-name="{{$user->name}}" data-university-name="{{$education->university_name}}" data-graduation-date="{{$education->graduation_date}}"    data-country="{{$education->countries_id}}" data-field="{{$education->field}}"  data-course="{{$education->courses_id}}"  data-qualification="{{$education->qualifications_id}}" data-major="{{$education->major}}" data-grade="{{$education->grade}}"  data-other-uni="{{$education->other_uni}}"  data-details="{{$education->desc}}" data-cgpa="{{$education->cgpa}}" data-desc="{{$education->desc}}" data-empty="" >
+                                               data-id="{{$user->id}}" data-idform="{{$education->id}}" data-name="{{$user->name}}" data-university-name="{{$education->university_name}}" data-graduation-date="{{$education->graduation_date}}"    data-country="{{$education->countries_id}}" data-field="{{$education->field}}"  data-course="{{$education->courses_id}}"  data-qualification="{{$education->qualifications_id}}" data-major="{{$education->major}}" data-grade="{{$education->grade}}"  data-other-uni="{{$education->other_uni}}"  data-details="{{$education->desc}}" data-cgpa="{{$education->cgpa}}" data-desc="{{$education->desc}}"  data-desc="{{$education->desc}}"  data-empty="" >
 
                                                 <button class="btn btn-sm btn-primary pull"><i class="nav-main-link-icon fa fa-edit"></i> Edit</button>
                                             </a>
@@ -399,16 +399,16 @@
                                                             <option value="2">Humanities</option>
                                                             <option value="3">Natural sciences/ Pure sciences</option>
                                                             <option value="4">Social sciences</option>
-                                                            <option value="Others">Others</option>
+                                                            <option value="79">Others</option>
                                                         </select>
                                                     </div>
 
 
 
-                                                    <input type="text" class="form-control hide" id="others-academic_field_edit" name="others-academic_field_edit" placeholder="Please state your academic field" >
+                                                    <input type="text" class="form-control @if($education->field <> '79') hide @endif" id="others-academic_field_edit" name="others-academic_field_edit" placeholder="Please state your academic field" >
 
 
-                                                    <input type="text" class="form-control hide" id="others-course-edit" name="others-course-edit" placeholder="Please enter your course here"  style="
+                                                    <input type="text" class="form-control @if($education->field <> '79') hide @endif" id="others-course-edit" name="others-course-edit" placeholder="Please enter your course here"  style="
     margin-top: 16px"; >
                                                     <div id="promp-course" class="form-group ">
                                                         <label for="val-email">Course<span class="text-danger">*</span></label>

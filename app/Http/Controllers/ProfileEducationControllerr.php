@@ -42,7 +42,7 @@ class ProfileEducationControllerr extends Controller
             ->leftjoin('academic_fields as e','a.academic_fields_id','=','e.id')
             ->leftjoin('courses as g','g.id','=','a.courses_id')
             ->leftjoin('universities as f','a.university_name','=','f.id')
-            ->select('a.university_name','a.id','a.countries_id','a.academic_fields_id as field','a.major','a.courses_id','e.academic_field','a.other_academic_field','a.other_course',
+            ->select('a.university_name','a.id','a.countries_id','a.academic_fields_id as field','a.other_academic_field','a.other_course','a.major','a.courses_id','e.academic_field','a.other_academic_field','a.other_course',
                     'a.graduation_date','a.countries_id','a.grade','a.cgpa','a.desc','c.name as cname','g.course as gname','d.name as qname','a.qualifications_id','a.other_uni','a.desc','f.name as fname')
             ->where('a.user_id',$user->id )
             ->wherenull('a.deleted_at')
